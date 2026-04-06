@@ -1,0 +1,382 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Insightstap Light Theme - Clean White with Cyan Accents */
+  --background: #FFFFFF;
+  --foreground: #0F172A;
+  --card: #FFFFFF;
+  --card-foreground: #0F172A;
+  --popover: #FFFFFF;
+  --popover-foreground: #0F172A;
+  --primary: #0dcfcf;
+  --primary-foreground: #FFFFFF;
+  --secondary: #F1F5F9;
+  --secondary-foreground: #0F172A;
+  --muted: #F8FAFC;
+  --muted-foreground: #64748B;
+  --accent: #0dcfcf;
+  --accent-foreground: #FFFFFF;
+  --destructive: #EF4444;
+  --destructive-foreground: #FFFFFF;
+  --border: #E2E8F0;
+  --border-hover: #CBD5E1;
+  --input: #E2E8F0;
+  --ring: #0dcfcf;
+  --radius: 0.625rem;
+  
+  /* Custom tokens */
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+  --accent-cyan: #0dcfcf;
+  --accent-cyan-light: #5de0e0;
+  --accent-cyan-dark: #0a9a9a;
+  --accent-cyan-glow: rgba(13, 207, 207, 0.2);
+  --accent-teal: #0d9f9f;
+  --surface-glass: rgba(13, 207, 207, 0.05);
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --bg-tertiary: #F1F5F9;
+}
+
+@theme inline {
+  --font-sans: 'Inter', 'Geist', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Geist Mono', monospace;
+  --font-display: 'Inter', sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-border-hover: var(--border-hover);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-accent-cyan: var(--accent-cyan);
+  --color-accent-cyan-light: var(--accent-cyan-light);
+  --color-accent-teal: var(--accent-teal);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  html.lenis, html.lenis body {
+    height: auto;
+  }
+}
+
+/* Shimmer effect for CTA buttons */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    110deg,
+    transparent 25%,
+    rgba(255,255,255,0.1) 50%,
+    transparent 75%
+  );
+  animation: shimmer 3s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Marquee animation — now handled by framer-motion in logo-ticker.tsx */
+
+/* Grain overlay - subtle for light theme */
+.grain-overlay {
+  display: none;
+}
+
+/* Glow orb animation */
+@keyframes float {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(20px, -20px); }
+}
+.glow-orb {
+  animation: float 8s ease-in-out infinite;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #0dcfcf 0%, #0ab8b8 40%, #0a9a9a 70%, #475569 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Pulse animation for interactive elements */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(13, 207, 207, 0.4); }
+  50% { box-shadow: 0 0 20px 10px rgba(13, 207, 207, 0.1); }
+}
+.pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* Bounce animation */
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+.bounce-subtle {
+  animation: bounce-subtle 2s ease-in-out infinite;
+}
+
+/* Rotate animation for interactive icons */
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.spin-slow {
+  animation: spin-slow 20s linear infinite;
+}
+
+/* Scale on hover with spring effect */
+.interactive-card {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+.interactive-card:hover {
+  transform: scale(1.02) translateY(-4px);
+}
+
+/* Magnetic hover effect */
+.magnetic {
+  transition: transform 0.2s ease-out;
+}
+
+/* Glow border animation */
+@keyframes glow-border {
+  0%, 100% { border-color: rgba(13, 207, 207, 0.3); }
+  50% { border-color: rgba(13, 207, 207, 0.6); }
+}
+.glow-border {
+  animation: glow-border 3s ease-in-out infinite;
+}
+
+/* Dot grid pattern — premium sparse grid */
+.dot-grid {
+  background-image: radial-gradient(circle, rgba(13,207,207,0.07) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+/* Line grid — 1px stroke, 5% opacity */
+.line-grid {
+  background-image:
+    linear-gradient(rgba(13, 207, 207, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 207, 207, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Accessibility: Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .glow-orb,
+  .shimmer::after,
+  .pulse-glow,
+  .bounce-subtle,
+  .spin-slow,
+  .glow-border,
+  .marquee-track {
+    animation: none !important;
+  }
+  .interactive-card:hover {
+    transform: none;
+  }
+}
+
+/* 3D perspective for flip cards */
+.perspective-\[1000px\] {
+  perspective: 1000px;
+}
+
+/* ─── Kinetic Typography — velocity stretch ──────────────── */
+.kinetic-text {
+  will-change: transform;
+  transition: transform 0.15s ease-out;
+}
+
+/* ─── Glass card reflections ─────────────────────────────── */
+.glass-deep {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px) saturate(1.2);
+  -webkit-backdrop-filter: blur(20px) saturate(1.2);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.06),
+    0 20px 40px rgba(0, 0, 0, 0.2);
+}
+.glass-deep::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    rgba(13, 207, 207, 0.06) 0%,
+    transparent 40%,
+    transparent 60%,
+    rgba(13, 207, 207, 0.03) 100%
+  );
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+.glass-deep:hover::before {
+  opacity: 1;
+}
+
+/* ─── Kinetic Zoom-Grid — Infinite Culture Wall ────────── */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(calc(var(--repeat-width) * -1)); }
+}
+
+.marquee-track {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: max-content;
+  animation: marquee-scroll var(--marquee-duration, 40s) linear infinite;
+  will-change: transform;
+}
+
+.marquee-track[data-reverse] {
+  animation-direction: reverse;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+.marquee-card {
+  position: relative;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 2px solid rgba(255, 255, 255, 0.06);
+  will-change: transform;
+  filter: brightness(0.7) saturate(0.8);
+  transition:
+    transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    filter 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Teal vignette — blends images into the atmospheric grid */
+.marquee-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    ellipse at center,
+    transparent 40%,
+    rgba(13, 207, 207, 0.1) 75%,
+    rgba(13, 207, 207, 0.2) 100%
+  );
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Zoom-in state — hover or center-of-viewport */
+.marquee-card:hover,
+.marquee-card.zoom-active {
+  transform: scale(1.1);
+  filter: brightness(1) saturate(1);
+  border-color: rgba(13, 207, 207, 0.4);
+  box-shadow: 0 0 60px rgba(13, 207, 207, 0.2), 0 20px 40px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+}
+
+.marquee-card:hover::after,
+.marquee-card.zoom-active::after {
+  opacity: 0;
+}
+
+/* Caption pop-up on zoomed card */
+.marquee-card .card-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.75rem 1rem;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 60%, transparent 100%);
+  transform: translateY(100%);
+  opacity: 0;
+  transition:
+    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  z-index: 2;
+}
+
+.marquee-card:hover .card-caption,
+.marquee-card.zoom-active .card-caption {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+/* ─── Heartbeat pulse — 60bpm (1s per beat) ──────────────── */
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); opacity: 0.6; }
+  14% { transform: scale(1.04); opacity: 0.8; }
+  28% { transform: scale(1); opacity: 0.6; }
+}
+.heartbeat-pulse {
+  animation: heartbeat 1s ease-in-out infinite;
+}
+
+/* ─── Lenis smooth-scroll integration ──────────────────────── */
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* ─── GPU acceleration for heavy containers ────────────────── */
+.gpu-layer {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}

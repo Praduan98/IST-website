@@ -1,0 +1,13 @@
+﻿URL: www.insightstap.com/isaas-intent-signals-as-a-service/
+Headline:
+Headline: ISaaS — Intent Signals as a Service
+Subtext: Your buyers are already showing intent. We build systems that capture it and turn it into revenue.
+Body: Download the InsightsTap Company Profile and see the team, the experience, the culture, and the C.A.R.E. framework behind every GTM engine we build. 
+Insert Form Form Code — FPG038 DR023 — InsightsTap Company Profile 
+CTA in the form: [Download Company Profile]
+
+
+SEO Metadata 
+Title: InsightsTap Company Profile | Meet the Team Behind the GTM Engine 
+Meta: Download the InsightsTap Company Profile — meet the team, see our C.A.R.E. framework, culture, and 15+ years of B2B GTM experience behind every revenue engine we build. 
+Keywords: InsightsTap Company Profile, GTM Engineering Team, C.A.R.E. Framework, B2B GTM Experience, Signal-Led Growth, InsightsTap Culture, GTM Engineering Studio, B2B Revenue Engine

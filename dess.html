@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insightstap - Interactive Hero</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #0a1828 0%, #1a2f42 50%, #0a1828 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: background 1s ease;
+        }
+
+        .hero.day {
+            background: #FFFFFF;
+        }
+
+        .hero.sunrise {
+            background: linear-gradient(135deg, #ffa07a 0%, #ffb894 20%, #ffd4a3 40%, #ffe5b4 60%, #fff4e6 80%, #ffffff 100%);
+        }
+
+        .hero.sunset {
+            background: linear-gradient(135deg, #2d1b3d 0%, #4a2c5a 20%, #6b3d76 40%, #8b4f8e 60%, #c77d9f 80%, #e8a5b8 100%);
+        }
+
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            width: 100%;
+            padding: 40px 20px;
+        }
+
+        .controls {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            z-index: 10;
+        }
+
+        .btn {
+            min-width: 80px;
+            height: 44px;
+            padding: 0 16px;
+            background: rgba(13, 207, 207, 0.1);
+            border: 1px solid rgba(13, 207, 207, 0.3);
+            border-radius: 8px;
+            color: #0DCFCF;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .btn:hover {
+            background: rgba(13, 207, 207, 0.2);
+            border-color: #0DCFCF;
+            transform: scale(1.1);
+        }
+
+        .cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #0DCFCF;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: border-color 0.8s ease;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                cursor: auto;
+            }
+            .cursor {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cursor" id="cursor"></div>
+
+    <div class="hero" id="hero">
+        <canvas id="canvas"></canvas>
+        
+        <div class="controls">
+            <button class="btn" id="themeBtn" title="Change theme">Night</button>
+        </div>
+
+        <div class="content">
+            <!-- Your content goes here -->
+        </div>
+    </div>
+
+    <script>
+        // Mode tracking
+        let mode = 'night';
+        const modes = ['night', 'sunrise', 'day', 'sunset'];
+        const icons = { night: 'Night', sunrise: 'Sunrise', day: 'Day', sunset: 'Sunset' };
+
+        // Mouse tracking
+        let mouseX = window.innerWidth / 2;
+        let mouseY = window.innerHeight / 2;
+
+        // Cursor
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+            cursor.style.left = mouseX - 10 + 'px';
+            cursor.style.top = mouseY - 10 + 'px';
+        });
+
+        // Canvas
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        function resize() {
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+        resize();
+        window.addEventListener('resize', resize);
+
+        // Particles
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.baseX = this.x;
+                this.baseY = this.y;
+                this.size = Math.random() * 3 + 1;
+                this.density = Math.random() * 30 + 5;
+                this.opacity = Math.random() * 0.5 + 0.3;
+            }
+
+            draw() {
+                let color;
+                switch(mode) {
+                    case 'sunrise': color = rgba(204, 85, 0, ${this.opacity}); break;
+                    case 'sunset': color = rgba(255, 183, 77, ${this.opacity}); break;
+                    default: color = rgba(13, 207, 207, ${this.opacity});
+                }
+                
+                ctx.fillStyle = color;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            update() {
+                let dx = mouseX - this.x;
+                let dy = mouseY - this.y;
+                let distance = Math.sqrt(dx * dx + dy * dy);
+                let maxDistance = 150;
+
+                if (distance < maxDistance) {
+                    let force = (maxDistance - distance) / maxDistance;
+                    let dirX = (dx / distance) * force * this.density;
+                    let dirY = (dy / distance) * force * this.density;
+                    this.x -= dirX;
+                    this.y -= dirY;
+                } else {
+                    this.x += (this.baseX - this.x) * 0.1;
+                    this.y += (this.baseY - this.y) * 0.1;
+                }
+            }
+        }
+
+        let particles = [];
+        for (let i = 0; i < 200; i++) {
+            particles.push(new Particle());
+        }
+
+        function connect() {
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a + 1; b < particles.length; b++) {
+                    let dx = particles[a].x - particles[b].x;
+                    let dy = particles[a].y - particles[b].y;
+                    let dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 120) {
+                        let opacity = (1 - dist / 120) * 0.3;
+                        let color;
+                        switch(mode) {
+                            case 'sunrise': color = rgba(204, 85, 0, ${opacity}); break;
+                            case 'sunset': color = rgba(255, 183, 77, ${opacity}); break;
+                            default: color = rgba(13, 207, 207, ${opacity});
+                        }
+                        
+                        ctx.strokeStyle = color;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            
+            connect();
+            requestAnimationFrame(animate);
+        }
+        animate();
+
+        // Theme toggle
+        document.getElementById('themeBtn').addEventListener('click', function() {
+            const hero = document.getElementById('hero');
+            hero.classList.remove('night', 'sunrise', 'day', 'sunset');
+            
+            const idx = modes.indexOf(mode);
+            mode = modes[(idx + 1) % modes.length];
+            
+            if (mode !== 'night') {
+                hero.classList.add(mode);
+            }
+            
+            this.textContent = icons[mode];
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,140 @@
+﻿URL: www.insightstap.com/see-how-we-work/
+See How We Work
+Hero (Top Fold)
+H1: See How We Work
+Subhead: In InsightsTap we build signal-led GTM systems that grow your pipeline with the speed and precision of an e-commerce engine—powered by signals, AI agents, and automation.
+Primary CTA: Book a Strategy Call
+Secondary CTA: How We Work (Homepage VSL)
+________________
+
+
+The Problem (Short + Bold)
+Headline: Still using outdated playbooks for B2B sales? Do this instead.
+
+Body: Traditional CRMs only show surface-level engagement.
+Your real buyers are researching, comparing, and signaling intent long before they ever fill out a form.
+We capture those hidden buying signals, convert them into actions using AI agents, and connect everything with automation—so growth becomes predictable, scalable, and compounding.
+Visual:
+ • Split-screen:
+* Left: “CRM view” (empty, late, reactive)
+
+* Right: “Signal view” (jobs, site intent, content, ads, engagement lighting up)
+  
+
+________________
+
+
+The Operating System
+Headline: Turning Hidden Signals Into Growth
+Support copy: Most teams run GTM like disconnected tactics. We build one system where signals trigger workflows, workflows trigger campaigns, and campaigns compound into pipeline.
+[Signals]  ->  [AI Agents]  ->  [Automations]  ->  [Outreach + Ads]  ->  [Pipeline]
+
+
+CTA: Book a Strategy Call
+________________
+
+
+Our 6- How We Build Your GTM Engine (turn this option into a visualization)
+1) Diagnose (Week 1)
+What we do: Audit your funnel, CRM, campaigns, tracking, and conversion flow to find the fastest wins.
+You get: GTM scorecard + a prioritized roadmap.
+2) Map Signals (Week 1–2)
+What we do: Identify where intent is already showing up—then define what should trigger action.
+You get: Signal map + trigger plan.
+3) Build the Engine (Week 2)
+What we do: Connect your systems so data moves automatically (CRM, enrichment, routing, audiences, attribution).
+You get: System architecture + workflow buildout plan.
+4) Deploy AI Agents (Week 2–3)
+What we do: Create agents that reduce manual GTM work—research, scoring, personalization, follow-ups.
+You get: Agent workflows + prompts + QA checklist.
+5) Launch Signal-Led Campaigns (Week 3–6)
+What we do: Run hyper-personalized outreach + ABM + performance ads driven by real signals.
+You get: Live campaigns + weekly optimization loop.
+6) Optimize & Scale (Day 45–90)
+What we do: Improve conversion rates, expand segments, tighten attribution, and scale what works.
+You get: Scaling plan + dashboards + SOPs.
+CTA: Book a Strategy Call
+________________
+
+
+What You Get
+Systems & Infrastructure
+   * Signal tracking + trigger framework
+
+   * CRM automation (HubSpot / Salesforce)
+
+   * Routing + enrichment + lifecycle hygiene
+
+   * Attribution + dashboards
+
+Growth Execution
+      * Signal-led outreach & ABM plays
+
+      * Ads + analytics + conversion improvements
+
+      * Retargeting + nurture sequences
+
+AI Assets
+         * Prompt library + agent logic
+
+         * Personalization templates
+
+         * Research + scoring + follow-up SOPs
+
+CTA: Book a Strategy Call
+________________
+
+
+Engagement Models
+GTM Engine Build (Project)
+Best if you want the full engine built end-to-end and handed off with SOPs.
+GTM Engine + Managed Growth (Retainer)
+Best if you want us to build + run the system with ongoing optimization.
+AI Agent Sprint (2–3 Weeks)
+Best if you need one high-impact agent deployed fast (research, scoring, personalization, or follow-ups).
+CTA: Book a Strategy Call
+________________
+
+
+Tech Stack We Work With
+Built with advanced frameworks and tools to deliver seamless, high-performance solutions.
+            * Signals & Intent Tools: JobFeeder, RB2B, Factors.ai, Common Room, Vector, Unify
+
+            * AI Agents & LLMs: ChatGPT, Claude, RelevanceAI, Perplexity
+
+            * Prospecting & Enrichment: Apollo, Clay, FullEnrich, Ocean.io, Sales Navigator
+
+            * Sequencing & Outreach: Instantly, Smartlead, Lemlist, Unify, Reply.io
+
+            * Automation & Ops: n8n, HubSpot, Airtable, Make, Notion
+
+            * Content & Collateral: Figma, Canva, Miro, Qwilr, Loom
+
+CTA: Book a Strategy Call
+________________
+
+
+FAQs
+How are you different?
+ We don’t sell one-off campaigns. We build full-stack GTM engines that run 24/7—combining signals, automation, AI agents, and performance marketing to deliver faster, predictable growth.
+What results can I expect?
+ Most clients see lower CAC, higher-quality leads, and a 2–3x increase in pipeline velocity within 90 days of implementation.
+Do you work with my tools?
+ Yes. We integrate with your existing CRM, ad platforms, and intent tools—or set up a best-in-class stack from scratch.
+________________
+
+
+Final CTA (Bottom Section)
+Headline: Ready to Scale Smarter?
+Subhead: Let’s turn buyer signals into booked meetings and real revenue.
+CTA: Book a Strategy Call
+
+
+SEO Metadata 
+Title: How We Work | Signal-Led GTM Systems That Scale B2B Pipeline 
+
+
+Meta: See how InsightsTap builds AI-powered GTM engines using buyer signals, AI agents, and automation — engineered to generate pipeline, lower CAC, and scale revenue predictably. 
+
+
+Keywords: GTM Engineering, Signal-Led Growth, AI GTM Systems, B2B Pipeline Growth, AI Agents for Sales, HubSpot Automation, Dark Funnel Strategy, GTM Engine Build, B2B Revenue Engine

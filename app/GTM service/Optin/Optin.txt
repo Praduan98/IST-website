@@ -1,0 +1,11 @@
+﻿AI-Powered GTM Strategy 
+
+
+URL: /services/ai-powered-gtm-strategy/optin-form/download-brochure/
+Headline: Get the AI-Powered GTM Strategy Playbook
+Sub-headline: We build go-to-market engines that find buyers before they find you. This brochure walks you through the exact system we use to detect buying signals, automate outreach, and scale B2B pipeline.
+Insert the Form
+Optin form code: Form Code - FPG034
+DR018 - AI-Powered GTM Strategy  
+CTA in the form [Download the Playbook]
+[Logo Slider]

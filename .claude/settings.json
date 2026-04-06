@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wc -l /d/AAAA_imp_chatt/IST_Website/components/*.tsx)"
+    ]
+  }
+}
