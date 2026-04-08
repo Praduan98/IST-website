@@ -7,8 +7,8 @@ import { FloatingOrbs } from "./atmospheric-orbs"
 
 interface ProofSectionProps {
   metrics: ServiceMetric[]
-  title?: string
-  description?: string
+  title?: React.ReactNode
+  description?: React.ReactNode
 }
 
 function AnimatedCounter({ value, label }: { value: string; label: string }) {

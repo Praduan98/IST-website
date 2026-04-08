@@ -32,7 +32,7 @@ import { FloatingOrbs } from "@/components/services/atmospheric-orbs"
 const values = [
   {
     letter: "C",
-    title: "Customer-Centric",
+    title: "Customer-centric",
     description: "We solve real business problems, not surface-level tasks.",
     icon: Users,
     color: "#0dcfcf",
@@ -40,20 +40,20 @@ const values = [
   {
     letter: "A",
     title: "Authentic",
-    description: "Clear, honest, no fluff — always.",
+    description: "Clear, honest, no fluff, always.",
     icon: Heart,
     color: "#0dcfcf",
   },
   {
     letter: "R",
-    title: "Results-Driven",
+    title: "Results-driven",
     description: "Revenue, pipeline, efficiency. Nothing else matters.",
     icon: Target,
     color: "#0dcfcf",
   },
   {
     letter: "E",
-    title: "Expert-Led",
+    title: "Expert-led",
     description: "Deep specialization, real execution.",
     icon: Award,
     color: "#0dcfcf",
@@ -66,45 +66,45 @@ const storySteps = [
     description:
       "InsightsTap was founded by a team of seasoned professionals in martech, sales, and data analytics with a vision to redefine B2B sales success.",
     icon: Lightbulb,
-    year: "The Beginning",
+    year: "The beginning",
   },
   {
     title: "Passion",
     description:
       "Born from a passion for innovation, InsightsTap saw the disconnect between traditional B2B sales tactics and the data-driven strategies driving e-commerce success.",
     icon: Heart,
-    year: "The Spark",
+    year: "The spark",
   },
   {
     title: "Vision",
     description:
       "Determined to bridge this gap, we assembled a team of experts with diverse backgrounds in sales, marketing, and technology.",
     icon: Eye,
-    year: "The Team",
+    year: "The team",
   },
   {
     title: "Future",
     description:
       "We focus on developing innovative solutions that drive enterprises forward, aligning them with future trends and opportunities.",
     icon: Rocket,
-    year: "What's Next",
+    year: "What's next",
   },
 ]
 
 const whyUsItems = [
-  { icon: Brain, title: "Deep Industry Expertise", description: "Decades of combined B2B, SaaS, and martech experience." },
-  { icon: Target, title: "Results-Oriented Approach", description: "Every action tied directly to revenue outcomes." },
-  { icon: Zap, title: "AI-Powered GTM Systems", description: "Cutting-edge signal intelligence and automation." },
-  { icon: Users, title: "Extension of Your Team", description: "We embed, not just consult — real skin in the game." },
-  { icon: Layers, title: "End-to-End Execution", description: "From strategy to deployment, we own the full stack." },
-  { icon: BarChart3, title: "Data-Driven Strategies", description: "Every decision backed by real-time analytics." },
+  { icon: Brain, title: "Deep industry expertise", description: "Decades of combined B2B, SaaS, and martech experience." },
+  { icon: Target, title: "Results-oriented approach", description: "Every action tied directly to revenue outcomes." },
+  { icon: Zap, title: "AI-powered GTM systems", description: "Cutting-edge signal intelligence and automation." },
+  { icon: Users, title: "Extension of your team", description: "We embed, not just consult, real skin in the game." },
+  { icon: Layers, title: "End-to-end execution", description: "From strategy to deployment, we own the full stack." },
+  { icon: BarChart3, title: "Data-driven strategies", description: "Every decision backed by real-time analytics." },
 ]
 
 const stats = [
-  { value: 19, suffix: "+", label: "Years of Experience" },
-  { value: 250, suffix: "+", label: "Projects Delivered" },
-  { value: 50, suffix: "M+", label: "Pipeline Generated" },
-  { value: 98, suffix: "%", label: "Client Satisfaction" },
+  { value: 19, suffix: "+", label: "Years of experience" },
+  { value: 250, suffix: "+", label: "Projects delivered" },
+  { value: 50, suffix: "M+", label: "Pipeline generated" },
+  { value: 98, suffix: "%", label: "Client satisfaction" },
 ]
 
 // ─── Animated Counter ────────────────────────────────────────────────
@@ -204,32 +204,12 @@ export default function AboutPage() {
 function HeroSection() {
   return (
     <section className="relative flex min-h-[85vh] flex-col items-center justify-center overflow-hidden bg-[#0a0e1a] pt-20">
-      {/* Background gradient layers */}
+      {/* Background layers */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#0a0e1a] via-[#0d1526] to-[#0a0e1a]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(13,207,207,0.15)_0%,_transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(13,207,207,0.08)_0%,_transparent_50%)]" />
+      <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 30%, rgba(13,207,207,0.15), transparent 70%)" }} />
+      <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 40% 40% at 70% 70%, rgba(13,207,207,0.08), transparent 60%)" }} />
+      <div className="pointer-events-none absolute inset-0" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
       <FloatingOrbs />
-
-      {/* Subtle grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
-          backgroundSize: "60px 60px",
-        }}
-      />
-
-      {/* Floating orbs — GPU-accelerated, drift independently of scroll */}
-      <motion.div
-        className="gpu-layer absolute left-[15%] top-[30%] h-[300px] w-[300px] rounded-full bg-[#0dcfcf]/[0.06] blur-[100px]"
-        animate={{ y: [-20, 20, -20], opacity: [0.4, 0.7, 0.4] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
-      <motion.div
-        className="gpu-layer absolute right-[10%] bottom-[20%] h-[250px] w-[250px] rounded-full bg-[#0dcfcf]/[0.04] blur-[80px]"
-        animate={{ y: [15, -15, 15], opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-      />
 
       <div className="relative z-10 mx-auto max-w-[1280px] px-6 text-center">
         <motion.h1
@@ -244,7 +224,7 @@ function HeroSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="block"
           >
-            Build Your Next
+            Build your next
           </motion.span>
           <motion.span
             initial={{ opacity: 0, y: 30 }}
@@ -253,7 +233,7 @@ function HeroSection() {
             className="block"
           >
             Predictable{" "}
-            <span className="text-[#0dcfcf]">B2B Revenue</span> Engine
+            <span className="text-[#0dcfcf]">B2B revenue</span> engine
           </motion.span>
         </motion.h1>
 
@@ -285,14 +265,14 @@ function HeroSection() {
             href="/Contact"
             className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-semibold text-[#0a0e1a] transition-all hover:bg-[#5de0e0] hover:shadow-md hover:shadow-[#0dcfcf]/15"
           >
-            Book a Discovery Call
+            Book a discovery call
             <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             href="/careers/life-at-insightstap"
             className="inline-flex h-12 items-center justify-center rounded-lg border border-white/20 px-8 text-base font-medium text-white/90 transition-all hover:border-[#0dcfcf]/50 hover:text-[#0dcfcf]"
           >
-            Life At InsightsTap
+            Life at InsightsTap
           </Link>
         </motion.div>
       </div>
@@ -387,11 +367,11 @@ function WhoWeAreSection() {
             className="w-full lg:w-[45%]"
           >
             <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">
-              Who We Are
+              Who we are
             </span>
             <h2 className="text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">
-              Your Partner in{" "}
-              <span className="text-[#0dcfcf]">B2B Sales Success</span>
+              Your partner in{" "}
+              <span className="text-[#0dcfcf]">B2B sales success</span>
             </h2>
             <motion.div
               className="mt-6 h-1 w-16 rounded-full bg-[#0dcfcf]"
@@ -412,13 +392,13 @@ function WhoWeAreSection() {
           >
             <p className="text-base leading-relaxed text-[#64748B] lg:text-lg">
               At Insightstap, we help sales-led companies unlock product-led
-              growth, automation, and analytics — without rebuilding their
+              growth, automation, and analytics without rebuilding their
               entire GTM stack. We blend PLG motion, marketing automation,
               performance campaigns, and data intelligence to help you scale
-              revenue like e-commerce — predictably, measurably, and repeatably.
+              revenue like e-commerce, predictably, measurably, and repeatably.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              {["AI-Powered", "Data-Driven", "Scalable", "Results-First"].map((tag) => (
+              {["AI-powered", "Data-driven", "Scalable", "Results-first"].map((tag) => (
                 <span
                   key={tag}
                   className="rounded-full border border-[#0dcfcf]/20 bg-[#0dcfcf]/5 px-4 py-2 text-sm font-medium text-[#0dcfcf]"
@@ -443,9 +423,9 @@ function CoreValuesSection() {
 
   return (
     <section className="relative overflow-hidden bg-[#0a0e1a] px-6 py-24 lg:py-32">
+      {/* Background */}
+      <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 40%, rgba(13,207,207,0.1), transparent 70%)" }} />
       <FloatingOrbs />
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(13,207,207,0.08)_0%,_transparent_70%)]" />
 
       <div className="relative mx-auto max-w-[1280px]">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
@@ -459,12 +439,12 @@ function CoreValuesSection() {
             className="flex items-center justify-center"
           >
             <div className="relative flex h-[340px] w-[340px] items-center justify-center sm:h-[420px] sm:w-[420px] lg:h-[480px] lg:w-[480px]">
-              {/* Outer ring — pulses when any value is active */}
+              {/* Outer ring */}
               <motion.div
                 className="absolute inset-0 rounded-full border border-[#0dcfcf]/15"
                 animate={{
-                  borderColor: activeIndex !== null ? "rgba(13,207,207,0.3)" : "rgba(13,207,207,0.15)",
-                  boxShadow: activeIndex !== null ? "0 0 40px rgba(13,207,207,0.08)" : "0 0 0px rgba(13,207,207,0)",
+                  borderColor: activeIndex !== null ? "rgba(13,207,207,0.35)" : "rgba(13,207,207,0.15)",
+                  boxShadow: activeIndex !== null ? "0 0 40px rgba(13,207,207,0.1)" : "0 0 0px rgba(13,207,207,0)",
                 }}
                 transition={{ duration: 0.6 }}
               />
@@ -472,7 +452,7 @@ function CoreValuesSection() {
               <motion.div
                 className="absolute inset-6 rounded-full border border-[#0dcfcf]/10 sm:inset-8"
                 animate={{
-                  borderColor: activeIndex !== null ? "rgba(13,207,207,0.2)" : "rgba(13,207,207,0.1)",
+                  borderColor: activeIndex !== null ? "rgba(13,207,207,0.25)" : "rgba(13,207,207,0.1)",
                 }}
                 transition={{ duration: 0.6 }}
               />
@@ -489,7 +469,6 @@ function CoreValuesSection() {
               {/* Connector lines from center to each badge */}
               <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100">
                 {values.map((v, i) => {
-                  // Positions: top, right, bottom, left
                   const positions = [
                     { x: 50, y: 6 },
                     { x: 94, y: 50 },
@@ -502,10 +481,10 @@ function CoreValuesSection() {
                       key={`line-${v.letter}`}
                       x1="50" y1="50" x2={pos.x} y2={pos.y}
                       stroke="#0dcfcf"
-                      strokeWidth="0.15"
+                      strokeWidth="0.2"
                       animate={{
                         strokeOpacity: activeIndex === i ? 0.5 : 0.08,
-                        strokeWidth: activeIndex === i ? 0.3 : 0.15,
+                        strokeWidth: activeIndex === i ? 0.4 : 0.2,
                       }}
                       transition={{ duration: 0.4 }}
                     />
@@ -513,9 +492,8 @@ function CoreValuesSection() {
                 })}
               </svg>
 
-              {/* Letter badges at cardinal positions — interactive */}
+              {/* Letter badges at cardinal positions */}
               {values.map((v, i) => {
-                // C=top, A=right, R=bottom, E=left — use negative margin to center on the ring
                 const badgeStyles: React.CSSProperties[] = [
                   { top: 0, left: "50%", marginLeft: -28, marginTop: -28 },
                   { top: "50%", right: 0, marginTop: -28, marginRight: -28 },
@@ -534,14 +512,14 @@ function CoreValuesSection() {
                       animate={{
                         borderColor: isActive ? "rgba(13,207,207,0.8)" : "rgba(13,207,207,0.3)",
                         boxShadow: isActive
-                          ? "0 0 30px rgba(13,207,207,0.35), 0 0 60px rgba(13,207,207,0.1)"
-                          : "0 0 20px rgba(13,207,207,0.15)",
+                          ? "0 0 20px rgba(13,207,207,0.35), 0 0 60px rgba(13,207,207,0.1)"
+                          : "0 0 0px rgba(13,207,207,0)",
                         scale: isActive ? 1.2 : 1,
                       }}
                       whileHover={{
                         scale: 1.2,
                         borderColor: "rgba(13,207,207,0.8)",
-                        boxShadow: "0 0 30px rgba(13,207,207,0.35), 0 0 60px rgba(13,207,207,0.1)",
+                        boxShadow: "0 0 20px rgba(13,207,207,0.35), 0 0 60px rgba(13,207,207,0.1)",
                       }}
                       onMouseEnter={() => setActiveIndex(i)}
                       onMouseLeave={() => setActiveIndex(null)}
@@ -552,7 +530,7 @@ function CoreValuesSection() {
                 )
               })}
 
-              {/* Pulsing dots on the outer ring — pre-computed positions to avoid hydration mismatch */}
+              {/* Pulsing dots on the outer ring */}
               {[
                 { left: "100%", top: "50%", delay: 0 },
                 { left: "75%", top: "6.7%", delay: 0.3 },
@@ -570,16 +548,15 @@ function CoreValuesSection() {
                 />
               ))}
 
-              {/* Center content — static title, dynamic subtitle on hover */}
+              {/* Center content */}
               <div className="relative z-10 text-center">
                 <span className="mb-2 block font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">
-                  Our Principles
+                  Our principles
                 </span>
                 <h2 className="text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
                   The <span className="text-[#0dcfcf]">C.A.R.E.</span>
-                  <br />Values
+                  <br />values
                 </h2>
-                {/* Active value name appears below */}
                 <div className="mt-3 h-6">
                   <motion.span
                     key={activeIndex !== null ? `label-${activeIndex}` : "empty"}
@@ -593,7 +570,7 @@ function CoreValuesSection() {
                 </div>
               </div>
 
-              {/* Subtle glow behind center — intensifies on active */}
+              {/* Subtle glow behind center */}
               <motion.div
                 className="absolute inset-[30%] rounded-full blur-2xl"
                 animate={{
@@ -606,7 +583,7 @@ function CoreValuesSection() {
             </div>
           </motion.div>
 
-          {/* ── Right: Value cards — highlight synced with circle ── */}
+          {/* ── Right: Value cards ── */}
           <div className="grid gap-5 sm:grid-cols-2 lg:gap-6">
             {values.map((v, i) => (
               <motion.div
@@ -617,8 +594,11 @@ function CoreValuesSection() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group relative cursor-pointer rounded-2xl border p-6 backdrop-blur-sm transition-all duration-300"
                 style={{
-                  borderColor: activeIndex === i ? "rgba(13,207,207,0.25)" : "rgba(255,255,255,0.04)",
+                  borderColor: activeIndex === i ? "rgba(13,207,207,0.4)" : "rgba(255,255,255,0.04)",
                   background: activeIndex === i ? "rgba(13,207,207,0.06)" : "rgba(255,255,255,0.02)",
+                  boxShadow: activeIndex === i
+                    ? "0 0 30px rgba(13,207,207,0.1)"
+                    : "none",
                 }}
                 onMouseEnter={() => setActiveIndex(i)}
                 onMouseLeave={() => setActiveIndex(null)}
@@ -631,26 +611,26 @@ function CoreValuesSection() {
                 />
 
                 {/* Icon */}
-                <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[#0dcfcf]/10">
+                <div className="relative mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[#0dcfcf]/10">
                   <v.icon className="h-5 w-5 text-[#0dcfcf]" />
                 </div>
 
                 {/* Letter + Title */}
-                <h3 className="mb-2 text-lg font-bold text-white sm:text-xl">
+                <h3 className="relative mb-2 text-lg font-bold text-white sm:text-xl">
                   <span className="text-[#0dcfcf]">{v.letter}</span>
-                  <span className="mx-1.5 text-white/20">—</span>
+                  <span className="mx-1.5 text-white/20">-</span>
                   {v.title}
                 </h3>
 
                 {/* Accent line */}
                 <motion.div
-                  className="mb-3 h-0.5 rounded-full bg-[#0dcfcf]/40"
+                  className="relative mb-3 h-0.5 rounded-full bg-[#0dcfcf]/40"
                   animate={{ width: activeIndex === i ? 48 : 32 }}
                   transition={{ duration: 0.3 }}
                 />
 
                 {/* Description */}
-                <p className="text-sm leading-relaxed text-white/60">
+                <p className="relative text-sm leading-relaxed text-white/60">
                   {v.description}
                 </p>
               </motion.div>
@@ -718,7 +698,7 @@ function VisionMissionSection() {
               </h3>
             </div>
             <p className="text-base leading-relaxed text-[#64748B] lg:text-lg">
-              We help B2B companies grow like e-commerce businesses — by
+              We help B2B companies grow like e-commerce businesses by
               turning real-time buyer signals into automated, scalable
               revenue systems powered by AI.
             </p>
@@ -766,7 +746,7 @@ function FounderSection() {
               <div className="relative aspect-square overflow-hidden rounded-full border-2 border-[#0dcfcf]/30 shadow-2xl shadow-[#0dcfcf]/10">
                 <Image
                   src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7dwEccfBxQEVrC0vzyT57DJN6zEehG.png"
-                  alt="Ritesh Osta - Founder of Insightstap"
+                  alt="Ritesh Osta, founder of Insightstap"
                   fill
                   className="object-cover"
                   priority
@@ -800,7 +780,7 @@ function FounderSection() {
                 viewport={{ once: true }}
                 transition={{ delay: 0.7 }}
               >
-                <span className="text-xs font-medium text-[#0F172A]">Top Rated</span>
+                <span className="text-xs font-medium text-[#0F172A]">Top rated</span>
               </motion.div>
             </div>
           </motion.div>
@@ -814,14 +794,14 @@ function FounderSection() {
             className="w-full text-center lg:w-[60%] lg:text-left"
           >
             <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">
-              Meet the Founder
+              Meet the founder
             </span>
             <h2 className="mb-6 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">
               {"Hi! I'm "}
               <span className="text-[#0dcfcf]">Ritesh Osta</span>
             </h2>
             <p className="mb-8 text-base leading-relaxed text-[#64748B] lg:text-lg">
-              Founder of Insightstap and a Top-Rated Fiverr Pro Consultant,
+              Founder of Insightstap and a top-rated Fiverr Pro consultant,
               with 10+ years of experience helping B2B enterprises and
               startups build scalable GTM and revenue systems. I&apos;ve worked
               closely with growth, sales, and marketing teams to turn complex
@@ -832,9 +812,9 @@ function FounderSection() {
             {/* Stats Row */}
             <div className="mb-8 grid grid-cols-3 gap-4">
               {[
-                { value: 19, suffix: "+", label: "Years Experience" },
-                { value: 250, suffix: "+", label: "Projects Delivered" },
-                { value: 50, suffix: "M+", label: "Pipeline Generated" },
+                { value: 19, suffix: "+", label: "Years experience" },
+                { value: 250, suffix: "+", label: "Projects delivered" },
+                { value: 50, suffix: "M+", label: "Pipeline generated" },
               ].map((stat, i) => (
                 <FounderStatAnimated key={stat.label} {...stat} delay={i * 0.1} />
               ))}
@@ -953,10 +933,10 @@ function StoryTimeline() {
         {/* Background title — fades as cards assemble */}
         <motion.div className="absolute z-0 text-center" style={{ opacity: titleOpacity }}>
           <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">
-            Our Journey
+            Our journey
           </span>
           <h2 className="text-4xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-5xl lg:text-6xl">
-            Our <span className="text-[#0dcfcf]">Story</span>
+            Our <span className="text-[#0dcfcf]">story</span>
           </h2>
         </motion.div>
 
@@ -1029,10 +1009,10 @@ function WhyChooseUsSection() {
           className="mb-16 text-center"
         >
           <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">
-            Why Us
+            Why us
           </span>
           <h2 className="mx-auto mb-4 max-w-[700px] text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">
-            Why Choose{" "}
+            Why choose{" "}
             <span className="text-[#0dcfcf]">InsightsTap</span>?
           </h2>
           <p className="mx-auto max-w-[600px] text-base leading-relaxed text-[#64748B]">
@@ -1086,7 +1066,7 @@ const leadershipData = [
     title: "CTO",
     image: "/leaders/SD.png",
     description:
-      "600+ products shipped. Harvard-certified. Serial Entrepreneur. 18+ years architecting SaaS and AI platforms for Google, Best Buy, and 250+ startups — from model strategy to production-ready, scalable software. Author of Advanced Technology books.",
+      "600+ products shipped. Harvard-certified. Serial entrepreneur. 18+ years architecting SaaS and AI platforms for Google, Best Buy, and 250+ startups, from model strategy to production-ready, scalable software. Author of advanced technology books.",
   },
   {
     name: "Hassan Malik",
@@ -1114,7 +1094,7 @@ const leadershipData = [
     title: "VP, Performance Marketing",
     image: "/leaders/Shivani.webp",
     description:
-      "Owning PPC, SEO, and paid media strategy across every channel that matters — engineering campaigns where every dollar spent is traceable to pipeline and revenue.",
+      "Owning PPC, SEO, and paid media strategy across every channel that matters, engineering campaigns where every dollar spent is traceable to pipeline and revenue.",
   },
 ]
 
@@ -1131,7 +1111,7 @@ function LeadershipTeamSection() {
           className="mb-16 text-center"
         >
           <h2 className="text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">
-            Leadership Team
+            Leadership team
           </h2>
         </motion.div>
 
@@ -1177,14 +1157,10 @@ function LeadershipTeamSection() {
 function CTASection() {
   return (
     <section id="book-call" className="relative overflow-hidden bg-[#0a0e1a] px-6 py-24 lg:py-32">
+      {/* Background */}
+      <div className="pointer-events-none absolute inset-0" style={{ background: "radial-gradient(ellipse 50% 50% at 50% 50%, rgba(13,207,207,0.12), transparent 70%)" }} />
+      <div className="glow-orb absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.06] blur-[150px]" />
       <FloatingOrbs />
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(13,207,207,0.12)_0%,_transparent_60%)]" />
-      <motion.div
-        className="absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.06] blur-[150px]"
-        animate={{ scale: [1, 1.1, 1], opacity: [0.3, 0.5, 0.3] }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-      />
 
       <div className="relative mx-auto max-w-[1280px] text-center">
         <motion.div
@@ -1196,7 +1172,7 @@ function CTASection() {
         >
           <Sparkles className="h-4 w-4 text-[#0dcfcf]" />
           <span className="text-sm font-medium text-white/70">
-            Transform Your GTM Strategy
+            Transform your GTM strategy
           </span>
         </motion.div>
 
@@ -1207,8 +1183,8 @@ function CTASection() {
           transition={{ duration: 0.6 }}
           className="mb-6 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
         >
-          {"Let's Build Your "}
-          <span className="text-[#0dcfcf]">Revenue Engine</span>
+          {"Let's build your "}
+          <span className="text-[#0dcfcf]">revenue engine</span>
         </motion.h2>
 
         <motion.div
@@ -1240,16 +1216,16 @@ function CTASection() {
         >
           <Link
             href="/Contact"
-            className="inline-flex h-14 items-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-semibold text-[#0a0e1a] shadow-md shadow-[#0dcfcf]/15 transition-all hover:bg-[#5de0e0] hover:shadow-lg hover:shadow-[#0dcfcf]/20"
+            className="inline-flex h-14 items-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-semibold text-[#0a0e1a] transition-all hover:bg-[#5de0e0] hover:shadow-md hover:shadow-[#0dcfcf]/15"
           >
             <Phone className="h-5 w-5" />
-            Book a Discovery Call
+            Book a discovery call
           </Link>
           <Link
             href="/"
             className="inline-flex h-14 items-center gap-2 rounded-lg border border-white/20 px-8 text-base font-medium text-white/90 transition-all hover:border-[#0dcfcf]/50 hover:text-[#0dcfcf]"
           >
-            Explore Our Services
+            Explore our services
             <ArrowRight className="h-4 w-4" />
           </Link>
         </motion.div>

@@ -7,7 +7,7 @@ import { Plus, Minus } from "lucide-react"
 const faqs = [
   {
     question: "How are you different?",
-    answer: "We don't sell \"one-off campaigns.\" We build full-stack GTM engines that run 24/7 — combining signals, automation, AI agents, and performance marketing to deliver faster, predictable growth.",
+    answer: "We don't sell \"one-off campaigns.\" We build full-stack GTM engines that run 24/7, combining signals, automation, AI agents, and performance marketing to deliver faster, predictable growth.",
   },
   {
     question: "What results can I expect?",
@@ -15,7 +15,7 @@ const faqs = [
   },
   {
     question: "Do you work with my tools?",
-    answer: "Yes. We integrate with your existing CRM, ad platforms, and intent tools — or set up a best-in-class stack from scratch.",
+    answer: "Yes. We integrate with your existing CRM, ad platforms, and intent tools, or set up a best-in-class stack from scratch.",
   },
 ]
 
@@ -59,7 +59,7 @@ export function FAQSection() {
             FAQ
           </span>
           <h2 className="text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">
-            Frequently Asked Questions
+            Frequently asked questions
           </h2>
         </motion.div>
 

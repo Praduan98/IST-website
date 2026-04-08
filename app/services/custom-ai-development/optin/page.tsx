@@ -89,7 +89,7 @@ function HeroSection({ onScroll }: { onScroll: () => void }) {
         >
           <Sparkles className="h-4 w-4 text-[#0dcfcf]" />
           <span className="text-xs font-medium uppercase tracking-wider text-[#64748B]">
-            Custom AI Development
+            Custom AI development
           </span>
         </motion.div>
 
@@ -104,8 +104,8 @@ function HeroSection({ onScroll }: { onScroll: () => void }) {
           }}
           className="mb-5 text-4xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-5xl md:text-6xl lg:text-[4.5rem]"
         >
-          Get the <span className="gradient-text">Custom AI</span>{" "}
-          Development Brochure
+          Get the <span className="gradient-text">custom AI</span>{" "}
+          development brochure
         </motion.h1>
 
         {/* Subtitle */}
@@ -115,7 +115,7 @@ function HeroSection({ onScroll }: { onScroll: () => void }) {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="mx-auto mb-14 max-w-[660px] text-base leading-relaxed text-[#64748B] sm:text-lg"
         >
-          We design, build, and deploy custom AI applications — from
+          We design, build, and deploy custom AI applications, from
           GPT-powered tools and intelligent chatbots to voice assistants and
           autonomous agents. Every solution is built for your specific
           workflows, data, and business logic.
@@ -130,7 +130,7 @@ function HeroSection({ onScroll }: { onScroll: () => void }) {
           className="group mx-auto flex flex-col items-center gap-2 cursor-pointer"
         >
           <span className="text-[11px] font-medium uppercase tracking-widest text-[#94A3B8] transition-colors group-hover:text-[#0dcfcf]">
-            Scroll to Form
+            Scroll to form
           </span>
           <motion.div
             animate={{ y: [0, 6, 0] }}
@@ -284,14 +284,14 @@ function FormSection() {
           className="mb-10 text-center"
         >
           <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">
-            Get Access
+            Get access
           </span>
           <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl">
-            Get the <span className="gradient-text">Brochure</span>
+            Get the <span className="gradient-text">brochure</span>
           </h2>
           <p className="mx-auto max-w-[480px] text-base leading-relaxed text-[#64748B]">
-            Fill in your details to unlock the Custom AI Development
-            Brochure on the next page.
+            Fill in your details to unlock the custom AI development
+            brochure on the next page.
           </p>
         </motion.div>
 
@@ -336,7 +336,7 @@ function FormSection() {
           >
             <RevealField revealed={formRevealed} delay={0}>
               <label className="mb-1.5 block text-sm font-medium text-[#0F172A]">
-                Full Name
+                Full name
               </label>
               <div className="relative">
                 <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8]">
@@ -375,7 +375,7 @@ function FormSection() {
 
             <RevealField revealed={formRevealed} delay={0.2}>
               <label className="mb-1.5 block text-sm font-medium text-[#0F172A]">
-                Phone Number
+                Phone number
               </label>
               <div className="relative">
                 <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8]">
@@ -472,7 +472,7 @@ function FormSection() {
             <p className="text-center text-xs text-[#94A3B8]">
               By submitting, you agree to our{" "}
               <Link href="#" className="text-[#0dcfcf] hover:underline">
-                Privacy Policy
+                privacy policy
               </Link>
               .
             </p>

@@ -46,9 +46,9 @@ export function FounderSection() {
 
             {/* Stats Row */}
             <div className="mb-8 grid grid-cols-3 gap-4">
-              <FounderStat value="19+" label="Years Experience" />
-              <FounderStat value="250+" label="Projects Delivered" />
-              <FounderStat value="50M+" label="Pipeline Generated" />
+              <FounderStat value="19+" label="Years experience" />
+              <FounderStat value="250+" label="Projects delivered" />
+              <FounderStat value="50M+" label="Pipeline generated" />
             </div>
 
             <div className="flex flex-col items-center gap-4 sm:flex-row lg:items-start">
@@ -56,7 +56,7 @@ export function FounderSection() {
                 href="/about"
                 className="group inline-flex items-center gap-2 rounded-lg bg-[#0dcfcf] px-6 py-3 text-base font-medium text-white transition-all hover:bg-[#0a9a9a]"
               >
-                Read More
+                Read more
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </Link>
               
@@ -178,7 +178,7 @@ function InteractiveFounderImage() {
         transition={{ delay: 0.7 }}
         whileHover={{ scale: 1.05 }}
       >
-        <span className="text-xs font-medium text-[#0F172A]">Top Rated</span>
+        <span className="text-xs font-medium text-[#0F172A]">Top rated</span>
       </motion.div>
     </motion.div>
   )

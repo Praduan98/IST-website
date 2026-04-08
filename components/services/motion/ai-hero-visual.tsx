@@ -57,7 +57,7 @@ export function AiHeroVisual() {
     >
       <svg
         viewBox="0 0 100 100"
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] max-w-[600px] h-auto opacity-35"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] max-w-[600px] h-auto opacity-65"
         fill="none"
       >
         {/* Neural connections */}
@@ -72,9 +72,9 @@ export function AiHeroVisual() {
               x2={n2.x}
               y2={n2.y}
               stroke="#0dcfcf"
-              strokeWidth="0.3"
+              strokeWidth="0.6"
               initial={{ opacity: 0 }}
-              animate={{ opacity: [0.2, 0.6, 0.2] }}
+              animate={{ opacity: [0.3, 0.8, 0.3] }}
               transition={{ duration: 2 + (i % 3), repeat: Infinity, delay: i * 0.15 }}
               style={from === 0 ? { x1: centerX, y1: centerY } : undefined}
             />
@@ -90,7 +90,7 @@ export function AiHeroVisual() {
             r={node.r}
             fill="#0dcfcf"
             initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: [0.3, 0.7, 0.3], scale: 1 }}
+            animate={{ opacity: [0.4, 0.85, 0.4], scale: 1 }}
             transition={{
               opacity: { duration: 2.5, repeat: Infinity, delay: node.delay },
               scale: { duration: 0.6, delay: 0.5 + node.delay },
@@ -104,7 +104,7 @@ export function AiHeroVisual() {
           cy={50}
           r={8}
           fill="#0dcfcf"
-          opacity={0.6}
+          opacity={0.8}
           style={{ cx: centerX, cy: centerY }}
         />
         <motion.circle
@@ -113,11 +113,11 @@ export function AiHeroVisual() {
           r={8}
           fill="none"
           stroke="#0dcfcf"
-          strokeWidth="0.5"
+          strokeWidth="0.8"
           style={{ cx: centerX, cy: centerY }}
           animate={{ r: [8, 14, 8] }}
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-          opacity={0.3}
+          opacity={0.5}
         />
       </svg>
     </div>

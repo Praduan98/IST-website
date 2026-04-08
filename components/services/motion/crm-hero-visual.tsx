@@ -28,7 +28,7 @@ export function CrmHeroVisual() {
         {DATA_SOURCES.map((source, i) => (
           <motion.div
             key={source.label}
-            className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full px-3 py-1.5 text-[10px] font-semibold text-white shadow-md whitespace-nowrap"
+            className="absolute -translate-x-1/2 -translate-y-1/2 rounded-full px-3 py-1.5 text-[10px] font-semibold text-white shadow-lg whitespace-nowrap"
             style={{ backgroundColor: source.color }}
             initial={{ x: source.x, y: source.y, opacity: 0, scale: 0.7 }}
             animate={{
@@ -63,8 +63,8 @@ export function CrmHeroVisual() {
             transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           />
           {/* Inner circle */}
-          <div className="relative h-16 w-16 rounded-full bg-gradient-to-br from-[#0dcfcf]/20 to-[#0dcfcf]/5 border border-[#0dcfcf]/40 flex items-center justify-center">
-            <span className="text-[9px] font-bold text-[#0dcfcf] tracking-wider">CRM</span>
+          <div className="relative h-16 w-16 rounded-full bg-gradient-to-br from-[#0dcfcf]/30 to-[#0dcfcf]/10 border border-[#0dcfcf]/50 flex items-center justify-center" style={{ boxShadow: '0 0 15px rgba(13,207,207,0.15)' }}>
+            <span className="text-[9px] font-bold text-[#0F172A] tracking-wider">CRM</span>
           </div>
         </motion.div>
 
@@ -78,10 +78,10 @@ export function CrmHeroVisual() {
               x2={0}
               y2={0}
               stroke="#0dcfcf"
-              strokeWidth="0.8"
+              strokeWidth="1.2"
               strokeDasharray="4 4"
               initial={{ opacity: 0 }}
-              animate={{ opacity: [0, 0.3, 0] }}
+              animate={{ opacity: [0, 0.6, 0] }}
               transition={{
                 duration: 3,
                 delay: MERGE_DELAY + i * 0.3,

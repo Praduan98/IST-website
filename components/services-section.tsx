@@ -8,31 +8,31 @@ import { useRef } from "react"
 const services = [
   {
     icon: Rocket,
-    title: "AI-Led GTM Systems",
+    title: "AI-led GTM systems",
     description: "We build go-to-market engines that combine automation, AI agents, and real-time buyer signals to accelerate revenue.",
     color: "#0dcfcf",
-    features: ["Signal Detection", "AI Processing", "Auto-Engagement"]
+    features: ["Signal detection", "AI processing", "Auto-engagement"]
   },
   {
     icon: Target,
-    title: "Signal-Led Outreach & ABM",
-    description: "We run hyper-personalized, multichannel campaigns — driven by job, intent, and funding signals — to convert your ideal buyers.",
+    title: "Signal-led outreach & ABM",
+    description: "We run hyper-personalized, multichannel campaigns driven by job, intent, and funding signals to convert your ideal buyers.",
     color: "#0a9a9a",
-    features: ["Intent Signals", "Multi-Channel", "Personalization"]
+    features: ["Intent signals", "Multi-channel", "Personalization"]
   },
   {
     icon: BarChart3,
-    title: "Ads, Analytics & CRM Automation",
+    title: "Ads, analytics & CRM automation",
     description: "We launch performance ads and streamline HubSpot or Salesforce with smart workflows that nurture leads and close deals.",
     color: "#5de0e0",
-    features: ["HubSpot/Salesforce", "Smart Workflows", "Analytics"]
+    features: ["HubSpot/Salesforce", "Smart workflows", "Analytics"]
   },
   {
     icon: Bot,
-    title: "Custom AI Apps & Agents",
+    title: "Custom AI apps & agents",
     description: "From chatbots to voice assistants, we develop AI tools that automate decision-making, engagement, and internal workflows.",
     color: "#0d9f9f",
-    features: ["Chatbots", "Voice AI", "Custom Apps"]
+    features: ["Chatbots", "Voice AI", "Custom apps"]
   },
 ]
 
@@ -77,8 +77,8 @@ export function ServicesSection() {
             OUR SERVICES
           </span>
           <h2 className="mx-auto mb-4 max-w-[800px] text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">
-            Complete Signal-Led GTM and ABM Solutions to Power{" "}
-            <span className="gradient-text">New Age Tech Companies</span>
+            Complete signal-led GTM and ABM solutions to power{" "}
+            <span className="gradient-text">new age tech companies</span>
           </h2>
         </motion.div>
 

@@ -7,25 +7,25 @@ import { ChevronLeft, ChevronRight, TrendingUp } from "lucide-react"
 const caseStudies = [
   {
     metric: "40%",
-    description: "Reduction in Customer Acquisition Cost",
+    description: "Reduction in customer acquisition cost",
     clientType: "B2B IT Firm",
     color: "#0dcfcf",
   },
   {
     metric: "3x",
-    description: "Pipeline Velocity Increase in 90 Days",
+    description: "Pipeline velocity increase in 90 days",
     clientType: "SaaS Company",
     color: "#0a9a9a",
   },
   {
     metric: "3 weeks",
-    description: "From Concept to Working GPT-Powered App",
+    description: "From concept to working GPT-powered app",
     clientType: "AI Startup",
     color: "#5de0e0",
   },
   {
     metric: "25x",
-    description: "Increase in Qualified Meeting Bookings",
+    description: "Increase in qualified meeting bookings",
     clientType: "Enterprise Software",
     color: "#0d9f9f",
   },
@@ -90,7 +90,7 @@ export function CaseStudies() {
           </span>
           <h2 className="text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">
             Success{" "}
-            <span className="bg-gradient-to-r from-[#0dcfcf] to-[#0F172A] bg-clip-text text-transparent">Stories</span>
+            <span className="bg-gradient-to-r from-[#0dcfcf] to-[#0F172A] bg-clip-text text-transparent">stories</span>
           </h2>
         </motion.div>
       </div>

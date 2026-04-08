@@ -87,7 +87,7 @@ function HeroSection({ onScroll }: { onScroll: () => void }) {
             className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#0dcfcf]/30 bg-[#0dcfcf]/10 px-4 py-1.5 glow-border"
           >
             <span className="text-[11px] font-semibold uppercase tracking-widest text-[#0dcfcf]">
-              Run Your B2B Sales Like an E-Commerce Engine
+              Run your B2B sales like an e-commerce engine
             </span>
           </motion.div>
 
@@ -98,8 +98,8 @@ function HeroSection({ onScroll }: { onScroll: () => void }) {
             transition={{ duration: 0.6, delay: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="mb-5 text-[2.5rem] font-semibold leading-[1.08] tracking-tight text-[#0F172A] sm:text-5xl lg:text-[3.25rem]"
           >
-            AI GTM Hub for{" "}
-            <span className="gradient-text">Modern Sales Leaders</span>
+            AI GTM hub for{" "}
+            <span className="gradient-text">modern sales leaders</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -109,7 +109,7 @@ function HeroSection({ onScroll }: { onScroll: () => void }) {
             transition={{ duration: 0.5, delay: 0.35 }}
             className="mb-6 max-w-[600px] text-base leading-relaxed text-[#64748B] sm:text-lg lg:mx-0"
           >
-            Every week at Insightstap, we drop the same GTM Engineering
+            Every week at InsightsTap, we drop the same GTM engineering
             frameworks, tools, and AI tactics that help our clients grow faster
             and cheaper.{" "}
             <span className="font-medium text-[#0F172A]">
@@ -128,6 +128,7 @@ function HeroSection({ onScroll }: { onScroll: () => void }) {
           >
             <FreeBadge />
             <Pill icon={<Zap className="h-3.5 w-3.5" />} label="Actionable strategies" />
+
             <Pill icon={<TrendingUp className="h-3.5 w-3.5" />} label="Weekly drops" />
             <Pill icon={<Target className="h-3.5 w-3.5" />} label="AI & GTM focused" />
           </motion.div>
@@ -441,22 +442,22 @@ function IllustrationCard({
 const benefits = [
   {
     icon: <TrendingUp className="h-9 w-9 text-white" />,
-    title: "AI-Powered Growth Strategies",
+    title: "AI-powered growth strategies",
     desc: "Tips to scale your sales with AI agents, signal-driven campaigns, and performance-first GTM engineering.",
   },
   {
     icon: <Brain className="h-9 w-9 text-white" />,
-    title: "Real Campaign Breakdowns",
+    title: "Real campaign breakdowns",
     desc: "Behind-the-scenes lessons from our cold outreach, ads, and ABM systems that book meetings and close deals.",
   },
   {
     icon: <Package className="h-9 w-9 text-white" />,
-    title: "Plug-and-Play GTM Frameworks",
-    desc: "SOPs, workflows, and automation templates used by top-performing B2B teams — ready for you to copy & deploy.",
+    title: "Plug-and-play GTM frameworks",
+    desc: "SOPs, workflows, and automation templates used by top-performing B2B teams, ready for you to copy & deploy.",
   },
   {
     icon: <FlaskConical className="h-9 w-9 text-white" />,
-    title: "BTS from the Insightstap Lab",
+    title: "BTS from the InsightsTap lab",
     desc: "Use cases straight to your inbox to enable Sales + Customer Success with CRM automation & HubSpot ops.",
   },
 ]
@@ -669,11 +670,11 @@ function SubscribeCTA({ formRef, ctaOpacity, ctaY }: {
       <div className="mb-2 flex items-center justify-center gap-2">
         <Sparkles className="h-4 w-4 text-[#0dcfcf]" />
         <span className="text-xs font-semibold uppercase tracking-widest text-[#0dcfcf]">
-          Join 5,000+ Founders & Marketers
+          Join 5,000+ founders & marketers
         </span>
       </div>
       <h3 className="mb-2 text-center text-2xl font-bold text-[#0F172A] sm:text-3xl">
-        Get Weekly AI-Led GTM Tips
+        Get weekly AI-led GTM tips
       </h3>
       <p className="mb-6 text-center text-sm text-[#64748B]">That actually convert.</p>
       <HeroForm />
@@ -724,11 +725,11 @@ function WhatYouGetSection({ formRef }: { formRef: React.RefObject<HTMLDivElemen
             >
               <span className="mb-3 inline-flex items-center gap-1.5 rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">
                 <BookOpen className="h-3 w-3" />
-                What You&apos;ll Get
+                What you&apos;ll get
               </span>
               <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl">
-                Every Issue is Packed with{" "}
-                <span className="gradient-text">Real GTM Value</span>
+                Every issue is packed with{" "}
+                <span className="gradient-text">real GTM value</span>
               </h2>
             </motion.div>
 
@@ -761,11 +762,11 @@ function WhatYouGetSection({ formRef }: { formRef: React.RefObject<HTMLDivElemen
           >
             <span className="mb-3 inline-flex items-center gap-1.5 rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">
               <BookOpen className="h-3 w-3" />
-              What You&apos;ll Get
+              What you&apos;ll get
             </span>
             <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl">
-              Every Issue is Packed with{" "}
-              <span className="gradient-text">Real GTM Value</span>
+              Every issue is packed with{" "}
+              <span className="gradient-text">real GTM value</span>
             </h2>
           </motion.div>
 
@@ -805,7 +806,7 @@ function FollowSection() {
         className="relative mx-auto max-w-[600px] text-center"
       >
         <p className="mb-6 text-sm font-medium uppercase tracking-widest text-[#94A3B8]">
-          Follow Us
+          Follow us
         </p>
         <div className="mb-8 flex items-center justify-center gap-4">
           <SocialBtn
@@ -838,10 +839,10 @@ function FollowSection() {
         </div>
         <div className="rounded-xl border border-[#0dcfcf]/20 bg-[#0dcfcf]/5 px-6 py-5">
           <p className="text-sm font-medium text-[#0F172A]">
-            Zero Spam. Just Value.
+            Zero spam. Just value.
           </p>
           <p className="mt-1 text-sm leading-relaxed text-[#64748B]">
-            You&apos;ll only get proven insights — no fluff, no sales pitches.
+            You&apos;ll only get proven insights, no fluff, no sales pitches.
             Unsubscribe anytime.
           </p>
         </div>

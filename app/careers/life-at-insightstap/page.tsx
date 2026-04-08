@@ -10,27 +10,33 @@ import { Footer } from "@/components/footer"
 
 // ─── Photo data ─────────────────────────────────────────────────────────────────
 const PHOTOS = [
-  { src: "/life/1.png",  caption: "Team Dinner" },
-  { src: "/life/2.png",  caption: "Pool Night" },
-  { src: "/life/3.png",  caption: "Game On" },
-  { src: "/life/4.png",  caption: "After Hours" },
-  { src: "/life/5.png",  caption: "Air Hockey" },
-  { src: "/life/6.png",  caption: "Game Night" },
-  { src: "/life/7.png",  caption: "Arcade Vibes" },
-  { src: "/life/8.png",  caption: "Team Walk" },
-  { src: "/life/9.png",  caption: "Squad Goals" },
-  { src: "/life/10.png", caption: "Bowling Night" },
-  { src: "/life/11.png", caption: "Pool Round 2" },
+  { src: "/life/1.png",  caption: "Team dinner" },
+  { src: "/life/2.png",  caption: "Pool night" },
+  { src: "/life/3.png",  caption: "Game on" },
+  { src: "/life/4.png",  caption: "After hours" },
+  { src: "/life/5.png",  caption: "Air hockey" },
+  { src: "/life/6.png",  caption: "Game night" },
+  { src: "/life/7.png",  caption: "Arcade vibes" },
+  { src: "/life/8.png",  caption: "Team walk" },
+  { src: "/life/9.png",  caption: "Squad goals" },
+  { src: "/life/10.png", caption: "Bowling night" },
+  { src: "/life/11.png", caption: "Pool round 2" },
 ]
 
-// Orb data for atmospheric background
-const ORB_DATA = [
-  { x: 8,  y: 15, size: 400, blur: 90,  opacity: 0.06,  dur: 14, delay: 0 },
-  { x: 85, y: 50, size: 300, blur: 80,  opacity: 0.05,  dur: 18, delay: 2 },
-  { x: 45, y: 80, size: 350, blur: 85,  opacity: 0.055, dur: 16, delay: 5 },
-  { x: 70, y: 20, size: 150, blur: 60,  opacity: 0.08,  dur: 11, delay: 3 },
-  { x: 20, y: 60, size: 120, blur: 50,  opacity: 0.07,  dur: 9,  delay: 6 },
-  { x: 55, y: 40, size: 200, blur: 70,  opacity: 0.06,  dur: 13, delay: 1 },
+// Floating particle data for atmospheric background (light theme)
+const PARTICLE_POSITIONS = [
+  { x: 5, y: 15, duration: 7, delay: 0 },
+  { x: 15, y: 80, duration: 8, delay: 1 },
+  { x: 25, y: 40, duration: 6, delay: 2 },
+  { x: 35, y: 65, duration: 9, delay: 0.5 },
+  { x: 45, y: 25, duration: 7, delay: 1.5 },
+  { x: 55, y: 90, duration: 8, delay: 2.5 },
+  { x: 65, y: 35, duration: 6, delay: 3 },
+  { x: 75, y: 70, duration: 9, delay: 0.8 },
+  { x: 85, y: 50, duration: 7, delay: 1.8 },
+  { x: 95, y: 20, duration: 8, delay: 2.8 },
+  { x: 10, y: 55, duration: 6, delay: 3.5 },
+  { x: 20, y: 85, duration: 9, delay: 0.3 },
 ]
 
 // ─── Row data for Kinetic Zoom-Grid ────────────────────────────────────────────
@@ -60,35 +66,31 @@ export default function LifeAtInsightsTapPage() {
   )
 }
 
-// ─── Atmospheric orbs ───────────────────────────────────────────────────────────
-function FloatingOrbs() {
+// ─── Floating particles (light theme, matching homepage) ────────────────────────
+function FloatingParticles() {
   return (
-    <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
-      {ORB_DATA.map((orb, i) => {
-        const amp = orb.size > 200 ? 14 : 24
-        return (
-          <motion.div
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              left: `${orb.x}%`,
-              top: `${orb.y}%`,
-              width: orb.size,
-              height: orb.size,
-              opacity: orb.opacity,
-              filter: `blur(${orb.blur}px)`,
-              transform: "translate(-50%, -50%)",
-              background: `radial-gradient(circle at 30% 30%, rgba(13,207,207,${orb.opacity * 5}) 0%, rgba(13,207,207,${orb.opacity * 1.5}) 50%, transparent 100%)`,
-            }}
-            animate={{
-              x: [-amp, amp, -amp],
-              y: [-amp * 0.7, amp * 0.7, -amp * 0.7],
-              scale: [1, orb.size > 200 ? 1.08 : 1.15, 1],
-            }}
-            transition={{ duration: orb.dur, repeat: Infinity, delay: orb.delay, ease: "easeInOut" }}
-          />
-        )
-      })}
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      {PARTICLE_POSITIONS.map((particle, i) => (
+        <motion.div
+          key={i}
+          className="absolute h-1 w-1 rounded-full bg-[#0dcfcf]/50"
+          style={{
+            left: `${particle.x}%`,
+            top: `${particle.y}%`,
+          }}
+          initial={{ opacity: 0 }}
+          animate={{
+            y: [-15, 15, -15],
+            opacity: [0, 0.6, 0],
+          }}
+          transition={{
+            duration: particle.duration,
+            repeat: Infinity,
+            delay: particle.delay,
+            ease: "easeInOut",
+          }}
+        />
+      ))}
     </div>
   )
 }
@@ -96,30 +98,32 @@ function FloatingOrbs() {
 // ─── Hero ───────────────────────────────────────────────────────────────────────
 function HeroSection() {
   return (
-    <section className="relative flex min-h-[85vh] flex-col items-center justify-center overflow-hidden bg-[#0a0e1a] px-6" style={{ paddingTop: "15vh", paddingBottom: "15vh" }}>
-      <FloatingOrbs />
-      <div className="dot-grid absolute inset-0 opacity-30" />
+    <section className="relative flex min-h-[85vh] flex-col items-center justify-center overflow-hidden bg-white px-6 pt-24 pb-12">
+      <div className="dot-grid absolute inset-0" />
 
-      {/* Ghost text */}
-      <motion.div
-        className="pointer-events-none absolute inset-0 flex items-center justify-center select-none overflow-hidden"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 0.03 }}
-        transition={{ duration: 1, delay: 0.5 }}
-      >
-        <span className="whitespace-nowrap text-[18vw] font-black tracking-tighter text-white">
-          COMMUNITY
-        </span>
-      </motion.div>
+      {/* Glow orbs — homepage style */}
+      <div className="glow-orb absolute left-1/2 top-[30%] h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.07] blur-[160px]" />
+      <div className="glow-orb absolute right-[15%] top-[55%] h-[500px] w-[500px] rounded-full bg-[#0dcfcf]/[0.05] blur-[140px]" style={{ animationDelay: "-4s" }} />
+      <div className="glow-orb absolute left-[10%] top-[65%] h-[400px] w-[400px] rounded-full bg-[#0dcfcf]/[0.04] blur-[120px]" style={{ animationDelay: "-6s" }} />
+
+      {/* Radial wash */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          background: "radial-gradient(ellipse 70% 50% at 50% 40%, rgba(13,207,207,0.04) 0%, transparent 70%)",
+        }}
+      />
+
+      <FloatingParticles />
 
       <div className="relative z-10 mx-auto max-w-[800px] text-center">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#0dcfcf]/30 bg-[#0dcfcf]/10 px-4 py-2"
+          className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#0dcfcf]/30 bg-[#0dcfcf]/10 px-4 py-2 glow-border"
         >
-          <span className="text-xs font-semibold uppercase tracking-widest text-[#0dcfcf]">
+          <span className="text-xs font-semibold uppercase tracking-widest text-[#64748B]">
             Life at InsightsTap
           </span>
         </motion.div>
@@ -128,10 +132,10 @@ function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mb-5 text-4xl font-semibold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl"
+          className="mb-5 text-4xl font-semibold leading-[1.08] tracking-tight text-[#0F172A] sm:text-5xl lg:text-6xl"
         >
-          Where Great Work{" "}
-          <span className="text-[#0dcfcf]">Meets Great People</span>
+          Where great work{" "}
+          <span className="gradient-text">meets great people</span>
         </motion.h1>
 
         <motion.div
@@ -145,11 +149,11 @@ function HeroSection() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
-          className="mx-auto mb-10 max-w-[640px] text-base leading-relaxed text-white/70 sm:text-lg"
+          className="mx-auto mb-10 max-w-[640px] text-base leading-relaxed text-[#64748B] sm:text-lg"
         >
           A typical week at InsightsTap looks like this: collaborating with a
           team that&apos;s sharp, supportive, and genuinely obsessed with doing
-          excellent work. No unnecessary noise — just meaningful conversations,
+          excellent work. No unnecessary noise, just meaningful conversations,
           thoughtful execution, and people who truly want to see each other grow.
         </motion.p>
 
@@ -161,16 +165,16 @@ function HeroSection() {
         >
           <Link
             href="/careers"
-            className="inline-flex h-12 items-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-semibold text-[#0a0e1a] transition-all hover:bg-[#5de0e0] hover:shadow-md hover:shadow-[#0dcfcf]/15"
+            className="shimmer inline-flex h-12 items-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-semibold text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a] hover:shadow-lg hover:shadow-[#0dcfcf]/25"
           >
-            View Open Roles
+            View open roles
             <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             href="/about"
-            className="inline-flex h-12 items-center rounded-lg border border-white/20 px-8 text-base font-medium text-white/90 transition-all hover:border-[#0dcfcf]/50 hover:text-[#0dcfcf]"
+            className="inline-flex h-12 items-center rounded-lg border border-[#E2E8F0] bg-white px-8 text-base font-medium text-[#0F172A] transition-all hover:border-[#0dcfcf]/50 hover:bg-[#0dcfcf]/5"
           >
-            About Us
+            About us
           </Link>
         </motion.div>
       </div>
@@ -223,31 +227,19 @@ function KineticZoomGrid() {
   return (
     <section
       ref={sectionRef}
-      className="relative overflow-hidden bg-[#0a0e1a]"
+      className="relative overflow-hidden bg-[#F8FAFC]"
       style={{ paddingTop: "15vh", paddingBottom: "15vh" }}
     >
-      <FloatingOrbs />
-      <div className="dot-grid absolute inset-0 opacity-20" />
+      <div className="dot-grid absolute inset-0" />
 
-      {/* Vertical ghost text — drifts behind the marquee rows */}
-      <div
-        className="pointer-events-none absolute inset-0 flex items-center justify-center select-none overflow-hidden"
-        aria-hidden="true"
-        style={{ opacity: 0.02 }}
-      >
-        <span
-          className="text-[14vw] font-black tracking-tighter text-white"
-          style={{ writingMode: "vertical-rl" }}
-        >
-          TEAM VIBE
-        </span>
-      </div>
+      {/* Background glow */}
+      <div className="glow-orb absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.06] blur-[150px]" />
 
       <div className="relative z-10 mx-auto max-w-[1400px] px-6">
         <SectionHeader
-          badge="Team Gallery"
-          title="Our Moments,"
-          highlight="Captured"
+          badge="Team gallery"
+          title="Our moments,"
+          highlight="captured"
         />
       </div>
 
@@ -330,32 +322,25 @@ function CultureSection() {
   const isInView = useInView(ref, { once: true, margin: "-80px" })
 
   const values = [
-    { title: "Impact Over Noise", desc: "Every conversation and deliverable is purpose-driven. We skip the busywork." },
-    { title: "Ownership Culture", desc: "Take the wheel on your projects. Ideas are welcomed, initiative is celebrated." },
-    { title: "Grow Together", desc: "We celebrate big wins and small milestones alike. Your growth is the team's growth." },
-    { title: "Clear Communication", desc: "No politics, no ambiguity. Just transparent, honest collaboration every day." },
+    { title: "Impact over noise", desc: "Every conversation and deliverable is purpose-driven. We skip the busywork." },
+    { title: "Ownership culture", desc: "Take the wheel on your projects. Ideas are welcomed, initiative is celebrated." },
+    { title: "Grow together", desc: "We celebrate big wins and small milestones alike. Your growth is the team's growth." },
+    { title: "Clear communication", desc: "No politics, no ambiguity. Just transparent, honest collaboration every day." },
   ]
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-[#0F172A] px-6" style={{ paddingTop: "15vh", paddingBottom: "15vh" }}>
-      <FloatingOrbs />
-      <div className="dot-grid absolute inset-0 opacity-20" />
+    <section ref={ref} className="relative overflow-hidden bg-white px-6 py-24 lg:py-32">
+      <div className="dot-grid absolute inset-0" />
 
-      {/* Ghost text */}
-      <motion.div
-        className="pointer-events-none absolute inset-0 flex items-center justify-center select-none overflow-hidden"
-        style={{ opacity: 0.02 }}
-      >
-        <span className="whitespace-nowrap text-[16vw] font-black tracking-tighter text-white">
-          CULTURE
-        </span>
-      </motion.div>
+      {/* Background glow */}
+      <div className="glow-orb absolute -left-40 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.06] blur-[150px]" />
+      <div className="glow-orb absolute right-[-10%] top-[30%] h-[400px] w-[400px] rounded-full bg-[#0dcfcf]/[0.04] blur-[120px]" style={{ animationDelay: "-5s" }} />
 
       <div className="relative z-10 mx-auto max-w-[1280px]">
         <SectionHeader
-          badge="Our Values"
-          title="What Makes Us,"
-          highlight="Us"
+          badge="Our values"
+          title="What makes us,"
+          highlight="us"
         />
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -365,15 +350,18 @@ function CultureSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: 0.1 * i }}
-              className="group rounded-2xl border border-white/10 bg-white/[0.04] p-8 backdrop-blur-sm transition-all hover:border-[#0dcfcf]/30 hover:bg-white/[0.06]"
+              className="group rounded-2xl border border-[#E2E8F0] bg-white p-8 shadow-sm transition-all hover:border-[#0dcfcf]/30 hover:shadow-md hover:shadow-[#0dcfcf]/5"
             >
               <div className="mb-4 h-1 w-8 rounded-full bg-[#0dcfcf]/40 transition-all group-hover:w-12 group-hover:bg-[#0dcfcf]" />
-              <h3 className="mb-2 text-lg font-bold text-white">{v.title}</h3>
-              <p className="text-sm leading-relaxed text-white/60">{v.desc}</p>
+              <h3 className="mb-2 text-lg font-bold text-[#0F172A]">{v.title}</h3>
+              <p className="text-sm leading-relaxed text-[#64748B]">{v.desc}</p>
             </motion.div>
           ))}
         </div>
       </div>
+
+      {/* Section divider */}
+      <div className="mx-auto mt-24 h-px max-w-[800px] bg-gradient-to-r from-transparent via-[#0dcfcf]/30 to-transparent" />
     </section>
   )
 }
@@ -384,9 +372,25 @@ function CTASection() {
   const isInView = useInView(ref, { once: true, margin: "-80px" })
 
   return (
-    <section ref={ref} className="relative overflow-hidden bg-[#0F172A] px-6" style={{ paddingTop: "15vh", paddingBottom: "15vh" }}>
-      <FloatingOrbs />
-      <div className="dot-grid absolute inset-0 opacity-20" />
+    <section ref={ref} className="relative overflow-hidden bg-white px-6 py-24 lg:py-32">
+      {/* Background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[#F8FAFC] via-white to-[#F8FAFC]" />
+
+      {/* Pulsing glow orb */}
+      <motion.div
+        className="absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.08] blur-[150px]"
+        animate={{
+          scale: [1, 1.1, 1],
+          opacity: [0.3, 0.6, 0.3],
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
+      />
+
+      <FloatingParticles />
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -394,27 +398,27 @@ function CTASection() {
         transition={{ duration: 0.6 }}
         className="relative z-10 mx-auto max-w-[680px] text-center"
       >
-        <h2 className="mb-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-          Ready to Join the{" "}
-          <span className="text-[#0dcfcf]">Team</span>?
+        <h2 className="mb-4 text-3xl font-semibold tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">
+          Ready to join the{" "}
+          <span className="gradient-text">team</span>?
         </h2>
-        <p className="mb-8 text-base leading-relaxed text-white/60">
+        <p className="mb-8 text-base leading-relaxed text-[#64748B] lg:text-lg">
           We&apos;re always looking for curious, driven people who want to build
           something meaningful. Check out our open roles.
         </p>
         <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link
             href="/careers"
-            className="inline-flex h-12 items-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-semibold text-[#0a0e1a] transition-all hover:bg-[#5de0e0] hover:shadow-md hover:shadow-[#0dcfcf]/15"
+            className="shimmer inline-flex h-12 items-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-semibold text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a] hover:shadow-lg hover:shadow-[#0dcfcf]/25"
           >
-            View Open Roles
+            View open roles
             <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             href="/Contact"
-            className="inline-flex h-12 items-center rounded-lg border border-white/20 px-8 text-base font-medium text-white/90 transition-all hover:border-[#0dcfcf]/50 hover:text-[#0dcfcf]"
+            className="inline-flex h-12 items-center rounded-lg border border-[#E2E8F0] bg-white px-8 text-base font-medium text-[#0F172A] transition-all hover:border-[#0dcfcf]/50 hover:bg-[#0dcfcf]/5"
           >
-            Get in Touch
+            Get in touch
           </Link>
         </div>
       </motion.div>
@@ -438,8 +442,8 @@ function SectionHeader({ badge, title, highlight }: { badge: string; title: stri
       <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">
         {badge}
       </span>
-      <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">
-        {title} <span className="text-[#0dcfcf]">{highlight}</span>
+      <h2 className="mt-3 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl">
+        {title} <span className="gradient-text">{highlight}</span>
       </h2>
     </motion.div>
   )

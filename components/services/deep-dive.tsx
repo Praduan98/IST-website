@@ -25,8 +25,8 @@ const iconMap: Record<string, React.ComponentType<{ className?: string; style?: 
 
 interface DeepDiveProps {
   label?: string
-  title: string
-  description?: string
+  title: React.ReactNode
+  description?: React.ReactNode
   items: ApproachItem[]
   motionDNA?: MotionDNA
 }

@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { ServiceHero } from "@/components/services/service-hero"
@@ -13,6 +14,18 @@ import { LogoTicker } from "@/components/logo-ticker"
 import { BeforeAfterSlider } from "@/components/services/motion/before-after-slider"
 import { getMotionDNA } from "@/components/services/motion/motion-config"
 import type { ServiceCategory, SubService } from "@/lib/services-data/types"
+
+function linkDarkFunnel(text: string) {
+  if (!text.includes("dark funnel")) return text
+  const [before, after] = text.split("dark funnel")
+  return <>{before}<Link href="/#problem-section" className="font-semibold text-[#0dcfcf] hover:underline">dark funnel</Link>{after}</>
+}
+
+function gradientLastWord(text: string) {
+  const lastSpace = text.lastIndexOf(" ")
+  if (lastSpace === -1) return <span className="gradient-text">{text}</span>
+  return <>{text.slice(0, lastSpace)}{" "}<span className="gradient-text">{text.slice(lastSpace + 1)}</span></>
+}
 
 interface ServicePageClientProps {
   category: ServiceCategory
@@ -28,9 +41,9 @@ const CRM_SLIDER_DATA: Record<string, {
   after: string[]
 }> = {
   "hubspot-services": {
-    title: "Messy CRM vs. Revenue Engine",
-    beforeTitle: "Before: CRM Chaos",
-    afterTitle: "After: HubSpot Optimized",
+    title: "Messy CRM vs. revenue engine",
+    beforeTitle: "Before: CRM chaos",
+    afterTitle: "After: HubSpot optimized",
     before: [
       "Reps logging activities in spreadsheets",
       "Leads sitting in a queue for days",
@@ -49,9 +62,9 @@ const CRM_SLIDER_DATA: Record<string, {
     ],
   },
   "clay-services": {
-    title: "Manual Prospecting vs. Waterfall Enrichment",
-    beforeTitle: "Before: Manual Research",
-    afterTitle: "After: Clay Enrichment",
+    title: "Manual prospecting vs. waterfall enrichment",
+    beforeTitle: "Before: manual research",
+    afterTitle: "After: Clay enrichment",
     before: [
       "SDRs spending 2 hours per prospect on research",
       "One data provider with 40% coverage gaps",
@@ -70,9 +83,9 @@ const CRM_SLIDER_DATA: Record<string, {
     ],
   },
   "apollo-services": {
-    title: "Cold Blasting vs. Signal-Led Outbound",
-    beforeTitle: "Before: Spray & Pray",
-    afterTitle: "After: Apollo Precision",
+    title: "Cold blasting vs. signal-led outbound",
+    beforeTitle: "Before: spray & pray",
+    afterTitle: "After: Apollo precision",
     before: [
       "Blasting 5,000 emails with 1% reply rate",
       "No domain warming or deliverability strategy",
@@ -91,14 +104,14 @@ const CRM_SLIDER_DATA: Record<string, {
     ],
   },
   "rb2b-services": {
-    title: "Anonymous Traffic vs. Identified Pipeline",
-    beforeTitle: "Before: Invisible Visitors",
-    afterTitle: "After: RB2B Identification",
+    title: "Anonymous traffic vs. identified pipeline",
+    beforeTitle: "Before: invisible visitors",
+    afterTitle: "After: RB2B identification",
     before: [
       "98% of website visitors leave without a trace",
       "Only form-fillers make it into your CRM",
       "No idea who is reading your pricing page",
-      "Sales follows up days after the visit — if at all",
+      "Sales follows up days after the visit, if at all",
       "Marketing spends on traffic with no conversion path",
       "High-intent visitors lost to competitor follow-up",
     ],
@@ -112,9 +125,9 @@ const CRM_SLIDER_DATA: Record<string, {
     ],
   },
   "6sense-services": {
-    title: "Guessing vs. Predictive Intelligence",
-    beforeTitle: "Before: Guesswork",
-    afterTitle: "After: 6sense Precision",
+    title: "Guessing vs. predictive intelligence",
+    beforeTitle: "Before: guesswork",
+    afterTitle: "After: 6sense precision",
     before: [
       "Targeting your entire TAM with the same message",
       "No visibility into which accounts are in-market",
@@ -129,7 +142,7 @@ const CRM_SLIDER_DATA: Record<string, {
       "Ad spend concentrated on Decision-stage accounts",
       "Sales prioritizing accounts with surging intent",
       "Unified view of account journey across all channels",
-      "Engaging buyers during research — before competitors",
+      "Engaging buyers during research, before competitors",
     ],
   },
 }
@@ -150,21 +163,21 @@ export function ServicePageClient({ category, service }: ServicePageClientProps)
             { label: service.title, href: `/services/${category.slug}/${service.slug}` },
           ]}
           title={service.title}
-          subtitle={service.opening}
+          subtitle={linkDarkFunnel(service.opening)}
           showCTA={false}
           variant="service"
         />
 
-        {/* III. Proof of Concept — Metrics */}
+        {/* III. Proof of concept, metrics */}
         <ProofSection
           metrics={service.metrics}
-          title="The Numbers Speak"
+          title={gradientLastWord("The numbers speak")}
           description="Real impact, measured by the metrics that matter."
         />
 
-        {/* II. Deep Dive — The "What" and "How" */}
+        {/* II. Deep dive, the "what" and "how" */}
         <DeepDive
-          title={`Our Approach to ${service.title}`}
+          title={gradientLastWord(`Our approach to ${service.title}`)}
           items={service.approach}
           motionDNA={motionDNA}
         />
@@ -183,21 +196,21 @@ export function ServicePageClient({ category, service }: ServicePageClientProps)
         {/* Philosophy flip cards */}
         <PhilosophySection cards={service.philosophy} />
 
-        {/* IV. Workflow Timeline — The "How It Works" */}
+        {/* IV. Workflow timeline, the "how it works" */}
         <WorkflowTimeline
           steps={service.workflow}
-          title="Strategy & Execution"
-          description="From audit to activation — here's how we deliver results."
+          title={gradientLastWord("Strategy & execution")}
+          description="From audit to activation, here's how we deliver results."
         />
 
-        {/* Social Proof — Logo Marquee */}
+        {/* Social proof, logo marquee */}
         <LogoTicker />
 
         {/* FAQ */}
         <ServiceFAQ faqs={service.faqs} />
 
         {/* V. Final CTA */}
-        <ServiceCTA title={service.ctaTitle} description={service.ctaDescription} />
+        <ServiceCTA title={gradientLastWord(service.ctaTitle)} description={linkDarkFunnel(service.ctaDescription)} />
       </main>
       <Footer />
     </>

@@ -39,7 +39,7 @@ export function FinalCTA() {
         >
           <Sparkles className="h-4 w-4 text-[#0dcfcf]" />
           <span className="text-sm font-medium text-[#64748B]">
-            Transform Your GTM Strategy
+            Transform your GTM strategy
           </span>
         </motion.div>
 
@@ -51,8 +51,8 @@ export function FinalCTA() {
           transition={{ duration: 0.6, ease: "easeOut" }}
           className="mb-6 text-4xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-5xl lg:text-6xl"
         >
-          Ready to Scale{" "}
-          <span className="gradient-text">Smarter</span>?
+          Ready to scale{" "}
+          <span className="gradient-text">smarter</span>?
         </motion.h2>
 
         {/* Subtext */}
@@ -77,13 +77,13 @@ export function FinalCTA() {
           <CTAButton
             href="/Contact"
             icon={<Phone className="h-5 w-5" />}
-            label="Book a Discovery Call"
+            label="Book a discovery call"
             primary
           />
           <CTAButton
             href="/company-profile/optin"
             icon={<FileText className="h-5 w-5" />}
-            label="Download Company Profile"
+            label="Download company profile"
           />
         </motion.div>
 

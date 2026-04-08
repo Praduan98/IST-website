@@ -3,23 +3,24 @@
 import { motion, AnimatePresence, useMotionValue, useSpring } from "framer-motion"
 import { useState } from "react"
 import Image from "next/image"
+import Link from "next/link"
 
 // ─── Focus category data ────────────────────────────────────────────
 const FOCUS_DATA = {
   intent: {
-    title: "Intent Signals",
+    title: "Intent signals",
     color: "#0dcfcf",
   },
   automation: {
-    title: "Smart Automation",
+    title: "Smart automation",
     color: "#0a9a9a",
   },
   revops: {
-    title: "RevOps & Pipeline",
+    title: "RevOps & pipeline",
     color: "#5de0e0",
   },
   ai: {
-    title: "AI Agents",
+    title: "AI agents",
     color: "#0F172A",
   },
 } as const
@@ -56,7 +57,7 @@ export function ValueProposition() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-white px-6 py-24 lg:py-32">
+    <section id="problem-section" className="relative overflow-hidden bg-white px-6 py-24 lg:py-32">
       {/* Background glow */}
       <div className="glow-orb absolute -left-40 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.06] blur-[150px]" />
 
@@ -85,28 +86,18 @@ export function ValueProposition() {
               THE PROBLEM
             </span>
             <h2 className="mb-6 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">
-              Turning Hidden Signals Into{" "}
-              <span className="gradient-text">Growth</span>
+              Turning hidden signals into{" "}
+              <span className="gradient-text">growth</span>
             </h2>
             <p className="mb-8 text-base leading-relaxed text-[#64748B] lg:text-lg">
               Traditional CRMs show only surface-level engagement, while the real
-              growth signals hide in the dark funnel. AI agents and automation turn
+              growth signals hide in the{" "}
+              <Link href="/#problem-section" className="font-semibold text-[#0dcfcf] hover:underline">dark funnel</Link>.
+              AI agents and automation turn
               those signals into revenue, and smart integrations power a
               predictable, scalable growth engine.
             </p>
 
-            {/* Focus Pills */}
-            <div className="grid grid-cols-2 gap-3">
-              {(Object.keys(FOCUS_DATA) as FocusKey[]).map((key) => (
-                <FocusPill
-                  key={key}
-                  color={FOCUS_DATA[key].color}
-                  label={FOCUS_DATA[key].title}
-                  isActive={activeFocus === key}
-                  onClick={() => handlePillClick(key)}
-                />
-              ))}
-            </div>
           </motion.div>
         </div>
       </div>
@@ -170,7 +161,7 @@ function IcebergDiagram({ activeFocus }: { activeFocus: FocusKey | null }) {
         >
           <Image
             src={IMAGE_SRC}
-            alt="Dark Funnel Visualization"
+            alt="Dark funnel visualization"
             fill
             className="rounded-xl object-contain"
             priority

@@ -94,7 +94,7 @@ function HeroSection() {
         >
           <Mail className="h-4 w-4 text-[#0dcfcf]" />
           <span className="text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">
-            You&apos;re Subscribed
+            You&apos;re subscribed
           </span>
         </motion.div>
 
@@ -103,10 +103,10 @@ function HeroSection() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mb-5 text-[2.4rem] font-semibold leading-[1.1] tracking-tight text-[#0F172A] sm:text-5xl"
+          className="mb-5 whitespace-nowrap text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.25rem]"
         >
-          Thank You for{" "}
-          <span className="gradient-text">Subscribing</span>
+          Thank you for{" "}
+          <span className="gradient-text">subscribing</span>
         </motion.h1>
 
         {/* Subheadline */}
@@ -132,14 +132,14 @@ function HeroSection() {
             href="/"
             className="shimmer inline-flex items-center gap-2 rounded-xl bg-[#0dcfcf] px-7 py-3.5 text-base font-semibold text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a] hover:shadow-lg hover:shadow-[#0dcfcf]/25"
           >
-            Explore Insightstap
+            Explore InsightsTap
             <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             href="/Contact"
             className="inline-flex items-center gap-2 rounded-xl border border-[#E2E8F0] bg-white px-7 py-3.5 text-base font-medium text-[#0F172A] transition-all hover:border-[#0dcfcf]/40 hover:bg-[#0dcfcf]/5"
           >
-            Book a Discovery Call
+            Book a discovery call
           </Link>
         </motion.div>
 

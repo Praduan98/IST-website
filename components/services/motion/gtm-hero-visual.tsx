@@ -9,7 +9,7 @@ import { useReducedMotion } from "./use-reduced-motion"
 
 const NODES = [
   { id: "signals", label: "Signals", x: 80, y: 40, blur: true },
-  { id: "dark", label: "Dark Funnel", x: 200, y: 100, blur: true },
+  { id: "dark", label: "Dark funnel", x: 200, y: 100, blur: true },
   { id: "intent", label: "Intent", x: 140, y: 170, blur: true },
   { id: "engine", label: "Intelligence", x: 320, y: 120, blur: false },
   { id: "pipeline", label: "Pipeline", x: 440, y: 80, blur: false },
@@ -40,7 +40,7 @@ export function GtmHeroVisual() {
     <div ref={containerRef} className="pointer-events-none absolute inset-0 overflow-hidden">
       <svg
         viewBox="0 0 600 220"
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[700px] h-auto opacity-40"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[700px] h-auto opacity-70"
         fill="none"
       >
         {/* Connection lines that draw on scroll */}
@@ -54,7 +54,7 @@ export function GtmHeroVisual() {
                 y1={from.y}
                 x2={to.x}
                 y2={to.y}
-                stroke="#E2E8F0"
+                stroke="#1E293B"
                 strokeWidth="1.5"
               />
               <motion.line
@@ -80,8 +80,8 @@ export function GtmHeroVisual() {
               cx={node.x}
               cy={node.y}
               r="22"
-              fill={node.blur ? "#F8FAFC" : "white"}
-              stroke={node.blur ? "#CBD5E1" : "#0dcfcf"}
+              fill="rgba(255,255,255,0.98)"
+              stroke={node.blur ? "rgba(0,201,177,0.2)" : "#0dcfcf"}
               strokeWidth="1.5"
               initial={{ filter: node.blur ? "blur(6px)" : "blur(0px)", opacity: 0 }}
               animate={{ filter: "blur(0px)", opacity: 1 }}
@@ -106,7 +106,7 @@ export function GtmHeroVisual() {
               y={node.y + 1}
               textAnchor="middle"
               dominantBaseline="middle"
-              className="fill-[#64748B] text-[8px] font-medium"
+              className="fill-[#0F172A] text-[8px] font-medium"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.8 + i * 0.15 }}

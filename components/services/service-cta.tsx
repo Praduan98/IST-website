@@ -5,8 +5,8 @@ import Link from "next/link"
 import { FloatingOrbs } from "./atmospheric-orbs"
 
 interface ServiceCTAProps {
-  title: string
-  description: string
+  title: React.ReactNode
+  description: React.ReactNode
   primaryLabel?: string
   primaryHref?: string
   brochureHref?: string
@@ -16,31 +16,24 @@ interface ServiceCTAProps {
 export function ServiceCTA({
   title,
   description,
-  primaryLabel = "Book a Discovery Call",
+  primaryLabel = "Book a discovery call",
   primaryHref = "/Contact",
   brochureHref = "/services/ai-gtm-strategy/optin",
-  brochureLabel = "Download Company Profile",
+  brochureLabel = "Download company profile",
 }: ServiceCTAProps) {
   return (
     <section className="relative overflow-hidden bg-[#0F172A] px-6 py-20 lg:py-28">
       <FloatingOrbs />
       {/* Decorative elements */}
-      <div className="absolute left-0 top-0 h-full w-full">
-        <div className="glow-orb absolute left-1/4 top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.08] blur-[150px]" />
-        <div
-          className="glow-orb absolute right-1/4 top-1/3 h-[300px] w-[300px] rounded-full bg-[#0dcfcf]/[0.06] blur-[120px]"
-          style={{ animationDelay: "-3s" }}
-        />
-      </div>
-
-      {/* Dot grid */}
       <div
-        className="absolute inset-0 opacity-20"
+        className="absolute inset-0"
         style={{
           backgroundImage: "radial-gradient(circle, rgba(13,207,207,0.3) 1px, transparent 1px)",
           backgroundSize: "32px 32px",
         }}
       />
+      <div className="glow-orb absolute left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.08] blur-[150px]" />
+      <div className="glow-orb absolute right-[20%] top-2/3 h-[350px] w-[350px] rounded-full bg-[#0dcfcf]/[0.06] blur-[120px]" style={{ animationDelay: "-4s" }} />
 
       <div className="relative z-10 mx-auto w-[min(92vw,900px)] text-center">
         <motion.div
@@ -70,7 +63,7 @@ export function ServiceCTA({
             </Link>
             <Link
               href={brochureHref}
-              className="h-12 rounded-lg border border-white/20 bg-transparent px-8 text-base font-medium text-white transition-all hover:border-white/40 hover:bg-white/10 inline-flex items-center justify-center"
+              className="h-12 rounded-lg border border-white/20 px-8 text-base font-medium text-white/90 transition-all hover:border-white/40 hover:bg-white/10 inline-flex items-center justify-center"
             >
               {brochureLabel}
             </Link>

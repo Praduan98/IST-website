@@ -44,16 +44,16 @@ function HeroSection({ onScroll }: { onScroll: () => void }) {
       <div className="relative z-10 mx-auto w-[min(92vw,1600px)] px-6 text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#0dcfcf]/30 bg-[#0dcfcf]/10 px-4 py-2 glow-border">
           <Sparkles className="h-4 w-4 text-[#0dcfcf]" />
-          <span className="text-xs font-medium uppercase tracking-wider text-[#64748B]">Company Profile</span>
+          <span className="text-xs font-medium uppercase tracking-wider text-[#64748B]">Company profile</span>
         </motion.div>
         <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }} className="mb-5 text-4xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-5xl md:text-6xl lg:text-[4.5rem]">
-          Get the InsightsTap{" "}<span className="gradient-text">Company Profile</span>
+          Get the InsightsTap{" "}<span className="gradient-text">company profile</span>
         </motion.h1>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.6 }} className="mx-auto mb-14 max-w-[660px] text-base leading-relaxed text-[#64748B] sm:text-lg">
-          Learn how we help B2B companies turn buyer signals into pipeline with AI-powered GTM systems, CRM automation, and performance marketing — all in one profile.
+          Learn how we help B2B companies turn buyer signals into pipeline with AI-powered GTM systems, CRM automation, and performance marketing, all in one profile.
         </motion.p>
         <motion.button initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.9 }} onClick={onScroll} className="group mx-auto flex flex-col items-center gap-2 cursor-pointer">
-          <span className="text-[11px] font-medium uppercase tracking-widest text-[#94A3B8] transition-colors group-hover:text-[#0dcfcf]">Scroll to Form</span>
+          <span className="text-[11px] font-medium uppercase tracking-widest text-[#94A3B8] transition-colors group-hover:text-[#0dcfcf]">Scroll to form</span>
           <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
             <ChevronDown className="h-5 w-5 text-[#CBD5E1] transition-colors group-hover:text-[#0dcfcf]" />
           </motion.div>
@@ -115,17 +115,17 @@ function FormSection() {
       <div className="glow-orb absolute right-[10%] top-[30%] h-[400px] w-[400px] rounded-full bg-[#0dcfcf]/[0.04] blur-[140px]" style={{ animationDelay: "-3s" }} />
       <div className="relative z-10 mx-auto w-[min(92vw,680px)]">
         <motion.div initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.5 }} className="mb-10 text-center">
-          <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">Get Access</span>
-          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl">Get the <span className="gradient-text">Company Profile</span></h2>
-          <p className="mx-auto max-w-[480px] text-base leading-relaxed text-[#64748B]">Enter your details to receive our latest Company Profile on the next page.</p>
+          <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">Get access</span>
+          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl">Get the <span className="gradient-text">company profile</span></h2>
+          <p className="mx-auto max-w-[480px] text-base leading-relaxed text-[#64748B]">Enter your details to receive our latest company profile on the next page.</p>
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.6, delay: 0.15 }} animate={shaking ? { x: [0, -8, 8, -6, 6, -3, 3, 0] } : { x: 0 }} className="relative rounded-2xl border border-[#E2E8F0] bg-white p-8 lg:p-10 overflow-hidden" style={{ boxShadow: formRevealed ? "0 0 40px rgba(13,207,207,0.12), 0 25px 50px rgba(0,0,0,0.06)" : "0 25px 50px rgba(0,0,0,0.06)", transition: "box-shadow 0.8s ease" }}>
           <motion.div className="absolute left-0 top-0 h-[3px] bg-gradient-to-r from-[#0dcfcf] to-[#0a9a9a]" initial={{ width: "0%" }} animate={formRevealed ? { width: "100%" } : { width: "0%" }} transition={{ duration: 1.2, ease: [0.25, 0.46, 0.45, 0.94] }} />
           {formRevealed && <motion.div className="absolute -inset-px rounded-2xl pointer-events-none" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }} style={{ background: "linear-gradient(180deg, rgba(13,207,207,0.15) 0%, transparent 30%)" }} />}
           <form onSubmit={handleSubmit} noValidate className="relative space-y-5">
-            <RevealField revealed={formRevealed} delay={0}><label className="mb-1.5 block text-sm font-medium text-[#0F172A]">Full Name</label><div className="relative"><span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8]"><User className="h-4 w-4" /></span><input type="text" name="fullName" value={form.fullName} onChange={handleChange} placeholder="Jane Smith" className={inputCls} /></div></RevealField>
+            <RevealField revealed={formRevealed} delay={0}><label className="mb-1.5 block text-sm font-medium text-[#0F172A]">Full name</label><div className="relative"><span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8]"><User className="h-4 w-4" /></span><input type="text" name="fullName" value={form.fullName} onChange={handleChange} placeholder="Jane Smith" className={inputCls} /></div></RevealField>
             <RevealField revealed={formRevealed} delay={0.1}><label className="mb-1.5 block text-sm font-medium text-[#0F172A]">Email <span className="text-[#0dcfcf]">*</span></label><div className="relative"><span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8]"><Mail className="h-4 w-4" /></span><input type="email" name="email" value={form.email} onChange={handleChange} placeholder="jane@company.com" required className={inputCls} /></div></RevealField>
-            <RevealField revealed={formRevealed} delay={0.2}><label className="mb-1.5 block text-sm font-medium text-[#0F172A]">Phone Number</label><div className="relative"><span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8]"><Phone className="h-4 w-4" /></span><input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="+1 (555) 000-0000" className={inputCls} /></div></RevealField>
+            <RevealField revealed={formRevealed} delay={0.2}><label className="mb-1.5 block text-sm font-medium text-[#0F172A]">Phone number</label><div className="relative"><span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8]"><Phone className="h-4 w-4" /></span><input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="+1 (555) 000-0000" className={inputCls} /></div></RevealField>
             <RevealField revealed={formRevealed} delay={0.3}><label className="mb-1.5 block text-sm font-medium text-[#0F172A]">Write us your comment</label><div className="relative"><span className="pointer-events-none absolute left-3 top-3.5 text-[#94A3B8]"><MessageSquare className="h-4 w-4" /></span><textarea name="message" value={form.message} onChange={handleChange} placeholder="Tell us what you're looking for..." rows={4} className={`${inputCls} resize-none`} /></div></RevealField>
             <div className="absolute -left-[9999px]" aria-hidden="true"><input type="text" name="website_url_hp" tabIndex={-1} autoComplete="off" value={honeypot} onChange={e => setHoneypot(e.target.value)} /></div>
             {status === "error" && <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} className="rounded-lg bg-red-50 border border-red-100 px-4 py-3 text-sm text-red-600">The submission could not be completed. Please try again or email us at <a href="mailto:hello@insightstap.com" className="font-medium underline">hello@insightstap.com</a>.</motion.div>}

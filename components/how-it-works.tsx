@@ -8,28 +8,28 @@ const steps = [
   {
     number: "01",
     icon: Zap,
-    title: "Capture Signals",
+    title: "Capture signals",
     description: "We tap into intent data, job changes, funding rounds, and website visits.",
     details: ["Job monitoring", "Funding alerts", "Visitor tracking", "Signal aggregation"],
   },
   {
     number: "02",
     icon: Brain,
-    title: "AI Processing",
+    title: "AI processing",
     description: "Our AI agents analyze signals in real-time and personalize messaging.",
     details: ["Lead scoring", "Personalization", "Pattern matching", "Analytics"],
   },
   {
     number: "03",
     icon: Workflow,
-    title: "Smart Automation",
+    title: "Smart automation",
     description: "Automated workflows trigger the right action at the right time.",
     details: ["Multi-channel", "CRM sync", "Ad targeting", "Sales alerts"],
   },
   {
     number: "04",
     icon: TrendingUp,
-    title: "Scale Revenue",
+    title: "Scale revenue",
     description: "Watch your pipeline grow with higher-quality leads and faster conversions.",
     details: ["Pipeline speed", "CAC reduction", "Revenue growth", "Predictable scale"],
   },
@@ -110,7 +110,7 @@ export function HowItWorks() {
             THE PROCESS
           </span>
           <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl">
-            How We <span className="gradient-text">Supercharge</span> Your Growth
+            How we <span className="gradient-text">supercharge</span> your growth
           </h2>
           <p className="mx-auto max-w-[600px] text-sm leading-relaxed text-[#64748B] lg:text-base">
             Our proven 4-step process transforms buyer signals into booked meetings and revenue.

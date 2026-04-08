@@ -22,49 +22,49 @@ import { LogoTicker } from "@/components/logo-ticker"
 
 // ─── Data ────────────────────────────────────────────────────────────
 const teamValues = [
-  { icon: Shield, title: "Own It", description: "Take ownership of your work, your outcomes, and your growth. We trust our team to set the bar high and clear it." },
-  { icon: Rocket, title: "Ship It", description: "Ideas are cheap. Execution matters. We value people who move fast, iterate, and get things into the world." },
-  { icon: Eye, title: "Measure It", description: "Every system we build is measured by its impact on pipeline and revenue. We apply the same standard to ourselves." },
-  { icon: Coffee, title: "Have Fun", description: "We genuinely enjoy what we do. Building AI agents, engineering signal systems — this is exciting work." },
+  { icon: Shield, title: "Own it", description: "Take ownership of your work, your outcomes, and your growth. We trust our team to set the bar high and clear it." },
+  { icon: Rocket, title: "Ship it", description: "Ideas are cheap. Execution matters. We value people who move fast, iterate, and get things into the world." },
+  { icon: Eye, title: "Measure it", description: "Every system we build is measured by its impact on pipeline and revenue. We apply the same standard to ourselves." },
+  { icon: Coffee, title: "Have fun", description: "We genuinely enjoy what we do. Building AI agents, engineering signal systems, this is exciting work." },
 ]
 
 const benefits = [
-  { icon: TrendingUp, title: "Competitive Compensation", description: "Salaries that reflect your skills, impact, and meet market standards." },
-  { icon: Heart, title: "Health Insurance", description: "Comprehensive coverage to support your well-being and peace of mind." },
-  { icon: Shield, title: "PF Benefits", description: "Structured financial security to help you plan for the future." },
-  { icon: Award, title: "Performance Bonuses", description: "Your contributions don't go unnoticed — earn rewards based on performance." },
-  { icon: GraduationCap, title: "Learning & Development", description: "Dedicated budgets and opportunities to upskill, learn, and grow continuously." },
-  { icon: Users, title: "Team Events", description: "Regular team hangouts, knowledge-sharing sessions, and celebration of milestones." },
+  { icon: TrendingUp, title: "Competitive compensation", description: "Salaries that reflect your skills, impact, and meet market standards." },
+  { icon: Heart, title: "Health insurance", description: "Comprehensive coverage to support your well-being and peace of mind." },
+  { icon: Shield, title: "PF benefits", description: "Structured financial security to help you plan for the future." },
+  { icon: Award, title: "Performance bonuses", description: "Your contributions don't go unnoticed, earn rewards based on performance." },
+  { icon: GraduationCap, title: "Learning & development", description: "Dedicated budgets and opportunities to upskill, learn, and grow continuously." },
+  { icon: Users, title: "Team events", description: "Regular team hangouts, knowledge-sharing sessions, and celebration of milestones." },
 ]
 
 const departments = [
   { icon: Code, title: "Engineering", description: "Build AI agents, LLM pipelines, and GTM infrastructure that powers real revenue.", color: "#0dcfcf", roles: 2 },
-  { icon: Palette, title: "Creative & Design", description: "Craft premium interfaces, campaigns, and brand experiences for B2B.", color: "#0dcfcf", roles: 1 },
-  { icon: TrendingUp, title: "Growth & Operations", description: "Run performance ads, ABM campaigns, and pipeline analytics at scale.", color: "#0dcfcf", roles: 1 },
+  { icon: Palette, title: "Creative & design", description: "Craft premium interfaces, campaigns, and brand experiences for B2B.", color: "#0dcfcf", roles: 1 },
+  { icon: TrendingUp, title: "Growth & operations", description: "Run performance ads, ABM campaigns, and pipeline analytics at scale.", color: "#0dcfcf", roles: 1 },
 ]
 
 const openRoles = [
-  { title: "AI Developer", level: "Fresher / 0–1 Year", type: "Full-Time", department: "Engineering", responsibilities: ["Develop AI features using LLM APIs (OpenAI/Claude/Llama)", "Build AI workflows — chatbots, automation, data extraction", "Develop backend APIs (Python/JS) and integrations", "Work on prompt engineering and structured outputs"] },
-  { title: "Senior AI Developer", level: "3+ Years", type: "Full-Time", department: "Engineering", responsibilities: ["Own end-to-end AI/LLM feature development", "Build AI agents with tool calling and multi-step workflows", "Implement RAG pipelines and CRM integrations", "Mentor junior developers and enforce engineering standards"] },
-  { title: "PPC Expert / Google Ads Specialist", level: "2–3 Years", type: "Full-Time", department: "Growth & Marketing", responsibilities: ["Manage Google Ads campaigns and improve CTR, CPA, ROAS", "Set up GA4 conversion tracking and attribution", "Execute keyword research and bidding strategies", "Translate data insights into campaign optimizations"] },
-  { title: "Junior Content Writer", level: "0–1 Year", type: "Full-Time", department: "Creative & Content", responsibilities: ["Write LinkedIn posts, articles, scripts, and newsletters", "Create thought leadership content for founders", "Draft ghostwritten GTM and AI-related content", "Support content planning and publishing workflows"] },
+  { title: "AI developer", level: "Fresher / 0–1 year", type: "Full-time", department: "Engineering", responsibilities: ["Develop AI features using LLM APIs (OpenAI/Claude/Llama)", "Build AI workflows, chatbots, automation, data extraction", "Develop backend APIs (Python/JS) and integrations", "Work on prompt engineering and structured outputs"] },
+  { title: "Senior AI developer", level: "3+ years", type: "Full-time", department: "Engineering", responsibilities: ["Own end-to-end AI/LLM feature development", "Build AI agents with tool calling and multi-step workflows", "Implement RAG pipelines and CRM integrations", "Mentor junior developers and enforce engineering standards"] },
+  { title: "PPC expert / Google Ads specialist", level: "2–3 years", type: "Full-time", department: "Growth & marketing", responsibilities: ["Manage Google Ads campaigns and improve CTR, CPA, ROAS", "Set up GA4 conversion tracking and attribution", "Execute keyword research and bidding strategies", "Translate data insights into campaign optimizations"] },
+  { title: "Junior content writer", level: "0–1 year", type: "Full-time", department: "Creative & content", responsibilities: ["Write LinkedIn posts, articles, scripts, and newsletters", "Create thought leadership content for founders", "Draft ghostwritten GTM and AI-related content", "Support content planning and publishing workflows"] },
 ]
 
 const hiringSteps = [
   { icon: Send, title: "Application", description: "Submit your resume with a brief note on why you'd like to join." },
   { icon: FileText, title: "Review", description: "Our team reviews your experience and fit. We respond within 3–5 days." },
-  { icon: Users, title: "Initial Screen", description: "A 30-minute two-way conversation with our People & Culture team." },
-  { icon: Code, title: "Skills Assessment", description: "A practical, role-specific evaluation powered by XOBIN." },
-  { icon: UserCheck, title: "Final Interview", description: "Discussion with the hiring manager and potential team members." },
+  { icon: Users, title: "Initial screen", description: "A 30-minute two-way conversation with our people & culture team." },
+  { icon: Code, title: "Skills assessment", description: "A practical, role-specific evaluation powered by XOBIN." },
+  { icon: UserCheck, title: "Final interview", description: "Discussion with the hiring manager and potential team members." },
   { icon: Shield, title: "Verification", description: "Documentation and background verification for a smooth onboarding." },
-  { icon: CheckCircle, title: "Offer & Onboarding", description: "Clear offer within 2–3 days. Structured first-week plan and buddy system." },
+  { icon: CheckCircle, title: "Offer & onboarding", description: "Clear offer within 2–3 days. Structured first-week plan and buddy system." },
 ]
 
 const faqs = [
-  { q: "Can I apply for multiple roles at the same time?", a: "Yes — we recommend limiting to 2–3 roles. After the initial screen, our team can help align you with the best opportunity." },
+  { q: "Can I apply for multiple roles at the same time?", a: "Yes, we recommend limiting to 2–3 roles. After the initial screen, our team can help align you with the best opportunity." },
   { q: "What does the XOBIN assessment look like?", a: "It's a practical, role-specific skills evaluation. Engineering roles get technical challenges. Strategy roles get GTM scenarios. It reflects real work, not trick questions." },
   { q: "How long does the hiring process take?", a: "Most processes complete within 2 weeks from initial screen to offer. We move quickly when we find the right person." },
-  { q: "Do you offer internships?", a: "Yes — paid internships running 3–6 months in Engineering, GTM Strategy, Marketing, and Design." },
+  { q: "Do you offer internships?", a: "Yes, paid internships running 3–6 months in engineering, GTM strategy, marketing, and design." },
   { q: "What if I don't see a role that fits?", a: "Send your resume and a note to careers@insightstap.com. Tell us what you'd build. We're always open to exceptional people." },
 ]
 
@@ -158,53 +158,55 @@ export default function CareerPage() {
 // ═══════════════════════════════════════════════════════════════════════
 function HeroSection() {
   return (
-    <section className="relative flex min-h-[85vh] flex-col items-center justify-center overflow-hidden bg-[#0a0e1a] pt-20">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0e1a] via-[#0d1526] to-[#0a0e1a]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(13,207,207,0.15)_0%,_transparent_60%)]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom_right,_rgba(13,207,207,0.08)_0%,_transparent_50%)]" />
+    <section className="relative flex min-h-[85vh] flex-col items-center justify-center overflow-hidden bg-white pt-20">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#F8FAFC] via-white to-[#F8FAFC]" />
       <FloatingOrbs />
-
-      {/* Grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-
-      {/* Magnetic orbs — react to mouse movement */}
-      <div className="glow-orb absolute left-[15%] top-[30%] h-[280px] w-[280px] rounded-full bg-[#0dcfcf]/[0.06] blur-[140px]" />
-      <div className="glow-orb absolute left-[75%] top-[60%] h-[220px] w-[220px] rounded-full bg-[#0dcfcf]/[0.04] blur-[110px]" style={{ animationDelay: "-2s" }} />
-      <div className="glow-orb absolute left-[50%] top-[80%] h-[180px] w-[180px] rounded-full bg-[#0dcfcf]/[0.05] blur-[90px]" style={{ animationDelay: "-4s" }} />
+      <div className="dot-grid absolute inset-0" />
+      <div className="glow-orb absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.06] blur-[150px]" />
 
       <div className="relative z-10 mx-auto max-w-[1280px] px-6 text-center">
-        <motion.h1 className="mb-6 text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.2 }}>
-          <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="block">Build the Future of</motion.span>
-          <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.45 }} className="block">
-            <span className="text-[#0dcfcf]">B2B Revenue</span>. From Anywhere.
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#0dcfcf]/30 bg-[#0dcfcf]/10 px-4 py-2 glow-border"
+        >
+          <Sparkles className="h-4 w-4 text-[#0dcfcf]" />
+          <span className="text-xs font-medium uppercase tracking-wider text-[#64748B]">
+            Join the team
+          </span>
+        </motion.div>
+
+        <motion.h1 className="mb-5 text-4xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-5xl md:text-6xl lg:text-[4.5rem]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.25 }}>
+          <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.35 }} className="block">Build the future of</motion.span>
+          <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }} className="block">
+            <span className="gradient-text">B2B revenue</span>. From anywhere.
           </motion.span>
         </motion.h1>
 
         <motion.div className="mx-auto mb-8 h-1 w-16 rounded-full bg-[#0dcfcf]" initial={{ width: 0, opacity: 0 }} animate={{ width: 64, opacity: 1 }} transition={{ duration: 0.6, delay: 0.7 }} />
 
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.8 }} className="mx-auto mb-10 max-w-[700px] text-base leading-relaxed text-white/70 sm:text-lg">
-          {"We're a team of GTM engineers, strategists, designers, and marketers building AI-powered systems that help B2B companies grow revenue. If you want to ship systems that actually move pipelines — you belong here."}
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.8 }} className="mx-auto mb-10 max-w-[700px] text-base leading-relaxed text-[#64748B] sm:text-lg">
+          {"We're a team of GTM engineers, strategists, designers, and marketers building AI-powered systems that help B2B companies grow revenue. If you want to ship systems that actually move pipelines, you belong here."}
         </motion.p>
 
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 1 }} className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 1 }} className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:flex-wrap">
           <Link href="#open-roles" className="shimmer inline-flex h-12 items-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a]">
-            View Open Positions <ArrowRight className="h-4 w-4" />
+            View open positions <ArrowRight className="h-4 w-4" />
           </Link>
-          <Link href="/careers/how-we-work" className="inline-flex h-12 items-center gap-2 rounded-lg border border-white/20 px-8 text-base font-medium text-white transition-all hover:border-white/40 hover:bg-white/5">
-            See How We Work
+          <Link href="/careers/how-we-work" className="inline-flex h-12 items-center gap-2 rounded-lg border border-[#E2E8F0] bg-white px-8 text-base font-medium text-[#0F172A] transition-all hover:border-[#0dcfcf]/50 hover:bg-[#0dcfcf]/5">
+            See how we work
           </Link>
+          <a href="mailto:career@insightstap.com" className="group inline-flex h-12 items-center gap-2 rounded-lg border border-[#E2E8F0] bg-white px-8 text-base font-medium text-[#0F172A] shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#0dcfcf]/50 hover:bg-[#0dcfcf]/5 hover:text-[#0dcfcf] hover:shadow-md hover:shadow-[#0dcfcf]/10">
+            <Mail className="h-4 w-4 text-[#0dcfcf] transition-transform duration-300 group-hover:scale-110" />
+            Submit your resume
+          </a>
         </motion.div>
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 1.3 }} className="mt-16 flex flex-col items-center gap-2">
-          <span className="text-[11px] font-medium uppercase tracking-widest text-white/40">Scroll to Explore</span>
+          <span className="text-[11px] font-medium uppercase tracking-widest text-[#94A3B8]">Scroll to explore</span>
           <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}>
-            <ChevronDown className="h-5 w-5 text-white/30" />
+            <ChevronDown className="h-5 w-5 text-[#CBD5E1]" />
           </motion.div>
         </motion.div>
       </div>
@@ -233,9 +235,9 @@ function CultureSection() {
         <TiltReveal from="left">
           <div className="mb-16 max-w-[720px]">
             <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">Why InsightsTap</span>
-            <h2 className="mb-6 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">Company Culture</h2>
+            <h2 className="mb-6 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">Company <span className="gradient-text">culture</span></h2>
             <p className="text-base leading-relaxed text-[#64748B] lg:text-lg">
-              {"InsightsTap isn't a traditional agency. We engineer revenue systems — signal detection pipelines, AI-powered outreach, CRM automation, and full-funnel analytics. We're remote-first and globally distributed. Clear goals, fast feedback loops, direct access to leadership, and the autonomy to do your best work."}
+              {"InsightsTap isn't a traditional agency. We engineer revenue systems, including signal detection pipelines, AI-powered outreach, CRM automation, and full-funnel analytics. We're remote-first and globally distributed. Clear goals, fast feedback loops, direct access to leadership, and the autonomy to do your best work."}
             </p>
           </div>
         </TiltReveal>
@@ -275,8 +277,8 @@ function ValuesSection() {
       <div className="relative mx-auto max-w-[1280px]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }} className="mb-16 text-center">
           <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">How We Work</span>
-          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl">Team Values</h2>
-          <p className="mx-auto max-w-[600px] text-base leading-relaxed text-[#64748B]">Everything we do runs on four values. They&apos;re not motivational posters — they&apos;re how we hire, evaluate, and make decisions.</p>
+          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">Team <span className="gradient-text">values</span></h2>
+          <p className="mx-auto max-w-[600px] text-base leading-relaxed text-[#64748B]">Everything we do runs on four values. They&apos;re not motivational posters, they&apos;re how we hire, evaluate, and make decisions.</p>
         </motion.div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {teamValues.map((v, i) => {
@@ -317,7 +319,7 @@ function DepartmentHub() {
       <div className="relative z-10 mx-auto max-w-[1280px]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }} className="mb-16 text-center">
           <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/20 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">Departments</span>
-          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">Where Will You Build?</h2>
+          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">Where will you <span className="gradient-text">build</span>?</h2>
           <p className="mx-auto max-w-[600px] text-base leading-relaxed text-white/60">Three teams, one mission. Find the department that matches your craft.</p>
         </motion.div>
 
@@ -329,27 +331,34 @@ function DepartmentHub() {
                 <motion.div
                   whileHover={{ scale: 1.03, y: -4 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="group relative rounded-2xl glass-deep p-8 transition-all hover:border-[#0dcfcf]/40 hover:shadow-2xl hover:shadow-[#0dcfcf]/10 cursor-pointer"
+                  className="group relative cursor-pointer rounded-2xl border p-8 transition-all"
+                  style={{
+                    background: "rgba(255, 255, 255, 0.95)",
+                    backdropFilter: "blur(12px)",
+                    WebkitBackdropFilter: "blur(12px)",
+                    borderColor: "rgba(0, 201, 177, 0.2)",
+                    boxShadow: "0px 10px 40px -10px rgba(0, 201, 177, 0.3)",
+                  }}
                 >
-                  {/* Glow on hover */}
-                  <div className="absolute inset-0 rounded-2xl bg-[#0dcfcf]/[0.03] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+                  {/* Subtle teal gradient overlay */}
+                  <div className="pointer-events-none absolute inset-0 rounded-2xl" style={{ background: "radial-gradient(ellipse at top left, rgba(13,207,207,0.05), transparent 70%)" }} />
 
                   <div className="relative">
                     <motion.div
-                      className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl border border-white/10 bg-white/5"
+                      className="mb-5 flex h-14 w-14 items-center justify-center rounded-xl bg-[#0dcfcf]/10"
                       whileHover={{ rotate: [0, -5, 5, 0] }}
                       transition={{ duration: 0.5 }}
                     >
                       <Icon className="h-7 w-7 text-[#0dcfcf]" />
                     </motion.div>
 
-                    <h3 className="mb-3 text-xl font-semibold text-white">{dept.title}</h3>
-                    <p className="mb-5 text-sm leading-relaxed text-white/60">{dept.description}</p>
+                    <h3 className="mb-3 text-xl font-semibold text-[#0F172A]">{dept.title}</h3>
+                    <p className="mb-5 text-sm leading-relaxed text-[#64748B]">{dept.description}</p>
 
                     <div className="flex items-center justify-between">
-                      <span className="rounded-md bg-[#0dcfcf]/15 px-2.5 py-1 text-xs font-medium text-[#0dcfcf]">{dept.roles} open role{dept.roles > 1 ? "s" : ""}</span>
-                      <Link href="#open-roles" className="inline-flex items-center gap-1 text-sm font-medium text-[#0dcfcf] transition-colors hover:text-white">
-                        View Roles <ArrowRight className="h-3.5 w-3.5" />
+                      <span className="rounded-md bg-[#0dcfcf]/10 px-2.5 py-1 text-xs font-semibold text-[#0dcfcf]">{dept.roles} open role{dept.roles > 1 ? "s" : ""}</span>
+                      <Link href="#open-roles" className="inline-flex items-center gap-1 text-sm font-semibold text-[#0dcfcf] transition-all hover:gap-2">
+                        View roles <ArrowRight className="h-3.5 w-3.5" />
                       </Link>
                     </div>
                   </div>
@@ -380,7 +389,7 @@ function BenefitsSection() {
       <div className="relative mx-auto max-w-[1280px]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }} className="mb-16 text-center">
           <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">Perks</span>
-          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl">Benefits & Perks</h2>
+          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">Benefits & <span className="gradient-text">perks</span></h2>
           <p className="mx-auto max-w-[600px] text-base leading-relaxed text-[#64748B]">Competitive compensation, learning, and a team that genuinely cares about your growth.</p>
         </motion.div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -414,7 +423,7 @@ function OpenRolesSection() {
       <div className="relative mx-auto max-w-[1280px]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }} className="mb-16 text-center">
           <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">Join Us</span>
-          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl">Open Positions</h2>
+          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">Open <span className="gradient-text">positions</span></h2>
           <p className="mx-auto max-w-[600px] text-base leading-relaxed text-[#64748B]">{"We're building the infrastructure behind modern B2B revenue. If you see yourself here, we'd love to talk."}</p>
         </motion.div>
         <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="space-y-6">
@@ -438,7 +447,7 @@ function OpenRolesSection() {
                   </ul>
                 </div>
                 <a href="mailto:careers@insightstap.com" className="shimmer mt-4 inline-flex h-10 shrink-0 items-center gap-2 rounded-lg bg-[#0dcfcf] px-6 text-sm font-medium text-white shadow-sm shadow-[#0dcfcf]/12 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a] lg:mt-0">
-                  Apply Now <ArrowRight className="h-3.5 w-3.5" />
+                  Apply now <ArrowRight className="h-3.5 w-3.5" />
                 </a>
               </div>
             </motion.div>
@@ -471,7 +480,7 @@ function HiringProcessSection() {
       <div className="relative mx-auto max-w-[1280px]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }} className="mb-16 text-center">
           <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">The Process</span>
-          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl">The Candidate Journey</h2>
+          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">The candidate <span className="gradient-text">journey</span></h2>
           <p className="mx-auto max-w-[600px] text-base leading-relaxed text-[#64748B]">Fast, fair, and transparent. Most hiring processes complete within 2 weeks.</p>
         </motion.div>
 
@@ -537,11 +546,11 @@ function InternshipSection() {
           <TiltReveal from="left">
             <div>
               <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">Early Career</span>
-              <h2 className="mb-5 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl">Student & Internships</h2>
-              <p className="mb-6 text-base leading-relaxed text-[#64748B]">Our internship program is designed for ambitious students and early-career professionals who want to learn by doing — not by watching. Interns work on real projects with real clients from day one.</p>
+              <h2 className="mb-5 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">Student & <span className="gradient-text">internships</span></h2>
+              <p className="mb-6 text-base leading-relaxed text-[#64748B]">Our internship program is designed for ambitious students and early-career professionals who want to learn by doing, not by watching. Interns work on real projects with real clients from day one.</p>
               <p className="mb-8 text-base leading-relaxed text-[#64748B]">Internships run 3–6 months and are available in Engineering, GTM Strategy, Marketing, and Design. All internships are paid.</p>
               <a href="mailto:careers@insightstap.com" className="shimmer inline-flex h-12 items-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a]">
-                Apply for Internship <ArrowRight className="h-4 w-4" />
+                Apply for internship <ArrowRight className="h-4 w-4" />
               </a>
             </div>
           </TiltReveal>
@@ -580,7 +589,7 @@ function FAQSection() {
       <div className="dot-grid absolute inset-0" />
       <div className="relative mx-auto max-w-[800px]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }} className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl">Frequently Asked Questions</h2>
+          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">Frequently asked <span className="gradient-text">questions</span></h2>
         </motion.div>
         <div className="space-y-4">
           {faqs.map((faq, i) => (
@@ -621,16 +630,16 @@ function CTASection() {
 
       <div className="relative z-10 mx-auto max-w-[900px] text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }}>
-          <h2 className="mb-6 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">Build Something That Matters.</h2>
+          <h2 className="mb-6 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">Build something that <span className="gradient-text">matters</span>.</h2>
           <p className="mx-auto mb-10 max-w-[600px] text-base leading-relaxed text-[#94A3B8] sm:text-lg">
-            Whether you&apos;re an engineer, strategist, marketer, or designer — if you care about doing excellent work and seeing it drive real results, we want you on the team.
+            Whether you&apos;re an engineer, strategist, marketer, or designer, if you care about doing excellent work and seeing it drive real results, we want you on the team.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
             <Link href="#open-roles" className="shimmer inline-flex h-12 items-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#5de0e0]">
-              View Open Positions
+              View open positions
             </Link>
             <a href="mailto:careers@insightstap.com" className="inline-flex h-12 items-center gap-2 rounded-lg border border-white/20 px-8 text-base font-medium text-white transition-all hover:border-white/40 hover:bg-white/10">
-              <Mail className="h-4 w-4" /> Submit Your Resume
+              <Mail className="h-4 w-4" /> Submit your resume
             </a>
           </div>
         </motion.div>

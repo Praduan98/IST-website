@@ -23,38 +23,38 @@ import { LogoTicker } from "@/components/logo-ticker"
 // ─── Data ────────────────────────────────────────────────────────────
 const buildSteps = [
   { icon: Search, title: "Diagnose", week: "Week 1", description: "Audit your funnel, CRM, campaigns, tracking, and conversion flow to find the fastest wins.", deliverable: "GTM scorecard + prioritized roadmap." },
-  { icon: Map, title: "Map Signals", week: "Week 1–2", description: "Identify where intent is already showing up — then define what should trigger action.", deliverable: "Signal map + trigger plan." },
-  { icon: Settings, title: "Build the Engine", week: "Week 2", description: "Connect your systems so data moves automatically — CRM, enrichment, routing, audiences, attribution.", deliverable: "System architecture + workflow buildout plan." },
-  { icon: Bot, title: "Deploy AI Agents", week: "Week 2–3", description: "Create agents that reduce manual GTM work — research, scoring, personalization, follow-ups.", deliverable: "Agent workflows + prompts + QA checklist." },
-  { icon: Rocket, title: "Launch Campaigns", week: "Week 3–6", description: "Run hyper-personalized outreach + ABM + performance ads driven by real signals.", deliverable: "Live campaigns + weekly optimization loop." },
-  { icon: TrendingUp, title: "Optimize & Scale", week: "Day 45–90", description: "Improve conversion rates, expand segments, tighten attribution, and scale what works.", deliverable: "Scaling plan + dashboards + SOPs." },
+  { icon: Map, title: "Map signals", week: "Week 1–2", description: "Identify where intent is already showing up, then define what should trigger action.", deliverable: "Signal map + trigger plan." },
+  { icon: Settings, title: "Build the engine", week: "Week 2", description: "Connect your systems so data moves automatically, including CRM, enrichment, routing, audiences, and attribution.", deliverable: "System architecture + workflow buildout plan." },
+  { icon: Bot, title: "Deploy AI agents", week: "Week 2–3", description: "Create agents that reduce manual GTM work, including research, scoring, personalization, and follow-ups.", deliverable: "Agent workflows + prompts + QA checklist." },
+  { icon: Rocket, title: "Launch campaigns", week: "Week 3–6", description: "Run hyper-personalized outreach + ABM + performance ads driven by real signals.", deliverable: "Live campaigns + weekly optimization loop." },
+  { icon: TrendingUp, title: "Optimize & scale", week: "Day 45–90", description: "Improve conversion rates, expand segments, tighten attribution, and scale what works.", deliverable: "Scaling plan + dashboards + SOPs." },
 ]
 
 const deliverables = [
-  { title: "Systems & Infrastructure", icon: Server, items: ["Signal tracking + trigger framework", "CRM automation (HubSpot / Salesforce)", "Routing + enrichment + lifecycle hygiene", "Attribution + dashboards"] },
-  { title: "Growth Execution", icon: Zap, items: ["Signal-led outreach & ABM plays", "Ads + analytics + conversion improvements", "Retargeting + nurture sequences"] },
-  { title: "AI Assets", icon: Brain, items: ["Prompt library + agent logic", "Personalization templates", "Research + scoring + follow-up SOPs"] },
+  { title: "Systems & infrastructure", icon: Server, items: ["Signal tracking + trigger framework", "CRM automation (HubSpot / Salesforce)", "Routing + enrichment + lifecycle hygiene", "Attribution + dashboards"] },
+  { title: "Growth execution", icon: Zap, items: ["Signal-led outreach & ABM plays", "Ads + analytics + conversion improvements", "Retargeting + nurture sequences"] },
+  { title: "AI assets", icon: Brain, items: ["Prompt library + agent logic", "Personalization templates", "Research + scoring + follow-up SOPs"] },
 ]
 
 const engagementModels = [
-  { title: "GTM Engine Build", tag: "Project", description: "Best if you want the full engine built end-to-end and handed off with SOPs." },
-  { title: "GTM Engine + Managed Growth", tag: "Retainer", description: "Best if you want us to build + run the system with ongoing optimization." },
-  { title: "AI Agent Sprint", tag: "2–3 Weeks", description: "Best if you need one high-impact agent deployed fast — research, scoring, personalization, or follow-ups." },
+  { title: "GTM engine build", tag: "Project", description: "Best if you want the full engine built end-to-end and handed off with SOPs." },
+  { title: "GTM engine + managed growth", tag: "Retainer", description: "Best if you want us to build + run the system with ongoing optimization." },
+  { title: "AI agent sprint", tag: "2–3 weeks", description: "Best if you need one high-impact agent deployed fast, including research, scoring, personalization, or follow-ups." },
 ]
 
 const techCategories = [
-  { title: "Signals & Intent", icon: Target, tools: "JobFeeder, RB2B, Factors.ai, Common Room, Vector, Unify" },
-  { title: "AI Agents & LLMs", icon: Brain, tools: "ChatGPT, Claude, RelevanceAI, Perplexity" },
-  { title: "Prospecting & Enrichment", icon: Layers, tools: "Apollo, Clay, FullEnrich, Ocean.io, Sales Navigator" },
-  { title: "Sequencing & Outreach", icon: Mail, tools: "Instantly, Smartlead, Lemlist, Unify, Reply.io" },
-  { title: "Automation & Ops", icon: Wrench, tools: "n8n, HubSpot, Airtable, Make, Notion" },
-  { title: "Content & Collateral", icon: Palette, tools: "Figma, Canva, Miro, Qwilr, Loom" },
+  { title: "Signals & intent", icon: Target, tools: "JobFeeder, RB2B, Factors.ai, Common Room, Vector, Unify" },
+  { title: "AI agents & LLMs", icon: Brain, tools: "ChatGPT, Claude, RelevanceAI, Perplexity" },
+  { title: "Prospecting & enrichment", icon: Layers, tools: "Apollo, Clay, FullEnrich, Ocean.io, Sales Navigator" },
+  { title: "Sequencing & outreach", icon: Mail, tools: "Instantly, Smartlead, Lemlist, Unify, Reply.io" },
+  { title: "Automation & ops", icon: Wrench, tools: "n8n, HubSpot, Airtable, Make, Notion" },
+  { title: "Content & collateral", icon: Palette, tools: "Figma, Canva, Miro, Qwilr, Loom" },
 ]
 
 const faqs = [
-  { q: "How are you different?", a: "We don't sell one-off campaigns. We build full-stack GTM engines that run 24/7 — combining signals, automation, AI agents, and performance marketing to deliver faster, predictable growth." },
+  { q: "How are you different?", a: "We don't sell one-off campaigns. We build full-stack GTM engines that run 24/7, combining signals, automation, AI agents, and performance marketing to deliver faster, predictable growth." },
   { q: "What results can I expect?", a: "Most clients see lower CAC, higher-quality leads, and a 2–3x increase in pipeline velocity within 90 days of implementation." },
-  { q: "Do you work with my tools?", a: "Yes. We integrate with your existing CRM, ad platforms, and intent tools — or set up a best-in-class stack from scratch." },
+  { q: "Do you work with my tools?", a: "Yes. We integrate with your existing CRM, ad platforms, and intent tools, or set up a best-in-class stack from scratch." },
 ]
 
 // ─── Helpers ─────────────────────────────────────────────────────────
@@ -95,40 +95,42 @@ export default function HowWeWorkPage() {
 // ═══════════════════════════════════════════════════════════════════════
 function HeroSection() {
   return (
-    <section className="relative flex min-h-[85vh] flex-col items-center justify-center overflow-hidden bg-[#0a0e1a] pt-20">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0e1a] via-[#0d1526] to-[#0a0e1a]" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(13,207,207,0.15)_0%,_transparent_60%)]" />
+    <section className="relative flex min-h-[85vh] flex-col items-center justify-center overflow-hidden bg-white pt-20">
+      <div className="absolute inset-0 bg-gradient-to-b from-[#F8FAFC] via-white to-[#F8FAFC]" />
       <FloatingOrbs />
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
-      <div className="glow-orb absolute left-[15%] top-[30%] h-[280px] w-[280px] rounded-full bg-[#0dcfcf]/[0.06] blur-[140px]" />
-      <div className="glow-orb absolute left-[75%] top-[60%] h-[220px] w-[220px] rounded-full bg-[#0dcfcf]/[0.04] blur-[110px]" style={{ animationDelay: "-2s" }} />
+      <div className="dot-grid absolute inset-0" />
+      <div className="glow-orb absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.06] blur-[150px]" />
 
       <div className="relative z-10 mx-auto max-w-[1280px] px-6 text-center">
-        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#0dcfcf]/30 bg-[#0dcfcf]/20 px-4 py-2">
+        <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="mb-8 inline-flex items-center gap-2 rounded-full border border-[#0dcfcf]/30 bg-[#0dcfcf]/10 px-4 py-2 glow-border">
           <Sparkles className="h-4 w-4 text-[#0dcfcf]" />
-          <span className="text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">Our Methodology</span>
+          <span className="text-xs font-medium uppercase tracking-wider text-[#64748B]">Our methodology</span>
         </motion.div>
 
-        <motion.h1 className="mb-6 text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 0.3 }}>
-          <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.35 }} className="block">See How We</motion.span>
-          <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }} className="block"><span className="text-[#0dcfcf]">Work</span></motion.span>
+        <motion.h1
+          className="mb-5 text-4xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-5xl md:text-6xl lg:text-[4.5rem]"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.35 }}
+        >
+          See how we <span className="gradient-text">work</span>
         </motion.h1>
 
         <motion.div className="mx-auto mb-8 h-1 w-16 rounded-full bg-[#0dcfcf]" initial={{ width: 0, opacity: 0 }} animate={{ width: 64, opacity: 1 }} transition={{ duration: 0.6, delay: 0.7 }} />
 
-        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.8 }} className="mx-auto mb-10 max-w-[700px] text-base leading-relaxed text-white/70 sm:text-lg">
-          We build signal-led GTM systems that grow your pipeline with the speed and precision of an e-commerce engine — powered by signals, AI agents, and automation.
+        <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.8 }} className="mx-auto mb-10 max-w-[700px] text-base leading-relaxed text-[#64748B] sm:text-lg">
+          We build signal-led GTM systems that grow your pipeline with the speed and precision of an e-commerce engine, powered by signals, AI agents, and automation.
         </motion.p>
 
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 1 }} className="flex flex-col items-center justify-center gap-4 sm:flex-row">
           <Link href="/Contact" className="shimmer inline-flex h-12 items-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a]">
-            Book a Strategy Call <ArrowRight className="h-4 w-4" />
+            Book a strategy call <ArrowRight className="h-4 w-4" />
           </Link>
         </motion.div>
 
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 1.3 }} className="mt-16 flex flex-col items-center gap-2">
-          <span className="text-[11px] font-medium uppercase tracking-widest text-white/40">Scroll to Explore</span>
-          <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}><ChevronDown className="h-5 w-5 text-white/30" /></motion.div>
+          <span className="text-[11px] font-medium uppercase tracking-widest text-[#94A3B8]">Scroll to explore</span>
+          <motion.div animate={{ y: [0, 6, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}><ChevronDown className="h-5 w-5 text-[#CBD5E1]" /></motion.div>
         </motion.div>
       </div>
     </section>
@@ -150,7 +152,7 @@ function ProblemSection() {
       <div className="relative mx-auto max-w-[1280px]">
         <TiltReveal from="left">
           <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">The Problem</span>
-          <h2 className="mb-6 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">Still using outdated playbooks<br />for B2B sales?</h2>
+          <h2 className="mb-6 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">Still using outdated playbooks for <span className="gradient-text">B2B sales</span>?</h2>
         </TiltReveal>
         <div className="mt-10 grid gap-12 lg:grid-cols-2">
           <TiltReveal from="left" delay={0.1}>
@@ -158,7 +160,7 @@ function ProblemSection() {
               Traditional CRMs only show surface-level engagement. Your real buyers are researching, comparing, and signaling intent long before they ever fill out a form.
             </p>
             <p className="mt-4 text-base leading-relaxed text-[#64748B] lg:text-lg">
-              We capture those hidden buying signals, convert them into actions using AI agents, and connect everything with automation — so growth becomes predictable, scalable, and compounding.
+              We capture those hidden buying signals, convert them into actions using AI agents, and connect everything with automation, so growth becomes predictable, scalable, and compounding.
             </p>
           </TiltReveal>
           <TiltReveal from="right" delay={0.2}>
@@ -166,13 +168,13 @@ function ProblemSection() {
             <div className="grid grid-cols-2 gap-4">
               <div className="rounded-xl border border-red-200 bg-red-50/50 p-6">
                 <p className="mb-2 font-mono text-xs font-semibold text-red-400">OLD WAY</p>
-                <p className="text-sm font-semibold text-[#0F172A]">CRM View</p>
+                <p className="text-sm font-semibold text-[#0F172A]">CRM view</p>
                 <p className="mt-2 text-xs leading-relaxed text-[#64748B]">Empty, late, reactive. Only sees form fills.</p>
               </div>
               <div className="rounded-xl border border-[#0dcfcf]/30 bg-[#0dcfcf]/5 p-6">
                 <p className="mb-2 font-mono text-xs font-semibold text-[#0dcfcf]">OUR WAY</p>
-                <p className="text-sm font-semibold text-[#0F172A]">Signal View</p>
-                <p className="mt-2 text-xs leading-relaxed text-[#64748B]">Jobs, site intent, content, ads, engagement — all lighting up.</p>
+                <p className="text-sm font-semibold text-[#0F172A]">Signal view</p>
+                <p className="mt-2 text-xs leading-relaxed text-[#64748B]">Jobs, site intent, content, ads, engagement, all lighting up.</p>
               </div>
             </div>
           </TiltReveal>
@@ -187,38 +189,37 @@ function ProblemSection() {
 // ═══════════════════════════════════════════════════════════════════════
 function OperatingSystemSection() {
   return (
-    <section className="relative overflow-hidden bg-[#0a0e1a] px-6 py-24 lg:py-32">
-      <div className="absolute inset-0 bg-gradient-to-b from-[#0a0e1a] via-[#0d1526] to-[#0a0e1a]" />
+    <section className="relative overflow-hidden bg-[#F8FAFC] px-6 py-24 lg:py-32">
       <FloatingOrbs />
-      <div className="glow-orb absolute left-[50%] top-[50%] h-[350px] w-[350px] rounded-full bg-[#0dcfcf]/[0.06] blur-[350px]" />
-      <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)", backgroundSize: "60px 60px" }} />
+      <div className="dot-grid absolute inset-0" />
+      <div className="glow-orb absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.06] blur-[150px]" />
 
       <div className="relative z-10 mx-auto max-w-[1280px] text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }}>
           <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/20 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">The Operating System</span>
-          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">Turning Hidden Signals Into Growth</h2>
-          <p className="mx-auto mb-14 max-w-[700px] text-base leading-relaxed text-white/60">Most teams run GTM like disconnected tactics. We build one system where signals trigger workflows, workflows trigger campaigns, and campaigns compound into pipeline.</p>
+          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">Turning hidden signals into <span className="gradient-text">growth</span></h2>
+          <p className="mx-auto mb-14 max-w-[700px] text-base leading-relaxed text-[#64748B]">Most teams run GTM like disconnected tactics. We build one system where signals trigger workflows, workflows trigger campaigns, and campaigns compound into pipeline.</p>
         </motion.div>
 
         {/* Signal flow visualization */}
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.6, delay: 0.2 }} className="flex flex-wrap items-center justify-center gap-3 lg:gap-4">
-          {["Signals", "AI Agents", "Automations", "Outreach + Ads", "Pipeline"].map((step, i) => (
+          {["Signals", "AI agents", "Automations", "Outreach + ads", "Pipeline"].map((step, i) => (
             <div key={step} className="flex items-center gap-3 lg:gap-4">
               <motion.div
-                className="rounded-xl border border-white/10 px-5 py-3 text-sm font-semibold text-white backdrop-blur-sm lg:px-7 lg:py-4 lg:text-base"
-                style={{ background: "rgba(255,255,255,0.05)" }}
+                className="rounded-xl border border-[#E2E8F0] px-5 py-3 text-sm font-semibold text-[#0F172A] lg:px-7 lg:py-4 lg:text-base"
+                style={{ background: "rgba(255,255,255,0.98)", boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 201, 177, 0.1)" }}
                 whileHover={{ scale: 1.05, borderColor: "rgba(13,207,207,0.5)" }}
               >
                 {step}
               </motion.div>
-              {i < 4 && <ArrowRight className="h-4 w-4 text-[#0dcfcf]/60 shrink-0" />}
+              {i < 4 && <ArrowRight className="h-4 w-4 text-[#0dcfcf] shrink-0" />}
             </div>
           ))}
         </motion.div>
 
         <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.5 }} className="mt-12">
           <Link href="/Contact" className="shimmer inline-flex h-12 items-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a]">
-            Book a Strategy Call <ArrowRight className="h-4 w-4" />
+            Book a strategy call <ArrowRight className="h-4 w-4" />
           </Link>
         </motion.div>
       </div>
@@ -245,7 +246,7 @@ function BuildProcessSection() {
       <div className="relative mx-auto max-w-[1280px]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }} className="mb-16 text-center">
           <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">The Build</span>
-          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl">How We Build Your GTM Engine</h2>
+          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">How we build your GTM <span className="gradient-text">engine</span></h2>
           <p className="mx-auto max-w-[600px] text-base leading-relaxed text-[#64748B]">A proven 6-step process from diagnosis to scale. Most engines are live within 6 weeks.</p>
         </motion.div>
 
@@ -301,7 +302,7 @@ function DeliverablesSection() {
       <div className="relative mx-auto max-w-[1280px]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }} className="mb-16 text-center">
           <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">Deliverables</span>
-          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl">What You Get</h2>
+          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">What you <span className="gradient-text">get</span></h2>
         </motion.div>
         <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="grid gap-6 lg:grid-cols-3">
           {deliverables.map((d) => {
@@ -338,7 +339,7 @@ function EngagementModelsSection() {
       <div className="relative mx-auto max-w-[1280px]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }} className="mb-16 text-center">
           <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">Engagement</span>
-          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl">Engagement Models</h2>
+          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">Engagement <span className="gradient-text">models</span></h2>
         </motion.div>
         <div className="grid gap-6 lg:grid-cols-3">
           {engagementModels.map((m, i) => (
@@ -348,7 +349,7 @@ function EngagementModelsSection() {
                 <h3 className="mb-3 text-lg font-semibold text-[#0F172A]">{m.title}</h3>
                 <p className="mb-5 text-sm leading-relaxed text-[#64748B]">{m.description}</p>
                 <Link href="/Contact" className="inline-flex items-center gap-1 text-sm font-medium text-[#0dcfcf] transition-colors hover:text-[#0a9a9a]">
-                  Book a Call <ArrowRight className="h-3.5 w-3.5" />
+                  Book a call <ArrowRight className="h-3.5 w-3.5" />
                 </Link>
               </div>
             </TiltReveal>
@@ -374,21 +375,37 @@ function TechStackSection() {
       <div className="relative z-10 mx-auto max-w-[1280px]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }} className="mb-16 text-center">
           <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/20 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">Tech Stack</span>
-          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl">Tools We Work With</h2>
+          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">Tools we work <span className="gradient-text">with</span></h2>
           <p className="mx-auto max-w-[600px] text-base leading-relaxed text-white/60">Built with advanced frameworks and tools to deliver seamless, high-performance solutions.</p>
         </motion.div>
         <motion.div variants={containerVariants} initial="hidden" whileInView="visible" viewport={{ once: true, margin: "-80px" }} className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {techCategories.map((cat) => {
             const Icon = cat.icon
             return (
-              <motion.div key={cat.title} variants={cardVariants} whileHover={{ scale: 1.02, y: -2 }} className="group relative rounded-xl glass-deep p-6 transition-all hover:border-[#0dcfcf]/30">
-                <div className="mb-3 flex items-center gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5">
-                    <Icon className="h-4 w-4 text-[#0dcfcf]" />
+              <motion.div
+                key={cat.title}
+                variants={cardVariants}
+                whileHover={{ scale: 1.02, y: -2 }}
+                className="group relative rounded-xl border p-6 transition-all"
+                style={{
+                  background: "rgba(255, 255, 255, 0.95)",
+                  backdropFilter: "blur(12px)",
+                  WebkitBackdropFilter: "blur(12px)",
+                  borderColor: "rgba(0, 201, 177, 0.2)",
+                  boxShadow: "0px 10px 40px -10px rgba(0, 201, 177, 0.3)",
+                }}
+              >
+                {/* Subtle teal gradient overlay */}
+                <div className="pointer-events-none absolute inset-0 rounded-xl" style={{ background: "radial-gradient(ellipse at top left, rgba(13,207,207,0.05), transparent 70%)" }} />
+                <div className="relative">
+                  <div className="mb-3 flex items-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#0dcfcf]/10">
+                      <Icon className="h-4 w-4 text-[#0dcfcf]" />
+                    </div>
+                    <h3 className="text-sm font-semibold text-[#0F172A]">{cat.title}</h3>
                   </div>
-                  <h3 className="text-sm font-semibold text-white">{cat.title}</h3>
+                  <p className="text-xs leading-relaxed text-[#64748B]">{cat.tools}</p>
                 </div>
-                <p className="text-xs leading-relaxed text-white/50">{cat.tools}</p>
               </motion.div>
             )
           })}
@@ -407,7 +424,7 @@ function FAQSection() {
       <div className="dot-grid absolute inset-0" />
       <div className="relative mx-auto max-w-[800px]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }} className="mb-12 text-center">
-          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl">Frequently Asked Questions</h2>
+          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">Frequently asked <span className="gradient-text">questions</span></h2>
         </motion.div>
         <div className="space-y-4">
           {faqs.map((faq, i) => (<FAQItem key={i} question={faq.q} answer={faq.a} index={i} />))}
@@ -441,10 +458,10 @@ function CTASection() {
       <div className="glow-orb absolute left-[40%] top-[50%] h-[400px] w-[400px] rounded-full bg-[#0dcfcf]/[0.08] blur-[400px]" />
       <div className="relative z-10 mx-auto max-w-[900px] text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }}>
-          <h2 className="mb-6 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">Ready to Scale Smarter?</h2>
+          <h2 className="mb-6 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl">Ready to scale <span className="gradient-text">smarter</span>?</h2>
           <p className="mx-auto mb-10 max-w-[550px] text-base leading-relaxed text-[#94A3B8] sm:text-lg">{"Let's turn buyer signals into booked meetings and real revenue."}</p>
           <Link href="/Contact" className="shimmer inline-flex h-12 items-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#5de0e0]">
-            Book a Strategy Call <Phone className="h-4 w-4" />
+            Book a strategy call <Phone className="h-4 w-4" />
           </Link>
         </motion.div>
       </div>

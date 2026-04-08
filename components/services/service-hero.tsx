@@ -9,7 +9,7 @@ import { FloatingOrbs } from "./atmospheric-orbs"
 interface ServiceHeroProps {
   breadcrumbs: { label: string; href: string }[]
   title: string
-  subtitle: string
+  subtitle: React.ReactNode
   showCTA?: boolean
   brochureHref?: string
   brochureLabel?: string
@@ -91,14 +91,23 @@ export function ServiceHero({
           </span>
         </motion.div>
 
-        {/* Title — unified smooth fade-in + slide-up (transform + opacity only) */}
+        {/* Title — last word gets gradient highlight like homepage */}
         <motion.h1
           className="mb-6 text-4xl font-semibold leading-[1.08] tracking-[-0.02em] text-[#0F172A] sm:text-5xl lg:text-6xl"
           initial={reduced ? false : { opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: SMOOTH_EASE }}
         >
-          {title}
+          {(() => {
+            const lastSpace = title.lastIndexOf(" ")
+            if (lastSpace === -1) return <span className="gradient-text">{title}</span>
+            return (
+              <>
+                {title.slice(0, lastSpace)}{" "}
+                <span className="gradient-text">{title.slice(lastSpace + 1)}</span>
+              </>
+            )
+          })()}
         </motion.h1>
 
         {/* Subtitle */}

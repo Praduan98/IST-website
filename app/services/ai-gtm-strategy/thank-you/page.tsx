@@ -80,7 +80,7 @@ function HeroSection() {
         setTimeout(() => setShowToast(false), 4000)
       }
     } catch {
-      // Silent fallback — user can retry
+      // Silent fallback, user can retry
     }
   }, [])
 
@@ -89,7 +89,7 @@ function HeroSection() {
       className="relative flex min-h-[85vh] flex-col items-center justify-center overflow-hidden bg-white"
       style={{ paddingTop: "15vh", paddingBottom: "15vh" }}
     >
-      {/* Atmospheric layers — Home Page theme */}
+      {/* Atmospheric layers, home page theme */}
       <div className="dot-grid absolute inset-0" />
       <div className="glow-orb absolute left-1/2 top-[30%] h-[700px] w-[700px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.07] blur-[160px]" />
       <div
@@ -111,7 +111,7 @@ function HeroSection() {
       {/* Floating dots */}
       {mounted && <FloatingDots />}
 
-      {/* "Download Done" toast — top-right corner */}
+      {/* "Download done" toast, top-right corner */}
       <AnimatePresence>
         {showToast && (
           <motion.div
@@ -126,7 +126,7 @@ function HeroSection() {
             </div>
             <div>
               <p className="text-sm font-semibold text-[#0F172A]">
-                Download Complete
+                Download complete
               </p>
               <p className="text-xs text-[#64748B]">
                 Check your downloads folder
@@ -183,7 +183,7 @@ function HeroSection() {
         >
           <Sparkles className="h-4 w-4 text-[#0dcfcf]" />
           <span className="text-xs font-medium uppercase tracking-wider text-[#64748B]">
-            Conversion Complete
+            Conversion complete
           </span>
         </motion.div>
 
@@ -196,10 +196,10 @@ function HeroSection() {
             delay: 0.3,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
-          className="mb-5 text-[2.5rem] font-semibold leading-[1.1] tracking-tight text-[#0F172A] sm:text-5xl lg:text-[3.5rem]"
+          className="mb-5 whitespace-nowrap text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.25rem]"
         >
-          Your Strategy is{" "}
-          <span className="gradient-text">on the Way</span>.
+          Your playbook is{" "}
+          <span className="gradient-text">on the way</span>.
         </motion.h1>
 
         {/* Sub-headline */}
@@ -209,8 +209,8 @@ function HeroSection() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="mx-auto mb-10 max-w-[540px] text-[1.125rem] leading-relaxed text-[#64748B]"
         >
-          Your Company Profile is ready. Click below to download it, or book a
-          discovery call to discuss your GTM strategy with our team.
+          Your AI-powered GTM playbook is ready. Click below to download it, or
+          book a discovery call to discuss your GTM strategy with our team.
         </motion.p>
 
         {/* CTA buttons */}
@@ -220,22 +220,22 @@ function HeroSection() {
           transition={{ duration: 0.5, delay: 0.8 }}
           className="flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
-          {/* Primary — Download the Company Profile */}
+          {/* Primary, download the GTM playbook */}
           <button
             onClick={handleDownload}
-            className="shimmer relative h-12 rounded-lg bg-[#0dcfcf] px-8 text-[1.2rem] font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a] hover:shadow-lg hover:shadow-[#0dcfcf]/25 inline-flex items-center justify-center gap-2 cursor-pointer"
+            className="shimmer relative inline-flex h-12 cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a] hover:shadow-lg hover:shadow-[#0dcfcf]/25"
           >
-            <Download className="h-5 w-5" />
-            Download Company Profile
+            <Download className="h-4 w-4" />
+            Download playbook
           </button>
 
-          {/* Secondary — Book a Discovery Call */}
+          {/* Secondary, book a discovery call */}
           <Link
             href="/Contact"
-            className="h-12 rounded-lg border border-[#E2E8F0] bg-white px-8 text-base font-medium text-[#0F172A] transition-all hover:border-[#0dcfcf]/50 hover:bg-[#0dcfcf]/5 inline-flex items-center justify-center gap-2"
+            className="inline-flex h-12 items-center justify-center gap-2 rounded-lg border border-[#E2E8F0] bg-white px-8 text-base font-medium text-[#0F172A] transition-all hover:border-[#0dcfcf]/50 hover:bg-[#0dcfcf]/5"
           >
             <Phone className="h-4 w-4" />
-            Book a Discovery Call
+            Book a discovery call
           </Link>
         </motion.div>
       </div>

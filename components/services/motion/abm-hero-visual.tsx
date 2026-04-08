@@ -15,13 +15,13 @@ export function AbmHeroVisual() {
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
       <svg
         viewBox="0 0 400 300"
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] max-w-[650px] h-auto opacity-30"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] max-w-[650px] h-auto opacity-65"
         fill="none"
       >
         {/* Funnel shape */}
         <motion.path
           d="M 80 40 L 320 40 L 250 150 L 230 250 L 170 250 L 150 150 Z"
-          stroke="#E2E8F0"
+          stroke="#1E293B"
           strokeWidth="1.5"
           fill="none"
           initial={{ pathLength: 0 }}
@@ -32,8 +32,8 @@ export function AbmHeroVisual() {
         {/* Funnel gradient fill */}
         <defs>
           <linearGradient id="funnelGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#0dcfcf" stopOpacity="0.03" />
-            <stop offset="100%" stopColor="#0dcfcf" stopOpacity="0.15" />
+            <stop offset="0%" stopColor="#0dcfcf" stopOpacity="0.08" />
+            <stop offset="100%" stopColor="#0dcfcf" stopOpacity="0.25" />
           </linearGradient>
         </defs>
         <motion.path
@@ -56,7 +56,7 @@ export function AbmHeroVisual() {
             x={200}
             y={stage.y}
             textAnchor="middle"
-            className="fill-[#64748B] text-[9px] font-medium"
+            className="fill-[#0F172A] text-[9px] font-medium"
             initial={{ opacity: 0 }}
             animate={{ opacity: stage.opacity }}
             transition={{ duration: 0.5, delay: 1.5 + i * 0.3 }}
@@ -74,10 +74,10 @@ export function AbmHeroVisual() {
             x2={i === 0 ? 300 : i === 1 ? 240 : 225}
             y2={y}
             stroke="#0dcfcf"
-            strokeWidth="0.8"
+            strokeWidth="1.2"
             strokeDasharray="3 3"
             initial={{ opacity: 0 }}
-            animate={{ opacity: 0.5 }}
+            animate={{ opacity: 0.7 }}
             transition={{ duration: 0.5, delay: 1.8 + i * 0.3 }}
           />
         ))}
@@ -93,11 +93,11 @@ export function AbmHeroVisual() {
               cx={startX}
               cy={45}
               r={highValue ? 3 : 2}
-              fill={filtered ? "#94A3B8" : highValue ? "#0dcfcf" : "#0dcfcf"}
+              fill={filtered ? "#64748B" : "#0dcfcf"}
               initial={{ cy: 45, opacity: 0 }}
               animate={{
                 cy: filtered ? [45, 80 + Math.random() * 40] : [45, 245],
-                opacity: filtered ? [0.8, 0] : [0.6, 0.9, 0.6],
+                opacity: filtered ? [0.9, 0] : [0.7, 1, 0.7],
                 cx: filtered ? startX : 170 + (startX - 200) * 0.15,
               }}
               transition={{

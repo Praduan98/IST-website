@@ -90,7 +90,7 @@ function HeroSection({ onScroll }: { onScroll: () => void }) {
         >
           <Sparkles className="h-4 w-4 text-[#0dcfcf]" />
           <span className="text-xs font-medium uppercase tracking-wider text-[#64748B]">
-            Company Profile
+            GTM playbook
           </span>
         </motion.div>
 
@@ -105,8 +105,8 @@ function HeroSection({ onScroll }: { onScroll: () => void }) {
           }}
           className="mb-5 text-4xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-5xl md:text-6xl lg:text-[4.5rem]"
         >
-          Get Your AI-Powered{" "}
-          <span className="gradient-text">Company Profile</span>
+          Get the AI-powered{" "}
+          <span className="gradient-text">GTM playbook</span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -117,7 +117,7 @@ function HeroSection({ onScroll }: { onScroll: () => void }) {
           className="mx-auto mb-14 max-w-[660px] text-base leading-relaxed text-[#64748B] sm:text-lg"
         >
           We build go-to-market engines that find buyers before they find you.
-          This brochure walks you through the exact system we use to detect
+          This playbook walks you through the exact system we use to detect
           buying signals, automate outreach, and scale B2B pipeline.
         </motion.p>
 
@@ -130,7 +130,7 @@ function HeroSection({ onScroll }: { onScroll: () => void }) {
           className="group mx-auto flex flex-col items-center gap-2 cursor-pointer"
         >
           <span className="text-[11px] font-medium uppercase tracking-widest text-[#94A3B8] transition-colors group-hover:text-[#0dcfcf]">
-            Scroll to Form
+            Scroll to form
           </span>
           <motion.div
             animate={{ y: [0, 6, 0] }}
@@ -162,7 +162,7 @@ function FormSection() {
     message: "",
   })
 
-  // Gate check — locked until required fields are filled
+  // Gate check, locked until required fields are filled
   const isGateValid =
     form.fullName.trim().length > 0 &&
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)
@@ -228,7 +228,7 @@ function FormSection() {
       { name: "website", value: pageUri },
       { name: "dr_code", value: "DR018" },
       { name: "form_code", value: "FPG034" },
-      { name: "ist_lead_source", value: "Company Profile Download" },
+      { name: "ist_lead_source", value: "GTM Playbook Download" },
       { name: "country", value: geo?.country_name ?? "" },
       { name: "hs_country_region_code", value: geo?.country_code ?? "" },
       { name: "city", value: geo?.city ?? "" },
@@ -245,7 +245,7 @@ function FormSection() {
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({
               fields,
-              context: { pageUri, pageName: "Company Profile Download" },
+              context: { pageUri, pageName: "GTM Playbook Download" },
             }),
           }
         )
@@ -290,14 +290,14 @@ function FormSection() {
           className="mb-10 text-center"
         >
           <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">
-            Get Access
+            Get access
           </span>
           <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl">
-            Get the <span className="gradient-text">Company Profile</span>
+            Get the <span className="gradient-text">GTM playbook</span>
           </h2>
           <p className="mx-auto max-w-[480px] text-base leading-relaxed text-[#64748B]">
-            Fill in your details to unlock the AI-Powered GTM Strategy
-            Company Profile on the next page.
+            Fill in your details to unlock the AI-powered GTM strategy
+            playbook on the next page.
           </p>
         </motion.div>
 
@@ -346,7 +346,7 @@ function FormSection() {
             {/* Full Name */}
             <RevealField revealed={formRevealed} delay={0}>
               <label className="mb-1.5 block text-sm font-medium text-[#0F172A]">
-                Full Name
+                Full name
               </label>
               <div className="relative">
                 <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8]">
@@ -387,7 +387,7 @@ function FormSection() {
             {/* Phone */}
             <RevealField revealed={formRevealed} delay={0.2}>
               <label className="mb-1.5 block text-sm font-medium text-[#0F172A]">
-                Phone Number
+                Phone number
               </label>
               <div className="relative">
                 <span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8]">
@@ -455,7 +455,7 @@ function FormSection() {
               </motion.div>
             )}
 
-            {/* Submit — Locked until gate is valid */}
+            {/* Submit, locked until gate is valid */}
             <RevealField revealed={formRevealed} delay={0.4}>
               <button
                 type="submit"
@@ -488,7 +488,7 @@ function FormSection() {
             <p className="text-center text-xs text-[#94A3B8]">
               By submitting, you agree to our{" "}
               <Link href="#" className="text-[#0dcfcf] hover:underline">
-                Privacy Policy
+                privacy policy
               </Link>
               .
             </p>

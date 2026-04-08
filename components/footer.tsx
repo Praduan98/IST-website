@@ -5,30 +5,30 @@ import Image from "next/image"
 
 const footerLinks = {
   company: [
-    { label: "About", href: "#about" },
-    { label: "Service", href: "#services" },
-    { label: "Product", href: "#product" },
-    { label: "Contact", href: "/contact" },
+    { label: "About", href: "/about" },
+    { label: "Services", href: "/#services" },
+    { label: "Product", href: "/Product/jobfeeder" },
+    { label: "Contact", href: "/Contact" },
   ],
   services: [
-    { label: "AI-Powered GTM Strategy", href: "/services/ai-powered-gtm-strategy" },
-    { label: "Custom AI & Agent App Development", href: "/services/custom-ai-agent-app-development" },
-    { label: "CRM, Enrichment & Automation", href: "/services/crm-enrichment-automation" },
-    { label: "Performance Marketing & ABM", href: "/services/performance-marketing-abm" },
+    { label: "AI-powered GTM strategy", href: "/services/ai-powered-gtm-strategy" },
+    { label: "Custom AI & agent app development", href: "/services/custom-ai-agent-app-development" },
+    { label: "CRM, enrichment & automation", href: "/services/crm-enrichment-automation" },
+    { label: "Performance marketing & ABM", href: "/services/performance-marketing-abm" },
   ],
   product: [
-    { label: "JobFeeder", href: "#" },
+    { label: "JobFeeder", href: "/Product/jobfeeder" },
   ],
   quickLinks: [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Refund Policy", href: "#" },
-    { label: "Terms and Conditions", href: "#" },
+    { label: "Privacy policy", href: "/legal/privacy-policy" },
+    { label: "Refund policy", href: "/legal/refund-policy" },
+    { label: "Terms and conditions", href: "/legal/terms-and-conditions" },
   ],
 }
 
 export function Footer() {
   return (
-    <footer className="border-t border-[#E2E8F0] bg-[#F8FAFC] px-6 py-16 lg:py-20">
+    <footer className="border-t border-[#E2E8F0] bg-gradient-to-b from-[#F8FAFC] via-white to-[#F8FAFC] px-6 py-16 lg:py-20">
       <div className="mx-auto w-[min(92vw,1600px)]">
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[2fr_1.5fr_2fr_1fr_1fr]">
           {/* Brand Column */}
@@ -59,7 +59,7 @@ export function Footer() {
             {/* Social Icons */}
             <div className="flex gap-3">
               <SocialLink
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/105917233/"
                 label="LinkedIn"
                 icon={
                   <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
@@ -68,8 +68,8 @@ export function Footer() {
                 }
               />
               <SocialLink
-                href="https://twitter.com"
-                label="Twitter"
+                href="https://x.com/InsightsTap"
+                label="X"
                 icon={
                   <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -77,7 +77,7 @@ export function Footer() {
                 }
               />
               <SocialLink
-                href="https://youtube.com"
+                href="https://www.youtube.com/channel/UCCQNObwJ-jZFnnZDg_4ORTw"
                 label="YouTube"
                 icon={
                   <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
@@ -90,7 +90,7 @@ export function Footer() {
 
           {/* Company Column */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#0F172A]">
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#1E293B]">
               Company
             </h4>
             <ul className="space-y-3">
@@ -109,7 +109,7 @@ export function Footer() {
 
           {/* Services Column */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#0F172A]">
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#1E293B]">
               Services
             </h4>
             <ul className="space-y-3">
@@ -128,7 +128,7 @@ export function Footer() {
 
           {/* Product Column */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#0F172A]">
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#1E293B]">
               Product
             </h4>
             <ul className="space-y-3">
@@ -147,8 +147,8 @@ export function Footer() {
 
           {/* Quick Links Column */}
           <div>
-            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#0F172A]">
-              Quick Links
+            <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#1E293B]">
+              Quick links
             </h4>
             <ul className="space-y-3">
               {footerLinks.quickLinks.map((link) => (

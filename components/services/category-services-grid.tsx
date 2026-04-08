@@ -49,8 +49,8 @@ const SERVICE_ICONS: Record<string, React.ComponentType<{ className?: string }>>
 interface CategoryServicesGridProps {
   categorySlug: string
   services: SubService[]
-  title?: string
-  description?: string
+  title?: React.ReactNode
+  description?: React.ReactNode
 }
 
 const containerVariants = {

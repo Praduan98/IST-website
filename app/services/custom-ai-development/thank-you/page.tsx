@@ -54,7 +54,7 @@ function HeroSection() {
         setTimeout(() => setShowToast(false), 4000)
       }
     } catch {
-      // Silent — user can retry
+      // Silent, user can retry
     }
   }, [])
 
@@ -99,7 +99,7 @@ function HeroSection() {
             </div>
             <div>
               <p className="text-sm font-semibold text-[#0F172A]">
-                Download Complete
+                Download complete
               </p>
               <p className="text-xs text-[#64748B]">
                 Check your downloads folder
@@ -155,7 +155,7 @@ function HeroSection() {
         >
           <Sparkles className="h-4 w-4 text-[#0dcfcf]" />
           <span className="text-xs font-medium uppercase tracking-wider text-[#64748B]">
-            Conversion Complete
+            Conversion complete
           </span>
         </motion.div>
 
@@ -168,10 +168,10 @@ function HeroSection() {
             delay: 0.3,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
-          className="mb-5 text-[2.5rem] font-semibold leading-[1.1] tracking-tight text-[#0F172A] sm:text-5xl lg:text-[3.5rem]"
+          className="mb-5 whitespace-nowrap text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.25rem]"
         >
-          Your Brochure is{" "}
-          <span className="gradient-text">Ready</span>.
+          Your brochure is{" "}
+          <span className="gradient-text">ready</span>.
         </motion.h1>
 
         {/* Sub-headline */}
@@ -181,8 +181,8 @@ function HeroSection() {
           transition={{ duration: 0.5, delay: 0.6 }}
           className="mx-auto mb-10 max-w-[540px] text-[1.125rem] leading-relaxed text-[#64748B]"
         >
-          Click below to download the Custom AI & Agent App Development
-          Brochure, or book a discovery call to discuss your project.
+          Click below to download the custom AI & agent app development
+          brochure, or book a discovery call to discuss your project.
         </motion.p>
 
         {/* CTA buttons */}
@@ -194,10 +194,10 @@ function HeroSection() {
         >
           <button
             onClick={handleDownload}
-            className="shimmer relative h-12 rounded-lg bg-[#0dcfcf] px-8 text-[1.2rem] font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a] hover:shadow-lg hover:shadow-[#0dcfcf]/25 inline-flex items-center justify-center gap-2 cursor-pointer"
+            className="shimmer relative inline-flex h-12 cursor-pointer items-center justify-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a] hover:shadow-lg hover:shadow-[#0dcfcf]/25"
           >
-            <Download className="h-5 w-5" />
-            Download Brochure
+            <Download className="h-4 w-4" />
+            Download brochure
           </button>
 
           <Link
@@ -205,7 +205,7 @@ function HeroSection() {
             className="h-12 rounded-lg border border-[#E2E8F0] bg-white px-8 text-base font-medium text-[#0F172A] transition-all hover:border-[#0dcfcf]/50 hover:bg-[#0dcfcf]/5 inline-flex items-center justify-center gap-2"
           >
             <Phone className="h-4 w-4" />
-            Book a Discovery Call
+            Book a discovery call
           </Link>
         </motion.div>
       </div>

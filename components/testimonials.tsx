@@ -1,6 +1,7 @@
 "use client"
 
 import { motion } from "framer-motion"
+import { Star } from "lucide-react"
 
 const testimonials = [
   {
@@ -67,7 +68,7 @@ export function Testimonials() {
           </span>
           <h2 className="text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">
             Trusted by{" "}
-            <span className="bg-gradient-to-r from-[#0dcfcf] to-[#0F172A] bg-clip-text text-transparent">Industry Leaders</span>
+            <span className="bg-gradient-to-r from-[#0dcfcf] to-[#0F172A] bg-clip-text text-transparent">industry leaders</span>
           </h2>
         </motion.div>
 
@@ -121,10 +122,10 @@ function TestimonialCard({
           <p className="text-sm text-[#64748B]">{company}</p>
         </div>
 
-        {/* Rating dots */}
-        <div className="mt-4 flex gap-1">
+        {/* Rating stars */}
+        <div className="mt-4 flex gap-0.5">
           {[...Array(5)].map((_, i) => (
-            <div key={i} className="h-2 w-2 rounded-full bg-[#0dcfcf]" />
+            <Star key={i} className="h-4 w-4 fill-[#FFB800] text-[#FFB800]" />
           ))}
         </div>
       </div>

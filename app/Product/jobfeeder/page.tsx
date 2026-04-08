@@ -15,25 +15,25 @@ import { FloatingOrbs } from "@/components/services/atmospheric-orbs"
 
 // ─── Data ────────────────────────────────────────────────────────────
 const features = [
-  { title: "Real-Time Scanning", description: "Proprietary bots scan job boards, career pages, and public sources the moment postings appear.", icon: Search, year: "Discovery" },
-  { title: "AI-Powered Insights", description: "Every posting processed by AI — summarized descriptions, company details, and job poster contacts in seconds.", icon: Brain, year: "Intelligence" },
-  { title: "Instant Delivery", description: "Leads sent to Slack or inbox the moment they exist. Your sales team acts while the hiring need is fresh.", icon: Bell, year: "Activation" },
-  { title: "CRM & Export Sync", description: "Download as CSV or push directly to HubSpot, Salesforce, Apollo, or any CRM. One click, zero friction.", icon: Download, year: "Integration" },
+  { title: "Real-time scanning", description: "Proprietary bots scan job boards, career pages, and public sources the moment postings appear.", icon: Search, year: "Discovery" },
+  { title: "AI-powered insights", description: "Every posting processed by AI: summarized descriptions, company details, and job poster contacts in seconds.", icon: Brain, year: "Intelligence" },
+  { title: "Instant delivery", description: "Leads sent to Slack or inbox the moment they exist. Your sales team acts while the hiring need is fresh.", icon: Bell, year: "Activation" },
+  { title: "CRM & export sync", description: "Download as CSV or push directly to HubSpot, Salesforce, Apollo, or any CRM. One click, zero friction.", icon: Download, year: "Integration" },
 ]
 
 const toolset = [
-  { title: "Job Discovery", description: "Real-time scanning for job listings by title, location, and type.", icon: Search },
-  { title: "AI Summaries", description: "Long job descriptions distilled into actionable insights.", icon: Brain },
-  { title: "Account Identification", description: "Company details, domain, size, and industry — instantly.", icon: UserCheck },
-  { title: "Real-Time Notifications", description: "Slack and email alerts the moment a relevant job is posted.", icon: Bell },
-  { title: "Contact Extraction", description: "Job poster email and phone pulled directly from descriptions.", icon: MessageSquare },
-  { title: "Lead Exporting", description: "CSV download or direct push to Slack and CRM tools.", icon: Download },
+  { title: "Job discovery", description: "Real-time scanning for job listings by title, location, and type.", icon: Search },
+  { title: "AI summaries", description: "Long job descriptions distilled into actionable insights.", icon: Brain },
+  { title: "Account identification", description: "Company details, domain, size, and industry, instantly.", icon: UserCheck },
+  { title: "Real-time notifications", description: "Slack and email alerts the moment a relevant job is posted.", icon: Bell },
+  { title: "Contact extraction", description: "Job poster email and phone pulled directly from descriptions.", icon: MessageSquare },
+  { title: "Lead exporting", description: "CSV download or direct push to Slack and CRM tools.", icon: Download },
 ]
 
 const steps = [
-  { step: "01", title: "Sign Up for Free", description: "Create your account in under 60 seconds. No credit card required. Free plan includes 9 queries per day." },
-  { step: "02", title: "Integrate With Slack", description: "Connect JobFeeder to your Slack workspace. Leads delivered directly to the channel your team monitors." },
-  { step: "03", title: "Act on Leads", description: "Leads arrive with company details, summaries, and contact info. Reach out while the need is fresh." },
+  { step: "01", title: "Sign up for free", description: "Create your account in under 60 seconds. No credit card required. Free plan includes 9 queries per day." },
+  { step: "02", title: "Integrate with Slack", description: "Connect JobFeeder to your Slack workspace. Leads delivered directly to the channel your team monitors." },
+  { step: "03", title: "Act on leads", description: "Leads arrive with company details, summaries, and contact info. Reach out while the need is fresh." },
 ]
 
 const testimonials = [
@@ -131,10 +131,10 @@ function HeroSection() {
           className="mb-5 text-4xl font-semibold leading-[1.08] tracking-[-0.02em] text-white sm:text-5xl lg:text-[4.5rem]"
         >
           <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="block">
-            Find Companies Posting IT Jobs
+            Find companies posting IT jobs
           </motion.span>
           <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.45 }} className="block">
-            <span className="text-[#0dcfcf]">In Real Time</span>
+            <span className="text-[#0dcfcf]">in real time</span>
           </motion.span>
         </motion.h1>
 
@@ -204,8 +204,8 @@ function ProblemSolution() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(13,207,207,0.08)_0%,_transparent_70%)]" />
       <div className="relative mx-auto w-[min(92vw,1200px)]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14 text-center">
-          <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">The Problem</span>
-          <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Turn Job Postings Into Revenue Opportunities</h2>
+          <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">The problem</span>
+          <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Turn job postings into revenue opportunities</h2>
         </motion.div>
 
         <div className="grid gap-6 sm:grid-cols-2">
@@ -213,7 +213,7 @@ function ProblemSolution() {
           <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
             className="rounded-2xl border border-white/[0.06] bg-white/[0.03] p-7 backdrop-blur-sm"
           >
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-[#EF4444]/80">Traditional Methods</h3>
+            <h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-[#EF4444]/80">Traditional methods</h3>
             {["Hours wasted on manual job board searches", "Paying lead gen agencies for outdated lists", "Burning money on paid ads with no guaranteed ROI"].map((item, i) => (
               <div key={i} className="mb-3 flex items-start gap-2.5 text-sm text-white/60">
                 <span className="mt-1 text-[#EF4444]">&#10006;</span> {item}
@@ -225,8 +225,8 @@ function ProblemSolution() {
           <motion.div initial={{ opacity: 0, x: 20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}
             className="rounded-2xl border border-[#0dcfcf]/25 bg-[#0dcfcf]/[0.06] p-7 backdrop-blur-sm"
           >
-            <h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-[#0dcfcf]">JobFeeder Delivers</h3>
-            {["Real-time job scanning — see postings the moment they go live", "Direct company details and job poster contact info", "Unlimited leads pipeline with zero manual effort"].map((item, i) => (
+            <h3 className="mb-4 text-xs font-bold uppercase tracking-widest text-[#0dcfcf]">JobFeeder delivers</h3>
+            {["Real-time job scanning: see postings the moment they go live", "Direct company details and job poster contact info", "Unlimited leads pipeline with zero manual effort"].map((item, i) => (
               <div key={i} className="mb-3 flex items-start gap-2.5 text-sm text-white/80">
                 <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#0dcfcf]" /> {item}
               </div>
@@ -254,9 +254,9 @@ function FeatureGrid() {
       <FloatingOrbs />
       <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
         <motion.div className="absolute z-0 text-center" style={{ opacity: titleOpacity }}>
-          <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">How It Works</span>
+          <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">How it works</span>
           <h2 className="text-4xl font-semibold tracking-tight text-[#0F172A] sm:text-5xl lg:text-6xl">
-            The JobFeeder <span className="text-[#0dcfcf]">Engine</span>
+            The JobFeeder <span className="text-[#0dcfcf]">engine</span>
           </h2>
         </motion.div>
 
@@ -296,7 +296,7 @@ function ToolsetSection() {
       <div className="relative mx-auto w-[min(92vw,1600px)]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14 text-center">
           <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">Toolset</span>
-          <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">All You Need — In One Platform</h2>
+          <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">All you need, in one platform</h2>
         </motion.div>
 
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -325,7 +325,7 @@ function StepsSection() {
       <div className="relative mx-auto w-[min(92vw,900px)]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14 text-center">
           <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">Setup</span>
-          <h2 className="text-3xl font-semibold tracking-tight text-[#0F172A] sm:text-4xl">3 Simple Steps</h2>
+          <h2 className="text-3xl font-semibold tracking-tight text-[#0F172A] sm:text-4xl">3 simple steps</h2>
         </motion.div>
 
         <div className="space-y-6">
@@ -355,7 +355,7 @@ function TestimonialsSection() {
       <div className="relative mx-auto w-[min(92vw,1200px)]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14 text-center">
           <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">Proof</span>
-          <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Proven Results</h2>
+          <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Proven results</h2>
         </motion.div>
 
         <div className="grid gap-6 sm:grid-cols-3">
@@ -382,7 +382,7 @@ function FAQSection() {
       <div className="relative mx-auto w-[min(92vw,800px)]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-10 text-center">
           <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">FAQ</span>
-          <h2 className="text-3xl font-semibold tracking-tight text-[#0F172A] sm:text-4xl">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-semibold tracking-tight text-[#0F172A] sm:text-4xl">Frequently asked questions</h2>
         </motion.div>
 
         <div className="space-y-4">
@@ -416,12 +416,12 @@ function CTASection() {
       </div>
       <div className="relative z-10 mx-auto w-[min(92vw,700px)] text-center">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }}>
-          <h2 className="mb-5 text-3xl font-semibold text-white sm:text-4xl lg:text-5xl">Only 10 Beta Spots Available</h2>
+          <h2 className="mb-5 text-3xl font-semibold text-white sm:text-4xl lg:text-5xl">Only 10 beta spots available</h2>
           <p className="mx-auto mb-8 max-w-[550px] text-base text-[#94A3B8] sm:text-lg">
-            Get early, free access to JobFeeder. Real-time job leads, AI summaries, and contact details — delivered to Slack.
+            Get early, free access to JobFeeder. Real-time job leads, AI summaries, and contact details, delivered to Slack.
           </p>
           <Link href="#book-call" className="shimmer relative h-12 rounded-lg bg-[#0dcfcf] px-8 text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:bg-[#5de0e0] inline-flex items-center justify-center">
-            Get Beta Access for Free
+            Get beta access for free
           </Link>
         </motion.div>
       </div>

@@ -11,8 +11,8 @@ import { FloatingOrbs } from "./atmospheric-orbs"
 
 interface WorkflowTimelineProps {
   steps: WorkflowStep[]
-  title?: string
-  description?: string
+  title?: React.ReactNode
+  description?: React.ReactNode
 }
 
 const DEFAULT_ICONS = [Zap, Brain, Workflow, TrendingUp, Search, Rocket]

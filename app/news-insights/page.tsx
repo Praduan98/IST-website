@@ -10,17 +10,17 @@ import { Footer } from "@/components/footer"
 // ─── Data ───────────────────────────────────────────────────────────────────────
 const COMPANY_NEWS = [
   {
-    title: "JobFeeder \u2014 Now Live",
+    title: "JobFeeder, now live",
     description:
-      "Most IT MSPs and recruitment agencies are still cold calling. JobFeeder detects companies posting IT jobs in real time and turns them into a live sales pipeline \u2014 automatically.",
+      "Most IT MSPs and recruitment agencies are still cold calling. JobFeeder detects companies posting IT jobs in real time and turns them into a live sales pipeline automatically.",
     cta: "See JobFeeder",
     href: "/Product/jobfeeder",
   },
   {
-    title: "4 AI Products Shipped",
+    title: "4 AI products shipped",
     description:
-      "OneGPT, AetherPilot, ConnectChat, Ava AI \u2014 all production-grade, all live. We don\u2019t just consult. We build.",
-    cta: "Custom AI Development",
+      "OneGPT, AetherPilot, ConnectChat, Ava AI, all production-grade, all live. We don\u2019t just consult. We build.",
+    cta: "Custom AI development",
     href: "/services/custom-ai-agent-app-development",
   },
 ]
@@ -37,23 +37,23 @@ const ARTICLES = [
   },
   {
     title:
-      "Why traditional PPC is failing B2B \u2014 and how ABM fixes it.",
+      "Why traditional PPC is failing B2B and how ABM fixes it.",
     href: "https://medium.com/@riteshosta/why-traditional-ppc-is-failing-b2b-and-how-account-based-marketing-can-fix-it-5079207b595f",
   },
   {
     title:
-      "The $100 billion problem \u2014 how enterprises can beat ad fraud in real time.",
+      "The $100 billion problem: how enterprises can beat ad fraud in real time.",
     href: "https://medium.com/@riteshosta/100-billion-problem-how-enterprises-can-beat-ad-fraud-in-real-time-1424d945e8b9",
   },
   {
-    title: "PPC tactics for ABM \u2014 the account-centric methodology.",
+    title: "PPC tactics for ABM: the account-centric methodology.",
     href: "https://medium.com/@riteshosta/ppc-tactics-for-abm-the-account-centric-ppc-methodology-6ba21c8ddd49",
   },
 ]
 
 const LINKEDIN_POSTS = [
   {
-    title: "Pipeline generation \u2014 if we\u2019re being honest.",
+    title: "Pipeline generation: if we\u2019re being honest.",
     href: "https://www.linkedin.com/posts/riteshosta1_if-were-being-honest-pipeline-generation-activity-7424058646646628352-_OOw",
   },
   {
@@ -68,49 +68,49 @@ const LINKEDIN_POSTS = [
 
 const WEBINARS = [
   {
-    title: "How to Build a GTM Engine for Large B2B Sales Teams",
+    title: "How to build a GTM engine for large B2B sales teams",
     videoId: "DNY0PitTvmw",
   },
   {
-    title: "AI Agents, Revenue Automation & the Future of B2B GTM",
+    title: "AI agents, revenue automation & the future of B2B GTM",
     videoId: "-Qa030ZuB10",
   },
   {
-    title: "The SIGNALS Framework\u2122 to Build Modern GTM Strategy",
+    title: "The SIGNALS Framework\u2122 to build modern GTM strategy",
     videoId: "LB9aFUe1D1Q",
   },
   {
     title:
-      "What Is GTM Engineering? Q&A \u2014 How Data, Signals & Automation Drive B2B Growth",
+      "What is GTM engineering? Q&A: how data, signals & automation drive B2B growth",
     videoId: "IyjHIl0mmhY",
   },
   {
     title:
-      "The Death of Old ABM \u2014 5 Shifts Redefining B2B Marketing with AI",
+      "The death of old ABM: 5 shifts redefining B2B marketing with AI",
     videoId: "MkBPSiOouZw",
   },
   {
     title:
-      "The $100 Billion Problem \u2014 How Enterprises Can Stop Ad Fraud in Real Time",
+      "The $100 billion problem: how enterprises can stop ad fraud in real time",
     videoId: "eo_gCVioMYs",
   },
   {
-    title: "How Does the Dark Funnel Really Work in B2B Sales? Part 1",
+    title: "How does the dark funnel really work in B2B sales? Part 1",
     videoId: "dVwqSvt8XjU",
   },
   {
     title:
-      "Smarter PPC Using ABM 2.0 \u2014 Reducing Wasted Ad Spend with Intent Data",
+      "Smarter PPC using ABM 2.0: reducing wasted ad spend with intent data",
     videoId: "rZpawiTmQJ4",
   },
   {
     title:
-      "HubSpot + ABM \u2014 Using CRM Intelligence for Account-Based Growth",
+      "HubSpot + ABM: using CRM intelligence for account-based growth",
     videoId: "SMiefK411ew",
   },
   {
     title:
-      "How to Turn Job Listings into B2B Leads Using Job Intent Signals",
+      "How to turn job listings into B2B leads using job intent signals",
     videoId: "0-m2WH4lTXs",
   },
 ]
@@ -241,7 +241,7 @@ function HeroSection() {
           className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#0dcfcf]/30 bg-[#0dcfcf]/10 px-4 py-2"
         >
           <span className="text-xs font-semibold uppercase tracking-widest text-[#0dcfcf]">
-            News &amp; Resources
+            News &amp; resources
           </span>
         </motion.div>
 
@@ -251,8 +251,8 @@ function HeroSection() {
           transition={{ duration: 0.7, delay: 0.35, ease: EASE_OUT }}
           className="mb-5 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl"
         >
-          GTM Webinars, Articles &amp;{" "}
-          <span className="gradient-text">B2B Growth Intelligence</span>
+          GTM webinars, articles &amp;{" "}
+          <span className="gradient-text">B2B growth intelligence</span>
         </motion.h1>
 
         <motion.div
@@ -281,7 +281,7 @@ function HeroSection() {
             href="/Contact"
             className="shimmer inline-flex h-12 items-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-semibold text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a] hover:shadow-lg hover:shadow-[#0dcfcf]/25"
           >
-            Book a Strategy Call
+            Book a strategy call
             <ArrowRight className="h-4 w-4" />
           </Link>
         </motion.div>
@@ -301,7 +301,7 @@ function CompanyNewsSection() {
       className="relative bg-[#F8FAFC]/80 px-6 py-16 lg:py-24"
     >
       <div className="relative z-10 mx-auto max-w-[1280px]">
-        <SectionHeader badge="Company News" title="Latest" highlight="Updates" />
+        <SectionHeader badge="Company news" title="Latest" highlight="updates" />
 
         <div className="grid gap-6 md:grid-cols-2">
           {COMPANY_NEWS.map((item, i) => (
@@ -349,9 +349,9 @@ function ArticlesSection() {
 
       <div className="relative z-10 mx-auto max-w-[1280px]">
         <SectionHeader
-          badge="Featured Insights"
+          badge="Featured insights"
           title="Articles &"
-          highlight="Thought Leadership"
+          highlight="thought leadership"
         />
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -409,9 +409,9 @@ function LinkedInSection() {
     >
       <div className="relative z-10 mx-auto max-w-[1280px]">
         <SectionHeader
-          badge="Social Pulse"
+          badge="Social pulse"
           title="Featured LinkedIn"
-          highlight="Posts"
+          highlight="posts"
         />
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -467,6 +467,10 @@ function WebinarSection({
 }: {
   onPlay: (id: string, title: string) => void
 }) {
+  const INITIAL_COUNT = 4
+  const [showAll, setShowAll] = useState(false)
+  const visibleWebinars = showAll ? WEBINARS : WEBINARS.slice(0, INITIAL_COUNT)
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -478,48 +482,83 @@ function WebinarSection({
       <div className="dot-grid absolute inset-0 opacity-20" />
 
       <div className="relative z-10 mx-auto max-w-[1280px]">
-        <SectionHeader badge="GTM Webinar Series" title="Watch &" highlight="Learn" />
+        <SectionHeader badge="GTM webinar series" title="Watch &" highlight="learn" />
 
         <div className="grid gap-6 md:grid-cols-2">
-          {WEBINARS.map((item, i) => (
-            <motion.div
-              key={item.videoId}
-              initial={{ opacity: 0, scale: 0.9, y: 30 }}
-              whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.6, delay: 0.07 * i, ease: EASE_OUT }}
-            >
-              <button
-                onClick={() => onPlay(item.videoId, item.title)}
-                className="group w-full overflow-hidden rounded-xl border border-[#E2E8F0] bg-white text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#0dcfcf]/30 hover:shadow-lg"
+          <AnimatePresence mode="popLayout">
+            {visibleWebinars.map((item, i) => (
+              <motion.div
+                key={item.videoId}
+                initial={{ opacity: 0, scale: 0.9, y: 30 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.95, y: -10 }}
+                layout
+                transition={{ duration: 0.5, delay: i < INITIAL_COUNT ? 0.07 * i : 0.05 * (i - INITIAL_COUNT), ease: EASE_OUT }}
               >
-                <div className="relative aspect-video w-full overflow-hidden bg-[#F1F5F9]">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={`https://img.youtube.com/vi/${item.videoId}/maxresdefault.jpg`}
-                    alt={item.title}
-                    className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    onError={(e) => {
-                      if (e.currentTarget.src.includes("maxresdefault")) {
-                        e.currentTarget.src = e.currentTarget.src.replace("maxresdefault", "hqdefault")
-                      }
-                    }}
-                  />
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors duration-300 group-hover:bg-black/5">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0dcfcf] shadow-md shadow-[#0dcfcf]/15 transition-transform duration-300 group-hover:scale-110">
-                      <Play className="ml-0.5 h-4 w-4 fill-white text-white" />
+                <button
+                  onClick={() => onPlay(item.videoId, item.title)}
+                  className="group w-full overflow-hidden rounded-xl border border-[#E2E8F0] bg-white text-left shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#0dcfcf]/30 hover:shadow-lg"
+                >
+                  <div className="relative aspect-video w-full overflow-hidden bg-[#F1F5F9]">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`https://i.ytimg.com/vi/${item.videoId}/hq720.jpg`}
+                      alt={item.title}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      onError={(e) => {
+                        const src = e.currentTarget.src
+                        if (src.includes("hq720")) {
+                          e.currentTarget.src = `https://img.youtube.com/vi/${item.videoId}/maxresdefault.jpg`
+                        } else if (src.includes("maxresdefault")) {
+                          e.currentTarget.src = src.replace("maxresdefault", "hqdefault")
+                        }
+                      }}
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/10 transition-colors duration-300 group-hover:bg-black/5">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0dcfcf] shadow-md shadow-[#0dcfcf]/15 transition-transform duration-300 group-hover:scale-110">
+                        <Play className="ml-0.5 h-4 w-4 fill-white text-white" />
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div className="p-5">
-                  <h3 className="text-[0.938rem] font-semibold leading-snug text-[#0F172A] transition-colors duration-300 group-hover:text-[#0dcfcf]">
-                    {item.title}
-                  </h3>
-                </div>
-              </button>
-            </motion.div>
-          ))}
+                  <div className="p-5">
+                    <h3 className="text-[0.938rem] font-semibold leading-snug text-[#0F172A] transition-colors duration-300 group-hover:text-[#0dcfcf]">
+                      {item.title.includes("dark funnel")
+                        ? <>
+                            {item.title.split("dark funnel")[0]}
+                            <Link href="/#problem-section" className="font-semibold text-[#0dcfcf] hover:underline" onClick={(e) => e.stopPropagation()}>dark funnel</Link>
+                            {item.title.split("dark funnel")[1]}
+                          </>
+                        : item.title}
+                    </h3>
+                  </div>
+                </button>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
+
+        {WEBINARS.length > INITIAL_COUNT && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.4, delay: 0.3 }}
+            className="mt-10 text-center"
+          >
+            <button
+              onClick={() => setShowAll(!showAll)}
+              className="inline-flex h-12 items-center gap-2 rounded-lg border border-[#E2E8F0] bg-white px-8 text-base font-medium text-[#0F172A] transition-all hover:border-[#0dcfcf]/50 hover:bg-[#0dcfcf]/5 hover:text-[#0dcfcf]"
+            >
+              {showAll ? "Show less" : `See all ${WEBINARS.length} webinars`}
+              <motion.span
+                animate={{ rotate: showAll ? 180 : 0 }}
+                transition={{ duration: 0.3 }}
+                className="inline-flex"
+              >
+                <ArrowRight className="h-4 w-4 rotate-90" />
+              </motion.span>
+            </button>
+          </motion.div>
+        )}
       </div>
     </motion.section>
   )
@@ -548,23 +587,23 @@ function FinalCTA() {
             className="flex flex-col justify-center rounded-2xl border border-[#E2E8F0] bg-white p-8 shadow-sm lg:p-12"
           >
             <span className="mb-4 inline-flex w-fit items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">
-              Stay Updated
+              Stay updated
             </span>
             <h2 className="mb-3 text-2xl font-semibold tracking-tight text-[#0F172A] lg:text-3xl">
-              Get GTM Insights{" "}
-              <span className="gradient-text">Every Week</span>
+              Get GTM insights{" "}
+              <span className="gradient-text">every week</span>
             </h2>
             <p className="mb-6 text-[0.938rem] leading-relaxed text-[#64748B]">
               Join 5,000+ founders and GTM leaders getting weekly AI-led GTM
               tips, signal-led growth strategies, and real campaign breakdowns
-              — straight from the InsightsTap lab.
+              straight from the InsightsTap lab.
             </p>
             <div>
               <Link
                 href="/Newsletter"
                 className="shimmer inline-flex h-12 items-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-semibold text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a] hover:shadow-lg hover:shadow-[#0dcfcf]/25"
               >
-                Subscribe for Free
+                Subscribe for free
                 <ArrowRight className="h-4 w-4" />
               </Link>
               <p className="mt-3 text-xs text-[#94A3B8]">
@@ -582,11 +621,11 @@ function FinalCTA() {
             className="flex flex-col justify-center rounded-2xl border border-[#0dcfcf]/20 bg-gradient-to-br from-white to-[#0dcfcf]/[0.04] p-8 shadow-sm lg:p-12"
           >
             <span className="mb-4 inline-flex w-fit items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">
-              Let&apos;s Talk
+              Let&apos;s talk
             </span>
             <h2 className="mb-3 text-2xl font-semibold tracking-tight text-[#0F172A] lg:text-3xl">
-              Ready to Build Your{" "}
-              <span className="gradient-text">Revenue Engine</span>?
+              Ready to build your{" "}
+              <span className="gradient-text">revenue engine</span>?
             </h2>
             <p className="mb-6 text-[0.938rem] leading-relaxed text-[#64748B]">
               Let&apos;s turn buyer signals into booked meetings and real
@@ -598,7 +637,7 @@ function FinalCTA() {
                 href="/Contact"
                 className="shimmer inline-flex h-12 items-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-semibold text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a] hover:shadow-lg hover:shadow-[#0dcfcf]/25"
               >
-                Book a Strategy Call
+                Book a strategy call
                 <ArrowRight className="h-4 w-4" />
               </Link>
             </div>

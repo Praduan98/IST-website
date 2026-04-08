@@ -47,7 +47,7 @@ export function Hero() {
         >
           <Sparkles className="h-4 w-4 text-[#0dcfcf]" />
           <span className="text-xs font-medium uppercase tracking-wider text-[#64748B]">
-            Intent Signal As A Service
+            Intent signal as a service
           </span>
         </motion.div>
 
@@ -99,7 +99,7 @@ export function Hero() {
               href="/company-profile/optin"
               className="shimmer relative h-12 rounded-lg bg-[#0dcfcf] px-8 text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a] hover:shadow-lg hover:shadow-[#0dcfcf]/25 inline-flex items-center justify-center"
             >
-              Download Company Profile
+              Download company profile
             </Link>
           </MagneticButton>
           <Link

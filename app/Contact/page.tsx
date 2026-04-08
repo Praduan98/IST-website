@@ -91,7 +91,7 @@ function HeroSection({ onScrollToForm }: { onScrollToForm: () => void }) {
         >
           <Sparkles className="h-4 w-4 text-[#0dcfcf]" />
           <span className="text-xs font-medium uppercase tracking-wider text-[#64748B]">
-            Get In Touch
+            Get in touch
           </span>
         </motion.div>
 
@@ -102,8 +102,8 @@ function HeroSection({ onScrollToForm }: { onScrollToForm: () => void }) {
           transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="mb-5 text-4xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-5xl md:text-6xl lg:text-[4.5rem]"
         >
-          Let&apos;s Build Your{" "}
-          <span className="gradient-text">Revenue Engine</span>
+          Let&apos;s build your{" "}
+          <span className="gradient-text">revenue engine</span>
         </motion.h1>
 
         {/* Subtitle */}
@@ -262,7 +262,7 @@ function FormSection() {
 
             <ul className="mb-10 space-y-3.5">
               {[
-                "Real-time intent signals — not guesswork",
+                "Real-time intent signals, not guesswork",
                 "AI agents that act 24/7 on your behalf",
                 "CRM-connected, attribution-measured",
                 "Enterprise results, startup execution speed",
@@ -317,7 +317,7 @@ function FormSection() {
 
                   {/* Full Name */}
                   <FormField
-                    label="Full Name"
+                    label="Full name"
                     icon={<User className="h-4 w-4" />}
                   >
                     <input
@@ -350,7 +350,7 @@ function FormSection() {
                     </FormField>
 
                     <FormField
-                      label="Phone Number"
+                      label="Phone number"
                       icon={<Phone className="h-4 w-4" />}
                     >
                       <input
@@ -421,7 +421,7 @@ function FormSection() {
                       </>
                     ) : (
                       <>
-                        Send Message
+                        Send message
                         <ArrowRight className="h-4 w-4" />
                       </>
                     )}
@@ -430,7 +430,7 @@ function FormSection() {
                   <p className="text-center text-xs text-[#94A3B8]">
                     By submitting, you agree to our{" "}
                     <Link href="#" className="text-[#0dcfcf] hover:underline">
-                      Privacy Policy
+                      Privacy policy
                     </Link>
                     .
                   </p>
@@ -494,7 +494,7 @@ function SuccessState() {
       <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#0dcfcf]/12">
         <CheckCircle className="h-8 w-8 text-[#0dcfcf]" />
       </div>
-      <h3 className="mb-3 text-2xl font-bold text-[#0F172A]">Message Received</h3>
+      <h3 className="mb-3 text-2xl font-bold text-[#0F172A]">Message received</h3>
       <p className="max-w-[360px] text-base leading-relaxed text-[#64748B]">
         Our team will review your details and reach out within one business day.
       </p>

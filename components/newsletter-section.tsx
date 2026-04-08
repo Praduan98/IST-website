@@ -69,8 +69,8 @@ export function NewsletterSection() {
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.4 }}
               className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-[2.6rem]"
             >
-              Stay Ahead with{" "}
-              <span className="gradient-text">Insightstap Insights</span>
+              Stay ahead with{" "}
+              <span className="gradient-text">InsightsTap insights</span>
             </motion.h2>
 
             {/* Description */}
@@ -81,7 +81,7 @@ export function NewsletterSection() {
               className="mb-6 text-base leading-relaxed text-[#64748B] lg:text-lg"
             >
               Weekly AI &amp; GTM strategies delivered straight to your inbox.
-              No fluff — just actionable plays used by top B2B teams to drive
+              No fluff, just actionable plays used by top B2B teams to drive
               faster pipeline and lower CAC.
             </motion.p>
 
@@ -153,7 +153,7 @@ function SubscribeButton() {
         href="/Newsletter"
         className="shimmer group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-[#0dcfcf] px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#0dcfcf]/15 transition-shadow hover:shadow-lg hover:shadow-[#0dcfcf]/20"
       >
-        Subscribe Free
+        Subscribe free
         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
       </Link>
     </motion.div>

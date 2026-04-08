@@ -15,13 +15,13 @@ function getThemeColors(mode: ThemeMode) {
     sunset: '#FFB74D',
   }
   const bgs: Record<ThemeMode, string> = {
-    night: '#122436',
+    night: '#1a3250',
     sunrise: '#ffc48c',
     day: '#FFFFFF',
     sunset: '#5a3468',
   }
   const glows: Record<ThemeMode, string> = {
-    night: '#1a2f42',
+    night: '#264060',
     sunrise: '#ffa07a',
     day: '#0dcfcf',
     sunset: '#8b4f8e',
@@ -51,9 +51,9 @@ export function InteractiveStats() {
           className="mx-auto mb-12 grid max-w-[800px] grid-cols-2 gap-4 sm:grid-cols-4"
         >
           <InteractiveStat icon={Zap} value="40%" label="Lower CAC" delay={0} themeMode={themeMode} />
-          <InteractiveStat icon={TrendingUp} value="3x" label="Pipeline Growth" delay={0.1} themeMode={themeMode} />
-          <InteractiveStat icon={Users} value="2.5x" label="More Meetings" delay={0.2} themeMode={themeMode} />
-          <InteractiveStat icon={Sparkles} value="90" label="Days to Results" delay={0.3} themeMode={themeMode} />
+          <InteractiveStat icon={TrendingUp} value="3x" label="Pipeline growth" delay={0.1} themeMode={themeMode} />
+          <InteractiveStat icon={Users} value="2.5x" label="More meetings" delay={0.2} themeMode={themeMode} />
+          <InteractiveStat icon={Sparkles} value="90" label="Days to results" delay={0.3} themeMode={themeMode} />
         </motion.div>
 
         {/* Hero Visual - Animated Signal Flow */}
@@ -154,7 +154,7 @@ function InteractiveSection({
           x, y, baseX: x, baseY: y,
           size: Math.random() * 2.5 + 0.8,
           density: Math.random() * 30 + 5,
-          opacity: Math.random() * 0.4 + 0.2,
+          opacity: Math.random() * 0.4 + 0.35,
         }
       })
     }
@@ -198,7 +198,7 @@ function InteractiveSection({
           const dy = particles[a].y - particles[b].y
           const dist = Math.sqrt(dx * dx + dy * dy)
           if (dist < 110) {
-            const opacity = (1 - dist / 110) * 0.28
+            const opacity = (1 - dist / 110) * 0.4
             ctx!.strokeStyle = getColor(opacity)
             ctx!.lineWidth = 1
             ctx!.beginPath()
@@ -234,7 +234,7 @@ function InteractiveSection({
   }
 
   const backgrounds: Record<ThemeMode, string> = {
-    night: 'linear-gradient(135deg, #0a1828 0%, #1a2f42 50%, #0a1828 100%)',
+    night: 'linear-gradient(135deg, #0f2035 0%, #1a3250 50%, #0f2035 100%)',
     sunrise: 'linear-gradient(135deg, #ffa07a 0%, #ffb894 20%, #ffd4a3 40%, #ffe5b4 60%, #fff4e6 80%, #ffffff 100%)',
     day: '#FFFFFF',
     sunset: 'linear-gradient(135deg, #2d1b3d 0%, #4a2c5a 20%, #6b3d76 40%, #8b4f8e 60%, #c77d9f 80%, #e8a5b8 100%)',
@@ -302,7 +302,7 @@ function SignalFlowVisualization({ themeMode }: { themeMode: ThemeMode }) {
         <FlowArrow themeMode={themeMode} />
         <FlowStage
           icon={<AIIcon className="h-8 w-8 sm:h-10 sm:w-10 transition-colors duration-700" style={{ color: colors.accent }} />}
-          label="AI Agents"
+          label="AI agents"
           color={colors.accent}
           delay={0.5}
           themeMode={themeMode}
@@ -355,7 +355,7 @@ function FlowStage({
         className="relative flex h-16 w-16 items-center justify-center rounded-xl sm:h-20 sm:w-20 cursor-pointer transition-all duration-700"
         style={{
           backgroundColor: colors.isDark ? `${colors.bg}f0` : `${colors.bg}e8`,
-          border: `1px solid ${color}30`,
+          border: `1px solid ${color}50`,
         }}
         whileHover={{
           boxShadow: `0 0 30px ${color}30`,
