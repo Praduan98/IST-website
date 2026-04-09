@@ -79,6 +79,15 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    /* Lenis owns scrolling — disable native smooth-scroll so the two
+       don't compete and add jitter on anchor jumps. */
+    scroll-behavior: auto;
+    /* Hint the renderer to keep text crisp during transforms */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
   body {
     @apply bg-background text-foreground;
   }
@@ -393,9 +402,15 @@
     0 12px 15px -5px rgba(0, 201, 177, 0.15);
 }
 
-/* ─── GPU acceleration for heavy containers ────────────────── */
+/* ─── GPU acceleration for heavy containers ──────────────────
+   Promotes the element to its own compositor layer so transforms
+   don't trigger paint/layout on the main thread. Use sparingly —
+   too many layers consume GPU memory. */
 .gpu-layer {
-  will-change: transform;
+  will-change: transform, opacity;
+  transform: translateZ(0);
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
+  perspective: 1000px;
+  -webkit-perspective: 1000px;
 }

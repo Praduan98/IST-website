@@ -21,6 +21,7 @@ import { useRouter } from "next/navigation"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { LogoTicker } from "@/components/logo-ticker"
+import { EmailLink } from "@/components/email-link"
 
 // ─── HubSpot config ────────────────────────────────────────────────────────────
 const HS_PORTAL_ID = process.env.NEXT_PUBLIC_HS_PORTAL_ID ?? ""
@@ -96,7 +97,7 @@ function HeroSection({ onScroll }: { onScroll: () => void }) {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.25, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="mb-5 text-[2.5rem] font-semibold leading-[1.08] tracking-tight text-[#0F172A] sm:text-5xl lg:text-[3.25rem]"
+            className="mb-5 text-3xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.5rem]"
           >
             AI GTM hub for{" "}
             <span className="gradient-text">modern sales leaders</span>
@@ -273,9 +274,9 @@ function HeroForm() {
       {status === "error" && (
         <p className="w-full text-xs text-red-500 sm:col-span-2">
           Something went wrong. Please try again or email us at{" "}
-          <a href="mailto:hello@insightstap.com" className="underline">
-            hello@insightstap.com
-          </a>
+          <EmailLink className="underline">
+            info@insightstap.com
+          </EmailLink>
           .
         </p>
       )}

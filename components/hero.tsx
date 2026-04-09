@@ -47,35 +47,31 @@ export function Hero() {
         >
           <Sparkles className="h-4 w-4 text-[#0dcfcf]" />
           <span className="text-xs font-medium uppercase tracking-wider text-[#64748B]">
-            Intent signal as a service
+            ISaaS
           </span>
         </motion.div>
 
         {/* Headline */}
         <motion.h1
-          className="mb-5 text-4xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-5xl md:text-6xl lg:text-[4.5rem]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          className="mb-5 text-3xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.5rem]"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
         >
-          <motion.span
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="block"
-          >
-            Run your B2B enterprise
-          </motion.span>
-          <motion.span
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="block"
-          >
-            like an{" "}
-            <span className="gradient-text">E-commerce</span> store
-          </motion.span>
+          Intent Signals{" "}
+          <span className="gradient-text">as a Service</span>
         </motion.h1>
+
+        {/* Sub-headline */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="mx-auto mb-6 max-w-[820px] text-xl font-medium leading-snug tracking-tight text-[#334155] sm:text-2xl md:text-[1.75rem]"
+        >
+          Run your B2B enterprise like an{" "}
+          <span className="text-[#0dcfcf]">E-commerce</span> store
+        </motion.p>
 
         {/* Description */}
         <motion.p

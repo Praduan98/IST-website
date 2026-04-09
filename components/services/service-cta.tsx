@@ -11,6 +11,8 @@ interface ServiceCTAProps {
   primaryHref?: string
   brochureHref?: string
   brochureLabel?: string
+  /** Hide the secondary "Download company profile" button. Defaults to true (shown). */
+  showBrochure?: boolean
 }
 
 export function ServiceCTA({
@@ -20,6 +22,7 @@ export function ServiceCTA({
   primaryHref = "/Contact",
   brochureHref = "/services/ai-gtm-strategy/optin",
   brochureLabel = "Download company profile",
+  showBrochure = true,
 }: ServiceCTAProps) {
   return (
     <section className="relative overflow-hidden bg-[#0F172A] px-6 py-20 lg:py-28">
@@ -61,12 +64,14 @@ export function ServiceCTA({
             >
               {primaryLabel}
             </Link>
-            <Link
-              href={brochureHref}
-              className="h-12 rounded-lg border border-white/20 px-8 text-base font-medium text-white/90 transition-all hover:border-white/40 hover:bg-white/10 inline-flex items-center justify-center"
-            >
-              {brochureLabel}
-            </Link>
+            {showBrochure && (
+              <Link
+                href={brochureHref}
+                className="h-12 rounded-lg border border-white/20 px-8 text-base font-medium text-white/90 transition-all hover:border-white/40 hover:bg-white/10 inline-flex items-center justify-center"
+              >
+                {brochureLabel}
+              </Link>
+            )}
           </motion.div>
         </motion.div>
       </div>

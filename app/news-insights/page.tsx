@@ -249,7 +249,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35, ease: EASE_OUT }}
-          className="mb-5 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl"
+          className="mb-5 text-3xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.5rem]"
         >
           GTM webinars, articles &amp;{" "}
           <span className="gradient-text">B2B growth intelligence</span>

@@ -168,7 +168,7 @@ function HeroSection() {
             delay: 0.3,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
-          className="mb-5 whitespace-nowrap text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.25rem]"
+          className="mb-5 whitespace-nowrap text-3xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.5rem]"
         >
           Your brochure is{" "}
           <span className="gradient-text">ready</span>.

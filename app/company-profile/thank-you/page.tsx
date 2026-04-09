@@ -56,7 +56,7 @@ function HeroSection() {
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.2 }} className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#0dcfcf]/30 bg-[#0dcfcf]/10 px-4 py-2 glow-border">
           <Sparkles className="h-4 w-4 text-[#0dcfcf]" /><span className="text-xs font-medium uppercase tracking-wider text-[#64748B]">Conversion complete</span>
         </motion.div>
-        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }} className="mb-5 whitespace-nowrap text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.25rem]">
+        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }} className="mb-5 whitespace-nowrap text-3xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.5rem]">
           Your profile is <span className="gradient-text">ready</span>.
         </motion.h1>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.6 }} className="mx-auto mb-10 max-w-[540px] text-[1.125rem] leading-relaxed text-[#64748B]">

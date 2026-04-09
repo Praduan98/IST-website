@@ -5,6 +5,7 @@ import { useRef } from "react"
 import {
   Search, Brain, Zap, Bell, UserCheck, Download, Check,
   Sparkles, ChevronDown, MessageSquare, ArrowRight,
+  UserPlus, Plug, Send,
 } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
@@ -31,9 +32,27 @@ const toolset = [
 ]
 
 const steps = [
-  { step: "01", title: "Sign up for free", description: "Create your account in under 60 seconds. No credit card required. Free plan includes 9 queries per day." },
-  { step: "02", title: "Integrate with Slack", description: "Connect JobFeeder to your Slack workspace. Leads delivered directly to the channel your team monitors." },
-  { step: "03", title: "Act on leads", description: "Leads arrive with company details, summaries, and contact info. Reach out while the need is fresh." },
+  {
+    step: "01",
+    title: "Sign up for free",
+    description: "Create your account in under 60 seconds. No credit card required. Free plan includes 9 queries per day.",
+    icon: UserPlus,
+    highlight: "60 seconds",
+  },
+  {
+    step: "02",
+    title: "Integrate with Slack",
+    description: "Connect JobFeeder to your Slack workspace. Leads delivered directly to the channel your team monitors.",
+    icon: Plug,
+    highlight: "1-click setup",
+  },
+  {
+    step: "03",
+    title: "Act on leads",
+    description: "Leads arrive with company details, summaries, and contact info. Reach out while the need is fresh.",
+    icon: Send,
+    highlight: "Real-time",
+  },
 ]
 
 const testimonials = [
@@ -128,7 +147,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mb-5 text-4xl font-semibold leading-[1.08] tracking-[-0.02em] text-white sm:text-5xl lg:text-[4.5rem]"
+          className="mb-5 text-3xl font-semibold leading-[1.05] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.5rem]"
         >
           <motion.span initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="block">
             Find companies posting IT jobs
@@ -182,14 +201,52 @@ function GifShowcase() {
 
   return (
     <section ref={ref} className="relative bg-[#F8FAFC] px-6 py-16 lg:py-24">
-      <div className="relative mx-auto w-[min(90vw,512px)]" style={{ perspective: 1200 }}>
+      <div className="relative mx-auto grid w-[min(92vw,1200px)] items-center gap-10 lg:grid-cols-[1.05fr_0.95fr] lg:gap-14">
+        {/* GIF — left on desktop */}
+        <div className="relative order-2 lg:order-1" style={{ perspective: 1200 }}>
+          <motion.div
+            className="gpu-layer rounded-2xl border border-[#E2E8F0] bg-white p-2 overflow-hidden"
+            style={{ y, rotateX, scale, boxShadow: shadow }}
+            whileHover={{ rotateY: 2, rotateX: -1, scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 200, damping: 30 }}
+          >
+            <img src="/jobfeeder-demo.gif" alt="JobFeeder platform demo" className="w-full rounded-xl" />
+          </motion.div>
+        </div>
+
+        {/* Description — right on desktop */}
         <motion.div
-          className="rounded-2xl border border-[#E2E8F0] bg-white p-2 overflow-hidden will-change-transform"
-          style={{ y, rotateX, scale, boxShadow: shadow }}
-          whileHover={{ rotateY: 2, rotateX: -1, scale: 1.02 }}
-          transition={{ type: "spring", stiffness: 200, damping: 30 }}
+          initial={{ opacity: 0, x: 30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="order-1 lg:order-2"
         >
-          <img src="/jobfeeder-demo.gif" alt="JobFeeder platform demo" className="w-full rounded-xl" />
+          <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">
+            See it in action
+          </span>
+          <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-[2.6rem]">
+            Real-time job leads, <span className="text-[#0dcfcf]">delivered live</span>
+          </h2>
+          <div className="mb-5 h-1 w-12 rounded-full bg-[#0dcfcf]" />
+          <p className="mb-6 text-base leading-relaxed text-[#64748B] lg:text-lg">
+            Search by job title, location, and posting date. JobFeeder pulls fresh openings the moment they go live and routes them straight to Slack or your inbox with company details, contact info, and AI-powered summaries already attached.
+          </p>
+
+          <ul className="space-y-3">
+            {[
+              { icon: Zap, text: "Live results in seconds, not hours" },
+              { icon: Brain, text: "AI summaries on every posting" },
+              { icon: Bell, text: "Slack & email alerts the moment a job appears" },
+            ].map(({ icon: Icon, text }) => (
+              <li key={text} className="flex items-start gap-3 text-sm text-[#0F172A]">
+                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#0dcfcf]/10 text-[#0dcfcf]">
+                  <Icon className="h-4 w-4" strokeWidth={2.2} />
+                </span>
+                <span className="pt-1 leading-snug">{text}</span>
+              </li>
+            ))}
+          </ul>
         </motion.div>
       </div>
     </section>
@@ -264,7 +321,7 @@ function FeatureGrid() {
           {features.map((f, i) => {
             const t = transforms[i]
             return (
-              <motion.div key={f.title} className="rounded-2xl border border-[#E2E8F0] bg-white p-6 sm:p-7"
+              <motion.div key={f.title} className="gpu-layer rounded-2xl border border-[#E2E8F0] bg-white p-6 sm:p-7"
                 style={{ x: t.x, y: t.y, opacity: t.opacity, scale: t.scale, boxShadow: "0 8px 30px rgba(0,0,0,0.06)" }}
               >
                 <div className="mb-4 flex items-center gap-3">
@@ -302,13 +359,13 @@ function ToolsetSection() {
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {toolset.map((t, i) => (
             <motion.div key={t.title} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.08 }}
-              className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-6 backdrop-blur-sm transition-all hover:border-[#0dcfcf]/25 hover:bg-[#0dcfcf]/[0.06]"
+              className="rounded-xl border border-white/15 bg-white/[0.07] p-6 backdrop-blur-sm shadow-[0_4px_20px_rgba(0,0,0,0.25)] transition-all hover:border-[#0dcfcf]/40 hover:bg-[#0dcfcf]/[0.10]"
             >
-              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#0dcfcf]/10">
+              <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#0dcfcf]/15">
                 <t.icon className="h-5 w-5 text-[#0dcfcf]" />
               </div>
               <h3 className="mb-2 text-base font-semibold text-white">{t.title}</h3>
-              <p className="text-sm leading-relaxed text-white/60">{t.description}</p>
+              <p className="text-sm leading-relaxed text-white/75">{t.description}</p>
             </motion.div>
           ))}
         </div>
@@ -320,26 +377,91 @@ function ToolsetSection() {
 // ─── Steps ───────────────────────────────────────────────────────────
 function StepsSection() {
   return (
-    <section className="relative bg-white px-6 py-20 lg:py-28">
+    <section className="relative overflow-hidden bg-white px-6 py-20 lg:py-28">
       <FloatingOrbs />
-      <div className="relative mx-auto w-[min(92vw,900px)]">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14 text-center">
-          <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">Setup</span>
-          <h2 className="text-3xl font-semibold tracking-tight text-[#0F172A] sm:text-4xl">3 simple steps</h2>
+      <div className="glow-orb absolute left-1/2 top-1/2 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.05] blur-[140px]" />
+
+      <div className="relative mx-auto w-[min(92vw,1200px)]">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mb-16 text-center"
+        >
+          <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">
+            Setup
+          </span>
+          <h2 className="mb-3 text-3xl font-semibold tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">
+            Live in <span className="text-[#0dcfcf]">3 simple steps</span>
+          </h2>
+          <p className="mx-auto max-w-[560px] text-base leading-relaxed text-[#64748B]">
+            From zero to your first lead in under 5 minutes. No engineering, no setup fees.
+          </p>
         </motion.div>
 
-        <div className="space-y-6">
-          {steps.map((s, i) => (
-            <motion.div key={s.step} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="flex gap-5 rounded-xl border border-[#E2E8F0] bg-[#F8FAFC] p-6 transition-all hover:border-[#0dcfcf]/30 hover:shadow-lg"
-            >
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border-2 border-[#0dcfcf] bg-white font-mono text-sm font-bold text-[#0dcfcf]">{s.step}</div>
-              <div>
-                <h3 className="mb-1 text-lg font-semibold text-[#0F172A]">{s.title}</h3>
-                <p className="text-sm leading-relaxed text-[#64748B]">{s.description}</p>
-              </div>
-            </motion.div>
-          ))}
+        {/* Connector line behind cards (desktop only) */}
+        <div className="relative">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute left-0 right-0 top-[44px] hidden h-px lg:block"
+            style={{
+              background:
+                "repeating-linear-gradient(to right, #0dcfcf 0 8px, transparent 8px 16px)",
+              maskImage: "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+              WebkitMaskImage:
+                "linear-gradient(to right, transparent, black 12%, black 88%, transparent)",
+            }}
+          />
+
+          <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
+            {steps.map((s, i) => {
+              const Icon = s.icon
+              return (
+                <motion.div
+                  key={s.step}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-60px" }}
+                  transition={{
+                    duration: 0.5,
+                    delay: i * 0.12,
+                    ease: [0.25, 0.46, 0.45, 0.94],
+                  }}
+                  whileHover={{ y: -6 }}
+                  className="group relative flex flex-col items-center text-center"
+                >
+                  {/* Number badge — sits on the connector line */}
+                  <div className="relative z-10 mb-6">
+                    <div className="absolute inset-0 rounded-full bg-[#0dcfcf] opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-30" />
+                    <div className="relative flex h-[88px] w-[88px] items-center justify-center rounded-full border border-[#E2E8F0] bg-white shadow-[0_8px_30px_rgba(13,207,207,0.08)] transition-all duration-300 group-hover:border-[#0dcfcf]/40 group-hover:shadow-[0_12px_40px_rgba(13,207,207,0.18)]">
+                      <Icon className="h-8 w-8 text-[#0dcfcf]" strokeWidth={1.8} />
+                      <span className="absolute -right-1 -top-1 flex h-7 w-7 items-center justify-center rounded-full bg-[#0dcfcf] font-mono text-[11px] font-bold text-white shadow-md shadow-[#0dcfcf]/30">
+                        {s.step}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Card */}
+                  <div className="relative w-full rounded-2xl border border-[#E2E8F0] bg-white p-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)] transition-all duration-300 group-hover:border-[#0dcfcf]/30 group-hover:shadow-[0_12px_40px_rgba(13,207,207,0.10)]">
+                    <span className="mb-3 inline-flex items-center gap-1.5 rounded-md bg-[#0dcfcf]/10 px-2.5 py-1 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0dcfcf]">
+                      <span className="h-1.5 w-1.5 rounded-full bg-[#0dcfcf]" />
+                      {s.highlight}
+                    </span>
+                    <h3 className="mb-2 text-xl font-semibold text-[#0F172A]">{s.title}</h3>
+                    <p className="text-sm leading-relaxed text-[#64748B]">{s.description}</p>
+                  </div>
+
+                  {/* Mobile-only step-to-step arrow */}
+                  {i < steps.length - 1 && (
+                    <div className="my-2 flex h-8 items-center justify-center lg:hidden">
+                      <ChevronDown className="h-5 w-5 text-[#0dcfcf]/50" />
+                    </div>
+                  )}
+                </motion.div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>
@@ -361,11 +483,11 @@ function TestimonialsSection() {
         <div className="grid gap-6 sm:grid-cols-3">
           {testimonials.map((t, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="rounded-xl border border-white/[0.06] bg-white/[0.03] p-6 backdrop-blur-sm"
+              className="rounded-xl border border-white/15 bg-white/[0.07] p-6 backdrop-blur-sm shadow-[0_4px_20px_rgba(0,0,0,0.25)] transition-all hover:border-[#0dcfcf]/40 hover:bg-[#0dcfcf]/[0.08]"
             >
-              <p className="mb-4 text-sm leading-relaxed text-white/60 italic">&ldquo;{t.quote}&rdquo;</p>
+              <p className="mb-4 text-sm leading-relaxed text-white/80 italic">&ldquo;{t.quote}&rdquo;</p>
               <p className="text-sm font-semibold text-white">{t.author}</p>
-              <p className="text-xs text-white/40">{t.role}</p>
+              <p className="text-xs text-white/60">{t.role}</p>
             </motion.div>
           ))}
         </div>

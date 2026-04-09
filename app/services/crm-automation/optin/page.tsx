@@ -18,6 +18,7 @@ import { useRouter } from "next/navigation"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { LogoTicker } from "@/components/logo-ticker"
+import { EmailLink } from "@/components/email-link"
 
 const HS_PORTAL_ID = process.env.NEXT_PUBLIC_HS_PORTAL_ID ?? ""
 const HS_FORM_GUID = process.env.NEXT_PUBLIC_HS_FORM_GUID ?? ""
@@ -53,7 +54,7 @@ function HeroSection({ onScroll }: { onScroll: () => void }) {
           <Sparkles className="h-4 w-4 text-[#0dcfcf]" />
           <span className="text-xs font-medium uppercase tracking-wider text-[#64748B]">CRM enrichment & automation</span>
         </motion.div>
-        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }} className="mb-5 text-4xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-5xl md:text-6xl lg:text-[4.5rem]">
+        <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }} className="mb-5 text-3xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.5rem]">
           Get the <span className="gradient-text">CRM enrichment</span> playbook
         </motion.h1>
         <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.6 }} className="mx-auto mb-14 max-w-[660px] text-base leading-relaxed text-[#64748B] sm:text-lg">
@@ -135,7 +136,7 @@ function FormSection() {
             <RevealField revealed={formRevealed} delay={0.2}><label className="mb-1.5 block text-sm font-medium text-[#0F172A]">Phone number</label><div className="relative"><span className="pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-[#94A3B8]"><Phone className="h-4 w-4" /></span><input type="tel" name="phone" value={form.phone} onChange={handleChange} placeholder="+1 (555) 000-0000" className={inputCls} /></div></RevealField>
             <RevealField revealed={formRevealed} delay={0.3}><label className="mb-1.5 block text-sm font-medium text-[#0F172A]">Write us your comment</label><div className="relative"><span className="pointer-events-none absolute left-3 top-3.5 text-[#94A3B8]"><MessageSquare className="h-4 w-4" /></span><textarea name="message" value={form.message} onChange={handleChange} placeholder="Tell us about your CRM challenge..." rows={4} className={`${inputCls} resize-none`} /></div></RevealField>
             <div className="absolute -left-[9999px]" aria-hidden="true"><input type="text" name="website_url_hp" tabIndex={-1} autoComplete="off" value={honeypot} onChange={e => setHoneypot(e.target.value)} /></div>
-            {status === "error" && <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} className="rounded-lg bg-red-50 border border-red-100 px-4 py-3 text-sm text-red-600">The submission could not be completed. Please try again or email us at <a href="mailto:hello@insightstap.com" className="font-medium underline">hello@insightstap.com</a>.</motion.div>}
+            {status === "error" && <motion.div initial={{ opacity: 0, y: -8 }} animate={{ opacity: 1, y: 0 }} className="rounded-lg bg-red-50 border border-red-100 px-4 py-3 text-sm text-red-600">The submission could not be completed. Please try again or email us at <EmailLink className="font-medium underline">info@insightstap.com</EmailLink>.</motion.div>}
             <RevealField revealed={formRevealed} delay={0.4}>
               <button type="submit" disabled={status === "loading"} className={`relative flex w-full items-center justify-center gap-2 rounded-lg py-3.5 text-base font-semibold text-white shadow-lg transition-all disabled:cursor-not-allowed disabled:opacity-60 disabled:hover:translate-y-0 ${isGateValid ? "shimmer bg-[#0dcfcf] shadow-[#0dcfcf]/15 hover:-translate-y-0.5 hover:bg-[#0a9a9a] hover:shadow-lg hover:shadow-[#0dcfcf]/25" : "bg-[#94A3B8] shadow-black/5 cursor-not-allowed"}`}>
                 {status === "loading" ? <><Loader2 className="h-4 w-4 animate-spin" />Submitting...</> : isGateValid ? <><ArrowRight className="h-4 w-4" />Submit</> : <><Lock className="h-4 w-4" />Fill required fields to unlock</>}

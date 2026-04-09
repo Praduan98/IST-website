@@ -27,6 +27,7 @@ import { useRef, useState, useEffect } from "react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { FloatingOrbs } from "@/components/services/atmospheric-orbs"
+import { handleEmailClick, INFO_EMAIL } from "@/components/email-link"
 
 // ─── Data ────────────────────────────────────────────────────────────
 const values = [
@@ -213,7 +214,7 @@ function HeroSection() {
 
       <div className="relative z-10 mx-auto max-w-[1280px] px-6 text-center">
         <motion.h1
-          className="mb-6 text-4xl font-semibold leading-[1.05] tracking-tight text-white sm:text-5xl md:text-6xl lg:text-7xl"
+          className="mb-6 text-3xl font-semibold leading-[1.05] tracking-tight text-white sm:text-4xl md:text-5xl lg:text-[3.5rem]"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
@@ -594,11 +595,11 @@ function CoreValuesSection() {
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="group relative cursor-pointer rounded-2xl border p-6 backdrop-blur-sm transition-all duration-300"
                 style={{
-                  borderColor: activeIndex === i ? "rgba(13,207,207,0.4)" : "rgba(255,255,255,0.04)",
-                  background: activeIndex === i ? "rgba(13,207,207,0.06)" : "rgba(255,255,255,0.02)",
+                  borderColor: activeIndex === i ? "rgba(13,207,207,0.5)" : "rgba(255,255,255,0.12)",
+                  background: activeIndex === i ? "rgba(13,207,207,0.12)" : "rgba(255,255,255,0.06)",
                   boxShadow: activeIndex === i
-                    ? "0 0 30px rgba(13,207,207,0.1)"
-                    : "none",
+                    ? "0 0 30px rgba(13,207,207,0.15)"
+                    : "0 1px 8px rgba(0,0,0,0.2)",
                 }}
                 onMouseEnter={() => setActiveIndex(i)}
                 onMouseLeave={() => setActiveIndex(null)}
@@ -802,7 +803,7 @@ function FounderSection() {
             </h2>
             <p className="mb-8 text-base leading-relaxed text-[#64748B] lg:text-lg">
               Founder of Insightstap and a top-rated Fiverr Pro consultant,
-              with 10+ years of experience helping B2B enterprises and
+              with 19+ years of experience helping B2B enterprises and
               startups build scalable GTM and revenue systems. I&apos;ve worked
               closely with growth, sales, and marketing teams to turn complex
               data, tools, and buyer signals into clear execution and real
@@ -822,9 +823,9 @@ function FounderSection() {
 
             <div className="flex flex-col items-center gap-4 sm:flex-row lg:items-start">
               <div className="flex gap-3">
-                <SocialLink href="https://linkedin.com" label="LinkedIn" icon={<Linkedin className="h-5 w-5" />} />
-                <SocialLink href="https://twitter.com" label="Twitter" icon={<Twitter className="h-5 w-5" />} />
-                <SocialLink href="mailto:hello@insightstap.com" label="Email" icon={<Mail className="h-5 w-5" />} />
+                <SocialLink href="https://www.linkedin.com/in/riteshosta1/" label="LinkedIn" icon={<Linkedin className="h-5 w-5" />} />
+                <SocialLink href="https://x.com/riteshosta" label="Twitter / X" icon={<Twitter className="h-5 w-5" />} />
+                <SocialLink href={`mailto:${INFO_EMAIL}`} label="Email" icon={<Mail className="h-5 w-5" />} onClick={handleEmailClick()} />
               </div>
             </div>
           </motion.div>
@@ -854,13 +855,14 @@ function FounderStatAnimated({ value, suffix, label, delay }: { value: number; s
   )
 }
 
-function SocialLink({ href, label, icon }: { href: string; label: string; icon: React.ReactNode }) {
+function SocialLink({ href, label, icon, onClick }: { href: string; label: string; icon: React.ReactNode; onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void }) {
   return (
     <motion.div whileHover={{ scale: 1.1, y: -2 }} whileTap={{ scale: 0.95 }}>
       <Link
         href={href}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={onClick}
         className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#E2E8F0] text-[#64748B] transition-all hover:border-[#0dcfcf]/50 hover:text-[#0dcfcf] hover:shadow-lg hover:shadow-[#0dcfcf]/10"
         aria-label={label}
       >

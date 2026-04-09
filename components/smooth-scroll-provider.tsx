@@ -6,10 +6,13 @@ import Lenis from "lenis"
 /**
  * Global smooth-scroll provider using Lenis.
  *
- * - lerp 0.1 → weighty, trailing stop for a premium feel
- * - Syncs with native scroll events so Framer Motion's useScroll works out-of-the-box
+ * Tuned for high-refresh-rate displays:
+ * - lerp 0.12 → snappier than the previous 0.1 while still trailing-smooth
+ * - Custom easeOutExpo curve for programmatic scrolls (anchor jumps)
+ * - syncTouch + touchInertiaMultiplier → native-feel inertial scrolling on mobile
+ * - autoRaf disabled → driven by a single rAF loop so it composes cleanly
+ *   with Framer Motion's useScroll
  * - Respects prefers-reduced-motion
- * - Preserves anchor / scrollIntoView behaviour
  */
 export function SmoothScrollProvider({ children }: { children: React.ReactNode }) {
   const lenisRef = useRef<Lenis | null>(null)
@@ -20,24 +23,29 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
     if (prefersReduced) return
 
     const lenis = new Lenis({
-      lerp: 0.1,               // Smooth trailing stop
-      duration: 1.2,            // Fallback duration for programmatic scrolls
-      smoothWheel: true,        // Virtual-scroll the mouse wheel
-      wheelMultiplier: 1,       // 1:1 distance mapping (no amplification)
-      touchMultiplier: 1.5,     // Slightly amplify touch for mobile feel
+      lerp: 0.12,                    // Snappier follow while keeping the trailing smoothness
+      duration: 1.0,                 // Faster programmatic scrolls (anchors, scrollTo)
+      easing: (t) => 1 - Math.pow(1 - t, 4), // easeOutQuart — premium deceleration
+      smoothWheel: true,
+      wheelMultiplier: 1,
+      syncTouch: true,               // Use Lenis on touch devices for consistent feel
+      touchMultiplier: 1.8,
       infinite: false,
+      autoResize: true,              // Recalculate on viewport change
     })
     lenisRef.current = lenis
 
     // Single RAF loop — all orb / ghost-text CSS animations stay on the
     // compositor thread independently; Lenis just drives scroll position.
+    let frame: number
     function raf(time: number) {
       lenis.raf(time)
-      requestAnimationFrame(raf)
+      frame = requestAnimationFrame(raf)
     }
-    requestAnimationFrame(raf)
+    frame = requestAnimationFrame(raf)
 
     return () => {
+      cancelAnimationFrame(frame)
       lenis.destroy()
       lenisRef.current = null
     }

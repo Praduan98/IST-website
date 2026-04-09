@@ -13,10 +13,15 @@ import {
   ArrowRight,
   CheckCircle,
   Loader2,
+  Radar,
+  Bot,
+  Database,
+  Rocket,
 } from "lucide-react"
 import Link from "next/link"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { EmailLink } from "@/components/email-link"
 
 // ─── HubSpot config — set via environment variables before deployment ────────
 const HS_PORTAL_ID = process.env.NEXT_PUBLIC_HS_PORTAL_ID ?? ""
@@ -100,7 +105,7 @@ function HeroSection({ onScrollToForm }: { onScrollToForm: () => void }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mb-5 text-4xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-5xl md:text-6xl lg:text-[4.5rem]"
+          className="mb-5 text-3xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.5rem]"
         >
           Let&apos;s build your{" "}
           <span className="gradient-text">revenue engine</span>
@@ -262,16 +267,16 @@ function FormSection() {
 
             <ul className="mb-10 space-y-3.5">
               {[
-                "Real-time intent signals, not guesswork",
-                "AI agents that act 24/7 on your behalf",
-                "CRM-connected, attribution-measured",
-                "Enterprise results, startup execution speed",
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm text-[#0F172A]">
-                  <span className="mt-1 flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-[#0dcfcf]/15">
-                    <span className="h-1.5 w-1.5 rounded-full bg-[#0dcfcf]" />
+                { icon: Radar, label: "Real-time intent signals, not guesswork" },
+                { icon: Bot, label: "AI agents that act 24/7 on your behalf" },
+                { icon: Database, label: "CRM-connected, attribution-measured" },
+                { icon: Rocket, label: "Enterprise results, startup execution speed" },
+              ].map(({ icon: Icon, label }) => (
+                <li key={label} className="flex items-start gap-3 text-sm text-[#0F172A]">
+                  <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#0dcfcf]/10 text-[#0dcfcf]">
+                    <Icon className="h-4 w-4" strokeWidth={2.2} />
                   </span>
-                  {item}
+                  <span className="pt-1">{label}</span>
                 </li>
               ))}
             </ul>
@@ -281,13 +286,10 @@ function FormSection() {
 
             {/* Contact details */}
             <div className="space-y-3">
-              <a
-                href="mailto:hello@insightstap.com"
-                className="group flex items-center gap-3 text-sm text-[#64748B] transition-colors hover:text-[#0dcfcf]"
-              >
+              <EmailLink className="group flex items-center gap-3 text-sm text-[#64748B] transition-colors hover:text-[#0dcfcf]">
                 <Mail className="h-4 w-4 shrink-0 text-[#0dcfcf]" />
-                hello@insightstap.com
-              </a>
+                info@insightstap.com
+              </EmailLink>
               <p className="flex items-start gap-3 text-sm text-[#64748B]">
                 <Building2 className="mt-0.5 h-4 w-4 shrink-0 text-[#0dcfcf]" />
                 539 W Commerce St #2588,&nbsp;Dallas, TX 75208, USA
@@ -401,9 +403,9 @@ function FormSection() {
                   {status === "error" && (
                     <p className="rounded-lg bg-red-50 px-4 py-3 text-sm text-red-600">
                       Something went wrong. Please try again or email us directly at{" "}
-                      <a href="mailto:hello@insightstap.com" className="underline">
-                        hello@insightstap.com
-                      </a>
+                      <EmailLink className="underline">
+                        info@insightstap.com
+                      </EmailLink>
                       .
                     </p>
                   )}

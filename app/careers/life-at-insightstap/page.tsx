@@ -132,7 +132,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mb-5 text-4xl font-semibold leading-[1.08] tracking-tight text-[#0F172A] sm:text-5xl lg:text-6xl"
+          className="mb-5 text-3xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.5rem]"
         >
           Where great work{" "}
           <span className="gradient-text">meets great people</span>

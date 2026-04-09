@@ -2,7 +2,15 @@
 
 import { useRef, useEffect, useState } from "react"
 import { motion, useInView, useMotionValue, useSpring } from "framer-motion"
-import { ChevronLeft, ChevronRight, TrendingUp } from "lucide-react"
+import {
+  ChevronLeft,
+  ChevronRight,
+  TrendingUp,
+  TrendingDown,
+  Zap,
+  Sparkles,
+  CalendarCheck,
+} from "lucide-react"
 
 const caseStudies = [
   {
@@ -10,24 +18,28 @@ const caseStudies = [
     description: "Reduction in customer acquisition cost",
     clientType: "B2B IT Firm",
     color: "#0dcfcf",
+    Icon: TrendingDown,
   },
   {
     metric: "3x",
     description: "Pipeline velocity increase in 90 days",
     clientType: "SaaS Company",
     color: "#0a9a9a",
+    Icon: Zap,
   },
   {
     metric: "3 weeks",
     description: "From concept to working GPT-powered app",
     clientType: "AI Startup",
     color: "#5de0e0",
+    Icon: Sparkles,
   },
   {
     metric: "25x",
     description: "Increase in qualified meeting bookings",
     clientType: "Enterprise Software",
     color: "#0d9f9f",
+    Icon: CalendarCheck,
   },
 ]
 
@@ -70,7 +82,7 @@ export function CaseStudies() {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = 280
+      const scrollAmount = 320
       scrollRef.current.scrollBy({ left: direction === "left" ? -scrollAmount : scrollAmount, behavior: "smooth" })
     }
   }
@@ -103,7 +115,7 @@ export function CaseStudies() {
         <div
           ref={scrollRef}
           onScroll={checkScroll}
-          className="flex gap-4 overflow-x-auto px-6 pb-4 lg:px-[calc((100vw-1280px)/2+24px)]"
+          className="flex gap-6 overflow-x-auto px-6 pb-4 lg:px-[calc((100vw-1280px)/2+24px)]"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {caseStudies.map((study, index) => (
@@ -161,6 +173,7 @@ function CaseStudyCard({
   description,
   clientType,
   color,
+  Icon,
   index,
   isActive,
   onHover,
@@ -169,6 +182,7 @@ function CaseStudyCard({
   description: string
   clientType: string
   color: string
+  Icon: typeof TrendingUp
   index: number
   isActive: boolean
   onHover: () => void
@@ -228,47 +242,66 @@ function CaseStudyCard({
           : "0 1px 4px rgba(0,0,0,0.06)",
         transition: "border-color 0.4s, box-shadow 0.4s",
       }}
-      className="relative flex h-[200px] w-[220px] flex-shrink-0 flex-col justify-between overflow-hidden rounded-2xl border bg-[#F8FAFC] p-5 cursor-pointer"
+      className="relative flex h-[150px] w-[360px] flex-shrink-0 items-stretch gap-5 overflow-hidden rounded-2xl border bg-[#F8FAFC] px-6 py-5 cursor-pointer"
     >
       {/* Soft spotlight that follows the cursor */}
       <motion.div
         className="pointer-events-none absolute inset-0 rounded-2xl"
         style={{
-          background: `radial-gradient(120px circle at ${spotX}px ${spotY}px, ${color}22, transparent 70%)`,
+          background: `radial-gradient(180px circle at ${spotX}px ${spotY}px, ${color}22, transparent 70%)`,
           opacity: hovered ? 1 : 0,
           transition: "opacity 0.3s",
         }}
       />
 
-      <div className="relative z-10">
-        {/* Metric */}
-        <motion.div
-          className="mb-2 text-4xl font-bold tracking-tight"
-          style={{ color }}
-          animate={{ opacity: hovered ? 1 : 0.85 }}
-          transition={{ duration: 0.3 }}
-        >
-          {numericValue > 0 ? `${count}${suffix}` : metric}
-        </motion.div>
+      {/* Icon column */}
+      <motion.div
+        className="relative z-10 flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl"
+        style={{
+          backgroundColor: `${color}18`,
+          color,
+        }}
+        animate={{
+          scale: hovered ? 1.05 : 1,
+          backgroundColor: hovered ? `${color}26` : `${color}18`,
+        }}
+        transition={{ duration: 0.3 }}
+      >
+        <Icon className="h-7 w-7" strokeWidth={2.2} />
+      </motion.div>
 
-        {/* Description */}
-        <p className="text-xs font-medium leading-snug text-[#475569] line-clamp-2">
-          {description}
-        </p>
-      </div>
+      {/* Content column */}
+      <div className="relative z-10 flex min-w-0 flex-1 flex-col justify-between">
+        <div>
+          {/* Metric */}
+          <motion.div
+            className="mb-1.5 text-[2rem] font-bold leading-none tracking-tight"
+            style={{ color }}
+            animate={{ opacity: hovered ? 1 : 0.9 }}
+            transition={{ duration: 0.3 }}
+          >
+            {numericValue > 0 ? `${count}${suffix}` : metric}
+          </motion.div>
 
-      {/* Bottom row */}
-      <div className="relative z-10 flex items-center justify-between">
-        <span className="text-xs font-medium text-[#94A3B8]">{clientType}</span>
-        <motion.div
-          animate={{
-            color: hovered ? color : "#CBD5E1",
-            x: hovered ? 1 : 0,
-          }}
-          transition={{ duration: 0.25 }}
-        >
-          <TrendingUp className="h-4 w-4" />
-        </motion.div>
+          {/* Description */}
+          <p className="text-[13px] font-medium leading-snug text-[#475569]">
+            {description}
+          </p>
+        </div>
+
+        {/* Bottom row */}
+        <div className="flex items-center justify-between border-t border-[#E2E8F0] pt-3">
+          <span className="text-[11px] font-semibold uppercase tracking-wider text-[#94A3B8]">{clientType}</span>
+          <motion.div
+            animate={{
+              color: hovered ? color : "#CBD5E1",
+              x: hovered ? 2 : 0,
+            }}
+            transition={{ duration: 0.25 }}
+          >
+            <TrendingUp className="h-4 w-4" />
+          </motion.div>
+        </div>
       </div>
     </motion.div>
   )

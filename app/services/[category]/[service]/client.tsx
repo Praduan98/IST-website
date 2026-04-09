@@ -210,7 +210,7 @@ export function ServicePageClient({ category, service }: ServicePageClientProps)
         <ServiceFAQ faqs={service.faqs} />
 
         {/* V. Final CTA */}
-        <ServiceCTA title={gradientLastWord(service.ctaTitle)} description={linkDarkFunnel(service.ctaDescription)} />
+        <ServiceCTA title={gradientLastWord(service.ctaTitle)} description={linkDarkFunnel(service.ctaDescription)} showBrochure={false} />
       </main>
       <Footer />
     </>

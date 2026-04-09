@@ -93,7 +93,7 @@ export function ServiceHero({
 
         {/* Title — last word gets gradient highlight like homepage */}
         <motion.h1
-          className="mb-6 text-4xl font-semibold leading-[1.08] tracking-[-0.02em] text-[#0F172A] sm:text-5xl lg:text-6xl"
+          className="mb-6 text-3xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.5rem]"
           initial={reduced ? false : { opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3, ease: SMOOTH_EASE }}

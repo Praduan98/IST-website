@@ -5,6 +5,7 @@ import { ArrowRight, Linkedin, Twitter, Mail } from "lucide-react"
 import Link from "next/link"
 import Image from "next/image"
 import { useRef } from "react"
+import { handleEmailClick, INFO_EMAIL } from "@/components/email-link"
 
 export function FounderSection() {
   return (
@@ -63,19 +64,20 @@ export function FounderSection() {
               {/* Social Icons */}
               <div className="flex gap-3">
                 <SocialLink
-                  href="https://linkedin.com"
+                  href="https://www.linkedin.com/in/riteshosta1/"
                   label="LinkedIn"
                   icon={<Linkedin className="h-5 w-5" />}
                 />
                 <SocialLink
-                  href="https://twitter.com"
-                  label="Twitter"
+                  href="https://x.com/riteshosta"
+                  label="Twitter / X"
                   icon={<Twitter className="h-5 w-5" />}
                 />
                 <SocialLink
-                  href="mailto:hello@insightstap.com"
+                  href={`mailto:${INFO_EMAIL}`}
                   label="Email"
                   icon={<Mail className="h-5 w-5" />}
+                  onClick={handleEmailClick()}
                 />
               </div>
             </div>
@@ -200,10 +202,12 @@ function SocialLink({
   href,
   label,
   icon,
+  onClick,
 }: {
   href: string
   label: string
   icon: React.ReactNode
+  onClick?: (e: React.MouseEvent<HTMLAnchorElement>) => void
 }) {
   return (
     <motion.div whileHover={{ scale: 1.1, y: -2 }} whileTap={{ scale: 0.95 }}>
@@ -211,6 +215,7 @@ function SocialLink({
         href={href}
         target="_blank"
         rel="noopener noreferrer"
+        onClick={onClick}
         className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#E2E8F0] text-[#64748B] transition-all hover:border-[#0dcfcf]/50 hover:text-[#0dcfcf] hover:shadow-lg hover:shadow-[#0dcfcf]/10"
         aria-label={label}
       >

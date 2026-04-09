@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { EmailLink } from "@/components/email-link"
 import type { Metadata } from "next"
 
 export const metadata: Metadata = {
@@ -20,7 +21,7 @@ export default function PrivacyPolicyPage() {
             <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">
               Legal
             </span>
-            <h1 className="mb-8 text-4xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-5xl">
+            <h1 className="mb-8 text-3xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.5rem]">
               Privacy policy
             </h1>
             <p className="mb-4 text-sm text-[#94A3B8]">Insightstap Solutions PVT. LTD.</p>
@@ -210,9 +211,9 @@ export default function PrivacyPolicyPage() {
               <h2 className="mb-3 mt-8 text-lg font-semibold text-[#0F172A]">11. Grievances</h2>
               <p>
                 If you have any questions about this Policy, wish to exercise your rights, concerns about privacy or grievances, please write to us with a thorough description via email to{" "}
-                <a href="mailto:info@insightstap.com" className="text-[#0dcfcf] underline hover:text-[#0bb5b5]">
+                <EmailLink className="text-[#0dcfcf] underline hover:text-[#0bb5b5]">
                   info@insightstap.com
-                </a>
+                </EmailLink>
               </p>
 
               {/* Country Specific Additional Rights */}

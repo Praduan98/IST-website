@@ -108,7 +108,7 @@ function HeroSection() {
         </motion.div>
 
         <motion.h1
-          className="mb-5 text-4xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-5xl md:text-6xl lg:text-[4.5rem]"
+          className="mb-5 text-3xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.5rem]"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.35 }}

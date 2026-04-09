@@ -18,6 +18,7 @@ import { useRouter } from "next/navigation"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { LogoTicker } from "@/components/logo-ticker"
+import { EmailLink } from "@/components/email-link"
 
 // ─── HubSpot config ────────────────────────────────────────────────────────────
 const HS_PORTAL_ID = process.env.NEXT_PUBLIC_HS_PORTAL_ID ?? ""
@@ -102,7 +103,7 @@ function HeroSection({ onScroll }: { onScroll: () => void }) {
             delay: 0.3,
             ease: [0.25, 0.46, 0.45, 0.94],
           }}
-          className="mb-5 text-4xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-5xl md:text-6xl lg:text-[4.5rem]"
+          className="mb-5 text-3xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.5rem]"
         >
           Get the <span className="gradient-text">custom AI</span>{" "}
           development brochure
@@ -430,12 +431,9 @@ function FormSection() {
               >
                 The submission could not be completed. Please check your
                 connection and try again, or email us at{" "}
-                <a
-                  href="mailto:hello@insightstap.com"
-                  className="font-medium underline"
-                >
-                  hello@insightstap.com
-                </a>
+                <EmailLink className="font-medium underline">
+                  info@insightstap.com
+                </EmailLink>
                 .
               </motion.div>
             )}

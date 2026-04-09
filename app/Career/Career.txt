@@ -1,188 +1,118 @@
 ﻿URL: www.insightstap.com/careers-at-insightstap/
 Careers at Insightstap
-Build the Future of B2B Revenue. From Anywhere.
+Designing Tomorrow's B2B Revenue from Anywhere
  
-We’re a team of GTM engineers, strategists, designers, and marketers building AI-powered GTM systems that help B2B companies grow revenue. If you want to work at the intersection of AI, automation, and revenue, and ship systems that actually move pipelines — you belong here.
-> View Open Positions         > See how we work
+We’re a team of GTM engineers, strategists, designers, and marketers building AI-powered GTM systems that help B2B companies grow revenue. If you want to design your future around Artificial Intelligence, Automation, and Revenue through the design of systems that actually impact sales pipelines, we encourage you to join us.
+> View Open Positions 	> See how we work
 Why Insightstap
  
 Company Culture
-Insightstap isn’t a traditional agency. We don’t run campaigns and call it a day. We engineer revenue systems — signal detection pipelines, AI-powered outreach, CRM automation, Bridge Ads, and full-funnel analytics. Our culture reflects that. We’re builders. We ship. We measure impact. And we celebrate when our systems generate real pipelines for real companies.
+Insightstap isn’t a traditional agency. We build revenue systems: signal pipelines, AI outreach, CRM automation, Bridge Ads, and full-funnel analytics. We ship real tools, track real impact, and celebrate real pipeline wins with companies across the globe.
  
-We’re remote-first and globally distributed. That means no commutes, no mandatory office hours, and no micromanagement. What we do have: clear goals, fast feedback loops, direct access to leadership, and the autonomy to do your best work from wherever you work best.
- 
-Team Values
-Everything we do runs on four values. They’re not motivational posters. They’re how we hire, evaluate, and make decisions every day.
- 
+Four Values define the Way We Operate
+Our four values drive every bit of what we do. They are not poster-worthy quotations. They're the basis of how we hire, assess, and make daily decisions.
 Own It
-Take ownership of your work, your outcomes, and your growth. We don’t chase people for updates. We trust our team to set the bar high and clear it. Ownership inspires initiative, and initiative drives results.
- 
+Take full ownership over your work, your outcomes, and your continual development. We do not chase individuals for updates. We trust our team to set goals and achieve them. Taking ownership fosters an environment for growing initiative, and initiative leads to producing results.
 Ship It
-Ideas are cheap. Execution matters. We value people who move fast, iterate, and get things into the world. Done and improving beats perfect and stuck in a deck.
- 
+Ideas are inexpensive, but executing ideas requires effort. We appreciate individuals who work quickly on ideas, then modify their ideas through iteration. Creating something and improving it is superior to creating a perfect item that gets stuck in a presentation.
 Measure It
-Every system we build is measured by its impact on pipeline and revenue. We apply the same standard to ourselves. If it doesn’t move the needle, we change the approach.
- 
+All systems that we create will be evaluated through the system’s effect on our turnover and profits. We use the same assessment model to measure ourselves. If we do not make progress toward what we want to achieve, we will modify our path forward.
 Have Fun
-We genuinely enjoy what we do. Building AI agents, engineering signal systems, creating Bridge Ads that outperform cold demo campaigns — this is exciting work. When you love the work, you naturally do it better.
+We truly appreciate what we do. We find it thrilling to build AI agents, engineer signal systems, or design Bridge Ads that outperform traditional demos. When you enjoy what you do, you perform at an elevated level.
  
  
-Employee Stories[a]
+Employee Stories
  
 “I joined Insightstap as a GTM strategist six months ago. What surprised me was the speed. We don’t talk about ideas for weeks. We build them, test them, and see results within days. The autonomy is real, and the impact is visible.”
-— Somnath-Developer/Principal Software Engineer – Platforms & Integrations
+— Somnath - Developer/Principal Software Engineer – Platforms & Integrations
  
 “What I love about working here is that every project is different, and every system we build actually runs. We’re not creating reports that sit in a folder. We’re building engines that generate pipelines every single day.”
-— Subashis-Principal – AI Solutions & GTM Architecture
+— Subashis - Principal – AI Solutions & GTM Architecture
  
  
 Benefits & Perks 
-Competitive compensation, learning, and a team that genuinely cares about your growth. Full details below.[b]
+Competitive compensation, learning, and a team that genuinely cares about your growth. Full details below.
 Competitive Compensation – We offer salaries that reflect your skills, impact, and meet the market standards.
 Health Insurance – Comprehensive coverage to support your well-being and peace of mind.
 PF Benefits – Structured financial security to help you plan for the future.
 Performance-Based Bonuses – Your contributions don’t go unnoticed—earn rewards based on performance and targets.
 Learning & Development – Dedicated budgets and opportunities to upskill, learn, and grow continuously.
 Collaborative Office Culture – We strongly believe innovation thrives when people work together in person, exchange ideas, and build real connections.
-Team Events
-Being remote doesn’t mean being disconnected. Regular virtual team hangouts and game sessions. Occasional in-person team retreats. Celebration of milestones, launches, and wins. Monthly knowledge-sharing sessions where team members teach each other something new.
 Emergency Remote Flexibility – While we value in-office collaboration, we provide the flexibility to work remotely when genuine emergencies arise.
 Supportive Team Environment – Work with people who genuinely care about your growth, success, and overall experience.
-
-
-Open Positions[c]
+Open Positions
 We’re building the infrastructure behind modern B2B revenue. These are the people we’re looking for. If you see yourself here, we’d love to talk.
  
-> View All Roles         
- 
-AI Developer (Fresher / 0–1 Year) - Employment Type: Full-Time
-Role Summary
-We’re looking for a Freshers AI Developer to support building LLM-based apps, AI agents, and integrations. This is a great role for freshers who can learn quickly and ship consistently.
-Key Responsibilities
-* Assist in developing AI features using LLM APIs (OpenAI/Claude/Llama, etc.)
-* Build simple AI workflows (chatbots, automation, data extraction)
-* Develop or support backend APIs (Python/JS) and integrations (Slack, CRM, email, web apps)
-* Work on prompt engineering and structured outputs
-* Test, debug, and improve reliability of AI features
+> View All Roles 	
+Role: Software Developer (Fresher) 
+Package: ₹2.64L – ₹3.84L PA
+We’re Looking For: Freshers (0-1 yr) who are obsessed with clean code.
+Strong fundamentals in Python or JavaScript/TypeScript.
+A "build-first" mindset and a hunger to learn AI/LLM integration.
+Ready to start? We're hiring immediately. 👉 Apply Now & Start Your Career (https://talent.flowmingo.ai/jobs/job001)
 
- 
-Job Description: Senior AI Developer (3+ Years)
-About the Role
-We’re hiring a Senior AI Developer to design and build production-grade AI solutions—LLM-powered apps, AI agents, automation workflows, and integrations—that solve real business problems. You’ll take ownership of delivery, guide juniors, and help set best practices for building reliable, scalable AI systems.
-Key Responsibilities
-   * Own end-to-end development of AI/LLM features (design → build → deploy → monitor)
+Role: Python Backend Developer (FastAPI) 
+Package: ₹4.2L – ₹5.4L PA
+What You Bring: 2–3 Years of hands-on backend experience.
+Mastery of FastAPI and complex SQL queries.
+The ability to build background pipelines and robust Pydantic models.
+Ready to ship? We're hiring for an immediate start. 👉 Apply Here & Join the Team (https://talent.flowmingo.ai/jobs/job004)
 
-
-
-      * Build AI agents with tool/function calling, multi-step workflows, and guardrails
-      * Develop and maintain backend services/APIs (FastAPI/Flask/Node) for AI apps
-      * Implement RAG pipelines (chunking, embeddings, retrieval, reranking, evaluation)
-      * Integrate AI systems with CRMs, Slack, WhatsApp, email, web apps, databases
-      * Improve reliability: logging, retries, rate limiting, caching, cost optimization
-      * Conduct code reviews, mentor junior developers, and enforce engineering standards
-      * Collaborate with product/ops to translate requirements into shipped features
-
-Position: PPC Expert (Google Ads Specialist)
-Experience: 2-3 Years Location: [Remote / Hybrid / Office Location] Employment Type: Full-Time
-
-
-Must-Have:
-         * 2-3 years of hands-on experience managing Google Ads campaigns
-         * Proven track record of improving campaign performance (CTR, CPA, ROAS)
-         * Strong expertise in Google Analytics (GA4) and conversion tracking
-         * Experience with keyword research tools (Google Keyword Planner, SEMrush, Ahrefs, etc.)
-         * Understanding of bidding strategies (manual, automated, target CPA, target ROAS)
-         * Ability to analyze data and translate insights into action
-         * Excellent written communication for ad copywriting
-Position: Junior Content Writer 
-Experience: 0-1 Years Location: [In-Office] Employment Type: Full-Time
-Key Responsibilities
-
-
-         * Write LinkedIn posts, articles, scripts, and newsletters based on provided briefs
-         * Assist in creating thought leadership content for founders and industry experts
-         * Draft ghostwritten content for executives including GTM insights and AI-related topics
-         * Help convert research and ideas into clear, engaging B2B content
-         * Summarize pre and post research data and extract insights for content development
-         * Revise drafts based on feedback from the editorial team
-         * Improve clarity, structure, and storytelling in written content
-         * Ensure content aligns with the Insightstap voice and positioning
-         * Assist with content planning and publishing workflows
-         * Help organize content documents, research files, and editorial calendar
-         * Support repurposing of long-form content into social posts or scripts
-
-
-
-
+Hiring: Frontend Developer (Next.js / React) Company: Insightstap | Location: Kolkata (On-site)
+Package: ₹4L – ₹5L PA
+What You Bring:
+2–3 Years of professional frontend experience.
+TypeScript mastery and a deep understanding of Core Web Vitals.
+A passion for building responsive, accessible, and fast UI.
+Ready to build the future of AI interfaces? 👉 Apply Now & Start Immediately (https://talent.flowmingo.ai/jobs/job006)
 
 
  
-Our Recruitment Process[d]
+Our Recruitment Process
 Our hiring process is designed to be fast, fair, and transparent. We respect your time and ensure you have clarity at every step. Most hiring processes are completed within 2 weeks—from the first screen to the final offer.
-________________
-
 
 Step 1 — Application Submission
 Apply through our internal careers page or trusted job portals . Submit your resume along with a brief note on why you’d like to join Insightstap. This helps us understand your interest, experience, and alignment with the role.
-________________
-
 
 Step 2 — Application Review
 Our team carefully reviews your application to assess your experience, achievements, and fit for the role. We typically respond within 3–5 business days.
-________________
 
+Step 3 — XOBIN Assessment
+A role-specific skills assessment powered by XOBIN. This is a practical evaluation of real-world skills relevant to your role, whether it’s a technical challenge, GTM scenario, or a marketing exercise.
 
-Step 3 — Initial Screen
-A 30-minute conversation with our People & Culture team. We’ll discuss your background, career aspirations, and answer your questions about the role and company. This is a two-way conversation—we encourage you to evaluate us as much as we evaluate you.
-________________
-
-
-Step 4 — XOBIN Assessment
-A role-specific skills assessment powered by XOBIN. This is a practical evaluation of real-world skills relevant to your role—whether it’s a technical challenge, GTM scenario, or a marketing exercise.
-________________
-
-
-Step 5 — Final Interview
+Step 4 — Final Interview
 A discussion with the hiring manager and potential team members. We’ll review your assessment, explore your experience in depth, and understand how you approach real challenges. You’ll also get a chance to meet the people you’ll be working with.
-________________
 
-
-Step 6 — Documentation & Background Verification (BGV)
+Step 5 — Documentation & Background Verification (BGV)
 Post final discussions, we initiate the documentation process and background verification. This includes verification of your previous employment, education, and other relevant details to ensure a smooth and compliant onboarding experience.
-________________
 
-
-Step 7 — Offer & Onboarding
+Step 6 — Offer & Onboarding
 If selected, you’ll receive a clear and transparent offer within 2–3 business days. Compensation, benefits, and start date are all clearly outlined. Our onboarding includes a structured first-week plan, a dedicated buddy, and defined 30/60/90-day goals so you can start strong and succeed from day one.
-
 
 Student & Internships
  
 Internship Program
-Our internship program is designed for ambitious students and early-career professionals who want to learn by doing — not by watching. Interns at Insightstap work on real projects with real clients from day one. You’ll build automation workflows, create marketing content, design campaign assets, or develop AI features alongside our full-time team.
- 
-Internships run 3–6 months and are available in Engineering, GTM Strategy, Marketing, and Design. All internships are paid.
- 
-Apply Now
+The Insightstap internship program provides a unique experience for motivated individuals that enables interns to work on actual projects with actual clients. Interns are engaged in hands-on learning as part of the team's daily function; therefore, they begin creating automation workflows, writing marketing material, or designing marketing collateral on the day they start. 
+
+Internships will last for 3-6 months, with opportunities across various disciplines, including Engineering, GTM Strategy, Marketing, and Design. Interns receive payment for their work at Insightstap.
+ Apply Now
  
 Submit Your Application
 Ready to build revenue systems that actually work? We’d love to hear from you. Browse our open positions, pick the one that fits, and tell us why you’re the right person. Include your resume and a brief note about what excites you about working at Insightstap.
  
 Don’t see your perfect role? We’re always open to hearing from exceptional people. Send your resume and a note to careers@insightstap.com and tell us what you’d build if you were here.
  
-> Browse Open Positions         > Submit Your Resume
+> Browse Open Positions 	> Submit Your Resume
  
  
 Build Something That Matters. From Anywhere.
-Insightstap is where GTM engineering meets real impact. We’re building the future of B2B revenue — and we need talented people who want to build it with us. Whether you’re an engineer, strategist, marketer, or designer — if you care about doing excellent work and seeing it drive real results, we want you on the team.
-> View Open Positions         > Start Your Application
+Insightstap is where GTM engineering meets real impact. We’re building the future of B2B revenue generation, and we need talented people who want to help us build it. Whether you’re an engineer, strategist, marketer, or designer, if you care about doing excellent work and seeing it drive real results, we want you on the team.
+> View Open Positions 	> Start Your Application
  
 Frequently Asked Questions
  
 Can I apply for multiple roles at the same time?
 Yes, absolutely. We recommend you consider your skills and interests and limit your applications to no more than 2–3 roles. After the initial screen, our team can help align you with the best opportunity for your skills and career goals.
-What does the XOBIN assessment look like?
-It’s a practical, role-specific skills evaluation. Engineering roles get technical challenges. Strategy roles get GTM scenarios. Marketing roles get content or campaign exercises. It’s designed to reflect real work, not trick questions.
 How long does the hiring process take?
 Most processes complete within 2 weeks from initial screen to offer. We respect your time and move quickly when we find the right person.
 Do you offer internships?
@@ -191,12 +121,7 @@ What if I don’t see a role that fits?
 Send your resume and a note to careers@insightstap.com. Tell us what you’d build. We’re always open to exceptional people, even if there’s no open listing.
  
 
-
 SEO Metadata
 Title: Careers at Insightstap | Join the B2B GTM Engineering Team
 Meta: Join Insightstap and build AI-powered GTM systems for B2B companies. Open roles in engineering, GTM strategy, marketing, and operations. Remote-first, globally distributed.
 Keywords: Insightstap Careers, B2B Jobs, GTM Engineering Jobs, AI Engineer Jobs, Remote B2B Jobs, Marketing Jobs, Startup Culture
-[a]@arufa@insightstap.com
-[b]@arufa@insightstap.com
-[c]@arufa@insightstap.com
-[d]@arufa@insightstap.com

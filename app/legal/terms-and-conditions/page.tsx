@@ -1,5 +1,6 @@
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
+import { EmailLink } from "@/components/email-link"
 
 export const metadata = {
   title: "Terms and Conditions | Insightstap Solutions",
@@ -35,7 +36,7 @@ export default function TermsAndConditionsPage() {
           />
 
           <div className="relative z-10 mx-auto max-w-3xl px-6">
-            <h1 className="mb-4 text-4xl font-bold tracking-tight text-[#0F172A] sm:text-5xl">
+            <h1 className="mb-4 text-3xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.5rem]">
               Terms and Conditions
             </h1>
             <p className="mb-12 text-lg text-[#64748B]">Insightstap Solutions PVT. LTD.</p>
@@ -460,12 +461,9 @@ export default function TermsAndConditionsPage() {
               <h2 className="mb-4 text-2xl font-semibold text-[#0F172A]">14. Contact Us</h2>
               <p className="text-[#64748B] leading-relaxed">
                 If you have any questions about these Terms and Conditions, please contact us at:{" "}
-                <a
-                  href="mailto:info@insightstap.com"
-                  className="text-[#0dcfcf] underline underline-offset-2 hover:text-[#0bb8b8]"
-                >
+                <EmailLink className="text-[#0dcfcf] underline underline-offset-2 hover:text-[#0bb8b8]">
                   info@insightstap.com
-                </a>
+                </EmailLink>
               </p>
             </div>
           </div>
