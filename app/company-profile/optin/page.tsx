@@ -13,10 +13,6 @@ import { Footer } from "@/components/footer"
 import { LogoTicker } from "@/components/logo-ticker"
 import { EmailLink } from "@/components/email-link"
 
-const HS_PORTAL_ID = process.env.NEXT_PUBLIC_HS_PORTAL_ID ?? ""
-const HS_FORM_GUID = process.env.NEXT_PUBLIC_HS_FORM_GUID ?? ""
-
-interface GeoData { country_name: string; country_code: string; city: string; timezone: string }
 type Status = "idle" | "loading" | "error"
 
 export default function CompanyProfileOptinPage() {
@@ -67,7 +63,6 @@ function HeroSection({ onScroll }: { onScroll: () => void }) {
 function FormSection() {
   const router = useRouter()
   const [status, setStatus] = useState<Status>("idle")
-  const [geo, setGeo] = useState<GeoData | null>(null)
   const [formRevealed, setFormRevealed] = useState(false)
   const [shaking, setShaking] = useState(false)
   const [honeypot, setHoneypot] = useState("")
@@ -78,7 +73,6 @@ function FormSection() {
   const isGateValid = form.fullName.trim().length > 0 && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)
 
   useEffect(() => { if (inView) { const t = setTimeout(() => setFormRevealed(true), 300); return () => clearTimeout(t) } }, [inView])
-  useEffect(() => { fetch("https://ipapi.co/json/").then(r => r.json()).then((d: GeoData) => setGeo(d)).catch(() => {}) }, [])
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => setForm(p => ({ ...p, [e.target.name]: e.target.value }))
   const splitName = (f: string) => { const p = f.trim().split(/\s+/); return { firstname: p[0] ?? "", lastname: p.slice(1).join(" ") } }
@@ -90,21 +84,18 @@ function FormSection() {
     setStatus("loading")
     const { firstname, lastname } = splitName(form.fullName)
     const pageUri = typeof window !== "undefined" ? window.location.href : ""
-    const fields = [
-      { name: "firstname", value: firstname }, { name: "lastname", value: lastname },
-      { name: "email", value: form.email }, { name: "phone", value: form.phone }, { name: "message", value: form.message },
-      { name: "product_list", value: "PPC & Social Ads Services" }, { name: "lifecyclestage", value: "subscriber" },
-      { name: "hs_lead_status", value: "NEW" }, { name: "website", value: pageUri },
-      { name: "dr_code", value: "DR023" }, { name: "form_code", value: "FPG038" },
-      { name: "ist_lead_source", value: "Company Profile Download" },
-      { name: "country", value: geo?.country_name ?? "" }, { name: "hs_country_region_code", value: geo?.country_code ?? "" },
-      { name: "city", value: geo?.city ?? "" }, { name: "ip_country", value: geo?.country_code ?? "" }, { name: "hs_ip_timezone", value: geo?.timezone ?? "" },
-    ]
+    const properties: Record<string, string> = {
+      firstname, lastname,
+      email: form.email, phone: form.phone, message: form.message,
+      form_code: "FPG034", dr_code: "DR018",
+      ist_lead_source: "Company Profile Download",
+      product_list: "PPC & Social Ads Services",
+      lifecyclestage: "subscriber", hs_lead_status: "NEW",
+      website: pageUri,
+    }
     try {
-      if (HS_PORTAL_ID && HS_FORM_GUID) {
-        const res = await fetch(`https://api.hsforms.com/submissions/v3/integration/submit/${HS_PORTAL_ID}/${HS_FORM_GUID}`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ fields, context: { pageUri, pageName: "Company Profile Download" } }) })
-        if (!res.ok) { setStatus("error"); return }
-      }
+      const res = await fetch("/api/hubspot", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ properties, pageName: "Company Profile Download" }) })
+      if (!res.ok) { setStatus("error"); return }
       router.push("/company-profile/thank-you")
     } catch { setStatus("error") }
   }

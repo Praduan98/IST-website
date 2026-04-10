@@ -23,9 +23,7 @@ import { Footer } from "@/components/footer"
 import { LogoTicker } from "@/components/logo-ticker"
 import { EmailLink } from "@/components/email-link"
 
-// ─── HubSpot config ────────────────────────────────────────────────────────────
-const HS_PORTAL_ID = process.env.NEXT_PUBLIC_HS_PORTAL_ID ?? ""
-const HS_FORM_GUID = process.env.NEXT_PUBLIC_HS_NEWSLETTER_FORM_GUID ?? ""
+// ─── Config ────────────────────────────────────────────────────────────
 
 type Status = "idle" | "loading" | "success" | "error"
 
@@ -185,32 +183,24 @@ function HeroForm() {
 
     const pageUri = typeof window !== "undefined" ? window.location.href : ""
 
-    const fields = [
-      { name: "email", value: email },
-      { name: "product_list", value: "IST_Newsletter" },
-      { name: "lifecyclestage", value: "subscriber" },
-      { name: "hs_lead_status", value: "NEW" },
-      { name: "website", value: pageUri },
-      { name: "dr_code", value: "DR020" },
-      { name: "form_code", value: "FPG033" },
-      { name: "ist_lead_source", value: "Newsletter Signup - Hero" },
-    ]
+    const properties: Record<string, string> = {
+      email,
+      product_list: "IST_Newsletter",
+      lifecyclestage: "subscriber",
+      hs_lead_status: "NEW",
+      website: pageUri,
+      dr_code: "DR020",
+      form_code: "FPG033",
+      ist_lead_source: "Newsletter Signup - Hero",
+    }
 
     try {
-      if (HS_PORTAL_ID && HS_FORM_GUID) {
-        const res = await fetch(
-          `https://api.hsforms.com/submissions/v3/integration/submit/${HS_PORTAL_ID}/${HS_FORM_GUID}`,
-          {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              fields,
-              context: { pageUri, pageName: "IST Newsletter Signup" },
-            }),
-          }
-        )
-        if (!res.ok) { setStatus("error"); return }
-      }
+      const res = await fetch("/api/hubspot", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ properties, pageName: "IST Newsletter Signup" }),
+      })
+      if (!res.ok) { setStatus("error"); return }
       router.push("/Newsletter/thank-you")
     } catch {
       setStatus("error")

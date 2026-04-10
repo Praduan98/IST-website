@@ -23,18 +23,6 @@ import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
 import { EmailLink } from "@/components/email-link"
 
-// ─── HubSpot config — set via environment variables before deployment ────────
-const HS_PORTAL_ID = process.env.NEXT_PUBLIC_HS_PORTAL_ID ?? ""
-const HS_FORM_GUID = process.env.NEXT_PUBLIC_HS_FORM_GUID ?? ""
-
-// ─── Types ───────────────────────────────────────────────────────────────────
-interface GeoData {
-  country_name: string
-  country_code: string
-  city: string
-  timezone: string
-}
-
 type Status = "idle" | "loading" | "success" | "error"
 
 // ─── Page ────────────────────────────────────────────────────────────────────
@@ -148,7 +136,6 @@ function HeroSection({ onScrollToForm }: { onScrollToForm: () => void }) {
 // ─── Form Section ─────────────────────────────────────────────────────────────
 function FormSection() {
   const [status, setStatus] = useState<Status>("idle")
-  const [geo, setGeo] = useState<GeoData | null>(null)
 
   const [form, setForm] = useState({
     fullName: "",
@@ -157,14 +144,6 @@ function FormSection() {
     company: "",
     message: "",
   })
-
-  // Silently fetch geo data for hidden CRM fields
-  useEffect(() => {
-    fetch("https://ipapi.co/json/")
-      .then((r) => r.json())
-      .then((data: GeoData) => setGeo(data))
-      .catch(() => {})
-  }, [])
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -195,41 +174,30 @@ function FormSection() {
         ? new URLSearchParams(window.location.search).get("dr_code") ?? ""
         : ""
 
-    const fields = [
-      // ── Visible fields ──────────────────────────────────────
-      { name: "firstname", value: firstname },
-      { name: "lastname", value: lastname },
-      { name: "email", value: form.email },
-      { name: "phone", value: form.phone },
-      { name: "company", value: form.company },
-      { name: "message", value: form.message },
-      // ── Hidden — hardcoded ───────────────────────────────────
-      { name: "lifecyclestage", value: "lead" },
-      { name: "hs_lead_status", value: "New" },
-      { name: "website", value: pageUri },
-      { name: "ist_lead_source", value: "Contact Us" },
-      { name: "product_list", value: "Please chose an option" },
-      { name: "dr_code", value: drCode },
-      // ── Hidden — geo (populated via ipapi.co) ────────────────
-      { name: "country", value: geo?.country_name ?? "" },
-      { name: "hs_country_region_code", value: geo?.country_code ?? "" },
-      { name: "city", value: geo?.city ?? "" },
-      { name: "ip_country", value: geo?.country_code ?? "" },
-      { name: "hs_ip_timezone", value: geo?.timezone ?? "" },
-    ]
+    const properties: Record<string, string> = {
+      // Form fields
+      firstname,
+      lastname,
+      email: form.email,
+      phone: form.phone,
+      company: form.company,
+      message: form.message,
+      // Tracking
+      form_code: "FPG039",
+      dr_code: drCode || "DR024",
+      ist_lead_source: "Contact Us",
+      product_list: "Others",
+      lifecyclestage: "lead",
+      hs_lead_status: "NEW",
+      website: pageUri,
+    }
 
     try {
-      const res = await fetch(
-        `https://api.hsforms.com/submissions/v3/integration/submit/${HS_PORTAL_ID}/${HS_FORM_GUID}`,
-        {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({
-            fields,
-            context: { pageUri, pageName: "Contact Us" },
-          }),
-        }
-      )
+      const res = await fetch("/api/hubspot", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ properties, pageName: "Contact Us" }),
+      })
       if (res.ok) {
         setStatus("success")
         setForm({ fullName: "", email: "", phone: "", company: "", message: "" })

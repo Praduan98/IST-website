@@ -104,9 +104,13 @@ export async function POST(req: NextRequest) {
     ? `New application: ${role} — ${name}`
     : `New career application — ${name}`
 
+  const FORM_CODE = "FPG040"
+  const DR_CODE = "DR025"
+
   const textBody = [
     `New application received from the Insightstap careers page.`,
     ``,
+    `Form ID: ${FORM_CODE}  |  DR Code: ${DR_CODE}`,
     `Name:    ${name}`,
     `Email:   ${email}`,
     phone ? `Phone:   ${phone}` : null,
@@ -120,6 +124,7 @@ export async function POST(req: NextRequest) {
   const htmlBody = `
     <h2 style="margin:0 0 16px;font-family:sans-serif;color:#0F172A;">New career application</h2>
     <table style="font-family:sans-serif;font-size:14px;color:#0F172A;border-collapse:collapse;">
+      <tr><td style="padding:4px 12px 4px 0;color:#64748B;">Form ID</td><td>${FORM_CODE}</td></tr>
       <tr><td style="padding:4px 12px 4px 0;color:#64748B;">Name</td><td>${escapeHtml(name)}</td></tr>
       <tr><td style="padding:4px 12px 4px 0;color:#64748B;">Email</td><td><a href="mailto:${escapeHtml(email)}">${escapeHtml(email)}</a></td></tr>
       ${phone ? `<tr><td style="padding:4px 12px 4px 0;color:#64748B;">Phone</td><td>${escapeHtml(phone)}</td></tr>` : ""}
