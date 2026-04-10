@@ -83,6 +83,9 @@
     /* Lenis owns scrolling — disable native smooth-scroll so the two
        don't compete and add jitter on anchor jumps. */
     scroll-behavior: auto;
+    /* Prevent horizontal overflow from widening the ICB (initial containing block),
+       which would cause fixed-position elements like the header to exceed viewport width */
+    overflow-x: hidden;
     /* Hint the renderer to keep text crisp during transforms */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -123,6 +126,12 @@
 /* Grain overlay - subtle for light theme */
 .grain-overlay {
   display: none;
+}
+
+/* Nav entrance animation */
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Glow orb animation */

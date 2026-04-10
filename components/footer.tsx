@@ -28,11 +28,11 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="border-t border-[#E2E8F0] bg-gradient-to-b from-[#F8FAFC] via-white to-[#F8FAFC] px-6 py-16 lg:py-20">
+    <footer className="border-t border-[#E2E8F0] bg-gradient-to-b from-[#F8FAFC] via-white to-[#F8FAFC] px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
       <div className="mx-auto w-[min(92vw,1600px)]">
-        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[2fr_1.5fr_2fr_1fr_1fr]">
+        <div className="grid grid-cols-2 gap-8 sm:gap-10 lg:grid-cols-[2fr_1.5fr_2fr_1fr_1fr]">
           {/* Brand Column */}
-          <div className="lg:col-span-1">
+          <div className="col-span-2 lg:col-span-1">
             <Link href="/" className="mb-4 flex items-center gap-2">
               <Image src="/logo.png" alt="InsightsTap logo" width={32} height={32} className="rounded-full" />
               <span className="text-lg font-semibold tracking-tight text-[#0F172A]">
@@ -98,7 +98,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#64748B] transition-colors hover:text-[#0dcfcf]"
+                    className="inline-block py-1 text-sm text-[#64748B] transition-colors hover:text-[#0dcfcf]"
                   >
                     {link.label}
                   </Link>
@@ -108,7 +108,7 @@ export function Footer() {
           </div>
 
           {/* Services Column */}
-          <div>
+          <div className="col-span-2 lg:col-span-1">
             <h4 className="mb-4 text-sm font-semibold uppercase tracking-wider text-[#1E293B]">
               Services
             </h4>
@@ -117,7 +117,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#64748B] transition-colors hover:text-[#0dcfcf]"
+                    className="inline-block py-1 text-sm text-[#64748B] transition-colors hover:text-[#0dcfcf]"
                   >
                     {link.label}
                   </Link>
@@ -136,7 +136,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#64748B] transition-colors hover:text-[#0dcfcf]"
+                    className="inline-block py-1 text-sm text-[#64748B] transition-colors hover:text-[#0dcfcf]"
                   >
                     {link.label}
                   </Link>
@@ -155,7 +155,7 @@ export function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
-                    className="text-sm text-[#64748B] transition-colors hover:text-[#0dcfcf]"
+                    className="inline-block py-1 text-sm text-[#64748B] transition-colors hover:text-[#0dcfcf]"
                   >
                     {link.label}
                   </Link>
@@ -166,7 +166,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 border-t border-[#E2E8F0] pt-8 text-center">
+        <div className="mt-10 sm:mt-16 border-t border-[#E2E8F0] pt-8 text-center">
           <p className="text-sm text-[#94A3B8]">
             &copy; 2026 InsightsTap. All rights reserved.
           </p>
@@ -190,7 +190,7 @@ function SocialLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex h-8 w-8 items-center justify-center rounded-md border border-[#E2E8F0] text-[#64748B] transition-all hover:border-[#0dcfcf]/50 hover:text-[#0dcfcf]"
+      className="flex h-10 w-10 items-center justify-center rounded-md border border-[#E2E8F0] text-[#64748B] transition-all hover:border-[#0dcfcf]/50 hover:text-[#0dcfcf]"
       aria-label={label}
     >
       {icon}

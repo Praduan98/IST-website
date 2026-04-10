@@ -55,7 +55,7 @@ function AnimatedCounter({ value, label }: { value: string; label: string }) {
       transition={{ duration: 0.5 }}
       className="text-center"
     >
-      <div className="mb-2 text-4xl font-bold text-[#0dcfcf] sm:text-5xl lg:text-6xl">
+      <div className="mb-2 text-3xl font-bold text-[#0dcfcf] sm:text-4xl md:text-5xl lg:text-6xl">
         {displayValue}
       </div>
       <p className="text-sm text-[#64748B] lg:text-base">{label}</p>
@@ -69,8 +69,8 @@ export function ProofSection({
   description,
 }: ProofSectionProps) {
   return (
-    <section className="relative bg-[#F8FAFC] px-6 py-20 lg:py-28">
-      <div className="glow-orb absolute left-1/3 top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.04] blur-[130px]" />
+    <section className="relative bg-[#F8FAFC] px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
+      <div className="glow-orb absolute left-1/3 top-1/2 h-[250px] w-[250px] sm:h-[400px] sm:w-[400px] -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.04] blur-[130px]" />
       <FloatingOrbs />
 
       <div className="relative mx-auto w-[min(92vw,1600px)]">
@@ -94,7 +94,7 @@ export function ProofSection({
           )}
         </motion.div>
 
-        <div className={`grid gap-8 ${metrics.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2 lg:grid-cols-4"}`}>
+        <div className={`grid grid-cols-2 gap-6 sm:gap-8 ${metrics.length === 3 ? "sm:grid-cols-3" : "sm:grid-cols-2 lg:grid-cols-4"}`}>
           {metrics.map((metric) => (
             <AnimatedCounter key={metric.label} value={metric.value} label={metric.label} />
           ))}

@@ -12,8 +12,8 @@ interface PhilosophySectionProps {
 
 export function PhilosophySection({ cards, title = "Our Philosophy" }: PhilosophySectionProps) {
   return (
-    <section className="relative bg-white px-6 py-20 lg:py-28">
-      <div className="glow-orb absolute left-0 top-1/3 h-[400px] w-[400px] rounded-full bg-[#0dcfcf]/[0.04] blur-[130px]" />
+    <section className="relative bg-white px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
+      <div className="glow-orb absolute left-0 top-1/3 h-[250px] w-[250px] sm:h-[400px] sm:w-[400px] rounded-full bg-[#0dcfcf]/[0.04] blur-[130px]" />
       <FloatingOrbs />
 
       <div className="relative mx-auto w-[min(92vw,1600px)]">
@@ -32,7 +32,7 @@ export function PhilosophySection({ cards, title = "Our Philosophy" }: Philosoph
           </h2>
         </motion.div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {cards.map((card, index) => (
             <FlipCard key={card.frontTitle} card={card} index={index} />
           ))}
@@ -51,7 +51,7 @@ function FlipCard({ card, index }: { card: PhilosophyCardType; index: number }) 
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group perspective-[1000px] h-[280px] cursor-pointer"
+      className="group perspective-[1000px] h-[240px] sm:h-[280px] cursor-pointer"
       onClick={() => setIsFlipped(!isFlipped)}
       onMouseEnter={() => setIsFlipped(true)}
       onMouseLeave={() => setIsFlipped(false)}
@@ -64,18 +64,21 @@ function FlipCard({ card, index }: { card: PhilosophyCardType; index: number }) 
       >
         {/* Front */}
         <div
-          className="absolute inset-0 rounded-xl border border-[#E2E8F0] bg-white p-8 shadow-sm flex flex-col justify-center"
+          className="absolute inset-0 rounded-xl border border-[#E2E8F0] bg-white p-5 sm:p-8 shadow-sm flex flex-col justify-center"
           style={{ backfaceVisibility: "hidden" }}
         >
           <div className="mb-3 h-1 w-10 rounded-full bg-[#0dcfcf]" />
-          <h3 className="mb-3 text-xl font-semibold text-[#0F172A]">{card.frontTitle}</h3>
-          <p className="text-sm leading-relaxed text-[#64748B]">{card.frontText}</p>
-          <p className="mt-4 text-xs font-medium text-[#0dcfcf]">Hover to learn more</p>
+          <h3 className="mb-2 sm:mb-3 text-lg sm:text-xl font-semibold text-[#0F172A]">{card.frontTitle}</h3>
+          <p className="text-xs sm:text-sm leading-relaxed text-[#64748B]">{card.frontText}</p>
+          <p className="mt-3 sm:mt-4 text-xs font-medium text-[#0dcfcf]">
+            <span className="sm:hidden">Tap to learn more</span>
+            <span className="hidden sm:inline">Hover to learn more</span>
+          </p>
         </div>
 
         {/* Back */}
         <div
-          className="absolute inset-0 rounded-xl border border-[#0dcfcf]/30 bg-[#F8FAFC] p-8 shadow-sm flex flex-col justify-center"
+          className="absolute inset-0 rounded-xl border border-[#0dcfcf]/30 bg-[#F8FAFC] p-5 sm:p-8 shadow-sm flex flex-col justify-center"
           style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}
         >
           <div className="mb-3 h-1 w-10 rounded-full bg-[#0dcfcf]" />

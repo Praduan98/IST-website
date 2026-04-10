@@ -15,7 +15,7 @@ export function AbmHeroVisual() {
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
       <svg
         viewBox="0 0 400 300"
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[85%] max-w-[650px] h-auto opacity-65"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[70%] sm:w-[85%] max-w-[650px] h-auto opacity-50 sm:opacity-65"
         fill="none"
       >
         {/* Funnel shape */}

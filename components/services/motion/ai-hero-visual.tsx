@@ -57,7 +57,7 @@ export function AiHeroVisual() {
     >
       <svg
         viewBox="0 0 100 100"
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] max-w-[600px] h-auto opacity-65"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[65%] sm:w-[80%] max-w-[600px] h-auto opacity-50 sm:opacity-65"
         fill="none"
       >
         {/* Neural connections */}

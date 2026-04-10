@@ -48,7 +48,7 @@ export function InteractiveStats() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.8 }}
-          className="mx-auto mb-12 grid max-w-[800px] grid-cols-2 gap-4 sm:grid-cols-4"
+          className="mx-auto mb-12 grid max-w-[800px] grid-cols-2 gap-2 sm:gap-4 sm:grid-cols-4"
         >
           <InteractiveStat icon={Zap} value="40%" label="Lower CAC" delay={0} themeMode={themeMode} />
           <InteractiveStat icon={TrendingUp} value="3x" label="Pipeline growth" delay={0.1} themeMode={themeMode} />
@@ -92,7 +92,7 @@ function InteractiveStat({
       viewport={{ once: true }}
       transition={{ delay, duration: 0.4 }}
       whileHover={{ scale: 1.05, y: -4 }}
-      className="group flex flex-col items-center gap-3 p-6 cursor-pointer"
+      className="group flex flex-col items-center gap-2 p-3 cursor-pointer sm:gap-3 sm:p-6"
     >
       <div
         className="flex h-14 w-14 items-center justify-center rounded-xl transition-colors duration-700 sm:h-16 sm:w-16"
@@ -100,7 +100,7 @@ function InteractiveStat({
       >
         <Icon className="h-7 w-7 transition-colors duration-700 sm:h-8 sm:w-8" style={{ color: colors.accent }} />
       </div>
-      <span className="text-3xl font-semibold transition-colors duration-700 sm:text-4xl" style={{ color: colors.text }}>{value}</span>
+      <span className="text-2xl font-semibold transition-colors duration-700 sm:text-4xl" style={{ color: colors.text }}>{value}</span>
       <span className="text-sm transition-colors duration-700" style={{ color: colors.subtext }}>{label}</span>
     </motion.div>
   )
@@ -140,7 +140,7 @@ function InteractiveSection({
       canvas!.width = canvas!.offsetWidth
       canvas!.height = canvas!.offsetHeight
       // Grid-based placement for even scatter — no random clustering
-      const count = 288
+      const count = canvas!.width < 640 ? 80 : 288
       const cols = Math.ceil(Math.sqrt(count * (canvas!.width / canvas!.height)))
       const rows = Math.ceil(count / cols)
       const cellW = canvas!.width / cols
@@ -192,13 +192,14 @@ function InteractiveSection({
         ctx!.fill()
       })
 
+      const connectionDist = canvas!.width < 640 ? 70 : 110
       for (let a = 0; a < particles.length; a++) {
         for (let b = a + 1; b < particles.length; b++) {
           const dx = particles[a].x - particles[b].x
           const dy = particles[a].y - particles[b].y
           const dist = Math.sqrt(dx * dx + dy * dy)
-          if (dist < 110) {
-            const opacity = (1 - dist / 110) * 0.4
+          if (dist < connectionDist) {
+            const opacity = (1 - dist / connectionDist) * 0.4
             ctx!.strokeStyle = getColor(opacity)
             ctx!.lineWidth = 1
             ctx!.beginPath()
@@ -247,10 +248,9 @@ function InteractiveSection({
 
   return (
     <div
-      className="relative w-full overflow-hidden transition-all duration-1000"
+      className="relative w-full overflow-hidden transition-all duration-1000 py-8 sm:py-16"
       style={{
         background: backgrounds[themeMode],
-        padding: '4rem 0',
         isolation: 'isolate',
       }}
       onMouseMove={handleMouseMove}
@@ -262,7 +262,7 @@ function InteractiveSection({
       )}
 
       {/* Content */}
-      <div className="relative mx-auto max-w-[1280px] text-center px-6" style={{ zIndex: 2 }}>
+      <div className="relative mx-auto max-w-[1280px] text-center px-4 sm:px-6" style={{ zIndex: 2 }}>
         {/* Theme Toggle Button */}
         <div className="mb-6 flex justify-end">
           <button
@@ -290,10 +290,10 @@ function InteractiveSection({
 function SignalFlowVisualization({ themeMode }: { themeMode: ThemeMode }) {
   const colors = getThemeColors(themeMode)
   return (
-    <div className="relative h-[250px] w-full p-8 sm:h-[280px]">
-      <div className="relative z-10 flex h-full items-center justify-center gap-4 sm:gap-6 lg:gap-8">
+    <div className="relative h-[250px] w-full p-4 sm:p-8 sm:h-[280px]">
+      <div className="relative z-10 flex h-full items-center justify-center gap-2 sm:gap-6 lg:gap-8">
         <FlowStage
-          icon={<SignalIcon className="h-8 w-8 sm:h-10 sm:w-10 transition-colors duration-700" style={{ color: colors.accent }} />}
+          icon={<SignalIcon className="h-6 w-6 sm:h-10 sm:w-10 transition-colors duration-700" style={{ color: colors.accent }} />}
           label="Signals"
           color={colors.accent}
           delay={0}
@@ -301,7 +301,7 @@ function SignalFlowVisualization({ themeMode }: { themeMode: ThemeMode }) {
         />
         <FlowArrow themeMode={themeMode} />
         <FlowStage
-          icon={<AIIcon className="h-8 w-8 sm:h-10 sm:w-10 transition-colors duration-700" style={{ color: colors.accent }} />}
+          icon={<AIIcon className="h-6 w-6 sm:h-10 sm:w-10 transition-colors duration-700" style={{ color: colors.accent }} />}
           label="AI agents"
           color={colors.accent}
           delay={0.5}
@@ -309,7 +309,7 @@ function SignalFlowVisualization({ themeMode }: { themeMode: ThemeMode }) {
         />
         <FlowArrow themeMode={themeMode} />
         <FlowStage
-          icon={<AutomationIcon className="h-8 w-8 sm:h-10 sm:w-10 transition-colors duration-700" style={{ color: colors.accent }} />}
+          icon={<AutomationIcon className="h-6 w-6 sm:h-10 sm:w-10 transition-colors duration-700" style={{ color: colors.accent }} />}
           label="Automation"
           color={colors.accent}
           delay={1}
@@ -317,7 +317,7 @@ function SignalFlowVisualization({ themeMode }: { themeMode: ThemeMode }) {
         />
         <FlowArrow themeMode={themeMode} />
         <FlowStage
-          icon={<RevenueIcon className="h-8 w-8 sm:h-10 sm:w-10 transition-colors duration-700" style={{ color: colors.text }} />}
+          icon={<RevenueIcon className="h-6 w-6 sm:h-10 sm:w-10 transition-colors duration-700" style={{ color: colors.text }} />}
           label="Revenue"
           color={colors.text}
           delay={1.5}
@@ -347,12 +347,12 @@ function FlowStage({
   const colors = getThemeColors(themeMode)
   return (
     <motion.div
-      className="flex w-20 flex-col items-center gap-3 sm:w-24"
+      className="flex w-16 flex-col items-center gap-2 sm:w-24 sm:gap-3"
       whileHover={{ scale: 1.1 }}
       transition={{ type: "spring", stiffness: 400 }}
     >
       <motion.div
-        className="relative flex h-16 w-16 items-center justify-center rounded-xl sm:h-20 sm:w-20 cursor-pointer transition-all duration-700"
+        className="relative flex h-12 w-12 items-center justify-center rounded-xl sm:h-20 sm:w-20 cursor-pointer transition-all duration-700"
         style={{
           backgroundColor: colors.isDark ? `${colors.bg}f0` : `${colors.bg}e8`,
           border: `1px solid ${color}50`,
@@ -386,18 +386,28 @@ function FlowStage({
 function FlowArrow({ themeMode }: { themeMode: ThemeMode }) {
   const colors = getThemeColors(themeMode)
   return (
-    <div className="hidden flex-shrink-0 items-center sm:flex">
-      <motion.div
-        className="h-[2px] w-8 lg:w-12 transition-colors duration-700"
-        style={{ background: `linear-gradient(to right, ${colors.accent}50, ${colors.accent})` }}
-        animate={{ opacity: [0.5, 1, 0.5] }}
-        transition={{ duration: 2, repeat: Infinity }}
-      />
-      <div
-        className="h-0 w-0 border-y-4 border-l-4 border-y-transparent transition-colors duration-700"
-        style={{ borderLeftColor: colors.accent }}
-      />
-    </div>
+    <>
+      {/* Mobile: small dot separator */}
+      <div className="flex flex-shrink-0 items-center sm:hidden">
+        <div
+          className="h-1.5 w-1.5 rounded-full transition-colors duration-700"
+          style={{ backgroundColor: colors.accent }}
+        />
+      </div>
+      {/* Desktop: animated arrow */}
+      <div className="hidden flex-shrink-0 items-center sm:flex">
+        <motion.div
+          className="h-[2px] w-8 lg:w-12 transition-colors duration-700"
+          style={{ background: `linear-gradient(to right, ${colors.accent}50, ${colors.accent})` }}
+          animate={{ opacity: [0.5, 1, 0.5] }}
+          transition={{ duration: 2, repeat: Infinity }}
+        />
+        <div
+          className="h-0 w-0 border-y-4 border-l-4 border-y-transparent transition-colors duration-700"
+          style={{ borderLeftColor: colors.accent }}
+        />
+      </div>
+    </>
   )
 }
 

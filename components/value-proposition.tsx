@@ -57,12 +57,12 @@ export function ValueProposition() {
   }
 
   return (
-    <section id="problem-section" className="relative overflow-hidden bg-white px-6 py-24 lg:py-32">
+    <section id="problem-section" className="relative overflow-hidden bg-white px-6 py-16 sm:px-8 sm:py-24 lg:px-6 lg:py-32">
       {/* Background glow */}
-      <div className="glow-orb absolute -left-40 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.06] blur-[150px]" />
+      <div className="glow-orb absolute -left-40 top-1/2 h-[500px] w-[500px] -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.06] blur-[150px] hidden sm:block" />
 
       <div className="relative mx-auto max-w-[1280px]">
-        <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-16">
+        <div className="flex flex-col items-center gap-8 sm:gap-12 lg:flex-row lg:gap-16">
           {/* ── Left: 3D Iceberg Diagram ──────────────────────── */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
@@ -135,6 +135,7 @@ function IcebergDiagram({ activeFocus }: { activeFocus: FocusKey | null }) {
       className="relative rounded-2xl border border-[#E2E8F0] bg-[#F8FAFC] p-4 shadow-sm"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={() => { /* activate focus state if applicable */ }}
       style={{
         rotateX: activeFocus ? 0 : rotateX,
         rotateY: activeFocus ? 0 : rotateY,

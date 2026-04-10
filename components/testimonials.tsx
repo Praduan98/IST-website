@@ -50,7 +50,7 @@ const cardVariants = {
 
 export function Testimonials() {
   return (
-    <section className="relative bg-white px-6 py-24 lg:py-32">
+    <section className="relative bg-white px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
       {/* Background glow */}
       <div className="glow-orb absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.04] blur-[150px]" />
 

@@ -7,11 +7,11 @@ import { useReducedMotion } from "./use-reduced-motion"
 // Disparate elements merge into one flowing pipeline.
 
 const DATA_SOURCES = [
-  { label: "HubSpot", x: -120, y: -50, color: "#FF7A59" },
-  { label: "Clay", x: -100, y: 20, color: "#6366F1" },
-  { label: "Apollo", x: -130, y: 80, color: "#3B82F6" },
-  { label: "RB2B", x: 120, y: -40, color: "#10B981" },
-  { label: "6sense", x: 110, y: 60, color: "#8B5CF6" },
+  { label: "HubSpot", x: -120, y: -50, color: "#FF7A59", mobileX: -70, mobileY: -40 },
+  { label: "Clay", x: -100, y: 20, color: "#6366F1", mobileX: -60, mobileY: 15 },
+  { label: "Apollo", x: -130, y: 80, color: "#3B82F6", mobileX: -75, mobileY: 55 },
+  { label: "RB2B", x: 120, y: -40, color: "#10B981", mobileX: 70, mobileY: -35 },
+  { label: "6sense", x: 110, y: 60, color: "#8B5CF6", mobileX: 65, mobileY: 45 },
 ]
 
 const MERGE_DELAY = 1.5
@@ -23,7 +23,7 @@ export function CrmHeroVisual() {
 
   return (
     <div className="pointer-events-none absolute inset-0 overflow-hidden">
-      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+      <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 scale-[0.6] sm:scale-75 md:scale-100">
         {/* Data source pills that glide to center */}
         {DATA_SOURCES.map((source, i) => (
           <motion.div

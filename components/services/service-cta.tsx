@@ -25,7 +25,7 @@ export function ServiceCTA({
   showBrochure = true,
 }: ServiceCTAProps) {
   return (
-    <section className="relative overflow-hidden bg-[#0F172A] px-6 py-20 lg:py-28">
+    <section className="relative overflow-hidden bg-[#0F172A] px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
       <FloatingOrbs />
       {/* Decorative elements */}
       <div
@@ -35,8 +35,8 @@ export function ServiceCTA({
           backgroundSize: "32px 32px",
         }}
       />
-      <div className="glow-orb absolute left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.08] blur-[150px]" />
-      <div className="glow-orb absolute right-[20%] top-2/3 h-[350px] w-[350px] rounded-full bg-[#0dcfcf]/[0.06] blur-[120px]" style={{ animationDelay: "-4s" }} />
+      <div className="glow-orb absolute left-1/2 top-1/3 h-[300px] w-[300px] sm:h-[500px] sm:w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.08] blur-[150px]" />
+      <div className="glow-orb absolute right-[20%] top-2/3 h-[200px] w-[200px] sm:h-[350px] sm:w-[350px] rounded-full bg-[#0dcfcf]/[0.06] blur-[120px]" style={{ animationDelay: "-4s" }} />
 
       <div className="relative z-10 mx-auto w-[min(92vw,900px)] text-center">
         <motion.div
@@ -60,14 +60,14 @@ export function ServiceCTA({
           >
             <Link
               href={primaryHref}
-              className="shimmer relative h-12 rounded-lg bg-[#0dcfcf] px-8 text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#5de0e0] hover:shadow-lg hover:shadow-[#0dcfcf]/25 inline-flex items-center justify-center"
+              className="shimmer relative h-12 w-full sm:w-auto rounded-lg bg-[#0dcfcf] px-8 text-sm sm:text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#5de0e0] hover:shadow-lg hover:shadow-[#0dcfcf]/25 inline-flex items-center justify-center"
             >
               {primaryLabel}
             </Link>
             {showBrochure && (
               <Link
                 href={brochureHref}
-                className="h-12 rounded-lg border border-white/20 px-8 text-base font-medium text-white/90 transition-all hover:border-white/40 hover:bg-white/10 inline-flex items-center justify-center"
+                className="h-12 w-full sm:w-auto rounded-lg border border-white/20 px-8 text-sm sm:text-base font-medium text-white/90 transition-all hover:border-white/40 hover:bg-white/10 inline-flex items-center justify-center"
               >
                 {brochureLabel}
               </Link>

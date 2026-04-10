@@ -68,20 +68,8 @@ const faqs = [
   { q: "Is JobFeeder data privacy compliant?", a: "Yes. We only scan publicly available job postings. We do not scrape private data or violate platform terms." },
 ]
 
-// ─── Scroll-reveal transforms ────────────────────────────────────────
-const ORIGINS: [number, number][] = [[-55, -25], [55, -25], [-55, 25], [55, 25]]
-const RANGES: [number, number][] = [[0, 0.25], [0.15, 0.40], [0.35, 0.60], [0.50, 0.75]]
-
-function useCardReveal(scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"], i: number) {
-  const [s, e] = RANGES[i]
-  const [ox, oy] = ORIGINS[i]
-  return {
-    x: useTransform(scrollYProgress, [s, e], [ox, 0]),
-    y: useTransform(scrollYProgress, [s, e], [oy, 0]),
-    opacity: useTransform(scrollYProgress, [s, s + (e - s) * 0.3, e], [0, 1, 1]),
-    scale: useTransform(scrollYProgress, [s, e], [0.85, 1]),
-  }
-}
+// Card entrance directions for staggered reveal
+const CARD_ORIGINS: [number, number][] = [[-40, -20], [40, -20], [-40, 20], [40, 20]]
 
 // ─── Page ────────────────────────────────────────────────────────────
 export default function JobFeederPage() {
@@ -132,7 +120,7 @@ function HeroSection() {
         transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
       />
 
-      <div className="relative z-10 mx-auto w-[min(92vw,1600px)] text-center px-6">
+      <div className="relative z-10 mx-auto w-[min(92vw,1600px)] text-center px-4 sm:px-6">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -168,7 +156,7 @@ function HeroSection() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="mx-auto mb-20 max-w-[680px] text-base leading-relaxed text-white/70 sm:text-lg"
+          className="mx-auto mb-10 sm:mb-20 max-w-[680px] text-base leading-relaxed text-white/70 sm:text-lg"
         >
           JobFeeder helps IT service providers and recruitment agencies get real-time job leads with summaries and details, delivered instantly to Slack or inbox.
         </motion.p>
@@ -295,49 +283,49 @@ function ProblemSolution() {
   )
 }
 
-// ─── 2x2 Feature Grid with scroll reveal ─────────────────────────────
+// ─── 2x2 Feature Grid with whileInView reveal ──────────────────────────
 function FeatureGrid() {
-  const sectionRef = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({ target: sectionRef, offset: ["start start", "end end"] })
-  const titleOpacity = useTransform(scrollYProgress, [0.4, 0.7], [1, 0])
-  const c0 = useCardReveal(scrollYProgress, 0)
-  const c1 = useCardReveal(scrollYProgress, 1)
-  const c2 = useCardReveal(scrollYProgress, 2)
-  const c3 = useCardReveal(scrollYProgress, 3)
-  const transforms = [c0, c1, c2, c3]
-
   return (
-    <section ref={sectionRef} id="how-it-works" className="relative bg-white" style={{ height: "300vh" }}>
+    <section id="how-it-works" className="relative bg-white px-4 py-20 sm:py-28 lg:py-32">
       <FloatingOrbs />
-      <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
-        <motion.div className="absolute z-0 text-center" style={{ opacity: titleOpacity }}>
+      <div className="relative z-10 mx-auto" style={{ maxWidth: "1000px" }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="mb-12 text-center sm:mb-16"
+        >
           <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">How it works</span>
-          <h2 className="text-4xl font-semibold tracking-tight text-[#0F172A] sm:text-5xl lg:text-6xl">
+          <h2 className="text-3xl font-semibold tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-6xl">
             The JobFeeder <span className="text-[#0dcfcf]">engine</span>
           </h2>
         </motion.div>
 
-        <div className="relative z-10 grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:gap-5" style={{ width: "min(92vw, 1000px)" }}>
-          {features.map((f, i) => {
-            const t = transforms[i]
-            return (
-              <motion.div key={f.title} className="gpu-layer rounded-2xl border border-[#E2E8F0] bg-white p-6 sm:p-7"
-                style={{ x: t.x, y: t.y, opacity: t.opacity, scale: t.scale, boxShadow: "0 8px 30px rgba(0,0,0,0.06)" }}
-              >
-                <div className="mb-4 flex items-center gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#0dcfcf] bg-[#0dcfcf]/10">
-                    <f.icon className="h-4 w-4 text-[#0dcfcf]" />
-                  </div>
-                  <div className="h-px flex-1 bg-gradient-to-r from-[#0dcfcf]/30 to-transparent" />
-                  <span className="font-mono text-[11px] font-bold text-[#94A3B8]">{String(i + 1).padStart(2, "0")} / 04</span>
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
+          {features.map((f, i) => (
+            <motion.div
+              key={f.title}
+              initial={{ opacity: 0, x: CARD_ORIGINS[i][0], y: CARD_ORIGINS[i][1], scale: 0.85 }}
+              whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: i * 0.15, ease: "easeOut" }}
+              className="gpu-layer rounded-2xl border border-[#E2E8F0] bg-white p-6 sm:p-7"
+              style={{ boxShadow: "0 8px 30px rgba(0,0,0,0.06)" }}
+            >
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#0dcfcf] bg-[#0dcfcf]/10">
+                  <f.icon className="h-4 w-4 text-[#0dcfcf]" />
                 </div>
-                <span className="mb-1.5 inline-flex rounded-md bg-[#0dcfcf]/10 px-2 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0dcfcf]">{f.year}</span>
-                <h3 className="mb-1.5 text-lg font-bold text-[#0F172A] sm:text-xl">{f.title}</h3>
-                <div className="mb-2.5 h-0.5 w-8 rounded-full bg-[#0dcfcf]" />
-                <p className="text-[13px] leading-relaxed text-[#64748B]">{f.description}</p>
-              </motion.div>
-            )
-          })}
+                <div className="h-px flex-1 bg-gradient-to-r from-[#0dcfcf]/30 to-transparent" />
+                <span className="font-mono text-[11px] font-bold text-[#94A3B8]">{String(i + 1).padStart(2, "0")} / 04</span>
+              </div>
+              <span className="mb-1.5 inline-flex rounded-md bg-[#0dcfcf]/10 px-2 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0dcfcf]">{f.year}</span>
+              <h3 className="mb-1.5 text-lg font-bold text-[#0F172A] sm:text-xl">{f.title}</h3>
+              <div className="mb-2.5 h-0.5 w-8 rounded-full bg-[#0dcfcf]" />
+              <p className="text-[13px] leading-relaxed text-[#64748B]">{f.description}</p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
@@ -434,7 +422,7 @@ function StepsSection() {
                   {/* Number badge — sits on the connector line */}
                   <div className="relative z-10 mb-6">
                     <div className="absolute inset-0 rounded-full bg-[#0dcfcf] opacity-0 blur-xl transition-opacity duration-500 group-hover:opacity-30" />
-                    <div className="relative flex h-[88px] w-[88px] items-center justify-center rounded-full border border-[#E2E8F0] bg-white shadow-[0_8px_30px_rgba(13,207,207,0.08)] transition-all duration-300 group-hover:border-[#0dcfcf]/40 group-hover:shadow-[0_12px_40px_rgba(13,207,207,0.18)]">
+                    <div className="relative flex h-[72px] w-[72px] sm:h-[88px] sm:w-[88px] items-center justify-center rounded-full border border-[#E2E8F0] bg-white shadow-[0_8px_30px_rgba(13,207,207,0.08)] transition-all duration-300 group-hover:border-[#0dcfcf]/40 group-hover:shadow-[0_12px_40px_rgba(13,207,207,0.18)]">
                       <Icon className="h-8 w-8 text-[#0dcfcf]" strokeWidth={1.8} />
                       <span className="absolute -right-1 -top-1 flex h-7 w-7 items-center justify-center rounded-full bg-[#0dcfcf] font-mono text-[11px] font-bold text-white shadow-md shadow-[#0dcfcf]/30">
                         {s.step}
@@ -480,7 +468,7 @@ function TestimonialsSection() {
           <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Proven results</h2>
         </motion.div>
 
-        <div className="grid gap-6 sm:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((t, i) => (
             <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.4, delay: i * 0.1 }}
               className="rounded-xl border border-white/15 bg-white/[0.07] p-6 backdrop-blur-sm shadow-[0_4px_20px_rgba(0,0,0,0.25)] transition-all hover:border-[#0dcfcf]/40 hover:bg-[#0dcfcf]/[0.08]"
@@ -542,7 +530,7 @@ function CTASection() {
           <p className="mx-auto mb-8 max-w-[550px] text-base text-[#94A3B8] sm:text-lg">
             Get early, free access to JobFeeder. Real-time job leads, AI summaries, and contact details, delivered to Slack.
           </p>
-          <Link href="#book-call" className="shimmer relative h-12 rounded-lg bg-[#0dcfcf] px-8 text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:bg-[#5de0e0] inline-flex items-center justify-center">
+          <Link href="#book-call" className="shimmer relative h-12 rounded-lg bg-[#0dcfcf] px-8 text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:bg-[#5de0e0] inline-flex w-full sm:w-auto items-center justify-center">
             Get beta access for free
           </Link>
         </motion.div>

@@ -1,6 +1,6 @@
 "use client"
 
-import { motion, useInView, useScroll, useTransform } from "framer-motion"
+import { motion, useInView } from "framer-motion"
 import {
   Sparkles,
   Users,
@@ -264,14 +264,14 @@ function HeroSection() {
         >
           <Link
             href="/Contact"
-            className="inline-flex h-12 items-center justify-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-semibold text-[#0a0e1a] transition-all hover:bg-[#5de0e0] hover:shadow-md hover:shadow-[#0dcfcf]/15"
+            className="inline-flex h-12 w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-semibold text-[#0a0e1a] transition-all hover:bg-[#5de0e0] hover:shadow-md hover:shadow-[#0dcfcf]/15"
           >
             Book a discovery call
             <ArrowRight className="h-4 w-4" />
           </Link>
           <Link
             href="/careers/life-at-insightstap"
-            className="inline-flex h-12 items-center justify-center rounded-lg border border-white/20 px-8 text-base font-medium text-white/90 transition-all hover:border-[#0dcfcf]/50 hover:text-[#0dcfcf]"
+            className="inline-flex h-12 w-full sm:w-auto items-center justify-center rounded-lg border border-white/20 px-8 text-base font-medium text-white/90 transition-all hover:border-[#0dcfcf]/50 hover:text-[#0dcfcf]"
           >
             Life at InsightsTap
           </Link>
@@ -341,7 +341,7 @@ function StatCounter({
       transition={{ duration: 0.5, delay }}
       className="text-center"
     >
-      <div className="text-4xl font-bold text-[#0a0e1a] sm:text-5xl lg:text-6xl">
+      <div className="text-3xl font-bold text-[#0a0e1a] sm:text-4xl md:text-5xl lg:text-6xl">
         {count}
         <span className="text-[#0a0e1a]/80">{suffix}</span>
       </div>
@@ -439,7 +439,7 @@ function CoreValuesSection() {
             transition={{ duration: 0.7 }}
             className="flex items-center justify-center"
           >
-            <div className="relative flex h-[340px] w-[340px] items-center justify-center sm:h-[420px] sm:w-[420px] lg:h-[480px] lg:w-[480px]">
+            <div className="relative flex h-[280px] w-[280px] items-center justify-center sm:h-[420px] sm:w-[420px] lg:h-[480px] lg:w-[480px]">
               {/* Outer ring */}
               <motion.div
                 className="absolute inset-0 rounded-full border border-[#0dcfcf]/15"
@@ -652,14 +652,14 @@ function VisionMissionSection() {
     <section className="relative overflow-hidden bg-white px-6 py-24 lg:py-32">
       <FloatingOrbs />
       <div className="relative mx-auto max-w-[1280px]">
-        <div className="grid gap-0 lg:grid-cols-2">
+        <div className="grid gap-6 lg:gap-0 lg:grid-cols-2">
           {/* Vision */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
-            className="border-b border-[#E2E8F0] p-8 lg:border-b-0 lg:border-r lg:p-12"
+            className="border-b border-[#E2E8F0] p-5 sm:p-8 lg:border-b-0 lg:border-r lg:p-12"
           >
             <div className="mb-6 flex items-center gap-4">
               <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#0dcfcf]/10">
@@ -688,7 +688,7 @@ function VisionMissionSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6, delay: 0.15 }}
-            className="p-8 lg:p-12"
+            className="p-5 sm:p-8 lg:p-12"
           >
             <div className="mb-6 flex items-center gap-4">
               <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-[#0dcfcf]/10">
@@ -766,7 +766,7 @@ function FounderSection() {
               />
               {/* Badges */}
               <motion.div
-                className="absolute -right-4 top-8 rounded-lg border border-[#0dcfcf]/30 bg-white/90 px-3 py-2 shadow-lg backdrop-blur-sm"
+                className="absolute -right-2 sm:-right-4 top-8 rounded-lg border border-[#0dcfcf]/30 bg-white/90 px-3 py-2 shadow-lg backdrop-blur-sm"
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -775,7 +775,7 @@ function FounderSection() {
                 <span className="text-xs font-medium text-[#0dcfcf]">Fiverr Pro</span>
               </motion.div>
               <motion.div
-                className="absolute -left-4 bottom-12 rounded-lg border border-[#E2E8F0] bg-white/90 px-3 py-2 shadow-lg backdrop-blur-sm"
+                className="absolute -left-2 sm:-left-4 bottom-12 rounded-lg border border-[#E2E8F0] bg-white/90 px-3 py-2 shadow-lg backdrop-blur-sm"
                 initial={{ opacity: 0, x: -20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
@@ -811,7 +811,7 @@ function FounderSection() {
             </p>
 
             {/* Stats Row */}
-            <div className="mb-8 grid grid-cols-3 gap-4">
+            <div className="mb-8 grid grid-cols-3 gap-3 sm:gap-4">
               {[
                 { value: 19, suffix: "+", label: "Years experience" },
                 { value: 250, suffix: "+", label: "Projects delivered" },
@@ -876,119 +876,80 @@ function SocialLink({ href, label, icon, onClick }: { href: string; label: strin
 // 7. STORY TIMELINE — 2x2 scroll-reveal grid
 // ═══════════════════════════════════════════════════════════════════════
 
-// Card entrance directions: [x-offset, y-offset] in vw/vh before entering
+// Card entrance directions for staggered reveal
 const CARD_ORIGINS: [number, number][] = [
-  [-60, -30],  // top-left: enters from left
-  [60, -30],   // top-right: enters from right
-  [-60, 30],   // bottom-left: enters from left
-  [60, 30],    // bottom-right: enters from right
+  [-40, -20],  // top-left
+  [40, -20],   // top-right
+  [-40, 20],   // bottom-left
+  [40, 20],    // bottom-right
 ]
-
-// Scroll ranges: each card assembles during its segment of the total scroll
-// Card 0: 0–0.25, Card 1: 0.15–0.40, Card 2: 0.35–0.60, Card 3: 0.50–0.75
-const CARD_RANGES: [number, number][] = [
-  [0, 0.25],
-  [0.15, 0.40],
-  [0.35, 0.60],
-  [0.50, 0.75],
-]
-
-function useCardReveal(
-  scrollYProgress: ReturnType<typeof useScroll>["scrollYProgress"],
-  index: number,
-) {
-  const [start, end] = CARD_RANGES[index]
-  const [ox, oy] = CARD_ORIGINS[index]
-
-  const x = useTransform(scrollYProgress, [start, end], [ox, 0])
-  const y = useTransform(scrollYProgress, [start, end], [oy, 0])
-  const opacity = useTransform(scrollYProgress, [start, start + (end - start) * 0.3, end], [0, 1, 1])
-  const scale = useTransform(scrollYProgress, [start, end], [0.85, 1])
-
-  return { x, y, opacity, scale }
-}
 
 function StoryTimeline() {
-  const sectionRef = useRef<HTMLDivElement>(null)
   const total = storySteps.length
 
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ["start start", "end end"],
-  })
-
-  // Title fades out as cards cover it
-  const titleOpacity = useTransform(scrollYProgress, [0.4, 0.7], [1, 0])
-
-  // All 4 card transforms (hooks at top level)
-  const c0 = useCardReveal(scrollYProgress, 0)
-  const c1 = useCardReveal(scrollYProgress, 1)
-  const c2 = useCardReveal(scrollYProgress, 2)
-  const c3 = useCardReveal(scrollYProgress, 3)
-  const transforms = [c0, c1, c2, c3]
-
   return (
-    <section ref={sectionRef} className="relative bg-[#F8FAFC]" style={{ height: "300vh" }}>
+    <section className="relative bg-[#F8FAFC] px-4 py-20 sm:py-28 lg:py-32">
       <FloatingOrbs />
 
-      <div className="sticky top-0 flex h-screen items-center justify-center overflow-hidden">
-        {/* Background title — fades as cards assemble */}
-        <motion.div className="absolute z-0 text-center" style={{ opacity: titleOpacity }}>
+      <div className="relative z-10 mx-auto" style={{ maxWidth: "1000px" }}>
+        {/* Section title */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5 }}
+          className="mb-12 text-center sm:mb-16"
+        >
           <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">
             Our journey
           </span>
-          <h2 className="text-4xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-5xl lg:text-6xl">
+          <h2 className="text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-6xl">
             Our <span className="text-[#0dcfcf]">story</span>
           </h2>
         </motion.div>
 
-        {/* 2x2 grid that assembles over the title */}
-        <div className="relative z-10 grid grid-cols-1 gap-4 px-4 sm:grid-cols-2 sm:gap-5" style={{ width: "min(92vw, 1000px)" }}>
-          {storySteps.map((step, i) => {
-            const t = transforms[i]
-            return (
-              <motion.div
-                key={step.title}
-                className="rounded-2xl border border-[#E2E8F0] bg-white p-6 sm:p-7"
-                style={{
-                  x: t.x,
-                  y: t.y,
-                  opacity: t.opacity,
-                  scale: t.scale,
-                  boxShadow: "0 8px 30px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.03)",
-                }}
-              >
-                {/* Step counter row */}
-                <div className="mb-4 flex items-center gap-3">
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#0dcfcf] bg-[#0dcfcf]/10">
-                    <step.icon className="h-4 w-4 text-[#0dcfcf]" />
-                  </div>
-                  <div className="h-px flex-1 bg-gradient-to-r from-[#0dcfcf]/30 to-transparent" />
-                  <span className="font-mono text-[11px] font-bold text-[#94A3B8]">
-                    {String(i + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
-                  </span>
+        {/* 2x2 grid with staggered whileInView reveal */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-5">
+          {storySteps.map((step, i) => (
+            <motion.div
+              key={step.title}
+              initial={{ opacity: 0, x: CARD_ORIGINS[i][0], y: CARD_ORIGINS[i][1], scale: 0.85 }}
+              whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
+              viewport={{ once: true, margin: "-80px" }}
+              transition={{ duration: 0.6, delay: i * 0.15, ease: "easeOut" }}
+              className="rounded-2xl border border-[#E2E8F0] bg-white p-6 sm:p-7"
+              style={{ boxShadow: "0 8px 30px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.03)" }}
+            >
+              {/* Step counter row */}
+              <div className="mb-4 flex items-center gap-3">
+                <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-[#0dcfcf] bg-[#0dcfcf]/10">
+                  <step.icon className="h-4 w-4 text-[#0dcfcf]" />
                 </div>
-
-                {/* Badge */}
-                <span className="mb-1.5 inline-flex rounded-md bg-[#0dcfcf]/10 px-2 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0dcfcf]">
-                  {step.year}
+                <div className="h-px flex-1 bg-gradient-to-r from-[#0dcfcf]/30 to-transparent" />
+                <span className="font-mono text-[11px] font-bold text-[#94A3B8]">
+                  {String(i + 1).padStart(2, "0")} / {String(total).padStart(2, "0")}
                 </span>
+              </div>
 
-                {/* Title */}
-                <h3 className="mb-1.5 text-lg font-bold text-[#0F172A] sm:text-xl">
-                  {step.title}
-                </h3>
+              {/* Badge */}
+              <span className="mb-1.5 inline-flex rounded-md bg-[#0dcfcf]/10 px-2 py-0.5 font-mono text-[11px] font-bold uppercase tracking-wider text-[#0dcfcf]">
+                {step.year}
+              </span>
 
-                {/* Accent line */}
-                <div className="mb-2.5 h-0.5 w-8 rounded-full bg-[#0dcfcf]" />
+              {/* Title */}
+              <h3 className="mb-1.5 text-lg font-bold text-[#0F172A] sm:text-xl">
+                {step.title}
+              </h3>
 
-                {/* Description */}
-                <p className="text-[13px] leading-relaxed text-[#64748B]">
-                  {step.description}
-                </p>
-              </motion.div>
-            )
-          })}
+              {/* Accent line */}
+              <div className="mb-2.5 h-0.5 w-8 rounded-full bg-[#0dcfcf]" />
+
+              {/* Description */}
+              <p className="text-[13px] leading-relaxed text-[#64748B]">
+                {step.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
@@ -1130,7 +1091,7 @@ function LeadershipTeamSection() {
               variants={cardVariants}
               className="flex flex-col items-center text-center"
             >
-              <div className="mb-5 h-[180px] w-[180px] overflow-hidden rounded-full border-2 border-[#E2E8F0] shadow-[0_8px_24px_rgba(0,0,0,0.12)]">
+              <div className="mb-5 h-[140px] w-[140px] sm:h-[180px] sm:w-[180px] overflow-hidden rounded-full border-2 border-[#E2E8F0] shadow-[0_8px_24px_rgba(0,0,0,0.12)]">
                 <Image
                   src={leader.image}
                   alt={leader.name}
@@ -1183,7 +1144,7 @@ function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6 }}
-          className="mb-6 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl"
+          className="mb-6 text-3xl font-semibold leading-tight tracking-tight text-white sm:text-4xl md:text-5xl lg:text-6xl"
         >
           {"Let's build your "}
           <span className="text-[#0dcfcf]">revenue engine</span>
@@ -1202,7 +1163,7 @@ function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="mx-auto mb-12 max-w-[600px] text-lg leading-relaxed text-white/60 lg:text-xl"
+          className="mx-auto mb-8 sm:mb-12 max-w-[600px] text-base leading-relaxed text-white/60 sm:text-lg lg:text-xl"
         >
           Ready to take your B2B sales to the next level? Get in touch with
           our team today to schedule a consultation and see how InsightsTap
@@ -1218,14 +1179,14 @@ function CTASection() {
         >
           <Link
             href="/Contact"
-            className="inline-flex h-14 items-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-semibold text-[#0a0e1a] transition-all hover:bg-[#5de0e0] hover:shadow-md hover:shadow-[#0dcfcf]/15"
+            className="inline-flex h-14 w-full sm:w-auto items-center justify-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-semibold text-[#0a0e1a] transition-all hover:bg-[#5de0e0] hover:shadow-md hover:shadow-[#0dcfcf]/15"
           >
             <Phone className="h-5 w-5" />
             Book a discovery call
           </Link>
           <Link
             href="/"
-            className="inline-flex h-14 items-center gap-2 rounded-lg border border-white/20 px-8 text-base font-medium text-white/90 transition-all hover:border-[#0dcfcf]/50 hover:text-[#0dcfcf]"
+            className="inline-flex h-14 w-full sm:w-auto items-center justify-center gap-2 rounded-lg border border-white/20 px-8 text-base font-medium text-white/90 transition-all hover:border-[#0dcfcf]/50 hover:text-[#0dcfcf]"
           >
             Explore our services
             <ArrowRight className="h-4 w-4" />

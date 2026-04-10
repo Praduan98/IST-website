@@ -31,12 +31,12 @@ export function ServiceHero({
   const reduced = useReducedMotion()
 
   return (
-    <section className="relative flex min-h-[60vh] flex-col items-center justify-center overflow-hidden bg-white pt-28 pb-16">
+    <section className="relative flex min-h-[60vh] flex-col items-center justify-center overflow-hidden bg-white pt-24 pb-12 sm:pt-28 sm:pb-16">
       {/* Clean background — subtle dot-grid + soft teal radial wash */}
       <div className="dot-grid absolute inset-0" />
-      <div className="glow-orb absolute left-1/2 top-1/3 h-[500px] w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.06] blur-[160px]" />
+      <div className="glow-orb absolute left-1/2 top-1/3 h-[300px] w-[300px] sm:h-[500px] sm:w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.06] blur-[60px] sm:blur-[160px]" />
       <div
-        className="glow-orb absolute right-1/4 top-2/3 h-[350px] w-[350px] rounded-full bg-[#0dcfcf]/[0.04] blur-[130px]"
+        className="glow-orb absolute right-1/4 top-2/3 hidden sm:block h-[350px] w-[350px] rounded-full bg-[#0dcfcf]/[0.04] blur-[130px]"
         style={{ animationDelay: "-4s" }}
       />
       <div
@@ -49,13 +49,13 @@ export function ServiceHero({
 
       <FloatingOrbs />
 
-      <div className="relative z-10 mx-auto w-[min(92vw,1600px)] text-center px-6">
+      <div className="relative z-10 mx-auto w-[min(92vw,1600px)] text-center px-4 sm:px-6">
         {/* Breadcrumb */}
         <motion.nav
           initial={reduced ? false : { opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1, ease: SMOOTH_EASE }}
-          className="mb-8 flex items-center justify-center gap-1.5 text-sm text-[#64748B]"
+          className="mb-8 flex flex-wrap items-center justify-center gap-1.5 text-xs sm:text-sm text-[#64748B]"
         >
           {breadcrumbs.map((crumb, i) => (
             <span key={crumb.href} className="flex items-center gap-1.5">
@@ -130,13 +130,13 @@ export function ServiceHero({
           >
             <Link
               href={brochureHref}
-              className="shimmer relative h-12 rounded-lg bg-[#0dcfcf] px-8 text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a] hover:shadow-lg hover:shadow-[#0dcfcf]/25 inline-flex items-center justify-center"
+              className="shimmer relative h-12 w-full sm:w-auto rounded-lg bg-[#0dcfcf] px-8 text-sm sm:text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a] hover:shadow-lg hover:shadow-[#0dcfcf]/25 inline-flex items-center justify-center"
             >
               {brochureLabel}
             </Link>
             <Link
               href="/Contact"
-              className="h-12 rounded-lg border border-[#E2E8F0] bg-white px-8 text-base font-medium text-[#0F172A] transition-all hover:border-[#0dcfcf]/50 hover:bg-[#0dcfcf]/5 inline-flex items-center justify-center"
+              className="h-12 w-full sm:w-auto rounded-lg border border-[#E2E8F0] bg-white px-8 text-sm sm:text-base font-medium text-[#0F172A] transition-all hover:border-[#0dcfcf]/50 hover:bg-[#0dcfcf]/5 inline-flex items-center justify-center"
             >
               Book a Discovery Call
             </Link>

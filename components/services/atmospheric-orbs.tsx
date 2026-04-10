@@ -39,61 +39,117 @@ const ORBS = [
   { x: 25, y: 65, size: 110, dur: 11, delay: 5 },
 ]
 
+// Lighter subset for mobile — 2 orbs (no blur), 8 dots
+const MOBILE_ORBS = ORBS.slice(0, 2)
+const MOBILE_DOTS = DOTS.filter((_, i) => i % 3 === 0)
+
 export function FloatingOrbs() {
   const [mounted, setMounted] = useState(false)
   useEffect(() => setMounted(true), [])
   if (!mounted) return null
 
   return (
-    <div className="gpu-layer absolute inset-0 z-[1] overflow-hidden pointer-events-none" aria-hidden="true">
-      {ORBS.map((orb, i) => (
-        <motion.div
-          key={`orb-${i}`}
-          className="absolute rounded-full bg-[#0dcfcf]"
-          style={{
-            left: `${orb.x}%`,
-            top: `${orb.y}%`,
-            width: orb.size,
-            height: orb.size,
-            filter: `blur(${orb.size * 0.6}px)`,
-            opacity: 0,
-          }}
-          animate={{
-            y: [-20, 20, -20],
-            x: [-10, 10, -10],
-            opacity: [0.03, 0.08, 0.03],
-          }}
-          transition={{
-            duration: orb.dur,
-            repeat: Infinity,
-            delay: orb.delay,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-      {DOTS.map((dot, i) => (
-        <motion.div
-          key={`dot-${i}`}
-          className="absolute rounded-full bg-[#0dcfcf]"
-          style={{
-            left: `${dot.x}%`,
-            top: `${dot.y}%`,
-            width: dot.size,
-            height: dot.size,
-          }}
-          initial={{ opacity: 0 }}
-          animate={{
-            y: [-15, 15, -15],
-            opacity: [0, 0.4, 0],
-          }}
-          transition={{
-            duration: dot.dur,
-            repeat: Infinity,
-            delay: dot.delay,
-            ease: "easeInOut",
-          }}
-        />
-      ))}
-    </div>
+    <>
+      {/* Mobile: lightweight — 2 orbs (no blur filter), 8 dots */}
+      <div className="gpu-layer absolute inset-0 z-[1] overflow-hidden pointer-events-none sm:hidden" aria-hidden="true">
+        {MOBILE_ORBS.map((orb, i) => (
+          <motion.div
+            key={`m-orb-${i}`}
+            className="absolute rounded-full bg-[#0dcfcf]/[0.06]"
+            style={{
+              left: `${orb.x}%`,
+              top: `${orb.y}%`,
+              width: orb.size,
+              height: orb.size,
+            }}
+            animate={{
+              y: [-12, 12, -12],
+              opacity: [0.03, 0.07, 0.03],
+            }}
+            transition={{
+              duration: orb.dur,
+              repeat: Infinity,
+              delay: orb.delay,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+        {MOBILE_DOTS.map((dot, i) => (
+          <motion.div
+            key={`m-dot-${i}`}
+            className="absolute rounded-full bg-[#0dcfcf]"
+            style={{
+              left: `${dot.x}%`,
+              top: `${dot.y}%`,
+              width: dot.size,
+              height: dot.size,
+            }}
+            initial={{ opacity: 0 }}
+            animate={{
+              y: [-10, 10, -10],
+              opacity: [0, 0.35, 0],
+            }}
+            transition={{
+              duration: dot.dur,
+              repeat: Infinity,
+              delay: dot.delay,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Desktop: full effect — 5 orbs with blur, 25 dots */}
+      <div className="gpu-layer absolute inset-0 z-[1] overflow-hidden pointer-events-none hidden sm:block" aria-hidden="true">
+        {ORBS.map((orb, i) => (
+          <motion.div
+            key={`orb-${i}`}
+            className="absolute rounded-full bg-[#0dcfcf]"
+            style={{
+              left: `${orb.x}%`,
+              top: `${orb.y}%`,
+              width: orb.size,
+              height: orb.size,
+              filter: `blur(${orb.size * 0.6}px)`,
+              opacity: 0,
+            }}
+            animate={{
+              y: [-20, 20, -20],
+              x: [-10, 10, -10],
+              opacity: [0.03, 0.08, 0.03],
+            }}
+            transition={{
+              duration: orb.dur,
+              repeat: Infinity,
+              delay: orb.delay,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+        {DOTS.map((dot, i) => (
+          <motion.div
+            key={`dot-${i}`}
+            className="absolute rounded-full bg-[#0dcfcf]"
+            style={{
+              left: `${dot.x}%`,
+              top: `${dot.y}%`,
+              width: dot.size,
+              height: dot.size,
+            }}
+            initial={{ opacity: 0 }}
+            animate={{
+              y: [-15, 15, -15],
+              opacity: [0, 0.4, 0],
+            }}
+            transition={{
+              duration: dot.dur,
+              repeat: Infinity,
+              delay: dot.delay,
+              ease: "easeInOut",
+            }}
+          />
+        ))}
+      </div>
+    </>
   )
 }

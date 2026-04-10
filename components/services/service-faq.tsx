@@ -13,7 +13,7 @@ interface ServiceFAQProps {
 
 export function ServiceFAQ({ faqs, title = "Frequently Asked Questions" }: ServiceFAQProps) {
   return (
-    <section className="relative bg-white px-6 py-20 lg:py-28">
+    <section className="relative bg-white px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
       <FloatingOrbs />
       <div className="relative mx-auto w-[min(92vw,960px)]">
         <motion.div
@@ -54,9 +54,9 @@ function FAQItem({ faq, index }: { faq: FAQ; index: number }) {
     >
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex w-full items-center justify-between p-5 text-left"
+        className="flex w-full items-center justify-between p-4 sm:p-5 text-left"
       >
-        <span className="pr-4 text-base font-medium text-[#0F172A]">{faq.question}</span>
+        <span className="pr-4 text-sm sm:text-base font-medium text-[#0F172A]">{faq.question}</span>
         <ChevronDown
           className={`h-5 w-5 shrink-0 text-[#64748B] transition-transform duration-200 ${
             isOpen ? "rotate-180" : ""
@@ -72,7 +72,7 @@ function FAQItem({ faq, index }: { faq: FAQ; index: number }) {
             transition={{ duration: 0.2 }}
             className="overflow-hidden"
           >
-            <div className="border-t border-[#E2E8F0] px-5 pb-5 pt-4">
+            <div className="border-t border-[#E2E8F0] px-4 pb-4 pt-3 sm:px-5 sm:pb-5 sm:pt-4">
               <p className="text-sm leading-relaxed text-[#64748B]">{faq.answer}</p>
             </div>
           </motion.div>

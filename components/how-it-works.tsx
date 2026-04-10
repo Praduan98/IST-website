@@ -141,7 +141,7 @@ export function HowItWorks() {
           </div>
           
           {/* Mobile simple straight timeline */}
-          <div className="absolute left-6 top-0 h-full w-px bg-[#E2E8F0] lg:hidden z-0 pointer-events-none">
+          <div className="absolute left-[26px] sm:left-6 top-0 h-full w-px bg-[#E2E8F0] lg:hidden z-0 pointer-events-none">
             <motion.div
               className="w-full bg-[#0dcfcf]"
               style={{ height: useTransform(scrollYProgress, [0, 1], ["0%", "100%"]) }}
@@ -220,16 +220,16 @@ function StepItem({
       onMouseEnter={onHover}
     >
       {/* Timeline node */}
-      <div 
+      <div
         ref={nodeRef}
-        className={`absolute left-0 top-0 z-10 lg:top-1/2 lg:-translate-y-1/2 ${
-          isEven 
-            ? "lg:left-[45%] lg:-translate-x-1/2" 
+        className={`absolute left-1 top-1 z-10 lg:top-1/2 lg:-translate-y-1/2 ${
+          isEven
+            ? "lg:left-[45%] lg:-translate-x-1/2"
             : "lg:left-[55%] lg:-translate-x-1/2"
         }`}
       >
         <motion.div
-          className="flex h-12 w-12 lg:h-12 lg:w-12 items-center justify-center rounded-full border-2 bg-white shadow-sm"
+          className="flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center rounded-full border-2 bg-white shadow-sm"
           animate={{
             borderColor: isActive ? "#0dcfcf" : "#E2E8F0",
             boxShadow: isActive ? "0 0 20px rgba(13, 207, 207, 0.2)" : "0 1px 3px rgba(0,0,0,0.1)",
@@ -242,7 +242,7 @@ function StepItem({
 
       {/* Content Card */}
       <motion.div
-        className={`ml-16 lg:ml-0 lg:w-[42%] ${isEven ? "lg:mr-auto" : "lg:ml-auto"}`}
+        className={`ml-[60px] sm:ml-16 lg:ml-0 lg:w-[42%] ${isEven ? "lg:mr-auto" : "lg:ml-auto"}`}
         whileHover={{ scale: 1.02 }}
       >
         <div className="interactive-card rounded-xl border border-[#E2E8F0] bg-white p-5 shadow-sm transition-all hover:border-[#0dcfcf]/30 hover:shadow-md lg:p-6">

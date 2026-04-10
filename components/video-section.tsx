@@ -9,18 +9,18 @@ export function VideoSection() {
   const [isPlaying, setIsPlaying] = useState(false)
 
   return (
-    <section className="relative bg-white px-6 py-24 lg:py-32">
+    <section className="relative bg-white px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
       <div className="mx-auto max-w-[1120px]">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="overflow-hidden rounded-2xl border border-[#E2E8F0] bg-white shadow-xl"
+          className="overflow-hidden rounded-xl sm:rounded-2xl border border-[#E2E8F0] bg-white shadow-xl"
         >
           <div className="flex flex-col lg:flex-row">
             {/* Left Side - Text Content */}
-            <div className="flex flex-1 flex-col justify-center p-8 lg:p-12">
+            <div className="flex flex-1 flex-col justify-center p-5 sm:p-8 lg:p-12">
               <span className="mb-4 inline-flex w-fit items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">
                 WATCH
               </span>
@@ -33,7 +33,7 @@ export function VideoSection() {
             </div>
 
             {/* Right Side - Thumbnail */}
-            <div className="flex flex-1 items-center justify-center p-6 lg:p-8">
+            <div className="flex flex-1 items-center justify-center p-4 sm:p-6 lg:p-8">
               <button
                 onClick={() => setIsPlaying(true)}
                 className="group relative w-full cursor-pointer overflow-hidden rounded-xl"
@@ -85,7 +85,7 @@ export function VideoSection() {
             >
               <button
                 onClick={() => setIsPlaying(false)}
-                className="absolute -top-12 right-0 flex items-center gap-2 text-sm text-white/60 transition-colors hover:text-white"
+                className="absolute -top-14 right-0 flex h-11 min-w-[44px] items-center justify-center gap-2 rounded-lg px-3 text-sm text-white/60 transition-colors hover:text-white"
               >
                 <span>Close</span>
                 <X className="h-5 w-5" />

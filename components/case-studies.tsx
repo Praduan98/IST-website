@@ -82,7 +82,7 @@ export function CaseStudies() {
 
   const scroll = (direction: "left" | "right") => {
     if (scrollRef.current) {
-      const scrollAmount = 320
+      const scrollAmount = typeof window !== 'undefined' && window.innerWidth < 640 ? 240 : 320
       scrollRef.current.scrollBy({ left: direction === "left" ? -scrollAmount : scrollAmount, behavior: "smooth" })
     }
   }
@@ -231,6 +231,8 @@ function CaseStudyCard({
       onMouseMove={handleMouseMove}
       onMouseEnter={() => { setHovered(true); onHover() }}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={() => { setHovered(true); onHover() }}
+      onTouchEnd={() => { setTimeout(() => { setHovered(false); rotateX.set(0); rotateY.set(0) }, 300) }}
       style={{
         rotateX,
         rotateY,
@@ -242,7 +244,7 @@ function CaseStudyCard({
           : "0 1px 4px rgba(0,0,0,0.06)",
         transition: "border-color 0.4s, box-shadow 0.4s",
       }}
-      className="relative flex h-[150px] w-[360px] flex-shrink-0 items-stretch gap-5 overflow-hidden rounded-2xl border bg-[#F8FAFC] px-6 py-5 cursor-pointer"
+      className="relative flex h-[150px] w-[280px] sm:w-[360px] flex-shrink-0 items-stretch gap-4 sm:gap-5 overflow-hidden rounded-2xl border bg-[#F8FAFC] px-4 sm:px-6 py-5 cursor-pointer"
     >
       {/* Soft spotlight that follows the cursor */}
       <motion.div
@@ -256,7 +258,7 @@ function CaseStudyCard({
 
       {/* Icon column */}
       <motion.div
-        className="relative z-10 flex h-14 w-14 flex-shrink-0 items-center justify-center rounded-xl"
+        className="relative z-10 flex h-11 w-11 sm:h-14 sm:w-14 flex-shrink-0 items-center justify-center rounded-xl"
         style={{
           backgroundColor: `${color}18`,
           color,
@@ -267,7 +269,7 @@ function CaseStudyCard({
         }}
         transition={{ duration: 0.3 }}
       >
-        <Icon className="h-7 w-7" strokeWidth={2.2} />
+        <Icon className="h-5 w-5 sm:h-7 sm:w-7" strokeWidth={2.2} />
       </motion.div>
 
       {/* Content column */}
@@ -275,7 +277,7 @@ function CaseStudyCard({
         <div>
           {/* Metric */}
           <motion.div
-            className="mb-1.5 text-[2rem] font-bold leading-none tracking-tight"
+            className="mb-1.5 text-2xl sm:text-[2rem] font-bold leading-none tracking-tight"
             style={{ color }}
             animate={{ opacity: hovered ? 1 : 0.9 }}
             transition={{ duration: 0.3 }}

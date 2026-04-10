@@ -469,10 +469,20 @@ function WebinarSection({
 }) {
   const INITIAL_COUNT = 4
   const [showAll, setShowAll] = useState(false)
+  const sectionRef = useRef<HTMLDivElement>(null)
   const visibleWebinars = showAll ? WEBINARS : WEBINARS.slice(0, INITIAL_COUNT)
+
+  const handleToggle = () => {
+    if (showAll) {
+      // Collapsing — scroll back to section top
+      sectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+    }
+    setShowAll(!showAll)
+  }
 
   return (
     <motion.section
+      ref={sectionRef}
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true, margin: "-80px" }}
@@ -545,7 +555,7 @@ function WebinarSection({
             className="mt-10 text-center"
           >
             <button
-              onClick={() => setShowAll(!showAll)}
+              onClick={handleToggle}
               className="inline-flex h-12 items-center gap-2 rounded-lg border border-[#E2E8F0] bg-white px-8 text-base font-medium text-[#0F172A] transition-all hover:border-[#0dcfcf]/50 hover:bg-[#0dcfcf]/5 hover:text-[#0dcfcf]"
             >
               {showAll ? "Show less" : `See all ${WEBINARS.length} webinars`}

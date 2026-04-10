@@ -84,6 +84,15 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden'
+    } else {
+      document.body.style.overflow = ''
+    }
+    return () => { document.body.style.overflow = '' }
+  }, [isMobileMenuOpen])
+
   const handleServicesEnter = () => {
     if (closeTimer.current) clearTimeout(closeTimer.current)
     setIsServicesOpen(true)
@@ -94,15 +103,12 @@ export function Navigation() {
   }
 
   return (
-    <motion.header
-      initial={{ opacity: 0, y: -20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.3 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "h-18 bg-white/90 shadow-sm" : "h-22 bg-white/80"
-      } backdrop-blur-xl border-b border-[#E2E8F0]`}
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 w-full min-h-[60px] transition-all duration-500 ${
+        isScrolled ? "h-16 bg-white/90 shadow-sm" : "h-20 bg-white/80"
+      } max-w-[100vw] backdrop-blur-xl border-b border-[#E2E8F0] animate-[fadeSlideDown_0.4s_ease-out_both]`}
     >
-      <nav className="mx-auto flex h-full max-w-[1600px] items-center justify-between px-8">
+      <nav className="mx-auto flex h-full w-full max-w-[1600px] items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image
@@ -112,7 +118,7 @@ export function Navigation() {
             height={32}
             className="object-contain"
           />
-          <span className="text-lg font-semibold tracking-tight text-[#0F172A]">
+          <span className="text-base sm:text-lg font-semibold tracking-tight text-[#0F172A]">
             InsightsTap
           </span>
         </Link>
@@ -149,7 +155,7 @@ export function Navigation() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 8 }}
                   transition={{ duration: 0.18 }}
-                  className="absolute left-1/2 top-full mt-3 w-[780px] -translate-x-1/2 rounded-2xl border border-[#E2E8F0] bg-white shadow-xl shadow-black/8"
+                  className="absolute left-1/2 top-full mt-3 w-[min(700px,calc(100vw-4rem))] -translate-x-1/2 rounded-2xl border border-[#E2E8F0] bg-white shadow-xl shadow-black/8"
                   onMouseEnter={handleServicesEnter}
                   onMouseLeave={handleServicesLeave}
                 >
@@ -256,7 +262,7 @@ export function Navigation() {
 
         {/* Mobile Menu Button */}
         <button
-          className="flex h-10 w-10 items-center justify-center rounded-lg border border-[#E2E8F0] md:hidden"
+          className="relative z-50 flex h-11 w-11 shrink-0 items-center justify-center rounded-lg border border-[#0dcfcf]/30 bg-[#0dcfcf]/10 shadow-sm md:hidden"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
         >
@@ -276,14 +282,15 @@ export function Navigation() {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ type: "spring", damping: 25, stiffness: 200 }}
-            className="fixed right-0 top-16 h-[calc(100vh-4rem)] w-full overflow-y-auto bg-white/98 backdrop-blur-xl md:hidden"
+            data-lenis-prevent
+            className="fixed right-0 top-[4.5rem] h-[calc(100vh-4rem)] w-full overflow-y-auto overscroll-contain bg-white/98 backdrop-blur-xl md:hidden"
           >
             <div className="flex flex-col gap-1 p-6">
               {/* About */}
               <Link
                 href="/about"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block rounded-lg px-4 py-3 text-lg font-medium text-[#64748B] transition-colors hover:bg-[#F8FAFC] hover:text-[#0F172A]"
+                className="block rounded-lg px-4 py-3 text-base sm:text-lg font-medium text-[#64748B] transition-colors hover:bg-[#F8FAFC] hover:text-[#0F172A]"
               >
                 About
               </Link>
@@ -292,7 +299,7 @@ export function Navigation() {
               <div>
                 <button
                   onClick={() => setIsMobileServicesOpen(!isMobileServicesOpen)}
-                  className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-lg font-medium text-[#64748B] transition-colors hover:bg-[#F8FAFC] hover:text-[#0F172A]"
+                  className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-base sm:text-lg font-medium text-[#64748B] transition-colors hover:bg-[#F8FAFC] hover:text-[#0F172A]"
                 >
                   Services
                   <ChevronDown
@@ -311,9 +318,13 @@ export function Navigation() {
                       <div className="ml-4 mt-1 space-y-4 border-l-2 border-[#0dcfcf]/20 pl-4 pb-2">
                         {services.map((service) => (
                           <div key={service.title}>
-                            <p className="mb-1.5 text-xs font-semibold uppercase tracking-wider text-[#0dcfcf]">
+                            <Link
+                              href={service.href}
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-[#0dcfcf] hover:text-[#0a9a9a] transition-colors"
+                            >
                               {service.title}
-                            </p>
+                            </Link>
                             <ul className="space-y-1.5">
                               {service.items.map((item) => (
                                 <li key={item.slug}>
@@ -339,7 +350,7 @@ export function Navigation() {
               <div>
                 <button
                   onClick={() => setIsMobileProductOpen(!isMobileProductOpen)}
-                  className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-lg font-medium text-[#64748B] transition-colors hover:bg-[#F8FAFC] hover:text-[#0F172A]"
+                  className="flex w-full items-center justify-between rounded-lg px-4 py-3 text-base sm:text-lg font-medium text-[#64748B] transition-colors hover:bg-[#F8FAFC] hover:text-[#0F172A]"
                 >
                   Product
                   <ChevronDown className={`h-4 w-4 transition-transform duration-200 ${isMobileProductOpen ? "rotate-180" : ""}`} />
@@ -371,7 +382,7 @@ export function Navigation() {
               <Link
                 href="/news-insights"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className={`block rounded-lg px-4 py-3 text-lg font-medium transition-colors hover:bg-[#F8FAFC] hover:text-[#0F172A] ${
+                className={`block rounded-lg px-4 py-3 text-base sm:text-lg font-medium transition-colors hover:bg-[#F8FAFC] hover:text-[#0F172A] ${
                   pathname?.startsWith("/news-insights") ? "text-[#0dcfcf]" : "text-[#64748B]"
                 }`}
               >
@@ -382,7 +393,7 @@ export function Navigation() {
               <Link
                 href="/careers"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block rounded-lg px-4 py-3 text-lg font-medium text-[#64748B] transition-colors hover:bg-[#F8FAFC] hover:text-[#0F172A]"
+                className="block rounded-lg px-4 py-3 text-base sm:text-lg font-medium text-[#64748B] transition-colors hover:bg-[#F8FAFC] hover:text-[#0F172A]"
               >
                 Career
               </Link>
@@ -391,7 +402,7 @@ export function Navigation() {
               <Link
                 href="/Contact"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="block rounded-lg px-4 py-3 text-lg font-medium text-[#64748B] transition-colors hover:bg-[#F8FAFC] hover:text-[#0F172A]"
+                className="mt-4 block rounded-lg bg-[#0dcfcf] px-4 py-3 text-center text-base sm:text-lg font-medium text-white transition-all hover:bg-[#0a9a9a]"
               >
                 Contact
               </Link>
@@ -400,6 +411,6 @@ export function Navigation() {
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   )
 }

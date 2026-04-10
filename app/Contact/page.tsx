@@ -86,7 +86,7 @@ function HeroSection({ onScrollToForm }: { onScrollToForm: () => void }) {
         }}
       />
 
-      <div className="relative z-10 mx-auto w-[min(92vw,1600px)] px-6 text-center">
+      <div className="relative z-10 mx-auto w-[min(92vw,1600px)] px-4 sm:px-6 text-center">
         {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -105,7 +105,7 @@ function HeroSection({ onScrollToForm }: { onScrollToForm: () => void }) {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="mb-5 text-3xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-[3.5rem]"
+          className="mb-5 text-2xl sm:text-3xl font-semibold leading-[1.05] tracking-tight text-[#0F172A] md:text-5xl lg:text-[3.5rem]"
         >
           Let&apos;s build your{" "}
           <span className="gradient-text">revenue engine</span>
@@ -116,7 +116,7 @@ function HeroSection({ onScrollToForm }: { onScrollToForm: () => void }) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
-          className="mx-auto mb-14 max-w-[620px] text-base leading-relaxed text-[#64748B] sm:text-lg"
+          className="mx-auto mb-8 sm:mb-14 max-w-[620px] text-base leading-relaxed text-[#64748B] sm:text-lg"
         >
           Tell us where your pipeline is stuck. We&apos;ll map the exact signals, AI agents,
           and GTM plays to unlock your next stage of growth.
@@ -242,8 +242,8 @@ function FormSection() {
   }
 
   return (
-    <section className="relative bg-[#F8FAFC] px-6 py-20 lg:py-28">
-      <div className="mx-auto w-[min(92vw,1600px)]">
+    <section className="relative bg-[#F8FAFC] px-4 sm:px-6 py-20 lg:py-28">
+      <div className="mx-auto max-w-[1600px]">
         <div className="grid items-start gap-16 lg:grid-cols-2 lg:gap-16">
 
           {/* ── Left: Info panel ─────────────────────────────── */}
@@ -307,7 +307,7 @@ function FormSection() {
             {status === "success" ? (
               <SuccessState />
             ) : (
-              <div className="rounded-2xl border border-[#E2E8F0] bg-white p-8 shadow-xl shadow-black/[0.04] lg:p-10">
+              <div className="rounded-2xl border border-[#E2E8F0] bg-white p-4 sm:p-6 lg:p-8 shadow-xl shadow-black/[0.04]">
                 <h3 className="mb-1.5 text-xl font-bold text-[#0F172A]">
                   Send us a message
                 </h3>
@@ -491,7 +491,7 @@ function SuccessState() {
       initial={{ opacity: 0, scale: 0.95 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.4, ease: [0.25, 0.46, 0.45, 0.94] }}
-      className="flex flex-col items-center justify-center rounded-2xl border border-[#0dcfcf]/20 bg-white px-10 py-20 text-center shadow-xl shadow-black/[0.04]"
+      className="flex flex-col items-center justify-center rounded-2xl border border-[#0dcfcf]/20 bg-white px-5 py-14 sm:px-10 sm:py-20 text-center shadow-xl shadow-black/[0.04]"
     >
       <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[#0dcfcf]/12">
         <CheckCircle className="h-8 w-8 text-[#0dcfcf]" />

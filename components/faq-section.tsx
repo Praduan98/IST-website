@@ -45,7 +45,7 @@ export function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="relative bg-[#F8FAFC] px-6 py-24 lg:py-32">
+    <section id="faq" className="relative bg-[#F8FAFC] px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
       <div className="relative mx-auto max-w-[768px]">
         {/* Header */}
         <motion.div
@@ -107,11 +107,11 @@ function FAQItem({
     >
       <button
         onClick={onClick}
-        className="flex w-full items-center justify-between gap-4 p-6 text-left"
+        className="flex w-full items-center justify-between gap-3 p-4 text-left sm:gap-4 sm:p-6"
         aria-expanded={isOpen}
       >
         <span
-          className={`text-lg font-medium transition-colors ${
+          className={`text-base font-medium transition-colors sm:text-lg ${
             isOpen ? "text-[#0F172A]" : "text-[#64748B]"
           }`}
         >
@@ -136,7 +136,7 @@ function FAQItem({
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: "easeInOut" }}
           >
-            <div className="border-t border-[#E2E8F0] px-6 pb-6 pt-4">
+            <div className="border-t border-[#E2E8F0] px-4 pb-4 pt-3 sm:px-6 sm:pb-6 sm:pt-4">
               <p className="leading-relaxed text-[#64748B]">{answer}</p>
             </div>
           </motion.div>

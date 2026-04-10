@@ -21,7 +21,7 @@ function LogoImage({ company }: { company: { name: string; src: string } }) {
       <img
         src={company.src}
         alt={company.name}
-        className="object-contain max-h-10 lg:max-h-14 w-auto"
+        className="object-contain max-h-8 sm:max-h-10 lg:max-h-14 w-auto"
         style={{ width: "auto", height: "auto", maxWidth: 180 }}
         loading="eager"
       />
@@ -33,7 +33,7 @@ function LogoImage({ company }: { company: { name: string; src: string } }) {
       alt={company.name}
       width={180}
       height={70}
-      className="object-contain max-h-10 lg:max-h-14 w-auto"
+      className="object-contain max-h-8 sm:max-h-10 lg:max-h-14 w-auto"
     />
   )
 }

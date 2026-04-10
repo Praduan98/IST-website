@@ -58,8 +58,8 @@ export function DeepDive({ label = "OUR APPROACH", title, description, items, mo
     : containerVariants
 
   return (
-    <section className="relative bg-white px-6 py-20 lg:py-28">
-      <div className="glow-orb absolute right-0 top-1/3 h-[500px] w-[500px] rounded-full bg-[#0dcfcf]/[0.04] blur-[150px]" />
+    <section className="relative bg-white px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
+      <div className="glow-orb absolute right-0 top-1/3 h-[300px] w-[300px] sm:h-[500px] sm:w-[500px] rounded-full bg-[#0dcfcf]/[0.04] blur-[150px]" />
       <FloatingOrbs />
 
       <div className="relative mx-auto w-[min(92vw,1600px)]">
@@ -74,7 +74,7 @@ export function DeepDive({ label = "OUR APPROACH", title, description, items, mo
           <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">
             {label}
           </span>
-          <h2 className="mx-auto mb-4 max-w-[800px] text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">
+          <h2 className="mx-auto mb-4 max-w-[800px] text-2xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-3xl md:text-4xl lg:text-5xl">
             {title}
           </h2>
           {description && (
@@ -90,7 +90,7 @@ export function DeepDive({ label = "OUR APPROACH", title, description, items, mo
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className={`grid gap-6 ${items.length <= 3 ? "sm:grid-cols-3" : items.length === 5 ? "sm:grid-cols-2 lg:grid-cols-3" : "sm:grid-cols-2"}`}
+          className={`grid grid-cols-1 gap-6 ${items.length <= 3 ? "sm:grid-cols-2 lg:grid-cols-3" : items.length === 5 ? "sm:grid-cols-2 lg:grid-cols-3" : "sm:grid-cols-2"}`}
         >
           {items.map((item, index) => (
             <ApproachCard key={item.title} item={item} index={index} motionDNA={motionDNA} />
@@ -122,7 +122,7 @@ function ApproachCard({ item, index, motionDNA }: { item: ApproachItem; index: n
       variants={dnaCard || cardVariants}
       custom={index}
       onMouseMove={handleMouseMove}
-      className="interactive-card group relative overflow-hidden rounded-xl border border-[#E2E8F0] bg-white p-6 shadow-sm transition-all duration-300 hover:border-[#0dcfcf]/30 hover:shadow-lg lg:p-8"
+      className="interactive-card group relative overflow-hidden rounded-xl border border-[#E2E8F0] bg-white p-5 shadow-sm transition-all duration-300 hover:border-[#0dcfcf]/30 hover:shadow-lg sm:p-6 lg:p-8"
       whileHover={{ y: -4 }}
     >
       <motion.div

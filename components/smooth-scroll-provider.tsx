@@ -28,8 +28,8 @@ export function SmoothScrollProvider({ children }: { children: React.ReactNode }
       easing: (t) => 1 - Math.pow(1 - t, 4), // easeOutQuart — premium deceleration
       smoothWheel: true,
       wheelMultiplier: 1,
-      syncTouch: true,               // Use Lenis on touch devices for consistent feel
-      touchMultiplier: 1.8,
+      syncTouch: false,              // Disabled — native touch scroll is faster on mobile
+      touchMultiplier: 1,
       infinite: false,
       autoResize: true,              // Recalculate on viewport change
     })

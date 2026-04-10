@@ -13,10 +13,10 @@ export function NewsletterSection() {
     <section
       ref={sectionRef}
       id="newsletter"
-      className="relative overflow-hidden bg-white px-6 py-24 lg:py-32"
+      className="relative overflow-hidden bg-white px-4 py-16 sm:px-6 sm:py-24 lg:py-32"
     >
       {/* Background decorative orbs */}
-      <div className="pointer-events-none absolute inset-0">
+      <div className="pointer-events-none absolute inset-0 hidden sm:block">
         <motion.div
           className="glow-orb absolute -left-32 top-1/4 h-[500px] w-[500px] rounded-full bg-[#0dcfcf]/[0.06] blur-[100px]"
           animate={{ x: [0, 15, 0], y: [0, -15, 0] }}
@@ -151,7 +151,7 @@ function SubscribeButton() {
     >
       <Link
         href="/Newsletter"
-        className="shimmer group inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-[#0dcfcf] px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#0dcfcf]/15 transition-shadow hover:shadow-lg hover:shadow-[#0dcfcf]/20"
+        className="shimmer group inline-flex w-full items-center justify-center gap-2 whitespace-nowrap rounded-xl bg-[#0dcfcf] px-6 py-3.5 text-sm font-semibold text-white shadow-md shadow-[#0dcfcf]/15 transition-shadow hover:shadow-lg hover:shadow-[#0dcfcf]/20 sm:w-auto"
       >
         Subscribe free
         <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
@@ -166,7 +166,7 @@ function SubscribeButton() {
 
 function NewsletterIllustration() {
   return (
-    <div className="relative mx-auto flex h-[340px] w-full max-w-[480px] items-center justify-center lg:h-[400px]">
+    <div className="relative mx-auto flex h-[340px] w-full max-w-[480px] items-center justify-center overflow-hidden sm:overflow-visible lg:h-[400px]">
       {/* Outer glow ring */}
       <motion.div
         className="absolute h-[280px] w-[280px] rounded-full border border-[#0dcfcf]/20 lg:h-[320px] lg:w-[320px]"
@@ -204,21 +204,21 @@ function NewsletterIllustration() {
 
       {/* Floating stat cards */}
       <FloatingCard
-        style="absolute -left-4 top-12 lg:-left-8"
+        style="absolute left-2 sm:-left-4 top-12 lg:-left-8"
         delay={0}
         icon={<TrendingUp className="h-4 w-4 text-[#0dcfcf]" />}
         value="2-3×"
         label="Pipeline velocity"
       />
       <FloatingCard
-        style="absolute -right-4 top-16 lg:-right-8"
+        style="absolute right-2 sm:-right-4 top-16 lg:-right-8"
         delay={0.6}
         icon={<Zap className="h-4 w-4 text-[#0dcfcf]" />}
         value="50K+"
         label="Subscribers"
       />
       <FloatingCard
-        style="absolute bottom-12 -left-2 lg:-left-6"
+        style="absolute bottom-12 left-2 sm:-left-2 lg:-left-6"
         delay={1.2}
         icon={<Brain className="h-4 w-4 text-[#0dcfcf]" />}
         value="Weekly"

@@ -77,8 +77,8 @@ export function CategoryServicesGrid({
   description,
 }: CategoryServicesGridProps) {
   return (
-    <section className="relative bg-white px-6 py-20 lg:py-28">
-      <div className="glow-orb absolute left-0 top-1/3 h-[500px] w-[500px] rounded-full bg-[#0dcfcf]/[0.04] blur-[150px]" />
+    <section className="relative bg-white px-4 sm:px-6 py-16 sm:py-20 lg:py-28">
+      <div className="glow-orb absolute left-0 top-1/3 h-[300px] w-[300px] sm:h-[500px] sm:w-[500px] rounded-full bg-[#0dcfcf]/[0.04] blur-[150px]" />
       <FloatingOrbs />
 
       <div className="relative mx-auto w-[min(92vw,1600px)]">
@@ -107,7 +107,7 @@ export function CategoryServicesGrid({
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid gap-6 sm:grid-cols-2"
+          className="grid grid-cols-1 gap-6 sm:grid-cols-2"
         >
           {services.map((service) => (
             <ServiceCard
@@ -140,7 +140,7 @@ function ServiceCard({ service, href }: { service: SubService; href: string }) {
       ref={ref}
       variants={cardVariants}
       onMouseMove={handleMouseMove}
-      className="interactive-card group relative overflow-hidden rounded-xl border border-[#E2E8F0] bg-white p-6 shadow-sm transition-all duration-300 hover:border-[#0dcfcf]/30 hover:shadow-lg lg:p-8"
+      className="interactive-card group relative overflow-hidden rounded-xl border border-[#E2E8F0] bg-white p-5 shadow-sm transition-all duration-300 hover:border-[#0dcfcf]/30 hover:shadow-lg sm:p-6 lg:p-8"
       whileHover={{ y: -4 }}
     >
       <motion.div
@@ -154,7 +154,7 @@ function ServiceCard({ service, href }: { service: SubService; href: string }) {
         <div className="mb-4 flex h-10 w-10 items-center justify-center rounded-lg bg-[#0dcfcf]/10 transition-colors group-hover:bg-[#0dcfcf]/20">
           <Icon className="h-5 w-5 text-[#0dcfcf]" />
         </div>
-        <h3 className="mb-3 text-xl font-semibold text-[#0F172A]">{service.title}</h3>
+        <h3 className="mb-3 text-lg sm:text-xl font-semibold text-[#0F172A]">{service.title}</h3>
         <p className="mb-6 line-clamp-3 text-sm leading-relaxed text-[#64748B]">
           {service.opening}
         </p>

@@ -107,8 +107,8 @@ export function WorkflowTimeline({
   }, [buildPath])
 
   return (
-    <section className="relative overflow-hidden bg-[#F8FAFC] px-4 py-20 lg:py-28">
-      <div className="glow-orb absolute right-1/4 top-1/3 h-[400px] w-[400px] rounded-full bg-[#0dcfcf]/[0.04] blur-[130px]" />
+    <section className="relative overflow-hidden bg-[#F8FAFC] px-4 py-16 sm:py-20 lg:py-28">
+      <div className="glow-orb absolute right-1/4 top-1/3 h-[250px] w-[250px] sm:h-[400px] sm:w-[400px] rounded-full bg-[#0dcfcf]/[0.04] blur-[130px]" />
       <FloatingOrbs />
 
       <div className="relative mx-auto w-[min(92vw,1400px)]">
@@ -156,7 +156,7 @@ export function WorkflowTimeline({
           </div>
 
           {/* Mobile vertical line */}
-          <div className="absolute left-6 top-0 h-full w-px bg-[#E2E8F0] lg:hidden" style={{ zIndex: 0 }}>
+          <div className="absolute left-[27px] top-0 h-full w-px bg-[#E2E8F0] lg:hidden" style={{ zIndex: 0 }}>
             <motion.div className="w-full bg-[#0dcfcf] origin-top" style={{ height: mobileHeight }} />
           </div>
 
@@ -216,7 +216,7 @@ function SFlowStep({
       >
         <div className="relative">
           <motion.div
-            className="flex h-14 w-14 items-center justify-center rounded-full border-2 bg-white"
+            className="flex h-11 w-11 sm:h-14 sm:w-14 items-center justify-center rounded-full border-2 bg-white"
             animate={{
               borderColor: isActive ? "#0dcfcf" : "#E2E8F0",
               boxShadow: isActive
@@ -227,7 +227,7 @@ function SFlowStep({
             transition={{ duration: 0.4 }}
           >
             <Icon
-              className="h-6 w-6 transition-colors duration-300"
+              className="h-5 w-5 sm:h-6 sm:w-6 transition-colors duration-300"
               style={{ color: isActive ? "#0dcfcf" : "#94A3B8" }}
             />
           </motion.div>
@@ -242,7 +242,7 @@ function SFlowStep({
         </div>
       </div>
 
-      <div className={`ml-16 lg:ml-0 lg:w-[42%] ${isEven ? "lg:mr-auto" : "lg:ml-auto"}`}>
+      <div className={`ml-14 sm:ml-16 lg:ml-0 lg:w-[42%] ${isEven ? "lg:mr-auto" : "lg:ml-auto"}`}>
         <StepCard
           step={step}
           slideFrom={isEven ? "left" : "right"}
@@ -275,13 +275,13 @@ function StepCard({
       transition={{ duration: 0.5, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <div
-        className="rounded-xl border border-[#E2E8F0] bg-white p-7 lg:p-8 transition-all hover:border-[#0dcfcf]/30 hover:shadow-lg"
+        className="rounded-xl border border-[#E2E8F0] bg-white p-4 sm:p-7 lg:p-8 transition-all hover:border-[#0dcfcf]/30 hover:shadow-lg"
         style={{ boxShadow: "0 4px 20px rgba(0,0,0,0.04), 0 1px 4px rgba(0,0,0,0.06)" }}
       >
-        <h3 className="mb-2 text-lg font-semibold text-[#0F172A]" style={{ textAlign }}>
+        <h3 className={`mb-2 text-base sm:text-lg font-semibold text-[#0F172A] ${textAlign === "right" ? "lg:text-right" : "lg:text-left"}`}>
           {step.title}
         </h3>
-        <p className="text-sm leading-relaxed text-[#64748B]" style={{ textAlign }}>
+        <p className={`text-sm leading-relaxed text-[#64748B] ${textAlign === "right" ? "lg:text-right" : "lg:text-left"}`}>
           {step.description}
         </p>
       </div>

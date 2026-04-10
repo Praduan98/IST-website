@@ -95,7 +95,7 @@ export function TechStack() {
     <section
       id="tech-stack"
       className="relative bg-[#0a0e1a] px-6"
-      style={{ paddingTop: "15vh", paddingBottom: "15vh" }}
+      style={{ paddingTop: "clamp(3rem, 10vh, 15vh)", paddingBottom: "clamp(3rem, 10vh, 15vh)" }}
     >
       {/* Background grid */}
       <div className="dot-grid absolute inset-0 opacity-20" />
@@ -142,7 +142,7 @@ export function TechStack() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2, ease: EASE }}
-          className="mb-16 flex flex-wrap justify-center gap-2.5 sm:gap-3"
+          className="mb-8 sm:mb-16 flex flex-wrap justify-center gap-2.5 sm:gap-3"
         >
           {CLUSTERS.map((cluster, i) => {
             const isActive = activeCluster === i
@@ -151,6 +151,7 @@ export function TechStack() {
                 key={cluster.label}
                 onMouseEnter={() => activate(i)}
                 onMouseLeave={deactivate}
+                onClick={() => activate(i)}
                 className={`rounded-full px-4 py-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wider transition-all duration-300 ease-out cursor-pointer border ${
                   isActive
                     ? "text-[#0a0e1a] border-[#0dcfcf] bg-[#0dcfcf] shadow-[0_0_24px_rgba(13,207,207,0.4)]"
@@ -164,7 +165,7 @@ export function TechStack() {
         </motion.div>
 
         {/* ── Scattered tool constellation ────────────────────── */}
-        <div className="grid grid-cols-5 sm:grid-cols-6 lg:grid-cols-10 gap-y-8 gap-x-4 sm:gap-x-6 lg:gap-x-4 justify-items-center">
+        <div className="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-10 gap-y-8 gap-x-3 sm:gap-x-6 lg:gap-x-4 justify-items-center">
           {ALL_TOOLS.map((name, i) => (
             <ToolNode
               key={name}
@@ -213,7 +214,7 @@ function ToolNode({
       {/* Inner wrapper: hover-driven state — runs continuously */}
       <motion.div
         animate={{
-          opacity: isDimmed ? 0.15 : isHighlighted ? 1 : 0.9,
+          opacity: isDimmed ? 0.25 : isHighlighted ? 1 : 0.9,
           scale: isHighlighted ? 1.12 : isDimmed ? 0.9 : 1,
           y: isHighlighted ? -6 : 0,
           rotate: s?.r ?? 0,
@@ -223,11 +224,14 @@ function ToolNode({
           if (clusters.length > 0) onActivate(clusters[0])
         }}
         onMouseLeave={onDeactivate}
+        onClick={() => {
+          if (clusters.length > 0) onActivate(clusters[0])
+        }}
         className="flex flex-col items-center gap-3 cursor-pointer"
       >
         {/* Logo container */}
         <motion.div
-          className="relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl border"
+          className="relative flex items-center justify-center w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-2xl border"
           animate={{
             borderColor: isHighlighted ? `${brandColor}80` : "rgba(255,255,255,0.10)",
             backgroundColor: isHighlighted ? `${brandColor}20` : "rgba(255,255,255,0.06)",
@@ -244,7 +248,7 @@ function ToolNode({
             <img
               src={`https://unavatar.io/${info.domain}?fallback=https://www.google.com/s2/favicons?domain=${info.domain}%26sz=128`}
               alt={`${name} logo`}
-              className={`h-7 w-7 sm:h-8 sm:w-8 rounded object-contain transition-all duration-300 ${
+              className={`h-6 w-6 sm:h-7 sm:w-7 lg:h-8 lg:w-8 rounded object-contain transition-all duration-300 ${
                 isDimmed ? "grayscale opacity-40" : ""
               }`}
               loading="lazy"

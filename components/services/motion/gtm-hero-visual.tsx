@@ -40,7 +40,7 @@ export function GtmHeroVisual() {
     <div ref={containerRef} className="pointer-events-none absolute inset-0 overflow-hidden">
       <svg
         viewBox="0 0 600 220"
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[90%] max-w-[700px] h-auto opacity-70"
+        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[75%] sm:w-[90%] max-w-[700px] h-auto opacity-50 sm:opacity-70"
         fill="none"
       >
         {/* Connection lines that draw on scroll */}

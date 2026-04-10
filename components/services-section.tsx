@@ -60,7 +60,7 @@ const cardVariants = {
 
 export function ServicesSection() {
   return (
-    <section id="services" className="relative bg-white px-6 py-24 lg:py-32">
+    <section id="services" className="relative bg-white px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
       {/* Background glow */}
       <div className="glow-orb absolute right-0 top-1/3 h-[500px] w-[500px] rounded-full bg-[#0dcfcf]/[0.05] blur-[150px]" />
 
@@ -130,7 +130,7 @@ function ServiceCard({
       ref={ref}
       variants={cardVariants}
       onMouseMove={handleMouseMove}
-      className="interactive-card group relative overflow-hidden rounded-xl border border-[#E2E8F0] bg-white p-6 shadow-sm transition-all duration-300 hover:border-[#0dcfcf]/30 hover:shadow-lg lg:p-8"
+      className="interactive-card group relative overflow-hidden rounded-xl border border-[#E2E8F0] bg-white p-5 shadow-sm transition-all duration-300 hover:border-[#0dcfcf]/30 hover:shadow-lg sm:p-6 lg:p-8"
       whileHover={{ y: -4 }}
     >
       {/* Animated gradient background on hover */}
@@ -181,7 +181,7 @@ function ServiceCard({
         {/* Link */}
         <Link
           href="#"
-          className="inline-flex items-center gap-2 text-sm font-medium text-[#64748B] transition-colors hover:text-[#0dcfcf]"
+          className="inline-flex min-h-[44px] items-center gap-2 text-sm font-medium text-[#64748B] transition-colors hover:text-[#0dcfcf]"
         >
           Learn more
           <motion.div

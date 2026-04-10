@@ -9,9 +9,9 @@ import { handleEmailClick, INFO_EMAIL } from "@/components/email-link"
 
 export function FounderSection() {
   return (
-    <section id="about" className="relative overflow-hidden bg-white px-6 py-24 lg:py-32">
+    <section id="about" className="relative overflow-hidden bg-white px-4 py-16 sm:px-6 sm:py-24 lg:py-32">
       {/* Background glow */}
-      <div className="glow-orb absolute right-1/4 top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.05] blur-[120px]" />
+      <div className="glow-orb absolute right-1/4 top-1/2 h-[400px] w-[400px] -translate-y-1/2 rounded-full bg-[#0dcfcf]/[0.05] blur-[120px] hidden sm:block" />
 
       <div className="relative mx-auto max-w-[1280px]">
         <div className="flex flex-col items-center gap-12 lg:flex-row lg:gap-16">
@@ -46,7 +46,7 @@ export function FounderSection() {
             </p>
 
             {/* Stats Row */}
-            <div className="mb-8 grid grid-cols-3 gap-4">
+            <div className="mb-8 grid grid-cols-3 gap-2 sm:gap-4">
               <FounderStat value="19+" label="Years experience" />
               <FounderStat value="250+" label="Projects delivered" />
               <FounderStat value="50M+" label="Pipeline generated" />
@@ -55,7 +55,7 @@ export function FounderSection() {
             <div className="flex flex-col items-center gap-4 sm:flex-row lg:items-start">
               <Link
                 href="/about"
-                className="group inline-flex items-center gap-2 rounded-lg bg-[#0dcfcf] px-6 py-3 text-base font-medium text-white transition-all hover:bg-[#0a9a9a]"
+                className="group inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#0dcfcf] px-6 py-3 text-base font-medium text-white transition-all hover:bg-[#0a9a9a] sm:w-auto"
               >
                 Read more
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -115,7 +115,7 @@ function InteractiveFounderImage() {
   return (
     <motion.div 
       ref={ref}
-      className="relative mx-auto max-w-[350px] lg:max-w-none"
+      className="relative mx-auto max-w-[280px] sm:max-w-[350px] lg:max-w-none"
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{ 
@@ -192,8 +192,8 @@ function FounderStat({ value, label }: { value: string; label: string }) {
       className="text-center lg:text-left"
       whileHover={{ scale: 1.05 }}
     >
-      <div className="text-2xl font-bold text-[#0dcfcf] sm:text-3xl">{value}</div>
-      <div className="text-xs text-[#64748B] sm:text-sm">{label}</div>
+      <div className="text-xl font-bold text-[#0dcfcf] sm:text-3xl">{value}</div>
+      <div className="text-[11px] text-[#64748B] sm:text-sm">{label}</div>
     </motion.div>
   )
 }
