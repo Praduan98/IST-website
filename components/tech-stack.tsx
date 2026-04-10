@@ -1,98 +1,96 @@
 "use client"
 
+import { useState, useRef } from "react"
 import { motion } from "framer-motion"
 
 // ─── Tool icons with brand colors ───────────────────────────────────────────────
-// Official SVG paths from Simple Icons where available.
-// For brands without simple-icons coverage, `domain` is set and we render the
-// logo via Clearbit's free logo CDN (https://logo.clearbit.com/<domain>) which
-// serves the official brand mark as an image.
 const TOOLS: Record<string, { color: string; icon?: React.ReactNode; domain?: string }> = {
-  // --- Signals & Intent ---
-  // JobFeeder — keep custom briefcase icon (in-house product)
   JobFeeder:      { color: "#FF6B35", icon: <svg viewBox="0 0 24 24" className="h-4 w-4" fill="currentColor"><path d="M20 7h-4V5c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V9c0-1.1-.9-2-2-2zm-6 0h-4V5h4v2z"/></svg> },
-  // RB2B — official brand logo via Clearbit
   RB2B:           { color: "#6366F1", domain: "rb2b.com" },
-  // Factors.ai — official brand logo via Clearbit
   "Factors.ai":   { color: "#00D4AA", domain: "factors.ai" },
-  // Common Room — official brand logo via Clearbit
   "Common Room":  { color: "#FF5C35", domain: "commonroom.io" },
-  // Vector — official brand logo via Clearbit
   Vector:         { color: "#7C3AED", domain: "vector.co" },
-  // Unify — official brand logo via Clearbit
   Unify:          { color: "#4F46E5", domain: "unifygtm.com" },
-
-  // --- AI Agents & LLMs ---
-  // ChatGPT / OpenAI — official brand logo via unavatar
   ChatGPT:        { color: "#10A37F", domain: "openai.com" },
-  // Claude — official Claude brand logo via claude.ai
   Claude:         { color: "#D97706", domain: "claude.ai" },
-  // RelevanceAI — official brand logo via unavatar
   RelevanceAI:    { color: "#8B5CF6", domain: "relevanceai.com" },
-  // Perplexity — official brand logo via unavatar
   Perplexity:     { color: "#20B2AA", domain: "perplexity.ai" },
-
-  // --- Prospecting & Enrichment ---
-  // Apollo.io — official brand logo via unavatar
   Apollo:         { color: "#4F46E5", domain: "apollo.io" },
-  // Clay — official brand logo via unavatar
   Clay:           { color: "#58C4F7", domain: "clay.com" },
-  // FullEnrich — official brand logo via unavatar
   FullEnrich:     { color: "#CCBF00", domain: "fullenrich.com" },
-  // Ocean.io — official brand logo via unavatar
   "Ocean.io":     { color: "#3B82F6", domain: "ocean.io" },
-  // Sales Navigator / LinkedIn — official brand logo via unavatar
-  "Sales Navigator": { color: "#0A66C2", domain: "linkedin.com" },
-
-  // --- Sequencing & Outreach ---
-  // Instantly — official brand logo via Clearbit
+  "Sales Nav":    { color: "#0A66C2", domain: "linkedin.com" },
   Instantly:      { color: "#3B82F6", domain: "instantly.ai" },
-  // Smartlead — official brand logo via Clearbit
   Smartlead:      { color: "#10B981", domain: "smartlead.ai" },
-  // Lemlist — official brand logo via Clearbit
   Lemlist:        { color: "#9333EA", domain: "lemlist.com" },
-  // Reply.io — official brand logo via Clearbit
   "Reply.io":     { color: "#2563EB", domain: "reply.io" },
-
-  // --- Automation & Operations ---
-  // n8n — official brand logo via unavatar
   n8n:            { color: "#EA4B71", domain: "n8n.io" },
-  // HubSpot — official brand logo via unavatar
   HubSpot:        { color: "#FF7A59", domain: "hubspot.com" },
-  // Airtable — official brand logo via unavatar
   Airtable:       { color: "#18BFFF", domain: "airtable.com" },
-  // Make — official brand logo via unavatar
   Make:           { color: "#6D29D9", domain: "make.com" },
-  // Notion — official brand logo via unavatar
   Notion:         { color: "#000000", domain: "notion.so" },
-
-  // --- Content & Collateral ---
-  // Figma — official brand logo via unavatar
   Figma:          { color: "#F24E1E", domain: "figma.com" },
-  // Canva — official brand logo via unavatar
   Canva:          { color: "#00C4CC", domain: "canva.com" },
-  // Miro — official brand logo via unavatar
   Miro:           { color: "#FFD02F", domain: "miro.com" },
-  // Qwilr — official brand logo via Clearbit
   Qwilr:          { color: "#00B8D9", domain: "qwilr.com" },
-  // Loom — official brand logo via unavatar
   Loom:           { color: "#625DF5", domain: "loom.com" },
 }
 
-// ─── Cluster data — 6 categories ────────────────────────────────────────────────
+// ─── Cluster data ───────────────────────────────────────────────────────────────
 const CLUSTERS = [
-  { label: "Signals & intent",         tools: ["JobFeeder", "RB2B", "Factors.ai", "Common Room", "Vector", "Unify"] },
-  { label: "AI agents & LLMs",         tools: ["ChatGPT", "Claude", "RelevanceAI", "Perplexity"] },
-  { label: "Prospecting & enrichment", tools: ["Apollo", "Clay", "FullEnrich", "Ocean.io", "Sales Navigator"] },
-  { label: "Sequencing & outreach",    tools: ["Instantly", "Smartlead", "Lemlist", "Unify", "Reply.io"] },
-  { label: "Automation & operations",  tools: ["n8n", "HubSpot", "Airtable", "Make", "Notion"] },
-  { label: "Content & collateral",     tools: ["Figma", "Canva", "Miro", "Qwilr", "Loom"] },
+  { label: "Signals & Intent",         tools: ["JobFeeder", "RB2B", "Factors.ai", "Common Room", "Vector", "Unify"] },
+  { label: "AI Agents & LLMs",         tools: ["ChatGPT", "Claude", "RelevanceAI", "Perplexity"] },
+  { label: "Prospecting & Enrichment", tools: ["Apollo", "Clay", "FullEnrich", "Ocean.io", "Sales Nav"] },
+  { label: "Sequencing & Outreach",    tools: ["Instantly", "Smartlead", "Lemlist", "Unify", "Reply.io"] },
+  { label: "Automation & Operations",  tools: ["n8n", "HubSpot", "Airtable", "Make", "Notion"] },
+  { label: "Content & Collateral",     tools: ["Figma", "Canva", "Miro", "Qwilr", "Loom"] },
+]
+
+// Reverse lookup: tool name → cluster indices
+const TOOL_CLUSTERS: Record<string, number[]> = {}
+CLUSTERS.forEach((c, ci) => {
+  c.tools.forEach((t) => {
+    if (!TOOL_CLUSTERS[t]) TOOL_CLUSTERS[t] = []
+    if (!TOOL_CLUSTERS[t].includes(ci)) TOOL_CLUSTERS[t].push(ci)
+  })
+})
+
+// Deduplicated tool list preserving cluster order
+const ALL_TOOLS: string[] = []
+const _seen = new Set<string>()
+CLUSTERS.forEach((c) =>
+  c.tools.forEach((t) => {
+    if (!_seen.has(t)) { _seen.add(t); ALL_TOOLS.push(t) }
+  }),
+)
+
+// Subtle scatter — just enough rotation to feel organic, no Y-offset so rows stay aligned
+const SCATTER = [
+  { r: -1.0 }, { r:  0.8 }, { r: -0.5 }, { r:  1.2 },
+  { r: -0.7 }, { r:  0.4 }, { r: -1.2 }, { r:  0.6 },
+  { r: -0.3 }, { r:  1.0 }, { r: -0.9 }, { r:  0.5 },
+  { r: -0.4 }, { r:  1.1 }, { r: -0.6 }, { r:  0.3 },
+  { r: -1.1 }, { r:  0.9 }, { r: -0.2 }, { r:  1.3 },
+  { r: -0.5 }, { r:  0.2 }, { r: -1.0 }, { r:  0.8 },
+  { r: -0.3 }, { r:  1.0 }, { r: -0.7 }, { r:  0.4 },
+  { r: -1.2 }, { r:  0.5 },
 ]
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1]
 
 // ─── Main component ─────────────────────────────────────────────────────────────
 export function TechStack() {
+  const [activeCluster, setActiveCluster] = useState<number | null>(null)
+  const leaveTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+
+  const activate = (idx: number) => {
+    if (leaveTimer.current) { clearTimeout(leaveTimer.current); leaveTimer.current = null }
+    setActiveCluster(idx)
+  }
+  const deactivate = () => {
+    leaveTimer.current = setTimeout(() => setActiveCluster(null), 80)
+  }
+
   return (
     <section
       id="tech-stack"
@@ -102,7 +100,7 @@ export function TechStack() {
       {/* Background grid */}
       <div className="dot-grid absolute inset-0 opacity-20" />
 
-      {/* Orbs */}
+      {/* Ambient orbs */}
       <div
         className="glow-orb absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full"
         style={{ width: 700, height: 700, backgroundColor: "rgba(13,207,207,0.06)", filter: "blur(150px)" }}
@@ -117,13 +115,13 @@ export function TechStack() {
       />
 
       <div className="relative z-10 mx-auto max-w-[1200px]">
-        {/* Header */}
+        {/* ── Header ─────────────────────────────────────────── */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: EASE }}
-          className="mb-16 text-center lg:mb-20"
+          className="mb-12 text-center lg:mb-16"
         >
           <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">
             Infrastructure
@@ -138,132 +136,142 @@ export function TechStack() {
           </p>
         </motion.div>
 
-        {/* === Neural Hub Layout === */}
-        <div className="relative">
-          {/* Top row — 3 clusters */}
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-            {CLUSTERS.slice(0, 3).map((c, i) => (
-              <ClusterCard key={c.label} label={c.label} tools={c.tools} index={i} />
-            ))}
-          </div>
+        {/* ── Category filter pills ──────────────────────────── */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2, ease: EASE }}
+          className="mb-16 flex flex-wrap justify-center gap-2.5 sm:gap-3"
+        >
+          {CLUSTERS.map((cluster, i) => {
+            const isActive = activeCluster === i
+            return (
+              <button
+                key={cluster.label}
+                onMouseEnter={() => activate(i)}
+                onMouseLeave={deactivate}
+                className={`rounded-full px-4 py-2 text-[11px] sm:text-xs font-semibold uppercase tracking-wider transition-all duration-300 ease-out cursor-pointer border ${
+                  isActive
+                    ? "text-[#0a0e1a] border-[#0dcfcf] bg-[#0dcfcf] shadow-[0_0_24px_rgba(13,207,207,0.4)]"
+                    : "text-white/50 border-white/10 bg-white/[0.03] hover:text-white/80 hover:border-white/20 hover:bg-white/[0.06]"
+                }`}
+              >
+                {cluster.label}
+              </button>
+            )
+          })}
+        </motion.div>
 
-          {/* Neural line between rows */}
-          <div className="relative my-6 py-4 lg:my-8 lg:py-6">
-            {/* Horizontal neural line */}
-            <div className="absolute left-0 right-0 top-1/2 h-px -translate-y-1/2">
-              <div className="h-full w-full bg-gradient-to-r from-transparent via-[#0dcfcf]/30 to-transparent" />
-              <motion.div
-                className="absolute top-0 h-full w-32 bg-gradient-to-r from-transparent via-[#0dcfcf]/60 to-transparent"
-                animate={{ left: ["-15%", "115%"] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "linear", repeatDelay: 1 }}
-              />
-            </div>
-
-            {/* Vertical ticks connecting to cards above & below */}
-            <div className="pointer-events-none absolute inset-0 hidden lg:block">
-              {[25, 50, 75].map((pct) => (
-                <div
-                  key={pct}
-                  className="absolute top-0 h-full w-px bg-gradient-to-b from-[#0dcfcf]/20 via-[#0dcfcf]/10 to-[#0dcfcf]/20"
-                  style={{ left: `${pct}%` }}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Bottom row — 3 clusters */}
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
-            {CLUSTERS.slice(3).map((c, i) => (
-              <ClusterCard key={c.label} label={c.label} tools={c.tools} index={i + 3} />
-            ))}
-          </div>
+        {/* ── Scattered tool constellation ────────────────────── */}
+        <div className="grid grid-cols-5 sm:grid-cols-6 lg:grid-cols-10 gap-y-8 gap-x-4 sm:gap-x-6 lg:gap-x-4 justify-items-center">
+          {ALL_TOOLS.map((name, i) => (
+            <ToolNode
+              key={name}
+              name={name}
+              index={i}
+              activeCluster={activeCluster}
+              onActivate={activate}
+              onDeactivate={deactivate}
+            />
+          ))}
         </div>
       </div>
     </section>
   )
 }
 
-// ─── Cluster card ───────────────────────────────────────────────────────────────
-function ClusterCard({
-  label,
-  tools,
+// ─── Individual tool node ───────────────────────────────────────────────────────
+function ToolNode({
+  name,
   index,
+  activeCluster,
+  onActivate,
+  onDeactivate,
 }: {
-  label: string
-  tools: string[]
+  name: string
   index: number
+  activeCluster: number | null
+  onActivate: (idx: number) => void
+  onDeactivate: () => void
 }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: index < 3 ? -30 : 30 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
-      transition={{ duration: 0.6, delay: 0.08 * index, ease: EASE }}
-      className="rounded-2xl border border-white p-5 lg:p-6"
-      style={{
-        background: "rgba(255, 255, 255, 0.95)",
-        backdropFilter: "blur(12px)",
-        WebkitBackdropFilter: "blur(12px)",
-        boxShadow: "0px 10px 40px -10px rgba(0, 201, 177, 0.3)",
-      }}
-    >
-      <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 text-[0.75rem] font-semibold uppercase tracking-wider text-[#00C9B1]">
-        {label}
-      </span>
-
-      <div className="mt-3 grid grid-cols-3 gap-2">
-        {tools.map((name, ti) => (
-          <ToolPill key={name} name={name} delay={0.08 * index + 0.04 * ti} />
-        ))}
-      </div>
-    </motion.div>
-  )
-}
-
-// ─── Tool pill — monochrome idle → brand color hover ────────────────────────────
-function ToolPill({ name, delay }: { name: string; delay: number }) {
   const info = TOOLS[name]
+  const clusters = TOOL_CLUSTERS[name] || []
+  const isHighlighted = activeCluster !== null && clusters.includes(activeCluster)
+  const isDimmed = activeCluster !== null && !clusters.includes(activeCluster)
+  const s = SCATTER[index]
   const brandColor = info?.color || "#0dcfcf"
 
   return (
+    /* Outer wrapper: scroll-triggered entrance — runs once */
     <motion.div
-      initial={{ opacity: 0, scale: 0.85 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ duration: 0.35, delay, ease: EASE }}
-      className="group flex min-w-0 items-center gap-1.5 rounded-lg border border-[#E2E8F0] bg-white px-2.5 py-1.5 transition-all duration-300 hover:scale-[1.03] hover:bg-[#F8FAFC]"
-      onMouseEnter={(e) => {
-        e.currentTarget.style.borderColor = `${brandColor}60`
-        e.currentTarget.style.boxShadow = `0 4px 16px ${brandColor}20`
-      }}
-      onMouseLeave={(e) => {
-        e.currentTarget.style.borderColor = ""
-        e.currentTarget.style.boxShadow = ""
-      }}
+      transition={{ duration: 0.5, delay: index * 0.025, ease: EASE }}
     >
-      {info?.domain ? (
-        // eslint-disable-next-line @next/next/no-img-element
-        <img
-          src={`https://unavatar.io/${info.domain}?fallback=https://www.google.com/s2/favicons?domain=${info.domain}%26sz=128`}
-          alt={`${name} logo`}
-          className="h-4 w-4 shrink-0 rounded object-contain transition-transform duration-300 group-hover:scale-110"
-          loading="lazy"
-          onError={(e) => {
-            const img = e.currentTarget
-            if (!img.dataset.fallback) {
-              img.dataset.fallback = "1"
-              img.src = `https://icons.duckduckgo.com/ip3/${info.domain}.ico`
-            }
+      {/* Inner wrapper: hover-driven state — runs continuously */}
+      <motion.div
+        animate={{
+          opacity: isDimmed ? 0.15 : isHighlighted ? 1 : 0.9,
+          scale: isHighlighted ? 1.12 : isDimmed ? 0.9 : 1,
+          y: isHighlighted ? -6 : 0,
+          rotate: s?.r ?? 0,
+        }}
+        transition={{ duration: 0.4, ease: EASE }}
+        onMouseEnter={() => {
+          if (clusters.length > 0) onActivate(clusters[0])
+        }}
+        onMouseLeave={onDeactivate}
+        className="flex flex-col items-center gap-3 cursor-pointer"
+      >
+        {/* Logo container */}
+        <motion.div
+          className="relative flex items-center justify-center w-14 h-14 sm:w-16 sm:h-16 rounded-2xl border"
+          animate={{
+            borderColor: isHighlighted ? `${brandColor}80` : "rgba(255,255,255,0.10)",
+            backgroundColor: isHighlighted ? `${brandColor}20` : "rgba(255,255,255,0.06)",
           }}
-        />
-      ) : info?.icon ? (
-        <span style={{ color: brandColor }} className="shrink-0 transition-transform duration-300 group-hover:scale-110">
-          {info.icon}
+          transition={{ duration: 0.3 }}
+          style={
+            isHighlighted
+              ? { boxShadow: `0 0 24px ${brandColor}40, 0 0 48px ${brandColor}20, 0 8px 32px rgba(0,0,0,0.3)` }
+              : { boxShadow: "0 2px 8px rgba(0,0,0,0.3)" }
+          }
+        >
+          {info?.domain ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={`https://unavatar.io/${info.domain}?fallback=https://www.google.com/s2/favicons?domain=${info.domain}%26sz=128`}
+              alt={`${name} logo`}
+              className={`h-7 w-7 sm:h-8 sm:w-8 rounded object-contain transition-all duration-300 ${
+                isDimmed ? "grayscale opacity-40" : ""
+              }`}
+              loading="lazy"
+              onError={(e) => {
+                const img = e.currentTarget
+                if (!img.dataset.fallback) {
+                  img.dataset.fallback = "1"
+                  img.src = `https://icons.duckduckgo.com/ip3/${info.domain}.ico`
+                }
+              }}
+            />
+          ) : info?.icon ? (
+            <span style={{ color: brandColor }} className="shrink-0 [&>svg]:h-5 [&>svg]:w-5">
+              {info.icon}
+            </span>
+          ) : null}
+        </motion.div>
+
+        {/* Tool name */}
+        <span
+          className={`text-[11px] sm:text-xs font-medium text-center leading-tight transition-colors duration-300 ${
+            isHighlighted ? "text-white" : isDimmed ? "text-white/20" : "text-white/60"
+          }`}
+        >
+          {name}
         </span>
-      ) : null}
-      <span className="truncate text-[11px] font-semibold text-[#0F172A] transition-colors duration-300">
-        {name}
-      </span>
+      </motion.div>
     </motion.div>
   )
 }

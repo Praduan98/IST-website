@@ -113,14 +113,15 @@ export function Hero() {
           transition={{ duration: 0.5, delay: 1.5 }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="text-[11px] font-medium uppercase tracking-widest text-[#94A3B8]">
+          <span className="text-[11px] font-medium uppercase tracking-widest text-[#64748B]">
             Scroll to explore
           </span>
           <motion.div
             animate={{ y: [0, 6, 0] }}
             transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-[#0dcfcf]/30 bg-[#0dcfcf]/5"
           >
-            <ChevronDown className="h-4 w-4 text-[#CBD5E1]" />
+            <ChevronDown className="h-4 w-4 text-[#0dcfcf]" />
           </motion.div>
         </motion.div>
       </div>
