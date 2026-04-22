@@ -8,12 +8,13 @@ import {
   useMotionValueEvent,
 } from "framer-motion"
 import {
-  Sparkles, Users, Rocket, Heart, Eye, Zap, Brain,
-  Shield, Coffee, GraduationCap, Briefcase, Code, Palette,
-  TrendingUp, ArrowRight, ChevronDown, Mail, CheckCircle,
-  Send, FileText, UserCheck, Award, User,
+  Sparkles,
+  Shield, Briefcase, Code,
+  ArrowRight, ChevronDown, Mail, CheckCircle,
+  Send, FileText, UserCheck, Award,
 } from "lucide-react"
 import Link from "next/link"
+import Image from "next/image"
 import { createContext, useCallback, useContext, useRef, useState, useEffect } from "react"
 import { Navigation } from "@/components/navigation"
 import { Footer } from "@/components/footer"
@@ -23,24 +24,6 @@ import { ApplyModal } from "@/components/apply-modal"
 
 // ─── Data ────────────────────────────────────────────────────────────
 const CAREERS_EMAIL = "careers@insightstap.com"
-
-const teamValues = [
-  { icon: Shield, title: "Own It", description: "Own your work and your growth. Set clear goals, act with trust, and deliver without being chased. That drive turns good work into real results." },
-  { icon: Rocket, title: "Ship It", description: "We build real things fast. Launch a solid idea now and improve it later. Move, test, learn, and repeat." },
-  { icon: Eye, title: "Measure It", description: "We track what matters: revenue, pipeline, and profit. We ignore vanity metrics and follow the data to change course." },
-  { icon: Coffee, title: "Have Fun", description: "We love building AI agents, signal systems, and campaigns that convert. Bring energy and curiosity every day." },
-]
-
-const benefits = [
-  { icon: TrendingUp, title: "Competitive Compensation", description: "Salaries that reflect your skills, impact, and meet market standards." },
-  { icon: Heart, title: "Health Insurance", description: "Comprehensive coverage to support your well-being and peace of mind." },
-  { icon: Shield, title: "PF Benefits", description: "Structured financial security to help you plan for the future." },
-  { icon: Award, title: "Performance Bonuses", description: "Your contributions don't go unnoticed. Earn rewards based on performance and targets." },
-  { icon: GraduationCap, title: "Learning & Development", description: "Dedicated budgets and opportunities to upskill, learn, and grow continuously." },
-  { icon: Users, title: "Collaborative Office Culture", description: "Innovation thrives when people work together in person, exchange ideas, and build real connections." },
-  { icon: Zap, title: "Emergency Remote Flexibility", description: "We value in-office collaboration, but provide flexibility to work remotely when genuine emergencies arise." },
-  { icon: Heart, title: "Supportive Team Environment", description: "Work with people who genuinely care about your growth, success, and overall experience." },
-]
 
 
 type OpenRole = {
@@ -158,24 +141,6 @@ function TiltReveal({
   )
 }
 
-// ─── Kinetic Typography — velocity-based parallax text ───────────────
-function KineticText({ text, className }: { text: string; className?: string }) {
-  const ref = useRef<HTMLDivElement>(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start end", "end start"] })
-  const x = useTransform(scrollYProgress, [0, 1], ["-10%", "10%"])
-  const skewX = useTransform(scrollYProgress, [0, 0.3, 0.5, 0.7, 1], [2, 0, 0, 0, -2])
-
-  return (
-    <div ref={ref} className="overflow-hidden">
-      <motion.div
-        className={`pointer-events-none whitespace-nowrap font-bold leading-none select-none kinetic-text ${className ?? ""}`}
-        style={{ x, skewX }}
-      >
-        {text}
-      </motion.div>
-    </div>
-  )
-}
 
 // ─── Apply modal context ─────────────────────────────────────────────
 type ApplyCtx = { openApply: (role?: string) => void }
@@ -201,10 +166,7 @@ export default function CareerPage() {
       <Navigation />
       <main>
         <HeroSection />
-        <CultureSection />
-        <ValuesSection />
-
-        <BenefitsSection />
+        <LifeAtInsightsTapOverview />
         <OpenRolesSection />
         <HiringProcessSection />
         <InternshipSection />
@@ -266,9 +228,6 @@ function HeroSection() {
           <Link href="#open-roles" className="shimmer inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a] sm:w-auto">
             View open positions <ArrowRight className="h-4 w-4" />
           </Link>
-          <Link href="#culture" className="inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-[#E2E8F0] bg-white px-8 text-base font-medium text-[#0F172A] transition-all hover:border-[#0dcfcf]/50 hover:bg-[#0dcfcf]/5 sm:w-auto">
-            See how we work
-          </Link>
           <button
             type="button"
             onClick={() => openApply()}
@@ -291,130 +250,94 @@ function HeroSection() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════
-// 2. CULTURE — with oversized background text + 3D tilt reveals
+// 2. LIFE AT INSIGHTSTAP — 50/50 overview with floating image collage
 // ═══════════════════════════════════════════════════════════════════════
-function CultureSection() {
-  return (
-    <section id="culture" className="relative overflow-hidden bg-white px-4 sm:px-6 py-20 sm:py-24 lg:py-32">
-      <div className="dot-grid absolute inset-0" />
-      <div className="glow-orb absolute left-[20%] top-[40%] h-[350px] w-[350px] rounded-full bg-[#0dcfcf]/[0.04] blur-[140px]" style={{ animationDelay: "-1s" }} />
-
-      {/* Kinetic velocity-stretched background text */}
-      <div className="absolute top-1/2 -translate-y-1/2 w-full">
-        <KineticText
-          text="CULTURE · CULTURE · CULTURE · CULTURE"
-          className="text-[12rem] lg:text-[18rem] text-[#0F172A]/[0.02]"
-        />
-      </div>
-
-      <div className="relative mx-auto max-w-[1280px]">
-        <TiltReveal from="left">
-          <div className="mb-16 max-w-[720px]">
-            <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">Why Insightstap</span>
-            <h2 className="mb-6 text-2xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">Company <span className="gradient-text">Culture</span></h2>
-            <p className="text-base leading-relaxed text-[#64748B] lg:text-lg">
-              {"InsightsTap is a creative studio and talent pool built around one big idea: that AI, automation, and smart strategy can completely transform how B2B companies grow. These values guide who we hire, how we work, and what we celebrate."}
-            </p>
-          </div>
-        </TiltReveal>
-
-        {/* Employee stories — staggered 3D reveals */}
-        <div className="grid gap-8 lg:grid-cols-2">
-          {[
-            { quote: "I joined Insightstap as a GTM strategist six months ago. What surprised me was the speed. We don't talk about ideas for weeks. We build them, test them, and see results within days. The autonomy is real, and the impact is visible.", name: "Somnath", role: "Developer / Principal Software Engineer, Platforms & Integrations" },
-            { quote: "What I love about working here is that every project is different, and every system we build actually runs. We're not creating reports that sit in a folder. We're building engines that generate pipelines every single day.", name: "Subashis", role: "Principal, AI Solutions & GTM Architecture" },
-          ].map((story, i) => (
-            <TiltReveal key={i} from={i === 0 ? "left" : "right"} delay={i * 0.15}>
-              <div className="rounded-2xl border border-[#E2E8F0] bg-white p-5 sm:p-8 lg:p-10 transition-all hover:border-[#0dcfcf]/30 hover:shadow-lg" style={{ boxShadow: "0 6px 24px rgba(0,0,0,0.08)" }}>
-                <p className="mb-6 text-base leading-relaxed text-[#64748B] italic">&ldquo;{story.quote}&rdquo;</p>
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#0dcfcf]/10">
-                    <User className="h-5 w-5 text-[#0dcfcf]" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-semibold text-[#0F172A]">{story.name}</p>
-                    <p className="text-xs text-[#64748B]">{story.role}</p>
-                  </div>
-                </div>
-              </div>
-            </TiltReveal>
-          ))}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-// ═══════════════════════════════════════════════════════════════════════
-// 3. TEAM VALUES — with 3D card entry
-// ═══════════════════════════════════════════════════════════════════════
-function ValuesSection() {
-  return (
-    <section className="relative overflow-hidden bg-[#F8FAFC] px-4 sm:px-6 py-20 sm:py-24 lg:py-32">
-      <div className="glow-orb absolute left-[70%] top-[50%] h-[320px] w-[320px] rounded-full bg-[#0dcfcf]/[0.04] blur-[130px]" style={{ animationDelay: "-2s" }} />
-      <div className="relative mx-auto max-w-[1280px]">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }} className="mb-12 sm:mb-16 text-center">
-          <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">How We Work</span>
-          <h2 className="mb-4 text-2xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">Team <span className="gradient-text">Values</span></h2>
-          <p className="mx-auto max-w-[600px] text-base leading-relaxed text-[#64748B]">Our four values drive every bit of what we do. They are not poster-worthy quotations. They&apos;re the basis of how we hire, assess, and make daily decisions.</p>
-        </motion.div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {teamValues.map((v, i) => {
-            const Icon = v.icon
-            return (
-              <TiltReveal key={v.title} from="bottom" delay={i * 0.1}>
-                <div className="group h-full rounded-2xl border border-[#E2E8F0] bg-white p-5 sm:p-7 transition-all hover:border-[#0dcfcf]/30 hover:shadow-lg hover:-translate-y-1" style={{ boxShadow: "0 6px 24px rgba(0,0,0,0.08)" }}>
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#0dcfcf]/10 transition-colors group-hover:bg-[#0dcfcf]/20">
-                    <Icon className="h-6 w-6 text-[#0dcfcf]" />
-                  </div>
-                  <h3 className="mb-2 text-lg font-semibold text-[#0F172A]">{v.title}</h3>
-                  <p className="text-sm leading-relaxed text-[#64748B]">{v.description}</p>
-                </div>
-              </TiltReveal>
-            )
-          })}
-        </div>
-      </div>
-    </section>
-  )
-}
-
-
-// ═══════════════════════════════════════════════════════════════════════
-// 5. BENEFITS — with diagonal accent
-// ═══════════════════════════════════════════════════════════════════════
-function BenefitsSection() {
+function LifeAtInsightsTapOverview() {
   return (
     <section className="relative overflow-hidden bg-white px-4 sm:px-6 py-20 sm:py-24 lg:py-32">
       <div className="dot-grid absolute inset-0" />
-      <div className="glow-orb absolute left-[10%] top-[35%] h-[300px] w-[300px] rounded-full bg-[#0dcfcf]/[0.04] blur-[130px]" style={{ animationDelay: "-1s" }} />
-
-      {/* Kinetic velocity-stretched background text */}
-      <div className="absolute top-1/2 -translate-y-1/2 w-full">
-        <KineticText text="BENEFITS · PERKS · GROWTH · BENEFITS" className="text-[12rem] lg:text-[18rem] text-[#0F172A]/[0.02]" />
-      </div>
+      <div className="glow-orb absolute left-[20%] top-[40%] h-[350px] w-[350px] rounded-full bg-[#0dcfcf]/[0.04] blur-[140px]" style={{ animationDelay: "-1s" }} />
 
       <div className="relative mx-auto max-w-[1280px]">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }} className="mb-12 sm:mb-16 text-center">
-          <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">Perks</span>
-          <h2 className="mb-4 text-2xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">Benefits & <span className="gradient-text">Perks</span></h2>
-          <p className="mx-auto max-w-[600px] text-base leading-relaxed text-[#64748B]">Competitive compensation, learning, and a team that genuinely cares about your growth.</p>
-        </motion.div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {benefits.map((b, i) => {
-            const Icon = b.icon
-            return (
-              <TiltReveal key={b.title} from="bottom" delay={i * 0.06}>
-                <div className="h-full rounded-2xl border border-[#E2E8F0] bg-white p-4 sm:p-6 transition-all hover:border-[#0dcfcf]/30 hover:shadow-lg hover:-translate-y-1" style={{ boxShadow: "0 6px 24px rgba(0,0,0,0.08)" }}>
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-[#0dcfcf]/10">
-                    <Icon className="h-6 w-6 text-[#0dcfcf]" />
-                  </div>
-                  <h3 className="mb-2 text-base font-semibold text-[#0F172A]">{b.title}</h3>
-                  <p className="text-sm leading-relaxed text-[#64748B]">{b.description}</p>
-                </div>
-              </TiltReveal>
-            )
-          })}
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Left 50%: Image collage grid with float animation */}
+          <div className="mx-auto w-full max-w-[420px] lg:max-w-[460px]">
+            <div className="grid grid-cols-2 gap-4">
+              {/* Image 1 - Top left, spans full col height */}
+              <motion.div
+                className="overflow-hidden rounded-2xl"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                style={{ boxShadow: "0 20px 50px -12px rgba(0, 0, 0, 0.15), 0 10px 24px -8px rgba(13, 207, 207, 0.18)" }}
+              >
+                <motion.div
+                  animate={{ y: [0, -6, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <Image src="/life/3.png" alt="Game on" width={380} height={280} className="h-auto w-full object-cover" />
+                </motion.div>
+              </motion.div>
+
+              {/* Image 2 - Top right */}
+              <motion.div
+                className="overflow-hidden rounded-2xl"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.6, delay: 0.25 }}
+                style={{ boxShadow: "0 20px 50px -12px rgba(0, 0, 0, 0.15), 0 10px 24px -8px rgba(13, 207, 207, 0.18)" }}
+              >
+                <motion.div
+                  animate={{ y: [0, 7, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                >
+                  <Image src="/life/4.png" alt="After hours" width={300} height={220} className="h-auto w-full object-cover" />
+                </motion.div>
+              </motion.div>
+
+              {/* Image 3 - Bottom, spans full width */}
+              <motion.div
+                className="col-span-2 overflow-hidden rounded-2xl"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-80px" }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                style={{ boxShadow: "0 20px 50px -12px rgba(0, 0, 0, 0.15), 0 10px 24px -8px rgba(13, 207, 207, 0.18)" }}
+              >
+                <motion.div
+                  animate={{ y: [0, -5, 0] }}
+                  transition={{ duration: 5.5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                >
+                  <Image src="/life/6.png" alt="Game night" width={520} height={300} className="h-auto w-full object-cover" />
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+
+          {/* Right 50%: Short overview */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">Our culture</span>
+            <h2 className="mb-6 text-2xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">Life at <span className="gradient-text">InsightsTap</span></h2>
+            <p className="mb-4 text-base leading-relaxed text-[#64748B] lg:text-lg">
+              We are a signal-led team building AI-powered GTM systems that actually run. Our culture is built on ownership, speed, and genuine collaboration where every voice shapes the product.
+            </p>
+            <p className="mb-8 text-base leading-relaxed text-[#64748B] lg:text-lg">
+              From paid internships to leadership roles, we invest in growth at every level. If you want to ship real systems, learn fast, and work with people who care, this is where you belong.
+            </p>
+            <Link
+              href="/careers/life-at-insightstap"
+              className="shimmer inline-flex h-12 items-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a]"
+            >
+              Explore our culture <ArrowRight className="h-4 w-4" />
+            </Link>
+          </motion.div>
         </div>
       </div>
     </section>
@@ -422,7 +345,7 @@ function BenefitsSection() {
 }
 
 // ═══════════════════════════════════════════════════════════════════════
-// 6. OPEN POSITIONS
+// 3. OPEN POSITIONS
 // ═══════════════════════════════════════════════════════════════════════
 function OpenRolesSection() {
   return (
@@ -574,23 +497,23 @@ function InternshipSection() {
             </div>
           </TiltReveal>
           <TiltReveal from="right" delay={0.15}>
-            <div className="grid grid-cols-2 gap-3 sm:gap-4">
-              {[
-                { icon: Code, label: "Engineering" },
-                { icon: TrendingUp, label: "GTM Strategy" },
-                { icon: Palette, label: "Design" },
-                { icon: Briefcase, label: "Marketing" },
-              ].map((dept) => {
-                const Icon = dept.icon
-                return (
-                  <motion.div key={dept.label} whileHover={{ scale: 1.04, y: -2 }} className="rounded-xl border border-[#E2E8F0] bg-white p-4 sm:p-6 text-center transition-all hover:border-[#0dcfcf]/30 hover:shadow-lg" style={{ boxShadow: "0 6px 24px rgba(0,0,0,0.08)" }}>
-                    <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#0dcfcf]/10">
-                      <Icon className="h-6 w-6 text-[#0dcfcf]" />
-                    </div>
-                    <p className="text-sm font-semibold text-[#0F172A]">{dept.label}</p>
-                  </motion.div>
-                )
-              })}
+            <div className="flex h-full items-center justify-center">
+              <div className="relative max-w-[460px]">
+                <div
+                  className="absolute -bottom-3 left-1/2 -translate-x-1/2 h-[85%] w-[85%] rounded-2xl blur-2xl"
+                  style={{ background: "rgba(13, 207, 207, 0.15)" }}
+                />
+                <Image
+                  src="/internship-students.jpg"
+                  alt="College students collaborating on campus"
+                  width={460}
+                  height={340}
+                  className="relative h-auto w-full rounded-2xl object-cover"
+                  style={{
+                    boxShadow: "0 25px 60px -12px rgba(0, 0, 0, 0.15), 0 12px 28px -8px rgba(13, 207, 207, 0.2)",
+                  }}
+                />
+              </div>
             </div>
           </TiltReveal>
         </div>
@@ -647,31 +570,66 @@ function SubmitApplicationSection() {
       <div className="dot-grid absolute inset-0" />
       <div className="glow-orb absolute left-[60%] top-[40%] h-[300px] w-[300px] rounded-full bg-[#0dcfcf]/[0.04] blur-[130px]" style={{ animationDelay: "-2s" }} />
 
-      <div className="relative mx-auto max-w-[800px] text-center">
-        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.5 }}>
-          <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">Apply Now</span>
-          <h2 className="mb-6 text-2xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">Submit Your <span className="gradient-text">Application</span></h2>
-          <p className="mb-4 text-base leading-relaxed text-[#64748B] lg:text-lg">
-            Want to build revenue systems that work? We&apos;d love to hear from you. Browse open roles, pick one, and tell us why you&apos;re a fit. Attach your resume and a short note about why Insightstap excites you.
-          </p>
-          <p className="mb-10 text-base leading-relaxed text-[#64748B] lg:text-lg">
-            Don&apos;t see a match? We still want to hear from great people. Email your resume and a brief idea of what you&apos;d build to{" "}
-            <a href="mailto:careers@insightstap.com" className="font-semibold text-[#0dcfcf] hover:underline">careers@insightstap.com</a>.
-          </p>
-          <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <Link href="#open-roles" className="shimmer inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a] sm:w-auto">
-              Browse open positions <ArrowRight className="h-4 w-4" />
-            </Link>
-            <button
-              type="button"
-              onClick={() => openApply()}
-              className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-[#E2E8F0] bg-white px-8 text-base font-medium text-[#0F172A] shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#0dcfcf]/50 hover:bg-[#0dcfcf]/5 hover:text-[#0dcfcf] hover:shadow-md hover:shadow-[#0dcfcf]/10 sm:w-auto"
-            >
-              <Mail className="h-4 w-4 text-[#0dcfcf] transition-transform duration-300 group-hover:scale-110" />
-              Submit your resume
-            </button>
-          </div>
-        </motion.div>
+      <div className="relative mx-auto max-w-[1280px]">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          {/* Left 50%: Image with floating drop shadow */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6 }}
+            className="flex items-center justify-center"
+          >
+            <div className="relative max-w-[420px]">
+              {/* Drop shadow element for floating effect */}
+              <div
+                className="absolute -bottom-3 left-1/2 -translate-x-1/2 h-[85%] w-[85%] rounded-2xl blur-2xl"
+                style={{ background: "rgba(13, 207, 207, 0.15)" }}
+              />
+              <Image
+                src="/careers-apply.jpg"
+                alt="Students and interns collaborating"
+                width={420}
+                height={320}
+                className="relative h-auto w-full rounded-2xl object-cover"
+                style={{
+                  boxShadow: "0 25px 60px -12px rgba(0, 0, 0, 0.15), 0 12px 28px -8px rgba(13, 207, 207, 0.2)",
+                }}
+              />
+            </div>
+          </motion.div>
+
+          {/* Right 50%: Text content */}
+          <motion.div
+            initial={{ opacity: 0, x: 40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+          >
+            <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">Apply Now</span>
+            <h2 className="mb-6 text-2xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">Submit your <span className="gradient-text">application</span></h2>
+            <p className="mb-4 text-base leading-relaxed text-[#64748B] lg:text-lg">
+              Want to build revenue systems that work? We&apos;d love to hear from you. Browse open roles, pick one, and tell us why you&apos;re a fit. Attach your resume and a short note about why Insightstap excites you.
+            </p>
+            <p className="mb-10 text-base leading-relaxed text-[#64748B] lg:text-lg">
+              Don&apos;t see a match? We still want to hear from great people. Email your resume and a brief idea of what you&apos;d build to{" "}
+              <a href="mailto:careers@insightstap.com" className="font-semibold text-[#0dcfcf] hover:underline">careers@insightstap.com</a>.
+            </p>
+            <div className="flex flex-col items-start gap-4 sm:flex-row">
+              <Link href="#open-roles" className="shimmer inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg bg-[#0dcfcf] px-8 text-base font-medium text-white shadow-md shadow-[#0dcfcf]/15 transition-all hover:-translate-y-0.5 hover:bg-[#0a9a9a] sm:w-auto">
+                Browse open positions <ArrowRight className="h-4 w-4" />
+              </Link>
+              <button
+                type="button"
+                onClick={() => openApply()}
+                className="group inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg border border-[#E2E8F0] bg-white px-8 text-base font-medium text-[#0F172A] shadow-sm transition-all hover:-translate-y-0.5 hover:border-[#0dcfcf]/50 hover:bg-[#0dcfcf]/5 hover:text-[#0dcfcf] hover:shadow-md hover:shadow-[#0dcfcf]/10 sm:w-auto"
+              >
+                <Mail className="h-4 w-4 text-[#0dcfcf] transition-transform duration-300 group-hover:scale-110" />
+                Submit your resume
+              </button>
+            </div>
+          </motion.div>
+        </div>
       </div>
     </section>
   )

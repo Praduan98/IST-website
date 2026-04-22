@@ -210,7 +210,7 @@ function GifShowcase() {
           transition={{ duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="order-1 lg:order-2"
         >
-          <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">
+          <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">
             See it in action
           </span>
           <h2 className="mb-4 text-3xl font-semibold leading-tight tracking-tight text-[#0F172A] sm:text-4xl lg:text-[2.6rem]">
@@ -249,7 +249,7 @@ function ProblemSolution() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(13,207,207,0.08)_0%,_transparent_70%)]" />
       <div className="relative mx-auto w-[min(92vw,1200px)]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14 text-center">
-          <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">The problem</span>
+          <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">The problem</span>
           <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Turn job postings into revenue opportunities</h2>
         </motion.div>
 
@@ -296,7 +296,7 @@ function FeatureGrid() {
           transition={{ duration: 0.5 }}
           className="mb-12 text-center sm:mb-16"
         >
-          <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">How it works</span>
+          <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">How it works</span>
           <h2 className="text-3xl font-semibold tracking-tight text-[#0F172A] sm:text-4xl md:text-5xl lg:text-6xl">
             The JobFeeder <span className="text-[#0dcfcf]">engine</span>
           </h2>
@@ -340,7 +340,7 @@ function ToolsetSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(13,207,207,0.08)_0%,_transparent_70%)]" />
       <div className="relative mx-auto w-[min(92vw,1600px)]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14 text-center">
-          <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">Toolset</span>
+          <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">Toolset</span>
           <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">All you need, in one platform</h2>
         </motion.div>
 
@@ -377,7 +377,7 @@ function StepsSection() {
           transition={{ duration: 0.5 }}
           className="mb-16 text-center"
         >
-          <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">
+          <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">
             Setup
           </span>
           <h2 className="mb-3 text-3xl font-semibold tracking-tight text-[#0F172A] sm:text-4xl lg:text-5xl">
@@ -464,7 +464,7 @@ function TestimonialsSection() {
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(13,207,207,0.08)_0%,_transparent_70%)]" />
       <div className="relative mx-auto w-[min(92vw,1200px)]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-14 text-center">
-          <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">Proof</span>
+          <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">Proof</span>
           <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">Proven results</h2>
         </motion.div>
 
@@ -491,7 +491,7 @@ function FAQSection() {
       <FloatingOrbs />
       <div className="relative mx-auto w-[min(92vw,800px)]">
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-10 text-center">
-          <span className="mb-3 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-bold uppercase tracking-wider text-[#0dcfcf]">FAQ</span>
+          <span className="mb-4 inline-flex items-center rounded-md bg-[#0dcfcf]/10 px-3 py-1 font-mono text-xs font-medium uppercase tracking-wider text-[#0dcfcf]">FAQ</span>
           <h2 className="text-3xl font-semibold tracking-tight text-[#0F172A] sm:text-4xl">Frequently asked questions</h2>
         </motion.div>
 
